@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2018-08-16T12:03:18.246Z</updated>
+  <updated>2018-08-17T11:51:39.181Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>成长学</title>
+    <link href="https://wqdchn.github.io/song-of-grow-up.html"/>
+    <id>https://wqdchn.github.io/song-of-grow-up.html</id>
+    <published>2018-08-17T11:29:37.000Z</published>
+    <updated>2018-08-17T11:51:39.181Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=483380284&auto=0&height=66"></iframe><h4 id="想说的话"><a href="#想说的话" class="headerlink" title="想说的话"></a>想说的话</h4><p><strong> 这个世界，好像既不温柔也不正确呢，</strong>如果你不够强大的话。在某部日漫里看见过类似的台词，现在想来有点感受了，生活果然对我动手了啊。最近家里的事不是太顺，而我又帮不上什么忙，看着父母温暖的脸庞上岁月的痕迹已经掩盖不住，我心里就忍不住流泪，这些话也不会对别人说，只能在这个地方悄悄地叹一口气，时间过得好快，而我要做到的，还有太多，太多，加油，加油。</p><h4 id="关于这首歌"><a href="#关于这首歌" class="headerlink" title="关于这首歌"></a>关于这首歌</h4><p><img src="https://a.photo/images/2018/08/17/grow-up.png" alt="成长学"></p><h4 id="我们快乐吗"><a href="#我们快乐吗" class="headerlink" title="我们快乐吗"></a>我们快乐吗</h4><blockquote><p>上车来车往却落寞<br>空气也变得有些脆弱<br>它是否无处寄托着 也想诉说着什么<br>看来我 还是没能抚平内心的皱折<br>什么时候才能找回 曾经的我<br>我曾失落 书店角落 深夜某个时候<br>眼底竟是他们的不倦笑容<br>我曾迷惑 独自揣度 无非自己浅薄<br>而现在是否能读懂几分成熟<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候</p></blockquote><blockquote><p>我曾失落 书店角落 深夜某个时候<br>眼底竟是他们的不倦笑容<br>我曾迷惑 独自揣度 无非自己浅薄<br>而现在是否能读懂几分成熟<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;330&quot; height=&quot;86&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+    
+      <category term="成长" scheme="https://wqdchn.github.io/tags/%E6%88%90%E9%95%BF/"/>
+    
+      <category term="网易云音乐" scheme="https://wqdchn.github.io/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
   
   <entry>
     <title>2015年数模研赛D题研读</title>
@@ -52,7 +81,7 @@
     <link href="https://wqdchn.github.io/hello-world.html"/>
     <id>https://wqdchn.github.io/hello-world.html</id>
     <published>2018-08-01T02:00:00.000Z</published>
-    <updated>2018-08-16T12:32:53.353Z</updated>
+    <updated>2018-08-17T11:31:12.568Z</updated>
     
     <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么<a id="more"></a>，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，<del>破站的评论系统暂时不会开放反正也没人看，</del>Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><h4 id="2018年8月16日更新"><a href="#2018年8月16日更新" class="headerlink" title="2018年8月16日更新"></a>2018年8月16日更新</h4><p>好的，给破站添加了评论系统，不过可能需要那啥以后才能看见，<del>Hexo钦定的集成服务，不关我事啊，</del>欢迎留言。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
     
