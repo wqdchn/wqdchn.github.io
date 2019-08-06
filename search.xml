@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>夏日</title>
+      <link href="/summer-day.html"/>
+      <url>/summer-day.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="夏天的风物"><a href="#夏天的风物" class="headerlink" title="夏天的风物"></a>夏天的风物</h4><p>喜欢夏天，热烈的风，热烈的阳光，那天看到夕阳的余晖，想着这大概是我学生生涯最后一个夏天了吧，一时竟有些伤感。四月份的时候非常期待夏天的杨梅，但是这个夏天的杨梅没有给我特别的欢喜，端午节回家吃的猛了，以至于一晚上红着眼睛没有睡好。真像个什么都没吃过的小孩，喜欢的时候一定要吃干抹净。</p><p>夏天还有什么呢，我好像没有那么喜欢西瓜，大概是因为外公种过西瓜，小时候只记得吃，长大了却容易想起外公，又害怕掉眼泪，就不怎么吃西瓜了。</p><p>夏天最有意思的还是小伙伴，无论是抓鱼、打牌、捉迷藏，还是玩什么，一群人玩的满头大汗，欢喜的异常，这段时光无忧无虑，没有烦恼，除了偶尔埋怨一下太阳太毒，好像没有别的不满意的地方。</p><p>现在好像没有简单的快乐了，每一天和以前一样平淡，但是快乐却没有以前那样容易了。我又在说什么奇怪的话。</p><p>这个夏天，希望会有好运，是一个快乐的夏天。</p>]]></content>
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 闲聊 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>工作996生病ICU</title>
       <link href="/996-icu.html"/>
       <url>/996-icu.html</url>
@@ -215,6 +236,13 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统暂时不会开放<del>反正也没人看</del>，Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+    </entry>
+    
+    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -222,9 +250,9 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -236,16 +264,9 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统暂时不会开放<del>反正也没人看</del>，Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
