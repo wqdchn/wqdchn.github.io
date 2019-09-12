@@ -286,6 +286,13 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统暂时不会开放<del>反正也没人看</del>，Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+    </entry>
+    
+    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -300,13 +307,6 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
@@ -314,10 +314,10 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统暂时不会开放<del>反正也没人看</del>，Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
   
