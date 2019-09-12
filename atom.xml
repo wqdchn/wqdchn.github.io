@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-12T02:49:50.756Z</updated>
+  <updated>2019-09-12T03:18:56.724Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wqdchn.github.io/leetcode-two-sum.html"/>
     <id>https://wqdchn.github.io/leetcode-two-sum.html</id>
     <published>2019-09-12T01:54:13.000Z</published>
-    <updated>2019-09-12T02:49:50.756Z</updated>
+    <updated>2019-09-12T03:18:56.724Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="TwoSum"><a href="#TwoSum" class="headerlink" title="TwoSum"></a>TwoSum</h4><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">TwoSum</a>的题目要求是，给定一个数组和一个目标值，求得数组中两数num1和num2相加等于目标值target的两个数的下标。解法有两种，一是暴力法，一个个比较过来；二是哈希，把数组存在map里，存放的过程中只要发现map里面存有num1对应的目标解num2=target-num1，则返回下标即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        for (int i = 0; i &lt; nums.length; i++){            for (int j = i + 1;j &lt; nums.length; j++){                if(nums[i] + nums[j] == target){                    result[0] = i;                    result[1] = j;                }            }        }        return result;    }}</code></pre><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        Map&lt;Integer,Integer&gt; mp = new HashMap&lt;Integer, Integer&gt;();        for (int i  = 0; i &lt; nums.length; i++){            if(mp.containsKey(target - nums[i])){                result[0] = mp.get(target - nums[i]);                result[1] = i;                return  result;            }            mp.put(nums[i],i);        }        return result;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def twoSum(self, nums, target: int):        mp = {}        for i, x in enumerate(nums):            if x in mp:                return mp[x], i            else:                mp[target - x] = i        return -1</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第一题是简单题，迈出了第一步，以后也不要停下噢！</p>]]></content>
     
