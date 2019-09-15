@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>LeetCode第七题ReverseInteger</title>
+      <link href="/leetcode-reverse-integer.html"/>
+      <url>/leetcode-reverse-integer.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="ReverseInteger"><a href="#ReverseInteger" class="headerlink" title="ReverseInteger"></a>ReverseInteger</h4><p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">ReverseInteger</a>的题目要求很简单，给定32位有符号整数，返回该整数翻转后的结果，结果中零在第一位的省略零。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: 123<br>Output: 321</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: -123<br>Output: -321</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: 120<br>Output: 21</p></blockquote><p>同样，考虑一个简单粗暴的方法，将整数转换成字符串，将字符串转换成数组，对数组做逆序操作。当然要先判断这个整数的正负，然后考虑翻转后有没有零。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">Class Solution{    public static int reverse(int n) {        if (n &gt; Integer.MAX_VALUE || n &lt; Integer.MIN_VALUE) {            return 0;        }        String s = String.valueOf(n);        if (n &lt; 0) {            s = s.substring(1, s.length());            char[] array = s.toCharArray();            String reverse = &quot;-&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            s = reverse;        } else {            char[] array = s.toCharArray();            String reverse = &quot;&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            while (reverse.length() &gt; 1 &amp;&amp; reverse.charAt(0) == &#39;0&#39;) {                reverse = reverse.substring(1, reverse.length());            }            s = reverse;        }        int i = 0;        try {            i = Integer.parseInt(s.toString().trim());        } catch (Exception e) {            return 0;        }        return i;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def reverse(self, x: int) -&gt; int:        if x &gt;= 0:            res = int(str(x)[::-1])        else:            res = int(&#39;-&#39; + str(x)[:0:-1])        return res if -2147483648 &lt;= res &lt;= 2147483647 else 0</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第七题是简单题，LeetCode给出的标准解法有点挠头，先不管了<del>我好菜啊</del>。另外不得不说Python的内置函数真的太强大了T_T。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第一题TwoSum</title>
       <link href="/leetcode-two-sum.html"/>
       <url>/leetcode-two-sum.html</url>
