@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/about/index.html</loc>
+    
+    <lastmod>2019-09-17T02:35:05.620Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-reverse-integer.html</loc>
     
     <lastmod>2019-09-15T05:06:40.713Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>https://wqdchn.github.io/google793086aac06d721f.html</loc>
     
     <lastmod>2018-08-04T05:22:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wqdchn.github.io/about/index.html</loc>
-    
-    <lastmod>2018-08-04T03:14:16.000Z</lastmod>
     
   </url>
   
