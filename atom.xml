@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-15T05:06:40.713Z</updated>
+  <updated>2019-09-18T11:57:27.407Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第十五题ThreeSum</title>
+    <link href="https://wqdchn.github.io/leetcode-three-sum.html"/>
+    <id>https://wqdchn.github.io/leetcode-three-sum.html</id>
+    <published>2019-09-18T11:16:49.000Z</published>
+    <updated>2019-09-18T11:57:27.407Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="ThreeSum"><a href="#ThreeSum" class="headerlink" title="ThreeSum"></a>ThreeSum</h4><p><a href="https://leetcode.com/problems/three-sum/" target="_blank" rel="noopener">ThreeSum</a>和<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">TwoSum</a>属于类似的题目，ThreeSum要求是，给定一个数组和一个目标值，求得数组中a+b+c=0的三个数a,b,c，这里目标数定为了零。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote><p>Given array nums = [-1, 0, 1, 2, -1, -4]</p></blockquote><blockquote><p>A solution set is:<br>[<br>  [-1, 0, 1],<br>  [-1, -1, 2]<br>]</p></blockquote><p>解法如下，首先对数组进行从小到大排序，假定当前这个数nums[i]为a，我们在后面的数中寻找b和c，使得a+b+c=0。记住，我们已经排序过了，所以可以从两头进行夹逼，遍历满足条件的b和c，当a+b+c&gt;0的时候，剩余数的末尾nums[length-1]向左走，当a+b+c&lt;0的时候，剩余数的开头nums[i+1]向右走，。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public static List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();        Arrays.sort(nums);        for (int i = 0; i + 2 &lt; nums.length; i++) {            if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) {//一次循环过后要么找到一组解，要么无解                continue;//此处跳过重复解            }            int j = i + 1;            int k = nums.length - 1;            int target = -nums[i];            while (j &lt; k) {                if (nums[j] + nums[k] == target) {                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));                    j++;                    k--;                    while (j &lt; k &amp;&amp; nums[j] == nums[j - 1]) j++;                    while (j &lt; k &amp;&amp; nums[k] == nums[k + 1]) k--;                } else if (nums[j] + nums[k] &gt; target) {                    k--;                } else {                    j++;                }            }        }        return res;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def threeSum(self, nums):        if len(nums) &lt; 0: return []        nums.sort()        res = set()        for i, v in enumerate(nums[:-2]):            if i &gt;= 1 and v == nums[i-1]:                continue            d = {}            for x in nums[i+1:]:                if x not in d:                    d[-v-x] = 1                else:                    res.add((v, -v-x, x))        return list(map(list, res))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第十五题是中等题，解法依然很挠头，一遍写不出系列，Keep Moving T_T</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;ThreeSum&quot;&gt;&lt;a href=&quot;#ThreeSum&quot; class=&quot;headerlink&quot; title=&quot;ThreeSum&quot;&gt;&lt;/a&gt;ThreeSum&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.co
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第七题ReverseInteger</title>
