@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/leetcode-valid-parentheses.html</loc>
+    
+    <lastmod>2019-09-19T14:07:27.371Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-three-sum.html</loc>
     
     <lastmod>2019-09-18T11:57:27.407Z</lastmod>

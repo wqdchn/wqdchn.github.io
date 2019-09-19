@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>LeetCode第二十题ValidParentheses</title>
+      <link href="/leetcode-valid-parentheses.html"/>
+      <url>/leetcode-valid-parentheses.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p>解法明天再写，回去洗洗睡先。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第十五题ThreeSum</title>
       <link href="/leetcode-three-sum.html"/>
       <url>/leetcode-three-sum.html</url>
@@ -339,13 +362,6 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>关于我</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -363,6 +379,13 @@
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     

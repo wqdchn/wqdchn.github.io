@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-18T11:57:27.407Z</updated>
+  <updated>2019-09-19T14:07:27.371Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第二十题ValidParentheses</title>
+    <link href="https://wqdchn.github.io/leetcode-valid-parentheses.html"/>
+    <id>https://wqdchn.github.io/leetcode-valid-parentheses.html</id>
+    <published>2019-09-19T14:02:38.000Z</published>
+    <updated>2019-09-19T14:07:27.371Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p>解法明天再写，回去洗洗睡先。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;ValidParentheses&quot;&gt;&lt;a href=&quot;#ValidParentheses&quot; class=&quot;headerlink&quot; title=&quot;ValidParentheses&quot;&gt;&lt;/a&gt;ValidParentheses&lt;/h4
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第十五题ThreeSum</title>
