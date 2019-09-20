@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-19T14:07:27.371Z</updated>
+  <updated>2019-09-20T02:47:56.781Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://wqdchn.github.io/leetcode-valid-parentheses.html"/>
     <id>https://wqdchn.github.io/leetcode-valid-parentheses.html</id>
     <published>2019-09-19T14:02:38.000Z</published>
-    <updated>2019-09-19T14:07:27.371Z</updated>
+    <updated>2019-09-20T02:47:56.781Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p>解法明天再写，回去洗洗睡先。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p><del>解法明天再写，回去洗洗睡先。</del></p><p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—-右括号。</p><p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—-右括号，则说明已经无解了。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public boolean isValid(String s) {        if (s == null || s.length() == 0) return true;        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();        for (Character ch : s.toCharArray()) {            if (ch == &#39;(&#39;){                stack.push(&#39;)&#39;);            } else if (ch == &#39;[&#39;){                stack.push(&#39;]&#39;);            } else if (ch == &#39;{&#39;){                stack.push(&#39;}&#39;);            } else {                if (stack.isEmpty() || stack.pop() != ch){                    return false;                }            }        }        return stack.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def isValid(self, s: str) -&gt; bool:        stack = []        paren_map = {&#39;)&#39;:&#39;(&#39;, &#39;]&#39;:&#39;[&#39;, &#39;}&#39;:&#39;{&#39;}        for c in s:            if c not in paren_map:                stack.append(c)            elif not stack or paren_map[c] != stack.pop():                return False        return not stack</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第二十题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>]]></content>
     
     <summary type="html">
     

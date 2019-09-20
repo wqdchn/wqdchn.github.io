@@ -6,7 +6,7 @@
       <title>LeetCode第二十题ValidParentheses</title>
       <link href="/leetcode-valid-parentheses.html"/>
       <url>/leetcode-valid-parentheses.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p>解法明天再写，回去洗洗睡先。</p>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="ValidParentheses"><a href="#ValidParentheses" class="headerlink" title="ValidParentheses"></a>ValidParentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">ValidParentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p><del>解法明天再写，回去洗洗睡先。</del></p><p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—-右括号。</p><p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—-右括号，则说明已经无解了。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public boolean isValid(String s) {        if (s == null || s.length() == 0) return true;        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();        for (Character ch : s.toCharArray()) {            if (ch == &#39;(&#39;){                stack.push(&#39;)&#39;);            } else if (ch == &#39;[&#39;){                stack.push(&#39;]&#39;);            } else if (ch == &#39;{&#39;){                stack.push(&#39;}&#39;);            } else {                if (stack.isEmpty() || stack.pop() != ch){                    return false;                }            }        }        return stack.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def isValid(self, s: str) -&gt; bool:        stack = []        paren_map = {&#39;)&#39;:&#39;(&#39;, &#39;]&#39;:&#39;[&#39;, &#39;}&#39;:&#39;{&#39;}        for c in s:            if c not in paren_map:                stack.append(c)            elif not stack or paren_map[c] != stack.pop():                return False        return not stack</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第二十题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>]]></content>
       
       <categories>
           
@@ -355,17 +355,17 @@
     </entry>
     
     <entry>
-      <title>图库</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>关于我</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统、Post的内容中引用的源视频可能需要魔法上网才能食用，其余的图片资源挂载于<del><a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上</del>Github仓库上。在访问速度上，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>更新的频率就随缘了，这个网站只为了记录我留下的足迹，这世界，我来过，嘿嘿。另外，当前使用的Hexo主题似乎停止更新了，不知道后续会不会产生兼容性的问题，但是我会尽可能维护破站的<del>只要Github不倒闭</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
@@ -383,9 +383,9 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>图库</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
