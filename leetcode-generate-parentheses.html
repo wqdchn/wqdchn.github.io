@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Sep 21 2019 12:15:25 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 21 2019 12:41:28 GMT+0800">
+        <meta property="article:modified_time" content="Sat Sep 21 2019 12:45:56 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-generate-parentheses.html",
     "headline": "LeetCode第22题GenerateParentheses",
     "datePublished": "Sat Sep 21 2019 12:15:25 GMT+0800",
-    "dateModified": "Sat Sep 21 2019 12:41:28 GMT+0800",
+    "dateModified": "Sat Sep 21 2019 12:45:56 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -520,13 +520,13 @@
 <p>怎么办呢，可以用递归或者说深度优先搜索的方法来遍历，每一个解看成一个长度2n的一维数组，我们往里面填充左括号和右括号，起始值都是n个，用掉一个就减去一个。如果当前还有左括号，就使用一个左括号，同时，如果右括号的数量比左括号多，则为左括号匹配一个右括号，直到两者都用完为止。</p>
 <h4 id="Solutio"><a href="#Solutio" class="headerlink" title="Solutio"></a>Solutio</h4><p>下面是Java的代码：</p>
 <pre><code class="Java">class Solution {
-  public static List&lt;String&gt; generateParenthesis(int n) {
+  public List&lt;String&gt; generateParenthesis(int n) {
     List&lt;String&gt; res = new ArrayList&lt;&gt;();
     generate(&quot;&quot;, res, n, n);
     return res;
   }
 
-  public static void generate(String sublist, List&lt;String&gt; res, int left, int right) {
+  public void generate(String sublist, List&lt;String&gt; res, int left, int right) {
     if (left == 0 &amp;&amp; right == 0) {
       res.add(sublist);
       return;
@@ -551,7 +551,6 @@
             if not right:
                 parens += p,
             return parens
-
         return generate(&#39;&#39;, n, n)
 </code></pre>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第22题是一个中等题，难度还不算非常大，递归的方法也非常简洁易懂，加油↖(^ω^)↗</p>

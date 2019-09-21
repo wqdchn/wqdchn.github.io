@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/about/index.html</loc>
+    
+    <lastmod>2019-09-21T04:50:17.598Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-generate-parentheses.html</loc>
     
-    <lastmod>2019-09-21T04:41:28.215Z</lastmod>
+    <lastmod>2019-09-21T04:45:56.739Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://wqdchn.github.io/leetcode-reverse-integer.html</loc>
     
     <lastmod>2019-09-21T04:39:30.908Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wqdchn.github.io/about/index.html</loc>
-    
-    <lastmod>2019-09-17T02:35:05.620Z</lastmod>
     
   </url>
   
