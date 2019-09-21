@@ -45,7 +45,7 @@
     
     <title>
         
-            LeetCode第二十题ValidParentheses | 
+            LeetCode第20题ValidParentheses | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -243,14 +243,14 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://wqdchn.github.io/leetcode-valid-parentheses.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LeetCode第二十题ValidParentheses | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="LeetCode第20题ValidParentheses | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
     <meta property="og:article:tag" content="leetcode"> <meta property="og:article:tag" content="编程"> 
 
     
         <meta property="article:published_time" content="Thu Sep 19 2019 22:02:38 GMT+0800">
-        <meta property="article:modified_time" content="Fri Sep 20 2019 10:47:56 GMT+0800">
+        <meta property="article:modified_time" content="Sat Sep 21 2019 12:39:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -271,9 +271,9 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-valid-parentheses.html",
-    "headline": "LeetCode第二十题ValidParentheses",
+    "headline": "LeetCode第20题ValidParentheses",
     "datePublished": "Thu Sep 19 2019 22:02:38 GMT+0800",
-    "dateModified": "Fri Sep 20 2019 10:47:56 GMT+0800",
+    "dateModified": "Sat Sep 21 2019 12:39:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -397,7 +397,7 @@
         
     
             <p class="article-headline-p">
-                LeetCode第二十题ValidParentheses
+                LeetCode第20题ValidParentheses
             </p>
         </div>
 
@@ -471,7 +471,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第二十题ValidParentheses&url=https://wqdchn.github.io/leetcode-valid-parentheses.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第20题ValidParentheses&url=https://wqdchn.github.io/leetcode-valid-parentheses.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -480,7 +480,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第二十题ValidParentheses&url=https://wqdchn.github.io/leetcode-valid-parentheses.html&via=WenQian Dong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第20题ValidParentheses&url=https://wqdchn.github.io/leetcode-valid-parentheses.html&via=WenQian Dong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -523,8 +523,8 @@
 <p>Input: “(]”<br>Output: false</p>
 </blockquote>
 <p><del>解法明天再写，回去洗洗睡先。</del></p>
-<p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—-右括号。</p>
-<p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—-右括号，则说明已经无解了。</p>
+<p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—右括号。</p>
+<p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—右括号，则说明已经无解了。</p>
 <h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
 <pre><code class="Java">class Solution {
     public boolean isValid(String s) {
@@ -559,7 +559,7 @@
                 return False
         return not stack
 </code></pre>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第二十题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第20题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -674,6 +674,14 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/leetcode-generate-parentheses.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
@@ -772,7 +780,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
+                <a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
@@ -790,7 +798,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/学习一个/">学习一个<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">9</span></a>
+                <a class="sidebar_archives-link" href="/categories/学习一个/">学习一个<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">9</span></a>
             </ul>
         </li>
         
