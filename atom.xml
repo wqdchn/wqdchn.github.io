@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-22T04:50:12.799Z</updated>
+  <updated>2019-09-23T03:29:23.153Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html"/>
     <id>https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html</id>
     <published>2019-09-22T04:05:28.000Z</published>
-    <updated>2019-09-22T04:50:12.799Z</updated>
+    <updated>2019-09-23T03:29:23.153Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Swap-Nodes-in-Pairs"><a href="#Swap-Nodes-in-Pairs" class="headerlink" title="Swap Nodes in Pairs"></a>Swap Nodes in Pairs</h4><p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/" target="_blank" rel="noopener">Swap Nodes in Pairs</a>给定一个链表，交换两个相邻节点，注意，不能修改列表节点中的值，只能更改节点本身的顺序。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</p></blockquote><p>链表的结点交换或反转没有什么特别的地方，就是一把梭。LeeCode已经给我们定义好了结点Node：一个指针，一个结点值，交换函数传入参数的是头指针。当结点数是偶数的时候，没有问题，当结点数是奇数的时候，最后一个结点的下一个结点是Null，就不能交换或反转。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode swapPairs(ListNode head) {        if (head == null) return null;        if (head.next == null) return head;        ListNode temp = head.next;        head.next = head.next.next;        temp.next = head;        head = temp;        head.next.next = swapPairs(head.next.next);        return head;           }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for singly-linked list.# class ListNode:#     def __init__(self, x):#         self.val = x#         self.next = Noneclass Solution:    def swapPairs(self, head: ListNode) -&gt; ListNode:        pre, pre.next = self, head        while pre.next and pre.next.next:            a = pre.next            b = a.next            pre.next, b.next, a.next = b, a, b.next            pre = a        return  self.next</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第24题是中等题，逻辑很简单，但是编码上有一些细节，别把自己绕晕了。</p>]]></content>
     
@@ -42,6 +42,8 @@
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
+    
   </entry>
   
   <entry>
@@ -49,7 +51,7 @@
     <link href="https://wqdchn.github.io/leetcode-generate-parentheses.html"/>
     <id>https://wqdchn.github.io/leetcode-generate-parentheses.html</id>
     <published>2019-09-21T04:15:25.000Z</published>
-    <updated>2019-09-22T04:19:10.117Z</updated>
+    <updated>2019-09-23T03:37:59.501Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Generate-Parentheses"><a href="#Generate-Parentheses" class="headerlink" title="Generate Parentheses"></a>Generate Parentheses</h4><p><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="noopener">Generate Parentheses</a>给定一个正整数，生成有效括号的所有组合，这里只需要生成小括号即可。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>Input: n = 3<br>Output: [<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]</p></blockquote><p>可见，当n确定时，生成的解的长度是固定的2n，并且解的开头一定是左括号，如果是右括号则是无效的解，左括号与右括号的数量必定是一样的，都是n个，这些是分析题目要求得到的“先验知识”了，接下来开始Code<del>贝叶斯推断bushi</del>。</p><p>怎么办呢，可以用递归或者说深度优先搜索的方法来遍历，每一个解看成一个长度2n的一维数组，我们往里面填充左括号和右括号，起始值都是n个，用掉一个就减去一个。如果当前还有左括号，就使用一个左括号，同时，如果右括号的数量比左括号多，则为左括号匹配一个右括号，直到两者都用完为止。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {  public List&lt;String&gt; generateParenthesis(int n) {    List&lt;String&gt; res = new ArrayList&lt;&gt;();    generate(&quot;&quot;, res, n, n);    return res;  }  public void generate(String sublist, List&lt;String&gt; res, int left, int right) {    if (left == 0 &amp;&amp; right == 0) {      res.add(sublist);      return;    }    if (left &gt; 0) {      generate(sublist + &quot;(&quot;, res, left - 1, right);    }    if (right &gt; left) {      generate(sublist + &quot;)&quot;, res, left, right - 1);    }  }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def generateParenthesis(self, n: int) -&gt; List[str]:        def generate(p, left, right, parens=[]):            if left:                generate(p + &#39;(&#39;, left - 1, right)            if right &gt; left:                generate(p + &#39;)&#39;, left, right - 1)            if not right:                parens += p,            return parens        return generate(&#39;&#39;, n, n)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第22题是一个中等题，难度还不算非常大，递归的方法也非常简洁易懂，加油↖(^ω^)↗</p>]]></content>
     
@@ -70,6 +72,8 @@
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
   </entry>
   
   <entry>
@@ -77,7 +81,7 @@
     <link href="https://wqdchn.github.io/leetcode-valid-parentheses.html"/>
     <id>https://wqdchn.github.io/leetcode-valid-parentheses.html</id>
     <published>2019-09-19T14:02:38.000Z</published>
-    <updated>2019-09-22T04:18:49.249Z</updated>
+    <updated>2019-09-23T03:29:28.961Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Valid-Parentheses"><a href="#Valid-Parentheses" class="headerlink" title="Valid Parentheses"></a>Valid Parentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">Valid Parentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p><del>解法明天再写，回去洗洗睡先。</del></p><p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—右括号。</p><p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—右括号，则说明已经无解了。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public boolean isValid(String s) {        if (s == null || s.length() == 0) return true;        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();        for (Character ch : s.toCharArray()) {            if (ch == &#39;(&#39;){                stack.push(&#39;)&#39;);            } else if (ch == &#39;[&#39;){                stack.push(&#39;]&#39;);            } else if (ch == &#39;{&#39;){                stack.push(&#39;}&#39;);            } else {                if (stack.isEmpty() || stack.pop() != ch){                    return false;                }            }        }        return stack.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def isValid(self, s: str) -&gt; bool:        stack = []        paren_map = {&#39;)&#39;:&#39;(&#39;, &#39;]&#39;:&#39;[&#39;, &#39;}&#39;:&#39;{&#39;}        for c in s:            if c not in paren_map:                stack.append(c)            elif not stack or paren_map[c] != stack.pop():                return False        return not stack</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第20题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>]]></content>
     
@@ -98,6 +102,8 @@
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
+    
   </entry>
   
   <entry>
@@ -105,7 +111,7 @@
     <link href="https://wqdchn.github.io/leetcode-three-sum.html"/>
     <id>https://wqdchn.github.io/leetcode-three-sum.html</id>
     <published>2019-09-18T11:16:49.000Z</published>
-    <updated>2019-09-22T04:18:40.308Z</updated>
+    <updated>2019-09-23T03:27:55.149Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Three-Sum"><a href="#Three-Sum" class="headerlink" title="Three Sum"></a>Three Sum</h4><p><a href="https://leetcode.com/problems/three-sum/" target="_blank" rel="noopener">Three Sum</a>和<a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">TwoSum</a>属于类似的题目，ThreeSum要求是，给定一个数组和一个目标值，求得数组中a+b+c=0的三个数a,b,c，这里目标数定为了零。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote><p>Given array nums = [-1, 0, 1, 2, -1, -4]</p></blockquote><blockquote><p>A solution set is:<br>[<br>  [-1, 0, 1],<br>  [-1, -1, 2]<br>]</p></blockquote><p>解法如下，首先对数组进行从小到大排序，假定当前这个数nums[i]为a，我们在后面的数中寻找b和c，使得a+b+c=0。记住，我们已经排序过了，所以可以从两头进行夹逼，遍历满足条件的b和c，当a+b+c&gt;0的时候，剩余数的末尾nums[length-1]向左走，当a+b+c&lt;0的时候，剩余数的开头nums[i+1]向右走，。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public static List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();        Arrays.sort(nums);        for (int i = 0; i + 2 &lt; nums.length; i++) {            if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) {//一次循环过后要么找到一组解，要么无解                continue;//此处跳过重复解            }            int j = i + 1;            int k = nums.length - 1;            int target = -nums[i];            while (j &lt; k) {                if (nums[j] + nums[k] == target) {                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));                    j++;                    k--;                    while (j &lt; k &amp;&amp; nums[j] == nums[j - 1]) j++;                    while (j &lt; k &amp;&amp; nums[k] == nums[k + 1]) k--;                } else if (nums[j] + nums[k] &gt; target) {                    k--;                } else {                    j++;                }            }        }        return res;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def threeSum(self, nums):        if len(nums) &lt; 0: return []        nums.sort()        res = set()        for i, v in enumerate(nums[:-2]):            if i &gt;= 1 and v == nums[i-1]:                continue            d = {}            for x in nums[i+1:]:                if x not in d:                    d[-v-x] = 1                else:                    res.add((v, -v-x, x))        return list(map(list, res))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第15题是中等题，解法依然很挠头，一遍写不出系列，Keep Moving T_T</p>]]></content>
     
@@ -126,6 +132,8 @@
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
   </entry>
   
   <entry>
@@ -133,7 +141,7 @@
     <link href="https://wqdchn.github.io/leetcode-reverse-integer.html"/>
     <id>https://wqdchn.github.io/leetcode-reverse-integer.html</id>
     <published>2019-09-15T04:09:44.000Z</published>
-    <updated>2019-09-22T04:18:34.806Z</updated>
+    <updated>2019-09-23T03:29:16.658Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Reverse-Integer"><a href="#Reverse-Integer" class="headerlink" title="Reverse Integer"></a>Reverse Integer</h4><p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">Reverse Integer</a>的题目要求很简单，给定32位有符号整数，返回该整数翻转后的结果，结果中零在第一位的省略零。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: 123<br>Output: 321</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: -123<br>Output: -321</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: 120<br>Output: 21</p></blockquote><p>同样，考虑一个简单粗暴的方法，将整数转换成字符串，将字符串转换成数组，对数组做逆序操作。当然要先判断这个整数的正负，然后考虑翻转后有没有零。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">Class Solution{    public static int reverse(int n) {        if (n &gt; Integer.MAX_VALUE || n &lt; Integer.MIN_VALUE) {            return 0;        }        String s = String.valueOf(n);        if (n &lt; 0) {            s = s.substring(1, s.length());            char[] array = s.toCharArray();            String reverse = &quot;-&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            s = reverse;        } else {            char[] array = s.toCharArray();            String reverse = &quot;&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            while (reverse.length() &gt; 1 &amp;&amp; reverse.charAt(0) == &#39;0&#39;) {                reverse = reverse.substring(1, reverse.length());            }            s = reverse;        }        int i = 0;        try {            i = Integer.parseInt(s.toString().trim());        } catch (Exception e) {            return 0;        }        return i;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def reverse(self, x: int) -&gt; int:        if x &gt;= 0:            res = int(str(x)[::-1])        else:            res = int(&#39;-&#39; + str(x)[:0:-1])        return res if -2147483648 &lt;= res &lt;= 2147483647 else 0</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第7题是简单题，LeetCode给出的标准解法有点挠头，先不管了<del>我好菜啊</del>。另外不得不说Python的内置函数真的太强大了T_T。</p>]]></content>
     
@@ -154,6 +162,8 @@
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
+      <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
+    
   </entry>
   
   <entry>
@@ -161,7 +171,7 @@
     <link href="https://wqdchn.github.io/leetcode-two-sum.html"/>
     <id>https://wqdchn.github.io/leetcode-two-sum.html</id>
     <published>2019-09-12T01:54:13.000Z</published>
-    <updated>2019-09-22T04:18:44.808Z</updated>
+    <updated>2019-09-23T03:27:49.167Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h4><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a>的题目要求是，给定一个数组和一个目标值，求得数组中两数num1和num2相加等于目标值target的两个数的下标。解法有两种，一是暴力法，一个个比较过来；二是哈希，把数组存在map里，存放的过程中只要发现map里面存有num1对应的目标解num2=target-num1，则返回下标即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        for (int i = 0; i &lt; nums.length; i++){            for (int j = i + 1;j &lt; nums.length; j++){                if(nums[i] + nums[j] == target){                    result[0] = i;                    result[1] = j;                }            }        }        return result;    }}</code></pre><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        Map&lt;Integer,Integer&gt; mp = new HashMap&lt;Integer, Integer&gt;();        for (int i  = 0; i &lt; nums.length; i++){            if(mp.containsKey(target - nums[i])){                result[0] = mp.get(target - nums[i]);                result[1] = i;                return  result;            }            mp.put(nums[i],i);        }        return result;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def twoSum(self, nums, target: int):        mp = {}        for i, x in enumerate(nums):            if x in mp:                return mp[x], i            else:                mp[target - x] = i        return -1</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第1题是简单题，迈出了第一步，以后也不要停下噢！</p>]]></content>
     
@@ -181,6 +191,8 @@
       <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
     
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
   </entry>
   
@@ -369,9 +381,9 @@
     <link href="https://wqdchn.github.io/cn-dota-best-dota.html"/>
     <id>https://wqdchn.github.io/cn-dota-best-dota.html</id>
     <published>2018-08-25T23:51:43.000Z</published>
-    <updated>2019-06-22T06:22:32.496Z</updated>
+    <updated>2019-09-23T08:18:54.494Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="永远不要低估一颗冠军的心"><a href="#永远不要低估一颗冠军的心" class="headerlink" title="永远不要低估一颗冠军的心"></a>永远不要低估一颗冠军的心</h4><p>早上起床看了ZSMJ的斗鱼直播，马甲哥在解说Ti8，我对马甲哥的了解只停步于他真三时代的传说，<del>因为在那以后进没机会玩游戏了</del>。马甲哥的成名之战是真三时代他的郭嘉神之一C，对于不了解真三这款上古老物的朋友来说这句话估计看不懂，稍作解释，郭嘉的大招C冰河爆裂破是一个远程技能，效果是打出一条直线的冰爆控制住在直线范围内的敌方英雄并造成伤害，这样一个控制类技能被马甲哥玩的炉火纯青，常常是一个C技能控制住对方多个英雄，给队友制造输出时间和空间，此外，马甲哥的控车也是一绝，对于普通玩家来说一般是控车人亡，控人车亡，双控双亡，我玩了那么久的真三，依然是一个普通玩家。真三这款游戏被人诟病的一个地方就是能出投石车，投石车对建筑物的伤害较高，对于队伍的推进非常有利，而马甲哥常常一个人就出到一队十二辆之多的车，或配合郭嘉大招控人后投石击杀，或带队快速推进，还形成了前期速推流的战术风靡一时。此外马甲哥的赵云也非常犀利，撑起无双玄武进场就是一打五，当然，马甲哥的队友很给力也是一个重要原因。</p><p>马甲哥出身于饭团战队，这是真三时代造就了饭团王朝的一支顶级战队，不过那时候国内电竞发展处于起步摸索的阶段，很多优秀的选手迫于家庭、生活等原因不得不离开自己喜爱的游戏，可以说非常的可惜。现在来看，中国的游戏圈如此火爆真是让人意想不到啊，毕竟从小到大的社会舆论对游戏都是不分青红皂白一概棒杀，今年LOL国家队出战亚运会为国争光，Ti8上来自中国俱乐部的战队坚持战斗，写下这段文字的时候，LGD正在和OG对决BO5赛点局，真是换了人间。</p><p>马甲哥在他的微博自我介绍上写着永远不要低估一颗冠军的心，奈何自古名将如美人，不许人间见白头，对于很多电竞游戏玩家来说，马甲哥是一个符号，是我们逝去的青春。</p><h4 id="老物"><a href="#老物" class="headerlink" title="老物"></a>老物</h4><p>这里是一个关于真三的视频，年代比较久远，在优酷上找到了一份，外链引出后没有带HTTPS，然后我就强行给他改成HTTPS，可能会出问题。</p><iframe height="498" width="510" src="https://player.youku.com/embed/XMTQ0MzA2MDE0NA==" frameborder="0" 'allowfullscreen'=""></iframe><h4 id="Ti8比赛结果"><a href="#Ti8比赛结果" class="headerlink" title="Ti8比赛结果"></a>Ti8比赛结果</h4><p>老干爹输的太可惜了，浪输的，无言，明年Ti9赛场在上海，希望家门口能有好消息。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="永远不要低估一颗冠军的心"><a href="#永远不要低估一颗冠军的心" class="headerlink" title="永远不要低估一颗冠军的心"></a>永远不要低估一颗冠军的心</h4><p>早上起床看了ZSMJ的斗鱼直播，马甲哥在解说Ti8，我对马甲哥的了解只停步于他真三时代的传说，<del>因为在那以后进没机会玩游戏了</del>。马甲哥的成名之战是真三时代他的郭嘉神之一C，对于不了解真三这款上古老物的朋友来说这句话估计看不懂，稍作解释，郭嘉的大招C冰河爆裂破是一个远程技能，效果是打出一条直线的冰爆控制住在直线范围内的敌方英雄并造成伤害，这样一个控制类技能被马甲哥玩的炉火纯青，常常是一个C技能控制住对方多个英雄，给队友制造输出时间和空间，此外，马甲哥的控车也是一绝，对于普通玩家来说一般是控车人亡，控人车亡，双控双亡，我玩了那么久的真三，依然是一个普通玩家。真三这款游戏被人诟病的一个地方就是能出投石车，投石车对建筑物的伤害较高，对于队伍的推进非常有利，而马甲哥常常一个人就出到一队十二辆之多的车，或配合郭嘉大招控人后投石击杀，或带队快速推进，还形成了前期速推流的战术,风靡一时。此外马甲哥的赵云也非常犀利，撑起无双玄武进场就是一打五，当然，马甲哥的队友很给力也是一个重要原因。</p><p>马甲哥出身于饭团战队，这是在真三时代造就了饭团王朝的一支顶级战队，不过那时候国内电竞发展处于起步摸索的阶段，很多优秀的选手迫于家庭、生活等原因不得不离开自己喜爱的游戏，可以说非常的可惜。现在来看，中国的游戏圈如此火爆真是让人意想不到啊，毕竟从小到大的社会舆论对游戏都是不分青红皂白一概棒杀，今年LOL国家队出战亚运会为国争光，Ti8上来自中国俱乐部的战队坚持战斗，写下这段文字的时候，LGD正在和OG对决BO5赛点局，线上、现场的观看人数不可计数，真真是换了人间。</p><p>马甲哥在他的微博自我介绍上写着永远不要低估一颗冠军的心，奈何自古名将如美人，不许人间见白头，对于很多电竞游戏玩家来说，马甲哥是一个符号，是我们逝去的青春。</p><h4 id="老物"><a href="#老物" class="headerlink" title="老物"></a>老物</h4><p>这里是一个关于真三的视频，年代比较久远，在优酷上找到了一份，<del>外链引出后没有带HTTPS，然后我就强行给他改成HTTPS，可能会出问题</del>。</p><iframe height="498" width="510" src="http://player.youku.com/embed/XMTQ0MzA2MDE0NA==" frameborder="0" 'allowfullscreen'=""></iframe><h4 id="Ti8比赛结果"><a href="#Ti8比赛结果" class="headerlink" title="Ti8比赛结果"></a>Ti8比赛结果</h4><p>老干爹输的太可惜了，浪输的，无言，明年Ti9赛场在上海，希望家门口能有好消息。</p>]]></content>
     
     <summary type="html">
     
