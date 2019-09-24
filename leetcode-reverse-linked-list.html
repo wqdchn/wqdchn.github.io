@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Sep 24 2019 11:49:05 GMT+0800">
-        <meta property="article:modified_time" content="Tue Sep 24 2019 13:09:43 GMT+0800">
+        <meta property="article:modified_time" content="Tue Sep 24 2019 13:29:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-reverse-linked-list.html",
     "headline": "LeetCode第206题Reverse Linked List",
     "datePublished": "Tue Sep 24 2019 11:49:05 GMT+0800",
-    "dateModified": "Tue Sep 24 2019 13:09:43 GMT+0800",
+    "dateModified": "Tue Sep 24 2019 13:29:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -516,7 +516,7 @@
 <h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote>
 <p>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
 </blockquote>
-<p>我们需要三个指针，prev-&gt;curr-&gt;next，从头指针开始反转，令curr-&gt;prev，完成个元素的反转之后，令其下一个元素为curr指针指向的对象，直到当前元素curr为空，可以使用遍历或递归的方式来实现。</p>
+<p>我们需要三个指针，prev-&gt;curr-&gt;next，从头指针开始反转，令curr-&gt;prev，完成一个元素的反转之后，令其下一个元素为curr指针指向的对象，直到当前元素curr为空，可以使用遍历或递归的方式来实现。</p>
 <table>
 <thead>
 <tr>
@@ -583,7 +583,7 @@
  * }
  */
 class Solution {
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {// 遍历
         ListNode re_head = null;
         for (ListNode curr = head; curr != null; ){
             ListNode temp = curr.next;
@@ -591,6 +591,14 @@ class Solution {
             re_head = curr;
             curr = temp;
         }
+        return re_head;
+    }
+
+    public ListNode reverseList(ListNode head) {// 递归
+        if (head == null || head.next == null) return head;
+        ListNode re_head = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
         return re_head;
     }
 }
@@ -603,10 +611,14 @@ class Solution {
 #         self.next = None
 
 class Solution:
-    def reverseList(self, head: ListNode) -&gt; ListNode:
-        if head == None:
-            return head
-        if head.next == None:
+    def reverseList(self, head):  # 遍历
+        re_head, curr = None, head
+        while curr:
+            curr.next, re_head, curr = re_head, curr, curr.next
+        return re_head
+
+    def reverseList(self, head: ListNode) -&gt; ListNode: # 递归
+        if head == None or head.next == None:
             return head
 
         temp = head.next
