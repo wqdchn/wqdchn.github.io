@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-23T03:29:23.153Z</updated>
+  <updated>2019-09-24T05:09:43.199Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第206题Reverse Linked List</title>
+    <link href="https://wqdchn.github.io/leetcode-reverse-linked-list.html"/>
+    <id>https://wqdchn.github.io/leetcode-reverse-linked-list.html</id>
+    <published>2019-09-24T03:49:05.000Z</published>
+    <updated>2019-09-24T05:09:43.199Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h4><p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">Reverse Linked List</a>反转单链表。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote><p>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p></blockquote><p>我们需要三个指针，prev-&gt;curr-&gt;next，从头指针开始反转，令curr-&gt;prev，完成个元素的反转之后，令其下一个元素为curr指针指向的对象，直到当前元素curr为空，可以使用遍历或递归的方式来实现。</p><table><thead><tr><th>prev</th><th>curr</th><th>next</th><th>…</th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>null</td><td>1</td><td>2</td><td>…</td><td>3</td><td>4</td><td>5</td><td>null</td></tr><tr><td>1</td><td>2</td><td>3</td><td>…</td><td>4</td><td>5</td><td>null</td></tr><tr><td>2</td><td>3</td><td>4</td><td>…</td><td>5</td><td>null</td></tr><tr><td>3</td><td>4</td><td>5</td><td>…</td><td>null</td></tr><tr><td>4</td><td>5</td><td>null</td><td>…</td></tr></tbody></table><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java 的代码：</p><pre><code class="Java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode reverseList(ListNode head) {        ListNode re_head = null;        for (ListNode curr = head; curr != null; ){            ListNode temp = curr.next;            curr.next = re_head;            re_head = curr;            curr = temp;        }        return re_head;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for singly-linked list.# class ListNode:#     def __init__(self, x):#         self.val = x#         self.next = Noneclass Solution:    def reverseList(self, head: ListNode) -&gt; ListNode:        if head == None:            return head        if head.next == None:            return head        temp = head.next        re_head = self.reverseList(temp)        head.next = None        temp.next = head        return re_head</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>LeetCode题目的难度是变动的，这一题之前还是中等题，最近变成了简单题，可能是练习的人多了，Accepted高了，说明基础还是很重要的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Reverse-Linked-List&quot;&gt;&lt;a href=&quot;#Reverse-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;Reverse Linked List&quot;&gt;&lt;/a&gt;Reverse Lin
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第24题Swap Nodes in Pairs</title>
@@ -381,9 +411,9 @@
     <link href="https://wqdchn.github.io/cn-dota-best-dota.html"/>
     <id>https://wqdchn.github.io/cn-dota-best-dota.html</id>
     <published>2018-08-25T23:51:43.000Z</published>
-    <updated>2019-09-23T08:18:54.494Z</updated>
+    <updated>2019-09-24T03:42:24.586Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="永远不要低估一颗冠军的心"><a href="#永远不要低估一颗冠军的心" class="headerlink" title="永远不要低估一颗冠军的心"></a>永远不要低估一颗冠军的心</h4><p>早上起床看了ZSMJ的斗鱼直播，马甲哥在解说Ti8，我对马甲哥的了解只停步于他真三时代的传说，<del>因为在那以后进没机会玩游戏了</del>。马甲哥的成名之战是真三时代他的郭嘉神之一C，对于不了解真三这款上古老物的朋友来说这句话估计看不懂，稍作解释，郭嘉的大招C冰河爆裂破是一个远程技能，效果是打出一条直线的冰爆控制住在直线范围内的敌方英雄并造成伤害，这样一个控制类技能被马甲哥玩的炉火纯青，常常是一个C技能控制住对方多个英雄，给队友制造输出时间和空间，此外，马甲哥的控车也是一绝，对于普通玩家来说一般是控车人亡，控人车亡，双控双亡，我玩了那么久的真三，依然是一个普通玩家。真三这款游戏被人诟病的一个地方就是能出投石车，投石车对建筑物的伤害较高，对于队伍的推进非常有利，而马甲哥常常一个人就出到一队十二辆之多的车，或配合郭嘉大招控人后投石击杀，或带队快速推进，还形成了前期速推流的战术,风靡一时。此外马甲哥的赵云也非常犀利，撑起无双玄武进场就是一打五，当然，马甲哥的队友很给力也是一个重要原因。</p><p>马甲哥出身于饭团战队，这是在真三时代造就了饭团王朝的一支顶级战队，不过那时候国内电竞发展处于起步摸索的阶段，很多优秀的选手迫于家庭、生活等原因不得不离开自己喜爱的游戏，可以说非常的可惜。现在来看，中国的游戏圈如此火爆真是让人意想不到啊，毕竟从小到大的社会舆论对游戏都是不分青红皂白一概棒杀，今年LOL国家队出战亚运会为国争光，Ti8上来自中国俱乐部的战队坚持战斗，写下这段文字的时候，LGD正在和OG对决BO5赛点局，线上、现场的观看人数不可计数，真真是换了人间。</p><p>马甲哥在他的微博自我介绍上写着永远不要低估一颗冠军的心，奈何自古名将如美人，不许人间见白头，对于很多电竞游戏玩家来说，马甲哥是一个符号，是我们逝去的青春。</p><h4 id="老物"><a href="#老物" class="headerlink" title="老物"></a>老物</h4><p>这里是一个关于真三的视频，年代比较久远，在优酷上找到了一份，<del>外链引出后没有带HTTPS，然后我就强行给他改成HTTPS，可能会出问题</del>。</p><iframe height="498" width="510" src="http://player.youku.com/embed/XMTQ0MzA2MDE0NA==" frameborder="0" 'allowfullscreen'=""></iframe><h4 id="Ti8比赛结果"><a href="#Ti8比赛结果" class="headerlink" title="Ti8比赛结果"></a>Ti8比赛结果</h4><p>老干爹输的太可惜了，浪输的，无言，明年Ti9赛场在上海，希望家门口能有好消息。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="永远不要低估一颗冠军的心"><a href="#永远不要低估一颗冠军的心" class="headerlink" title="永远不要低估一颗冠军的心"></a>永远不要低估一颗冠军的心</h4><p>早上起床看了ZSMJ的斗鱼直播，马甲哥在解说Ti8，我对马甲哥的了解只停步于他真三时代的传说，<del>因为在那以后进没机会玩游戏了</del>。马甲哥的成名之战是真三时代他的郭嘉神之一C，对于不了解真三这款上古老物的朋友来说这句话估计看不懂，稍作解释，郭嘉的大招C冰河爆裂破是一个远程技能，效果是打出一条直线的冰爆控制住在直线范围内的敌方英雄并造成伤害，这样一个控制类技能被马甲哥玩的炉火纯青，常常是一个C技能控制住对方多个英雄，给队友制造输出时间和空间，此外，马甲哥的控车也是一绝，对于普通玩家来说一般是控车人亡，控人车亡，双控双亡，我玩了那么久的真三，依然是一个普通玩家。真三这款游戏被人诟病的一个地方就是能出投石车，投石车对建筑物的伤害较高，对于队伍的推进非常有利，而马甲哥常常一个人就出到一队十二辆之多的车，或配合郭嘉大招控人后投石击杀，或带队快速推进，还形成了前期速推流的战术,风靡一时。此外马甲哥的赵云也非常犀利，撑起无双玄武进场就是一打五，当然，马甲哥的队友很给力也是一个重要原因。</p><p>马甲哥出身于饭团战队，这是在真三时代造就了饭团王朝的一支顶级战队，不过那时候国内电竞发展处于起步摸索的阶段，很多优秀的选手迫于家庭、生活等原因不得不离开自己喜爱的游戏，可以说非常的可惜。现在来看，中国的游戏圈如此火爆真是让人意想不到啊，毕竟从小到大的社会舆论对游戏都是不分青红皂白一概棒杀，今年LOL国家队出战亚运会为国争光，Ti8上来自中国俱乐部的战队坚持战斗，写下这段文字的时候，LGD正在和OG对决BO5赛点局，线上、现场的观看人数不可计数，真真是换了人间。</p><p>马甲哥在他的微博自我介绍上写着永远不要低估一颗冠军的心，奈何自古名将如美人，不许人间见白头，对于很多电竞游戏玩家来说，马甲哥是一个符号，是我们逝去的青春。</p><h4 id="老物"><a href="#老物" class="headerlink" title="老物"></a>老物</h4><p>这里是一个关于真三的视频，年代比较久远，在优酷上找到了一份，<del>外链引出后没有带HTTPS，然后我就强行给他改成HTTPS，可能会出问题</del>。</p><iframe height="498" width="510" src="https://player.youku.com/embed/XMTQ0MzA2MDE0NA==" frameborder="0" 'allowfullscreen'=""></iframe><h4 id="Ti8比赛结果"><a href="#Ti8比赛结果" class="headerlink" title="Ti8比赛结果"></a>Ti8比赛结果</h4><p>老干爹输的太可惜了，浪输的，无言，明年Ti9赛场在上海，希望家门口能有好消息。</p>]]></content>
     
     <summary type="html">
     
