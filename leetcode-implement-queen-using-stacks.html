@@ -45,7 +45,7 @@
     
     <title>
         
-            LeetCode第24题Swap Nodes in Pairs | 
+            LeetCode第232题Implement Queen using Stacks | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content=",leetcode,编程,数组与链表">
+    <meta name="keywords" content=",leetcode,编程,堆栈与队列">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html">
+    <meta property="og:url" content="https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LeetCode第24题Swap Nodes in Pairs | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="LeetCode第232题Implement Queen using Stacks | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta property="og:article:tag" content="leetcode"> <meta property="og:article:tag" content="编程"> <meta property="og:article:tag" content="数组与链表"> 
+    <meta property="og:article:tag" content="leetcode"> <meta property="og:article:tag" content="编程"> <meta property="og:article:tag" content="堆栈与队列"> 
 
     
-        <meta property="article:published_time" content="Sun Sep 22 2019 12:05:28 GMT+0800">
-        <meta property="article:modified_time" content="Wed Sep 25 2019 10:38:00 GMT+0800">
+        <meta property="article:published_time" content="Wed Sep 25 2019 18:41:12 GMT+0800">
+        <meta property="article:modified_time" content="Wed Sep 25 2019 19:29:10 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html",
-    "headline": "LeetCode第24题Swap Nodes in Pairs",
-    "datePublished": "Sun Sep 22 2019 12:05:28 GMT+0800",
-    "dateModified": "Wed Sep 25 2019 10:38:00 GMT+0800",
+    "mainEntityOfPage": "https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html",
+    "headline": "LeetCode第232题Implement Queen using Stacks",
+    "datePublished": "Wed Sep 25 2019 18:41:12 GMT+0800",
+    "dateModified": "Wed Sep 25 2019 19:29:10 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -291,7 +291,7 @@
             "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
         }
     },
-    "keywords": ",leetcode,编程,数组与链表",
+    "keywords": ",leetcode,编程,堆栈与队列",
     "description": "技术,杂谈,三国厨,历史向,Google粉",
 }
 </script>
@@ -365,7 +365,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Swap-Nodes-in-Pairs"><span class="post-toc-number">1.</span> <span class="post-toc-text">Swap Nodes in Pairs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Example"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Example</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Implement-Queen-using-Stacks"><span class="post-toc-number">1.</span> <span class="post-toc-text">Implement Queen using Stacks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Example"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Example:</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
     </ul>
     
 
@@ -397,7 +397,7 @@
         
     
             <p class="article-headline-p">
-                LeetCode第24题Swap Nodes in Pairs
+                LeetCode第232题Implement Queen using Stacks
             </p>
         </div>
 
@@ -416,7 +416,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WenQian Dong</strong>
-        <span>9月 22, 2019</span>
+        <span>9月 25, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -438,7 +438,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZUlEQVR42u3awW6EMAwEUP7/p9trpQp2bIeAVi+nSjTASyWSjn38fPU48PDw8PDw8PDwXsY74vH3909v/e/q/7lndzibm78bHh4e3k7eh0/tCe8aU71n7254eHh4z/LyzSD/3Pfwo3fDw8PDexkvwVSP5qt+Bw8PD++dvN5RO5n1on0PDw8Pb2kYMTkc9w7rW7MWPDw8vJjXK4Dt+fmx+h4eHh7eCa865i0FeezbfEM8PDy8m3nXD77+BF/Pyhel2oZ1PRcPDw9vJ68Xueb4D0fhy0UpLCUeHh7eFl4eOly/9LwwVt2c8PDw8J7lVRsF8o9+spFUGxQKYQQeHh7eUl41eM3j10mLwKgVDA8PD28Lb940UI0YkqvVrQUPDw9vJ69XEquWu6rL0Ws4wMPDw7ubVy1QJRtGrxlr3mqAh4eH9xSv+oBVrQD5MuHh4eG9jZeDq1fn8UezXRUPDw9vKW8exU5ii2pTwrKUGg8PD2/MqzLy0tTkwJ3HFnh4eHg7eVEwGn/Qe40F+dNHMS4eHh7eUt6kjWBSJOs1YH2YhYeHh3czb1XBvncsrpbfoqt4eHh4W3i9F0oeNj9ALyuA4eHh4S1tHUiQ+dVJRJu3MpT/Y8DDw8NbxKuOamSQN55WFzGKcfHw8PBu4B3xyGPfVYD8uXh4eHj7eflmMGkLqLal5n8GPDw8vKd41aJ+9VNeDR16BTk8PDy8t/GqgGohLd+Wmik1Hh4e3kO8Ximr2ppQjULw8PDw9vMmRa9qYJEcr6sLioeHh7eT1wsCVsUN8wM6Hh4e3k7e9w08PDw8PDw8PLwXjF/08HLeEUFPrAAAAABJRU5ErkJggg==">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC00lEQVR42u3aUW4iQQwEUO5/6ewBEKTKno2g580XQgPTr5FSsd2Pn1teD2xsbGxsbGxsbOyPZD/i6/lTz9+Q3/N8f/7+cM3Y2NjYR7N/+dM/Wkr+bQlpv2ZsbGzsO7BfPSyJovf3J5H5aun5en55LjY2Njb228LjPXi2EW2Rg42NjY29CbCkSMjjqt1QbGxsbOy8QZPHzCze2ibUH/XSsLGxsT+enRcDn/P6T+fb2NjY2B/Mbq92WZtYykMuWjk2Njb2oexZmfH/jubMhrvRerCxsbEPZe8Px7wfG+xbTu1Y4uWAARsbG/to9rUxkw9r8yCcHdnExsbGvgO7PY5TP6wsV65qM2FjY2Njz4qEDb4NyLb4wcbGxj6bfe0RzM2d+wCLmkrY2NjYB7HbgGkfn7eZrorMopeGjY2NfRy7DZW8zZSXDXlLqz1OhI2NjX0qOx+1tiPb9ps3JU30M2BjY2Mfym4DbDbibRv97davmkrY2NjYX87Om/Kzhc62YxON9XwbGxsb+8vZm5b9flnt9uWfxcbGxr4PexgGo3bPpkWVlzQvtw8bGxv7UHZ+BGd2iKcYxMZb0x45wsbGxr4DexNFefhtjubkI426AsPGxsb+cvb+0MwsqNqxRNuQwsbGxr4PO19i3tBpBwP5gGE2GMbGxsY+m90+cn9P0khKPtte2NjY2Gez2xibjRZm4XdZCYSNjY19A3ayoKsiajYMmA0GsLGxse/DnjWDZq3/ttmUX8OpCDY2NvbXsuvWzLplPxsSzA4GYWNjY9+B3S6l3YhZ1OWtqwsGvdjY2NhHsPPQaiNndv+sTBoOerGxsbEPYuePb+NkX9i0m4iNjY2NvfnXv30n36DZYBgbGxsb+6p2/ywOkzIjakthY2Nj34CdFwxtzLQtpHbMsAowbGxs7CPYbeNmNjZoeflPEm0QNjY29qHs+1zY2NjY2NjY2NjYH3P9A//ehchtE08HAAAAAElFTkSuQmCC">
     
 </ul>
 
@@ -452,7 +452,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/leetcode/">leetcode</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/数组与链表/">数组与链表</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/编程/">编程</a>
+        <a class="post_tag-link" href="/tags/leetcode/">leetcode</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/堆栈与队列/">堆栈与队列</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/编程/">编程</a>
     </ul>
     
 
@@ -471,7 +471,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第24题Swap Nodes in Pairs&url=https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第232题Implement Queen using Stacks&url=https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -480,7 +480,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第24题Swap Nodes in Pairs&url=https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html&via=WenQian Dong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第232题Implement Queen using Stacks&url=https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html&via=WenQian Dong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -512,56 +512,205 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <a id="more"></a>
-<h4 id="Swap-Nodes-in-Pairs"><a href="#Swap-Nodes-in-Pairs" class="headerlink" title="Swap Nodes in Pairs"></a>Swap Nodes in Pairs</h4><p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/" target="_blank" rel="noopener">Swap Nodes in Pairs</a>给定一个链表，交换两个相邻节点，注意，不能修改列表节点中的值，只能更改节点本身的顺序。</p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote>
-<p>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</p>
+<h4 id="Implement-Queen-using-Stacks"><a href="#Implement-Queen-using-Stacks" class="headerlink" title="Implement Queen using Stacks"></a>Implement Queen using Stacks</h4><p><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="noopener">Implement Queen using Stacks</a>用栈实现一个队列。</p>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote>
+<p>MyQueue queue = new MyQueue();<br>queue.push(1);<br>queue.push(2);<br>queue.peek();  // returns 1<br>queue.pop();   // returns 1<br>queue.empty(); // returns false</p>
 </blockquote>
-<p>链表的结点交换或反转没有什么特别的地方，就是一把梭。LeeCode已经给我们定义好了结点Node：一个指针，一个结点值，交换函数传入参数的是头指针。当结点数是偶数的时候，没有问题，当结点数是奇数的时候，最后一个结点的下一个结点是Null，就不能交换或反转。</p>
+<p>队列的特性是先进先出，栈的特性是先进后出，我们要实现队列的三个操作，分别是push、pop、peek，还有一个队列状态检查empty。可以使用两个栈来实现，分别是input、output，两者的分工非常清楚：</p>
+<ul>
+<li>所有的push操作，进队列的元素通通丢到input栈中。</li>
+<li>所有的pop、peek操作，出队列的元素通通在output栈中输出。</li>
+<li>状态检查时，只需要检查两个栈是否都为空，如果是，则队列为空。</li>
+</ul>
+<p>需要注意的地方是，两个栈之间如何互相“倒腾”元素。例如我们push了4次得到一个队列[1，2，3，4]，然后pop一次弹出元素[1]，队列中剩下[2，3，4]，我们再往里push元素[5]，得到队列[2，3，4，5]。那么这个过程中，input栈与output栈之间需要“倒腾”一下，4次push很简单，元素通通压入了input栈，此时output栈为空。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">input</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+</tbody>
+</table>
+<p>当我们执行pop时，需要把input栈中的元素“倒腾”到output栈中，再从output栈中pop出栈顶元素，此时input栈为空。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">input</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">null</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">null</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">null</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">null</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<p>再往队列中push元素[5]时，需要把output栈中的元素“倒腾”到input栈中，再将新元素[5]push到栈顶，此时output栈为空。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">input</th>
+<th style="text-align:center">#</th>
+<th style="text-align:center">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center">null</td>
+</tr>
+</tbody>
+</table>
 <h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
-<pre><code class="Java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
+<pre><code class="Java">class MyQueue {
+    Stack&lt;Integer&gt; input ;
+    Stack&lt;Integer&gt; output ;
+    /** Initialize your data structure here. */
+    public MyQueue() {
+        input = new Stack&lt;&gt;();
+        output = new Stack&lt;&gt;();
+    }
 
-class Solution {
-    public ListNode swapPairs(ListNode head) {
-        if (head == null) return null;
-        if (head.next == null) return head;
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        if (input.isEmpty()){
+            while (!output.isEmpty()){
+                input.push(output.pop());
+            }
+        }
+        input.push(x);
+    }
 
-        ListNode temp = head.next;
-        head.next = head.next.next;
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if (output.isEmpty()){
+            while (!input.isEmpty()){
+                output.push(input.pop());
+            }
+        }
+        return output.pop();
+    }
 
-        temp.next = head;
-        head = temp;
+    /** Get the front element. */
+    public int peek() {
+        if (output.isEmpty()){
+            while (!input.isEmpty()){
+                output.push(input.pop());
+            }
+        }
+        return output.peek();
+    }
 
-        head.next.next = swapPairs(head.next.next);
-
-        return head;       
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return input.isEmpty() &amp;&amp; output.isEmpty();
     }
 }
 </code></pre>
 <p>下面是Python的代码：</p>
-<pre><code class="Python"># Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+<pre><code class="Python">class MyQueue:
 
-class Solution:
-    def swapPairs(self, head: ListNode) -&gt; ListNode:
-        pre, pre.next = self, head
-        while pre.next and pre.next.next:
-            a = pre.next
-            b = a.next
-            pre.next, b.next, a.next = b, a, b.next
-            pre = a
-        return  self.next
+    def __init__(self):
+        &quot;&quot;&quot;
+        Initialize your data structure here.
+        &quot;&quot;&quot;
+        self.input = []
+        self.output = []
+
+    def push(self, x: int) -&gt; None:
+        &quot;&quot;&quot;
+        Push element x to the back of queue.
+        &quot;&quot;&quot;
+        if len(self.input) == 0:
+            while len(self.output) != 0:
+                self.input.append(self.output.pop())
+
+        self.input.append(x)
+
+    def pop(self) -&gt; int:
+        &quot;&quot;&quot;
+        Removes the element from in front of queue and returns that element.
+        &quot;&quot;&quot;
+        if len(self.output) == 0:
+            while len(self.input) != 0:
+                self.output.append(self.input.pop())
+
+        return self.output.pop()
+
+    def peek(self) -&gt; int:
+        &quot;&quot;&quot;
+        Get the front element.
+        &quot;&quot;&quot;
+        if len(self.output) == 0:
+            while len(self.input) != 0:
+                self.output.append(self.input.pop())
+
+        return self.output[-1]
+
+    def empty(self) -&gt; bool:
+        &quot;&quot;&quot;
+        Returns whether the queue is empty.
+        &quot;&quot;&quot;
+        return len(self.input) == 0 and len(self.output) == 0
 </code></pre>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第24题是中等题，逻辑很简单，但是编码上有一些细节，别把自己绕晕了。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第232题是简单题，两个数据结构的特性也非常清楚，关键在于理清先进先出与先进后出两个特性之间的关联。</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -570,7 +719,7 @@ class Solution:
                             本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html">https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html</a>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html">https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html</a>
                     </p>
                 </blockquote>
         
@@ -626,8 +775,8 @@ class Solution:
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://wqdchn.github.io/leetcode-swap-nodes-in-pairs.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -676,21 +825,13 @@ class Solution:
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/leetcode-reverse-linked-list.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/leetcode-generate-parentheses.html" id="post_nav-older" class="next-content">
+        <a href="/leetcode-linked-list-cycle.html" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
