@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>LeetCode第141题Linked List Cycle</title>
+      <link href="/leetcode-linked-list-cycle.html"/>
+      <url>/leetcode-linked-list-cycle.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Linked-List-Cycle"><a href="#Linked-List-Cycle" class="headerlink" title="Linked List Cycle"></a>Linked List Cycle</h4><p><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">Linked List Cycle</a>判断链表是否有环。</p><h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><blockquote><p>Input: head = [3,2,0,-4], pos = 1<br>Output: true<br>Explanation: There is a cycle in the linked list, where tail connects to the second node.</p></blockquote><p><img src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" alt="Example"></p><p>方法有两种：</p><ul><li>一种是使用Set的数据结构来遍历整个链表，只要链表中存在环，那么Set中必定会出现重复值，通过这种重复的冲突就可以判断链表中有无环。</li><li>另一种方法是使用两个标兵来遍历，一个跑得比香港记者还要快，一个跑得比香港记者慢，如果链表中存在环，那么快的标兵必定会在跑完一圈之后追上慢的标兵，通过这种追赶也能判断链表中有无环。</li></ul><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for singly-linked list. * class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { *         val = x; *         next = null; *     } * } */class Solution {    public boolean hasCycle(ListNode head) {// Set        Set&lt;ListNode&gt; nodesSeen = new HashSet&lt;&gt;();        while (head != null) {            if (nodesSeen.contains(head)) {                return true;            } else {                nodesSeen.add(head);            }            head = head.next;        }        return false;    }    public boolean hasCycle(ListNode head) {// 标兵        if (head == null || head.next == null) {            return false;        }        ListNode slow = head;        ListNode fast = head.next;        while (slow != fast) {            if (fast == null || fast.next == null) {                return false;            }            slow = slow.next;            fast = fast.next.next;        }        return true;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for singly-linked list.# class ListNode:#     def __init__(self, x):#         self.val = x#         self.next = Noneclass Solution:    def hasCycle(self, head): # Set        nodeset = set()        while head:            if head in nodeset:                return True            else:                nodeset.add(head)            head = head.next        return False    def hasCycle(self, head): # 标兵        fast = slow = head        while slow and fast and fast.next:            slow = slow.next            fast = fast.next.next            if slow is fast:                return True        return False</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第141题是简单题，Set的方法比较容易想到，Set也非常适合做重复检测的工作。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 数组与链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第206题Reverse Linked List</title>
       <link href="/leetcode-reverse-linked-list.html"/>
       <url>/leetcode-reverse-linked-list.html</url>
@@ -438,6 +463,13 @@
     </entry>
     
     <entry>
+      <title>图库</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>关于我</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -452,9 +484,9 @@
     </entry>
     
     <entry>
-      <title>图库</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -462,13 +494,6 @@
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
