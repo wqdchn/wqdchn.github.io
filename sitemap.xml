@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/leetcode-implement-stack-using-queues.html</loc>
+    
+    <lastmod>2019-09-26T02:46:13.528Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html</loc>
     
     <lastmod>2019-09-25T11:29:10.089Z</lastmod>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-25T11:29:10.089Z</updated>
+  <updated>2019-09-26T02:46:13.528Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第225题Implement Stack using Queues</title>
+    <link href="https://wqdchn.github.io/leetcode-implement-stack-using-queues.html"/>
+    <id>https://wqdchn.github.io/leetcode-implement-stack-using-queues.html</id>
+    <published>2019-09-26T01:44:11.000Z</published>
+    <updated>2019-09-26T02:46:13.528Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Implement-Stack-using-Queens"><a href="#Implement-Stack-using-Queens" class="headerlink" title="Implement Stack using Queens"></a>Implement Stack using Queens</h4><p><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">Implement Stack using Queens</a>用队列实现栈。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>MyStack stack = new MyStack();<br>stack.push(1);<br>stack.push(2);<br>stack.top();   // returns 2<br>stack.pop();   // returns 2<br>stack.empty(); // returns false</p></blockquote><p>栈的特性是先进后出，队列的特性是先进先出，我们要实现栈的三个操作，分别是push、pop、top，还有一个栈状态检查empty。类似用栈实现队列时，使用两个栈互相倒腾，这里用队列实现栈也可以使用两个队列来实现栈，燃鹅本文选择使用一个队列来实现栈，非炫技也，实有趣耳。</p><p>使用一个队列时，push操作很平常，就把元素压入队列中即可，即压入栈中。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">4</td></tr></tbody></table><p>执行pop操作时，由于栈是先进后出的，先前push入队的队列头部元素应该在栈底，而队列尾部元素是栈顶，也就是说，我们要pop的是队列尾部元素，那么怎么将尾部元素pop出去呢，很简单，我们让除了队列末尾元素之外的其他队列元素出队，那原来的队尾元素不就变成新的队首元素了吗，让这个新的队首元素出队就是栈的pop操作，而出队的其他元素则再依次入队，保证栈pop之后其他元素没有丢失。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">4</td><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td></tr></tbody></table><p>执行top操作时和pop类似，只不过我们返回队首元素即可，注意，由于这个队首元素是原来的队尾元素，所以我们在使用过它之后，要让它出队再入队，保证它依然处于队尾，也就是栈顶。</p><p>状态检查秩序查看队列是否为空即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        q.offer(x);    }    /** Removes the element on top of the stack and returns that element. */    public int pop() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        return q.poll();    }    /** Get the top element. */    public int top() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        int top = q.peek();        q.offer(q.poll());        return top;    }    /** Returns whether the stack is empty. */    public boolean empty() {        return q.isEmpty();    }}</code></pre><p>下面是相似的Java代码，请关注两者的区别：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        queue.add(x);        for (int i=1; i&lt;queue.size(); i++)            queue.add(queue.remove());    }    /** Removes the element on top of the stack and returns that element. */    public void pop() {        queue.remove();    }    /** Get the top element. */    public int top() {        return queue.peek();    }    /** Returns whether the stack is empty. */    public boolean empty() {        return queue.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class MyStack:    def __init__(self):        &quot;&quot;&quot;        Initialize your data structure here.        &quot;&quot;&quot;        self.queue = []    def push(self, x: int) -&gt; None:        &quot;&quot;&quot;        Push element x onto stack.        &quot;&quot;&quot;        self.queue.append(x)    def pop(self) -&gt; int:        &quot;&quot;&quot;        Removes the element on top of the stack and returns that element.        &quot;&quot;&quot;        return self.queue.pop()    def top(self) -&gt; int:        &quot;&quot;&quot;        Get the top element.        &quot;&quot;&quot;        return self.queue[-1]    def empty(self) -&gt; bool:        &quot;&quot;&quot;        Returns whether the stack is empty.        &quot;&quot;&quot;        return self.queue == []</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第225题是简单题，用一个队列实现栈其实也不难，关键依然是理解先进先出和先进后出之间的关联。这里Python的逻辑和分析中有所区别，主要是Python的内置函数太强大了，完全不需要多余的操作。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Implement-Stack-using-Queens&quot;&gt;&lt;a href=&quot;#Implement-Stack-using-Queens&quot; class=&quot;headerlink&quot; title=&quot;Implement Stack us
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第232题Implement Queen using Stacks</title>
