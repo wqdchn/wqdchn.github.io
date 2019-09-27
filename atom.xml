@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-26T02:46:13.528Z</updated>
+  <updated>2019-09-27T10:55:49.650Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -17,13 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeetCode第703题Kth Largest Element in a Stream</title>
+    <link href="https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html"/>
+    <id>https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html</id>
+    <published>2019-09-27T10:26:48.000Z</published>
+    <updated>2019-09-27T10:55:49.650Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Kth-Largest-Element-in-a-Stream"><a href="#Kth-Largest-Element-in-a-Stream" class="headerlink" title="Kth Largest Element in a Stream"></a>Kth Largest Element in a Stream</h4><p><a href="https://leetcode.com/problems/kth-largest-element-in-a-stream/" target="_blank" rel="noopener">Kth Largest Element in a Stream</a>寻找一个整数流中第K大的元素，K是固定的，整数流包含一个构造函数add，每次往流中添加新元素时，就返回新的第K大的元素。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote><p>int k = 3;<br>int[] arr = [4,5,8,2];<br>KthLargest kthLargest = new KthLargest(3, arr);<br>kthLargest.add(3);   // returns 4<br>kthLargest.add(5);   // returns 5<br>kthLargest.add(10);  // returns 5<br>kthLargest.add(9);   // returns 8<br>kthLargest.add(4);   // returns 8</p></blockquote><p>这道题可以使用优先队列PriorityQueue来做，在Java中优先队列默认通过二叉小顶堆实现，我们可以令这个优先队列的长度为K，这个队列的头部就是整数流中第K大的元素，每当新的元素进来时，我们就把新的元素和队列头部元素（也就是堆顶）进行比较，如果新的元素比较大，则纳入新的元素，优先队列会自动维护小顶堆的性质，保证队列头部元素始终是我们需要的第K大的元素。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class KthLargest {       PriorityQueue&lt;Integer&gt; q;    int k;    public KthLargest(int k, int[] nums) {        this.k = k;        q = new PriorityQueue&lt;&gt;(k);        for (int n : nums){            add(n);        }           }    public int add(int val) {        if (q.size() &lt; k){            q.offer(val);        }else if (q.peek() &lt; val){            q.poll();            q.offer(val);        }        return q.peek();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class KthLargest:    def __init__(self, k, nums):        self.pool = nums        self.k = k        heapq.heapify(self.pool)        while len(self.pool) &gt; k:            heapq.heappop(self.pool)    def add(self, val):        if len(self.pool) &lt; self.k:            heapq.heappush(self.pool, val)        elif val &gt; self.pool[0]:            heapq.heapreplace(self.pool, val)        return self.pool[0]</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第703题是简单题，学会利用已有的数据结构，加一点简单的逻辑，能做很多神奇的事，再也不要暴力循环了鸭。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Kth-Largest-Element-in-a-Stream&quot;&gt;&lt;a href=&quot;#Kth-Largest-Element-in-a-Stream&quot; class=&quot;headerlink&quot; title=&quot;Kth Largest 
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="leetcode" scheme="https://wqdchn.github.io/tags/leetcode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
+    
+      <category term="优先队列" scheme="https://wqdchn.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode第225题Implement Stack using Queues</title>
     <link href="https://wqdchn.github.io/leetcode-implement-stack-using-queues.html"/>
     <id>https://wqdchn.github.io/leetcode-implement-stack-using-queues.html</id>
     <published>2019-09-26T01:44:11.000Z</published>
-    <updated>2019-09-26T02:46:13.528Z</updated>
+    <updated>2019-09-26T06:47:34.473Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Implement-Stack-using-Queens"><a href="#Implement-Stack-using-Queens" class="headerlink" title="Implement Stack using Queens"></a>Implement Stack using Queens</h4><p><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">Implement Stack using Queens</a>用队列实现栈。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>MyStack stack = new MyStack();<br>stack.push(1);<br>stack.push(2);<br>stack.top();   // returns 2<br>stack.pop();   // returns 2<br>stack.empty(); // returns false</p></blockquote><p>栈的特性是先进后出，队列的特性是先进先出，我们要实现栈的三个操作，分别是push、pop、top，还有一个栈状态检查empty。类似用栈实现队列时，使用两个栈互相倒腾，这里用队列实现栈也可以使用两个队列来实现栈，燃鹅本文选择使用一个队列来实现栈，非炫技也，实有趣耳。</p><p>使用一个队列时，push操作很平常，就把元素压入队列中即可，即压入栈中。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">4</td></tr></tbody></table><p>执行pop操作时，由于栈是先进后出的，先前push入队的队列头部元素应该在栈底，而队列尾部元素是栈顶，也就是说，我们要pop的是队列尾部元素，那么怎么将尾部元素pop出去呢，很简单，我们让除了队列末尾元素之外的其他队列元素出队，那原来的队尾元素不就变成新的队首元素了吗，让这个新的队首元素出队就是栈的pop操作，而出队的其他元素则再依次入队，保证栈pop之后其他元素没有丢失。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">4</td><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td></tr></tbody></table><p>执行top操作时和pop类似，只不过我们返回队首元素即可，注意，由于这个队首元素是原来的队尾元素，所以我们在使用过它之后，要让它出队再入队，保证它依然处于队尾，也就是栈顶。</p><p>状态检查秩序查看队列是否为空即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        q.offer(x);    }    /** Removes the element on top of the stack and returns that element. */    public int pop() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        return q.poll();    }    /** Get the top element. */    public int top() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        int top = q.peek();        q.offer(q.poll());        return top;    }    /** Returns whether the stack is empty. */    public boolean empty() {        return q.isEmpty();    }}</code></pre><p>下面是相似的Java代码，请关注两者的区别：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        queue.add(x);        for (int i=1; i&lt;queue.size(); i++)            queue.add(queue.remove());    }    /** Removes the element on top of the stack and returns that element. */    public void pop() {        queue.remove();    }    /** Get the top element. */    public int top() {        return queue.peek();    }    /** Returns whether the stack is empty. */    public boolean empty() {        return queue.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class MyStack:    def __init__(self):        &quot;&quot;&quot;        Initialize your data structure here.        &quot;&quot;&quot;        self.queue = []    def push(self, x: int) -&gt; None:        &quot;&quot;&quot;        Push element x onto stack.        &quot;&quot;&quot;        self.queue.append(x)    def pop(self) -&gt; int:        &quot;&quot;&quot;        Removes the element on top of the stack and returns that element.        &quot;&quot;&quot;        return self.queue.pop()    def top(self) -&gt; int:        &quot;&quot;&quot;        Get the top element.        &quot;&quot;&quot;        return self.queue[-1]    def empty(self) -&gt; bool:        &quot;&quot;&quot;        Returns whether the stack is empty.        &quot;&quot;&quot;        return self.queue == []</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第225题是简单题，用一个队列实现栈其实也不难，关键依然是理解先进先出和先进后出之间的关联。这里Python的逻辑和分析中有所区别，主要是Python的内置函数太强大了，完全不需要多余的操作。。。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Implement-Stack-using-Queens"><a href="#Implement-Stack-using-Queens" class="headerlink" title="Implement Stack using Queens"></a>Implement Stack using Queens</h4><p><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">Implement Stack using Queens</a>用队列实现栈。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>MyStack stack = new MyStack();<br>stack.push(1);<br>stack.push(2);<br>stack.top();   // returns 2<br>stack.pop();   // returns 2<br>stack.empty(); // returns false</p></blockquote><p>栈的特性是先进后出，队列的特性是先进先出，我们要实现栈的三个操作，分别是push、pop、top，还有一个栈状态检查empty。类似用栈实现队列时，使用两个栈互相倒腾，这里用队列实现栈也可以使用两个队列来实现栈，燃鹅本文选择使用一个队列来实现栈，非炫技也，实有趣耳。</p><p>使用一个队列时，push操作很平常，就把元素压入队列中即可，即压入栈中。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">4</td></tr></tbody></table><p>执行pop操作时，由于栈是先进后出的，先前push入队的队列头部元素应该在栈底，而队列尾部元素是栈顶，也就是说，我们要pop的是队列尾部元素，那么怎么将尾部元素pop出去呢，很简单，我们让除了队列末尾元素之外的其他队列元素出队，那原来的队尾元素不就变成新的队首元素了吗，让这个新的队首元素出队就是栈的pop操作，而出队的其他元素则再依次入队，保证栈pop之后其他元素没有丢失。</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th><th style="text-align:center"></th></tr></thead><tbody><tr><td style="text-align:center">4</td><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">3</td></tr></tbody></table><p>执行top操作时和pop类似，只不过我们返回队首元素即可，注意，由于这个队首元素是原来的队尾元素，所以我们在使用过它之后，要让它出队再入队，保证它依然处于队尾，也就是栈顶。</p><p>状态检查只需查看队列是否为空即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        q.offer(x);    }    /** Removes the element on top of the stack and returns that element. */    public int pop() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        return q.poll();    }    /** Get the top element. */    public int top() {        for (int i = 1; i &lt; q.size(); i++){            q.offer(q.poll());        }        int top = q.peek();        q.offer(q.poll());        return top;    }    /** Returns whether the stack is empty. */    public boolean empty() {        return q.isEmpty();    }}</code></pre><p>下面是相似的Java代码，请关注两者的区别：</p><pre><code class="Java">class MyStack {    Queue&lt;Integer&gt; q;    /** Initialize your data structure here. */    public MyStack() {        q = new LinkedList&lt;&gt;();    }    /** Push element x onto stack. */    public void push(int x) {        queue.add(x);        for (int i=1; i&lt;queue.size(); i++)            queue.add(queue.remove());    }    /** Removes the element on top of the stack and returns that element. */    public void pop() {        queue.remove();    }    /** Get the top element. */    public int top() {        return queue.peek();    }    /** Returns whether the stack is empty. */    public boolean empty() {        return queue.isEmpty();    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class MyStack:    def __init__(self):        &quot;&quot;&quot;        Initialize your data structure here.        &quot;&quot;&quot;        self.queue = []    def push(self, x: int) -&gt; None:        &quot;&quot;&quot;        Push element x onto stack.        &quot;&quot;&quot;        self.queue.append(x)    def pop(self) -&gt; int:        &quot;&quot;&quot;        Removes the element on top of the stack and returns that element.        &quot;&quot;&quot;        return self.queue.pop()    def top(self) -&gt; int:        &quot;&quot;&quot;        Get the top element.        &quot;&quot;&quot;        return self.queue[-1]    def empty(self) -&gt; bool:        &quot;&quot;&quot;        Returns whether the stack is empty.        &quot;&quot;&quot;        return self.queue == []</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第225题是简单题，用一个队列实现栈其实也不难，关键依然是理解先进先出和先进后出之间的关联。这里Python的逻辑和分析中有所区别，主要是Python的内置函数太强大了，完全不需要多余的操作。。。</p>]]></content>
     
     <summary type="html">
     
@@ -585,32 +617,6 @@
       <category term="划水" scheme="https://wqdchn.github.io/tags/%E5%88%92%E6%B0%B4/"/>
     
       <category term="摸鱼" scheme="https://wqdchn.github.io/tags/%E6%91%B8%E9%B1%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好啊世界</title>
-    <link href="https://wqdchn.github.io/hello-world.html"/>
-    <id>https://wqdchn.github.io/hello-world.html</id>
-    <published>2018-08-01T02:00:00.000Z</published>
-    <updated>2019-06-21T06:54:06.790Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么<a id="more"></a>，自留地了一刚。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，<del>破站的评论系统暂时不会开放反正也没人看，</del>Post的内容中引用的源视频可能来自<a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>，其余的图片资源挂载于<a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上。另外就是访问速度，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>迫于原来的图床服务进入维护状态，选择薅一下田厂的羊毛，用GitHub仓库做一个图床，希望不会被封号啊喂。</p><h4 id="2018年8月16日更新"><a href="#2018年8月16日更新" class="headerlink" title="2018年8月16日更新"></a>2018年8月16日更新</h4><p>好的，给破站添加了评论系统，不过可能需要那啥以后才能看见，<del>Hexo钦定的集成服务，不关我事啊，</del>欢迎留言。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;这是哪里？&quot;&gt;&lt;a href=&quot;#这是哪里？&quot; class=&quot;headerlink&quot; title=&quot;这是哪里？&quot;&gt;&lt;/a&gt;这是哪里？&lt;/h4&gt;&lt;p&gt;欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-      <category term="Github" scheme="https://wqdchn.github.io/tags/Github/"/>
-    
-      <category term="加钱" scheme="https://wqdchn.github.io/tags/%E5%8A%A0%E9%92%B1/"/>
     
   </entry>
   
