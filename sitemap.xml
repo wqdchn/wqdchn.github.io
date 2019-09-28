@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/leetcode-sliding-window-maximum.html</loc>
+    
+    <lastmod>2019-09-28T01:33:32.835Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html</loc>
     
     <lastmod>2019-09-27T10:55:49.650Z</lastmod>
