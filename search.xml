@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>LeetCode第242题Valid Anagram</title>
+      <link href="/leetcode-valid-anagram.html"/>
+      <url>/leetcode-valid-anagram.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Valid-Anagram"><a href="#Valid-Anagram" class="headerlink" title="Valid Anagram"></a>Valid Anagram</h4><p><a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="noopener">Valid Anagram</a>给出两个字符串s和t，查看字符串t是否是字符串s的异位词。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: s = “anagram”, t = “nagaram”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: s = “rat”, t = “car”<br>Output: false</p></blockquote><p>这一题很简单，只需要用哈希的方法来解决，我们使用一个一维数组，数组的长度是26，里面我们存放26个字母的计数，如果字符c同时存在与字符串s与字符串t中，则该字符在数组中+1再-1记为零，只要数组中存在不为零的元素，则字符串s和字符串t不是有效的异位词。</p><p>还可以使用字符数组排序的方法，如果字符串s和字符串t是有效异位词，那么两者包含的字符在唯一性上是相等的，排序后的序列也必定相等。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">class Solution {    public boolean isAnagram(String s, String t) {        if (s.length() != t.length()) return false;        int[] counter = new int[26];        for (int i = 0; i &lt; s.length(); i++) {            counter[s.charAt(i) - &#39;a&#39;]++;            counter[t.charAt(i) - &#39;a&#39;]--;        }        for (int count : counter) {            if (count != 0) {                return false;            }        }        return true;    }    public boolean isAnagram(String s, String t) {        if (s.length() != t.length()) {            return false;        }        char[] str1 = s.toCharArray();        char[] str2 = t.toCharArray();        Arrays.sort(str1);        Arrays.sort(str2);        return Arrays.equals(str1, str2);    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python">class Solution:    def isAnagram(self, s: str, t: str) -&gt; bool:        if len(s) != len(t): return False        count = collections.defaultdict(int)        for c in s:            count[c] += 1        for c in t:            count[c] -= 1            if count[c] &lt; 0:                return False        return True</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第242题是简单题，冲鸭！</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 哈希表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第239题Sliding Window Maximum</title>
       <link href="/leetcode-sliding-window-maximum.html"/>
       <url>/leetcode-sliding-window-maximum.html</url>
@@ -17,7 +42,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -44,7 +69,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -71,7 +96,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -96,7 +121,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -121,7 +146,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -146,7 +171,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -171,7 +196,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -196,7 +221,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -221,7 +246,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -246,7 +271,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -271,7 +296,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -296,7 +321,7 @@
       
         <tags>
             
-            <tag> leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> 编程 </tag>
             
@@ -581,13 +606,6 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -598,6 +616,13 @@
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
