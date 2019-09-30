@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>LeetCode第236题Lowest Common Ancestor of a Binary Tree</title>
+      <link href="/leetcode-lowest-common-ancestor-of-a-binary-tree.html"/>
+      <url>/leetcode-lowest-common-ancestor-of-a-binary-tree.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>给定二叉树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="Lowest Common Ancestor of a Binary Tree Example1"></p><blockquote><p>Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1<br>Output: 3<br>Explanation: The LCA of nodes 5 and 1 is 3.</p></blockquote><p>如何寻找最近公共祖先呢，我们可以通过遍历目标结点q和p的路径，得到其中重合的最近的部分，这很直接，比较好理解。这里我们使用递归的方式来遍历，从根节点开始分别遍历左右子树，如果目标结点仅存在于左子树内，那么最近公共节点必然位于左子树内，如果目标结点同时存在于左右子树内，那么最近公共节点必然是根节点。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        if (root == null || root == p || root == q) return root;        TreeNode left = lowestCommonAncestor(root.left, p, q);        TreeNode right = lowestCommonAncestor(root.right, p, q);        return left == null ? right : right == null ? left : root;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q)        if root in {None, p, q}:            return root        left = self.lowestCommonAncestor(root.left, p, q)        right = self.lowestCommonAncestor(root.right, p, q)        return root if (left and right) else (left or right)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第236题是中等题，利用二叉树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 树 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第242题Valid Anagram</title>
       <link href="/leetcode-valid-anagram.html"/>
       <url>/leetcode-valid-anagram.html</url>
@@ -606,6 +633,13 @@
     </entry>
     
     <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -616,13 +650,6 @@
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
