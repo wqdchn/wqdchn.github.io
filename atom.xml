@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-09-30T00:48:32.694Z</updated>
+  <updated>2019-10-04T13:50:03.450Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019年国庆节</title>
+    <link href="https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html"/>
+    <id>https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html</id>
+    <published>2019-10-04T12:24:51.000Z</published>
+    <updated>2019-10-04T13:50:03.450Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="国庆节"><a href="#国庆节" class="headerlink" title="国庆节"></a>国庆节</h4><p>今年的国庆节似乎有些特别，从大面上来说，我感受到非常高涨的热情，无论是朋友圈还是微博，也许是这一年发生太多以往没有发生的事，让普通群众们了解到了周边生活之外的零零碎碎，激发起了内心朴素的那一份感情：希望这个国家好。当然，我也清楚地知道，恨不得这个国家立即从地球上消失的也大有人在，怎么说呢，求同存异吧，我认为对于普通人来说，只要过好手头的日子，做好自己的工作，爱护自己的家人朋友，就是最大的爱国。别的嘛，牢骚太盛防肠断，风物长宜放眼量。我相信未来会越来越好，从深渊回望，莫回头，莫回头。</p><p>今年的国庆阅兵、群众游行、国庆联欢晚会三部曲都非常出乎我的意料，实在是太惊喜了，组织度这么高，组织能力这么强足以说明我国的体制在集中力量办大事这方面有着无与匹敌的优势，只要方向正确，中国人民总是能干出惊天动地的事业，这一点，从我中国人民解放军军史上就有许多明证。例如阅兵中给我印象最深刻的就是战旗方队，一百面英雄的旗帜，无数英勇的先烈们。其中有些部队本身可能出身于解放战争后期国民党方面的队伍，战斗力差，战斗意志弱，而起义、投诚、收编到了解放军中之后，仿佛脱胎换骨一般，这里面岂无值得深思的地方？</p><p>祝愿伟大祖国繁荣昌盛，期待建国一百周年，那时候的世界，又会是怎样一番天地呢。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;国庆节&quot;&gt;&lt;a href=&quot;#国庆节&quot; class=&quot;headerlink&quot; title=&quot;国庆节&quot;&gt;&lt;/a&gt;国庆节&lt;/h4&gt;&lt;p&gt;今年的国庆节似乎有些特别，从大面上来说，我感受到非常高涨的热情，无论是朋友圈还是微博，也许是这一
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+    
+      <category term="时事" scheme="https://wqdchn.github.io/tags/%E6%97%B6%E4%BA%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第236题Lowest Common Ancestor of a Binary Tree</title>
@@ -587,38 +615,6 @@
       <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
     
       <category term="女权" scheme="https://wqdchn.github.io/tags/%E5%A5%B3%E6%9D%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>再见二零一八</title>
-    <link href="https://wqdchn.github.io/goodbye-2018.html"/>
-    <id>https://wqdchn.github.io/goodbye-2018.html</id>
-    <published>2018-12-31T14:11:03.000Z</published>
-    <updated>2019-06-22T06:21:01.531Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="久违的更新"><a href="#久违的更新" class="headerlink" title="久违的更新"></a>久违的更新</h4><p>这半年来遇到了许多人许多事，以至于我无暇顾及这个博客，违背了初心实在有些内疚，一声叹息。2018年马上就要过去，新的一年祝愿爱我的人和我爱的人平安喜乐，万事如意。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;久违的更新&quot;&gt;&lt;a href=&quot;#久违的更新&quot; class=&quot;headerlink&quot; title=&quot;久违的更新&quot;&gt;&lt;/a&gt;久违的更新&lt;/h4&gt;&lt;p&gt;这半年来遇到了许多人许多事，以至于我无暇顾及这个博客，违背了初心实在有些内疚，一
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-      <category term="成长" scheme="https://wqdchn.github.io/tags/%E6%88%90%E9%95%BF/"/>
-    
-      <category term="新年" scheme="https://wqdchn.github.io/tags/%E6%96%B0%E5%B9%B4/"/>
-    
-      <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
     
   </entry>
   
