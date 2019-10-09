@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-10-05T02:33:47.570Z</updated>
+  <updated>2019-10-09T03:17:41.008Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第235题Lowest Common Ancestor of a Binary Search Tree</title>
+    <link href="https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html"/>
+    <id>https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html</id>
+    <published>2019-10-09T02:23:53.000Z</published>
+    <updated>2019-10-09T03:17:41.008Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Search-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Search Tree"></a>Lowest Common Ancestor of a Binary Search Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Search Tree</a>给定一个二叉<strong>搜索</strong>树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8<br>Output: 6<br>Explanation: The LCA of nodes 2 and 8 is 6.</p></blockquote><p>这一题和236题<a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>有些相似，二叉搜索树是二叉树的一种，所以236题的解法也适用于这题。特别的是，二叉搜索树中根节点的值大于左子树的节点值，小于右子树的节点值，这是可以利用的一个性质：</p><ul><li>我们记LCA(2,8) = 6，此时节点p和q是2和8，我们将节点值与根节点值6进行比较，发现p和q分别位于根节点左右两侧，此时根节点6是最近祖先。</li><li>我们记LCA(7,9) = 8，此时节点p和q是7和9，我们将节点值与根节点值6进行比较，发现p和q都大于根节点，都位于右子树，于是，我们进入右子树进行遍历，此时原来右子树的根节点8成为新的根节点，继续遍历比较。</li></ul><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        int parentVal = root.val;        int pVal = p.val;        int qVal = q.val;        if (pVal &gt; parentVal &amp;&amp; qVal &gt; parentVal) {            return lowestCommonAncestor(root.right, p, q);        } else if (pVal &lt; parentVal &amp;&amp; qVal &lt; parentVal) {            return lowestCommonAncestor(root.left, p, q);        } else {            return root;        }    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q):        if p.val &lt; root.val &gt; q.val:            return self.lowestCommonAncestor(root.left, p, q)        if p.val &gt; root.val &lt; q.val:            return  self.lowestCommonAncestor(root.right, p, q)        return  root</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第235题是简单题，利用二叉<strong>搜索</strong>树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Lowest-Common-Ancestor-of-a-Binary-Search-Tree&quot;&gt;&lt;a href=&quot;#Lowest-Common-Ancestor-of-a-Binary-Search-Tree&quot; class=&quot;h
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="树" scheme="https://wqdchn.github.io/tags/%E6%A0%91/"/>
+    
+      <category term="二叉树" scheme="https://wqdchn.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年国庆节</title>
@@ -51,9 +83,9 @@
     <link href="https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-tree.html"/>
     <id>https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-tree.html</id>
     <published>2019-09-30T00:19:18.000Z</published>
-    <updated>2019-09-30T00:48:32.694Z</updated>
+    <updated>2019-10-09T02:31:23.294Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>给定二叉树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="Lowest Common Ancestor of a Binary Tree Example1"></p><blockquote><p>Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1<br>Output: 3<br>Explanation: The LCA of nodes 5 and 1 is 3.</p></blockquote><p>如何寻找最近公共祖先呢，我们可以通过遍历目标结点q和p的路径，得到其中重合的最近的部分，这很直接，比较好理解。这里我们使用递归的方式来遍历，从根节点开始分别遍历左右子树，如果目标结点仅存在于左子树内，那么最近公共节点必然位于左子树内，如果目标结点同时存在于左右子树内，那么最近公共节点必然是根节点。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        if (root == null || root == p || root == q) return root;        TreeNode left = lowestCommonAncestor(root.left, p, q);        TreeNode right = lowestCommonAncestor(root.right, p, q);        return left == null ? right : right == null ? left : root;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q)        if root in {None, p, q}:            return root        left = self.lowestCommonAncestor(root.left, p, q)        right = self.lowestCommonAncestor(root.right, p, q)        return root if (left and right) else (left or right)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第236题是中等题，利用二叉树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>给定一个二叉树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="Lowest Common Ancestor of a Binary Tree Example1"></p><blockquote><p>Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1<br>Output: 3<br>Explanation: The LCA of nodes 5 and 1 is 3.</p></blockquote><p>如何寻找最近公共祖先呢，我们可以通过遍历目标结点q和p的路径，得到其中重合的最近的部分，这很直接，比较好理解。这里我们使用递归的方式来遍历，从根节点开始分别遍历左右子树，如果目标结点仅存在于左子树内，那么最近公共节点必然位于左子树内，如果目标结点同时存在于左右子树内，那么最近公共节点必然是根节点。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        if (root == null || root == p || root == q) return root;        TreeNode left = lowestCommonAncestor(root.left, p, q);        TreeNode right = lowestCommonAncestor(root.right, p, q);        return left == null ? right : right == null ? left : root;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q)        if root in {None, p, q}:            return root        left = self.lowestCommonAncestor(root.left, p, q)        right = self.lowestCommonAncestor(root.right, p, q)        return root if (left and right) else (left or right)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第236题是中等题，利用二叉树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
     
     <summary type="html">
     
@@ -587,36 +619,6 @@
       <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
     
       <category term="电影" scheme="https://wqdchn.github.io/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>你好，三月九日</title>
-    <link href="https://wqdchn.github.io/womens-right.html"/>
-    <id>https://wqdchn.github.io/womens-right.html</id>
-    <published>2019-03-09T11:42:05.000Z</published>
-    <updated>2019-06-23T06:48:26.452Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="国际劳动妇女节"><a href="#国际劳动妇女节" class="headerlink" title="国际劳动妇女节"></a>国际劳动妇女节</h4><p>昨天是三月八号，国际劳动妇女节，这是各国女性为女性权益斗阵的胜利纪念日，本文的附图来自当天的Google首页涂鸦，永远不要被他人有限的想象力所束缚，特别是我们的女同胞们，要为争取平等的权益战斗到底。</p><p>微博上看到许多关于三月八号妇女节女王节女女神节，乃至三月七号女生节的讨论，很多人清醒的认识到用消费主义陷阱掩盖这个节日的战斗意义是有多么的无耻，不幸的是也有一部分人持“事多儿”、“有什么关系”、“吵来吵去烦不烦”等态度对这些内容冷眼相看，其中有部分人甚至是女生，这实在是一种悲哀，尤其是在这些烦不烦的人是在为了你的权益斗争的时候。</p><p>我始终相信，女性的地位不是男人嘴里的一句女王大人、女神大人就能提高的，平等是权益，不是怜悯，是理所应当不是恻隐之心，女性的地位只来自女性群体的平均受教育水平和平均收入水平，只有这样才能让女性保持独立和自由，这样才能让女性争取公平和正义。</p><p>我们的女同胞们要擦亮眼睛，小心吹捧，戴高帽不解决本质问题，这是一个光荣的节日，是流血牺牲换来的胜利日，不是听两句便宜的好话就疯狂掏钱的购物节，从某种意义上讲，正是有前人前赴后继的斗争为女性得来了受教育权、劳动权等等一系列权利，前人栽树后人乘凉，到今天，才有这些精明的商家愿意为了你口袋里的钱设计种种甜言蜜语，一定要分得清辨得明。</p><p>当然，我同意为心爱的女性同胞送花送礼物，这不冲突^_^</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote><p><a href="http://www.un.org/zh/events/womensday/background.shtml" target="_blank" rel="noopener">联合国·国际妇女节</a><br><a href="https://zh.wikipedia.org/wiki/%E5%9B%BD%E9%99%85%E5%A6%87%E5%A5%B3%E8%8A%82" target="_blank" rel="noopener">维基百科·国际妇女节</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;国际劳动妇女节&quot;&gt;&lt;a href=&quot;#国际劳动妇女节&quot; class=&quot;headerlink&quot; title=&quot;国际劳动妇女节&quot;&gt;&lt;/a&gt;国际劳动妇女节&lt;/h4&gt;&lt;p&gt;昨天是三月八号，国际劳动妇女节，这是各国女性为女性权益斗阵的胜利
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-      <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
-    
-      <category term="女权" scheme="https://wqdchn.github.io/tags/%E5%A5%B3%E6%9D%83/"/>
     
   </entry>
   

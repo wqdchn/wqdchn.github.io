@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>LeetCode第235题Lowest Common Ancestor of a Binary Search Tree</title>
+      <link href="/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html"/>
+      <url>/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Search-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Search Tree"></a>Lowest Common Ancestor of a Binary Search Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Search Tree</a>给定一个二叉<strong>搜索</strong>树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8<br>Output: 6<br>Explanation: The LCA of nodes 2 and 8 is 6.</p></blockquote><p>这一题和236题<a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>有些相似，二叉搜索树是二叉树的一种，所以236题的解法也适用于这题。特别的是，二叉搜索树中根节点的值大于左子树的节点值，小于右子树的节点值，这是可以利用的一个性质：</p><ul><li>我们记LCA(2,8) = 6，此时节点p和q是2和8，我们将节点值与根节点值6进行比较，发现p和q分别位于根节点左右两侧，此时根节点6是最近祖先。</li><li>我们记LCA(7,9) = 8，此时节点p和q是7和9，我们将节点值与根节点值6进行比较，发现p和q都大于根节点，都位于右子树，于是，我们进入右子树进行遍历，此时原来右子树的根节点8成为新的根节点，继续遍历比较。</li></ul><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        int parentVal = root.val;        int pVal = p.val;        int qVal = q.val;        if (pVal &gt; parentVal &amp;&amp; qVal &gt; parentVal) {            return lowestCommonAncestor(root.right, p, q);        } else if (pVal &lt; parentVal &amp;&amp; qVal &lt; parentVal) {            return lowestCommonAncestor(root.left, p, q);        } else {            return root;        }    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q):        if p.val &lt; root.val &gt; q.val:            return self.lowestCommonAncestor(root.left, p, q)        if p.val &gt; root.val &lt; q.val:            return  self.lowestCommonAncestor(root.right, p, q)        return  root</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第235题是简单题，利用二叉<strong>搜索</strong>树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 树 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>2019年国庆节</title>
       <link href="/national-day-of-the-people-s-republic-of-china.html"/>
       <url>/national-day-of-the-people-s-republic-of-china.html</url>
@@ -31,7 +58,7 @@
       <title>LeetCode第236题Lowest Common Ancestor of a Binary Tree</title>
       <link href="/leetcode-lowest-common-ancestor-of-a-binary-tree.html"/>
       <url>/leetcode-lowest-common-ancestor-of-a-binary-tree.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>给定二叉树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="Lowest Common Ancestor of a Binary Tree Example1"></p><blockquote><p>Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1<br>Output: 3<br>Explanation: The LCA of nodes 5 and 1 is 3.</p></blockquote><p>如何寻找最近公共祖先呢，我们可以通过遍历目标结点q和p的路径，得到其中重合的最近的部分，这很直接，比较好理解。这里我们使用递归的方式来遍历，从根节点开始分别遍历左右子树，如果目标结点仅存在于左子树内，那么最近公共节点必然位于左子树内，如果目标结点同时存在于左右子树内，那么最近公共节点必然是根节点。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        if (root == null || root == p || root == q) return root;        TreeNode left = lowestCommonAncestor(root.left, p, q);        TreeNode right = lowestCommonAncestor(root.right, p, q);        return left == null ? right : right == null ? left : root;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q)        if root in {None, p, q}:            return root        left = self.lowestCommonAncestor(root.left, p, q)        right = self.lowestCommonAncestor(root.right, p, q)        return root if (left and right) else (left or right)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第236题是中等题，利用二叉树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Lowest-Common-Ancestor-of-a-Binary-Tree"><a href="#Lowest-Common-Ancestor-of-a-Binary-Tree" class="headerlink" title="Lowest Common Ancestor of a Binary Tree"></a>Lowest Common Ancestor of a Binary Tree</h4><p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>给定一个二叉树，找到树中两个给定结点的最近公共祖先结点<a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" target="_blank" rel="noopener">LCA</a>。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" alt="Lowest Common Ancestor of a Binary Tree Example1"></p><blockquote><p>Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1<br>Output: 3<br>Explanation: The LCA of nodes 5 and 1 is 3.</p></blockquote><p>如何寻找最近公共祖先呢，我们可以通过遍历目标结点q和p的路径，得到其中重合的最近的部分，这很直接，比较好理解。这里我们使用递归的方式来遍历，从根节点开始分别遍历左右子树，如果目标结点仅存在于左子树内，那么最近公共节点必然位于左子树内，如果目标结点同时存在于左右子树内，那么最近公共节点必然是根节点。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {        if (root == null || root == p || root == q) return root;        TreeNode left = lowestCommonAncestor(root.left, p, q);        TreeNode right = lowestCommonAncestor(root.right, p, q);        return left == null ? right : right == null ? left : root;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    def lowestCommonAncestor(self, root, p, q)        if root in {None, p, q}:            return root        left = self.lowestCommonAncestor(root.left, p, q)        right = self.lowestCommonAncestor(root.right, p, q)        return root if (left and right) else (left or right)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第236题是中等题，利用二叉树的性质，通过递归可以写出美感较强的代码，易于阅读。</p>]]></content>
       
       <categories>
           
@@ -644,10 +671,10 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统、Post的内容中引用的源视频可能需要魔法上网才能食用，其余的图片资源挂载于<del><a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上</del>Github仓库上。在访问速度上，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>更新的频率就随缘了，这个网站只为了记录我留下的足迹，这世界，我来过，嘿嘿。另外，当前使用的Hexo主题似乎停止更新了，不知道后续会不会产生兼容性的问题，但是我会尽可能维护破站的<del>只要Github不倒闭</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
@@ -658,16 +685,16 @@
     </entry>
     
     <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统、Post的内容中引用的源视频可能需要魔法上网才能食用，其余的图片资源挂载于<del><a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上</del>Github仓库上。在访问速度上，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>更新的频率就随缘了，这个网站只为了记录我留下的足迹，这世界，我来过，嘿嘿。另外，当前使用的Hexo主题似乎停止更新了，不知道后续会不会产生兼容性的问题，但是我会尽可能维护破站的<del>只要Github不倒闭</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
