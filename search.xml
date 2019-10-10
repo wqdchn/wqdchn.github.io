@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title>LeetCode第111题Minimum Depth of Binary Tree</title>
+      <link href="/leetcode-minimum-depth-of-binary-tree.html"/>
+      <url>/leetcode-minimum-depth-of-binary-tree.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Minimum-Depth-of-Binary-Tree"><a href="#Minimum-Depth-of-Binary-Tree" class="headerlink" title="Minimum Depth of Binary Tree"></a>Minimum Depth of Binary Tree</h4><p><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/" target="_blank" rel="noopener">Minimum Depth of Binary Tree</a>求二叉树的最小深度。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5]<br>Output: 3</p></blockquote><p>二叉树的深度可以通过深度优先搜索和广度优先搜索两种方式来遍历，并记录树的层次。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    // dfs    public int minDepth(TreeNode root) {        if (root == null) return 0;        int left = minDepth(root.left);        int right = minDepth(root.right);        return (left == 0 || right ==0) ? left + right + 1 : Math.min(left, right) + 1;    }    // bfs    public int minDepth(TreeNode root) {        if (root == null) return 0;        Deque&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();        q.add(root);        int depth = 1;        while (!q.isEmpty()){            int size = q.size();            while (size-- &gt; 0){                TreeNode node = q.poll();                if (node.left == null &amp;&amp; node.right == null){                   return depth;                }                if (node.left != null){                    q.offer(node.left);                }                if (node.right != null){                    q.offer(node.right);                }            }            depth++;        }        return depth;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    # dfs    def minDepth(self, root: TreeNode):        if not root:            return 0        if not root.left and not root.right:            return 1        if root.left and not root.right:            return 1 + self.minDepth(root.left)        if root.right and not root.left:            return 1 + self.minDepth(root.right)        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))    # bfs    def minDepth(self, root):        if not root: return 0        q = collections.deque([(root, 1)])        while q:            curr, depth = q.popleft()            if not curr.left and not curr.right:                return depth            if curr.left:                q.append((curr.left, depth + 1))            if curr.right:                q.append((curr.right, depth + 1))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第111题是简单题，只需熟悉二叉树的深度优先搜索与广度优先搜索，并记录对应的层次即可。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 树 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 广度优先搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第235题Lowest Common Ancestor of a Binary Search Tree</title>
       <link href="/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html"/>
       <url>/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html</url>
@@ -671,6 +702,13 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统、Post的内容中引用的源视频可能需要魔法上网才能食用，其余的图片资源挂载于<del><a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上</del>Github仓库上。在访问速度上，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>更新的频率就随缘了，这个网站只为了记录我留下的足迹，这世界，我来过，嘿嘿。另外，当前使用的Hexo主题似乎停止更新了，不知道后续会不会产生兼容性的问题，但是我会尽可能维护破站的<del>只要Github不倒闭</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+    </entry>
+    
+    <entry>
       <title>友链</title>
       <link href="/links/index.html"/>
       <url>/links/index.html</url>
@@ -678,17 +716,10 @@
     </entry>
     
     <entry>
-      <title>图库</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="破站吃枣药丸？"><a href="#破站吃枣药丸？" class="headerlink" title="破站吃枣药丸？"></a>破站吃枣药丸？</h4><p>本站是挂载在Github Pages上的一个静态博客，由于某不科学的原因，该博客在兼容国内外互联网资源上存在一定差异，因此特别提示，破站的评论系统、Post的内容中引用的源视频可能需要魔法上网才能食用，其余的图片资源挂载于<del><a href="https://a.photo" target="_blank" rel="noopener">a.photo</a>图床服务上</del>Github仓库上。在访问速度上，之前折腾过一次，给我累够呛，所以域名是不可能域名，备案是不可能备案的，破站还是安安静静的挂在Github上好了，这样一来由于Github受到某不科学的干扰，在国内的访问存在一定<del>很大</del>影响，如果破站加载速度感人那我也没办法啦<del>就不会加钱吗，加钱啊，加钱上CDN</del>。</p><p>更新的频率就随缘了，这个网站只为了记录我留下的足迹，这世界，我来过，嘿嘿。另外，当前使用的Hexo主题似乎停止更新了，不知道后续会不会产生兼容性的问题，但是我会尽可能维护破站的<del>只要Github不倒闭</del>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
     </entry>
     
     <entry>
@@ -699,9 +730,9 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>图库</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     

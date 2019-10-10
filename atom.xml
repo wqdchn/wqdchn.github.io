@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-10-09T03:17:41.008Z</updated>
+  <updated>2019-10-10T05:32:54.453Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第111题Minimum Depth of Binary Tree</title>
+    <link href="https://wqdchn.github.io/leetcode-minimum-depth-of-binary-tree.html"/>
+    <id>https://wqdchn.github.io/leetcode-minimum-depth-of-binary-tree.html</id>
+    <published>2019-10-10T05:14:13.000Z</published>
+    <updated>2019-10-10T05:32:54.453Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Minimum-Depth-of-Binary-Tree"><a href="#Minimum-Depth-of-Binary-Tree" class="headerlink" title="Minimum Depth of Binary Tree"></a>Minimum Depth of Binary Tree</h4><p><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/" target="_blank" rel="noopener">Minimum Depth of Binary Tree</a>求二叉树的最小深度。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5]<br>Output: 3</p></blockquote><p>二叉树的深度可以通过深度优先搜索和广度优先搜索两种方式来遍历，并记录树的层次。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    // dfs    public int minDepth(TreeNode root) {        if (root == null) return 0;        int left = minDepth(root.left);        int right = minDepth(root.right);        return (left == 0 || right ==0) ? left + right + 1 : Math.min(left, right) + 1;    }    // bfs    public int minDepth(TreeNode root) {        if (root == null) return 0;        Deque&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();        q.add(root);        int depth = 1;        while (!q.isEmpty()){            int size = q.size();            while (size-- &gt; 0){                TreeNode node = q.poll();                if (node.left == null &amp;&amp; node.right == null){                   return depth;                }                if (node.left != null){                    q.offer(node.left);                }                if (node.right != null){                    q.offer(node.right);                }            }            depth++;        }        return depth;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    # dfs    def minDepth(self, root: TreeNode):        if not root:            return 0        if not root.left and not root.right:            return 1        if root.left and not root.right:            return 1 + self.minDepth(root.left)        if root.right and not root.left:            return 1 + self.minDepth(root.right)        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))    # bfs    def minDepth(self, root):        if not root: return 0        q = collections.deque([(root, 1)])        while q:            curr, depth = q.popleft()            if not curr.left and not curr.right:                return depth            if curr.left:                q.append((curr.left, depth + 1))            if curr.right:                q.append((curr.right, depth + 1))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第111题是简单题，只需熟悉二叉树的深度优先搜索与广度优先搜索，并记录对应的层次即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Minimum-Depth-of-Binary-Tree&quot;&gt;&lt;a href=&quot;#Minimum-Depth-of-Binary-Tree&quot; class=&quot;headerlink&quot; title=&quot;Minimum Depth of B
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="树" scheme="https://wqdchn.github.io/tags/%E6%A0%91/"/>
+    
+      <category term="二叉树" scheme="https://wqdchn.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="广度优先搜索" scheme="https://wqdchn.github.io/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第235题Lowest Common Ancestor of a Binary Search Tree</title>
@@ -588,37 +624,6 @@
       <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
     
       <category term="时事" scheme="https://wqdchn.github.io/tags/%E6%97%B6%E4%BA%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>清明和春日</title>
-    <link href="https://wqdchn.github.io/qingming-and-spring.html"/>
-    <id>https://wqdchn.github.io/qingming-and-spring.html</id>
-    <published>2019-04-06T11:50:36.000Z</published>
-    <updated>2019-06-22T06:17:20.398Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><!-- more --><h4 id="清明节"><a href="#清明节" class="headerlink" title="清明节"></a>清明节</h4><p>小时候喜欢清明节，因为小孩还不懂得生死，只知道每年到这个时候要给祖先们拜拜，大家聚在一起还会有好吃的东西分，在山上也很新奇，上山的路上风光亮眼，还有小溪，走累了捧一把清水洗洗脸歇一歇，有时捉捉鱼虾，老家还有几片竹林，大人们会乘着时节去采挖竹笋，小孩子们挥不动锄头，不过还可以拿草刀劈几根竹子玩一玩，甚有乐趣。而如今却有些怕清明节，长辈们一年年老去，祖辈也大多离开了人世，心中难免感慨，不愿意多想，借用一句诗：故园肠断处，日夜柳条新。</p><h4 id="一部悬疑片"><a href="#一部悬疑片" class="headerlink" title="一部悬疑片"></a>一部悬疑片</h4><p>三天小长假，没有回家去拜山，我想着端午节再回家好了，下午去看了一部印度的烧脑片《调音师》，虽然是翻拍，但是给我非常新奇的感受，别的不说，印度的音乐的确很有特色。</p><p>男主阿卡什本身是一个有音乐梦想的钢琴师，或者说艺术家，艺术家都有疯狂的点子，他为了好玩为了试验而假扮盲人钢琴师，他以为这样可以变得专注，的确他弹得曲子很动听。</p><p>他的现实身份是一个普通的盲人，却不幸目睹了杀人案，他想告发但是对方能量太强大了，他想假装没看见但是对方要灭他口，剧情在这里纠结往复，跌宕起伏，不断高潮和反转。</p><p>结尾的地方，阿卡什去到了他念念不忘的伦敦，还在那里遇到了女主，我本以为这是一个劝人正向的大团圆结尾，谁料最后才是高潮，阿卡什告诉女主自己没有拿走一千万和眼角膜，自己真的变成了盲人，女主好像是相信了，对阿卡什说如果我是你，我就…阿卡什打断了她的话，接过了服务员递过来的兔头拐杖，这里有一个细节，服务员问先生这是不是你的手杖，阿卡什还没上手摸到手杖就直接回答是，而后两人分离，阿卡什在路过一个转角的时候非常懊恼地一棍子扫飞了眼前的易拉罐！电影在这里终结。</p><p>我的天，他到底有没有说真话，他是不是他告诉女主的那个故事里的温柔的阿卡什，或者说他还是拿走了一千万和眼角膜，全片只有女主一个是普通人是好人，其他人都或多或少作了恶，而阿卡什，从一个假扮盲人的普通人真的变成了盲人，他会愤怒，他会恐惧，当有一千万可以让他逃离这个是非之地，当有一个眼角膜可以让他恢复光明，而他要做的只是在报复仇人的同时获得这些东西，他到底做了什么？电影最后留下了一个想象的空间。</p><p>全片剧情非常紧凑，笑中有泪，只想说卧槽，我觉得应该叫它《节奏大师》</p><h4 id="春日"><a href="#春日" class="headerlink" title="春日"></a>春日</h4><p>四月的杭州，风光非常美丽，游人如织，阳光明媚的日子里整个世界都变得明亮而温暖，从古至今每一年都是这样吗？那也太美妙了，不知道我能看到几时啊，我好爱。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;!-- more --&gt;
-&lt;h4 id=&quot;清明节&quot;&gt;&lt;a href=&quot;#清明节&quot; class=&quot;headerlink&quot; title=&quot;清明节&quot;&gt;&lt;/a&gt;清明节&lt;/h4&gt;&lt;p&gt;小时候喜欢清明节，因为小孩还不懂得生死，只知道每年到这个时候要给祖先
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-      <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
-    
-      <category term="电影" scheme="https://wqdchn.github.io/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   

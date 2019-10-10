@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/leetcode-minimum-depth-of-binary-tree.html</loc>
+    
+    <lastmod>2019-10-10T05:32:54.453Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html</loc>
     
     <lastmod>2019-10-09T03:17:41.008Z</lastmod>
