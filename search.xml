@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title>LeetCode第104题Maximum Depth of Binary Tree</title>
+      <link href="/leetcode-maximum-depth-of-binary-tree.html"/>
+      <url>/leetcode-maximum-depth-of-binary-tree.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Maximum-Depth-of-Binary-Tree"><a href="#Maximum-Depth-of-Binary-Tree" class="headerlink" title="Maximum Depth of Binary Tree"></a>Maximum Depth of Binary Tree</h4><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">Maximum Depth of Binary Tree</a>求二叉树的最大深度。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5]<br>Output: 4</p></blockquote><p>二叉树的深度可以通过深度优先搜索和广度优先搜索两种方式来遍历，并记录树的层次。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    // dfs    public int maxDepth(TreeNode root) {        return root == null ? 0 : 1 + Math.max(maxDepth(root.left),maxDepth(root.right));    }    // bfs    public int maxDepth(TreeNode root) {        if (root == null) return 0;        Deque&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();        q.add(root);        int depth = 0;        while (!q.isEmpty()){            int size = q.size();            while (size-- &gt; 0){                TreeNode node = q.poll();                if (node.left != null){                    q.offer(node.left);                }                if (node.right != null){                    q.offer(node.right);                }            }            depth++;        }        return depth;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    # dfs    def maxDepth(self, root: TreeNode) -&gt; int:        if not root: return 0        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))    # bfs    def maxDepth(self, root):        if not root: return 0        q = collections.deque([(root, 1)])        while q:            curr, depth = q.popleft()            if not curr.left and not curr.right and not q:                return depth            if curr.left:                q.append((curr.left, depth + 1))            if curr.right:                q.append((curr.right, depth + 1))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第104题是简单题，只需熟悉二叉树的深度优先搜索与广度优先搜索，并记录对应的层次即可。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 编程 </tag>
+            
+            <tag> 深度优先搜索 </tag>
+            
+            <tag> 树 </tag>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 广度优先搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode第111题Minimum Depth of Binary Tree</title>
       <link href="/leetcode-minimum-depth-of-binary-tree.html"/>
       <url>/leetcode-minimum-depth-of-binary-tree.html</url>
@@ -709,9 +740,9 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>图库</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -723,16 +754,16 @@
     </entry>
     
     <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>图库</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     

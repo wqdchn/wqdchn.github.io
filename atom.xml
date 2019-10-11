@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-10-10T05:32:54.453Z</updated>
+  <updated>2019-10-11T07:18:49.934Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第104题Maximum Depth of Binary Tree</title>
+    <link href="https://wqdchn.github.io/leetcode-maximum-depth-of-binary-tree.html"/>
+    <id>https://wqdchn.github.io/leetcode-maximum-depth-of-binary-tree.html</id>
+    <published>2019-10-11T07:12:39.000Z</published>
+    <updated>2019-10-11T07:18:49.934Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Maximum-Depth-of-Binary-Tree"><a href="#Maximum-Depth-of-Binary-Tree" class="headerlink" title="Maximum Depth of Binary Tree"></a>Maximum Depth of Binary Tree</h4><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">Maximum Depth of Binary Tree</a>求二叉树的最大深度。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p><img src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" alt="Lowest Common Ancestor of a Binary Search Tree Example1"></p><blockquote><p>Input: root = [6,2,8,0,4,7,9,null,null,3,5]<br>Output: 4</p></blockquote><p>二叉树的深度可以通过深度优先搜索和广度优先搜索两种方式来遍历，并记录树的层次。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p><pre><code class="Java">/** * Definition for a binary tree node. * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */class Solution {    // dfs    public int maxDepth(TreeNode root) {        return root == null ? 0 : 1 + Math.max(maxDepth(root.left),maxDepth(root.right));    }    // bfs    public int maxDepth(TreeNode root) {        if (root == null) return 0;        Deque&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();        q.add(root);        int depth = 0;        while (!q.isEmpty()){            int size = q.size();            while (size-- &gt; 0){                TreeNode node = q.poll();                if (node.left != null){                    q.offer(node.left);                }                if (node.right != null){                    q.offer(node.right);                }            }            depth++;        }        return depth;    }}</code></pre><p>下面是Python的代码：</p><pre><code class="Python"># Definition for a binary tree node.# class TreeNode:#     def __init__(self, x):#         self.val = x#         self.left = None#         self.right = Noneclass Solution:    # dfs    def maxDepth(self, root: TreeNode) -&gt; int:        if not root: return 0        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))    # bfs    def maxDepth(self, root):        if not root: return 0        q = collections.deque([(root, 1)])        while q:            curr, depth = q.popleft()            if not curr.left and not curr.right and not q:                return depth            if curr.left:                q.append((curr.left, depth + 1))            if curr.right:                q.append((curr.right, depth + 1))</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第104题是简单题，只需熟悉二叉树的深度优先搜索与广度优先搜索，并记录对应的层次即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Maximum-Depth-of-Binary-Tree&quot;&gt;&lt;a href=&quot;#Maximum-Depth-of-Binary-Tree&quot; class=&quot;headerlink&quot; title=&quot;Maximum Depth of B
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="树" scheme="https://wqdchn.github.io/tags/%E6%A0%91/"/>
+    
+      <category term="二叉树" scheme="https://wqdchn.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="广度优先搜索" scheme="https://wqdchn.github.io/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第111题Minimum Depth of Binary Tree</title>
@@ -596,34 +632,6 @@
     
     
       <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工作996生病ICU</title>
-    <link href="https://wqdchn.github.io/996-icu.html"/>
-    <id>https://wqdchn.github.io/996-icu.html</id>
-    <published>2019-04-13T02:45:22.000Z</published>
-    <updated>2019-06-22T06:06:38.817Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="996ICU"><a href="#996ICU" class="headerlink" title="996ICU"></a>996ICU</h4><p>之前关于996ICU的讨论已经非常引人注目，996ICU的Github仓库已经有了21万的Star，这两天马云和刘强东又有相关的表态，更是引起新的议论。所谓的「996」就是每天早上9点到岗，工作到晚上9点，每周工作6天的一种工作制，显然，这是违反《劳动法》的，但是由于特殊的国情，这种违法现象非常的普遍。</p><p>996ICU的背后确实很复杂，企业和社会之间的博弈，老板和员工之间的博弈，员工之间的博弈，员工自身精神与肉体之间的博弈，但是归结到底还是「钱」的问题。</p><p>我想如果能给到相应的薪酬水平，大部分人是愿意接受996的，因为大部分人都是普通人，是被生活中的柴米油盐围绕着、被房车压迫着的普通人，大家都太需要钱了，尽管我还是认为996是一种不健康的行业生态。从这种层面上来说，工作只是「谋生」的手段，什么改变世界，创造未来对于大部分人都太遥远而缥缈了。</p><p>而当资本家们拿出这套「996才是拼搏」的说辞的时候，似乎有很多人愿意捧着，我不觉得这部分人他们是不明白背后的故事，只是现实不得不低头罢了吧。以我浅薄的看法，我觉得这也不要紧，为了家庭嘛，但是如果因此长起志气为资本家冲锋陷阵去和同僚们斗起法来博一个幸进，恐怕是有点扭曲了。</p><p>同样的，我看到一些让我唏嘘的言论，比如某些科研工作者，居然说「996居然能引起热议，我们科研民工都是XXX的」之类的话，如果是单纯的调侃，我觉得也已经到了边界，同样是被剥削，为什么要因为剥削的程度不同分起等级来仿佛要论个高下呢？书都读到狗肚子里了吗？</p><p>我相信老板们也有很多苦衷，员工们也有很多苦衷，那么和解的方式应该是法律，这是人类社会有关契约最大的公约数吧，所有人都要遵守法律，这样想好像又太幼稚了，如果《劳动法》真的在所有时候管用，也不会出现996ICU这个词了，法律只能保护大多数人，不能保护所有人，同样的只能在大多数时候保护大多数人，不能在所有时候保护所有人，这个思想好像有点危险，还有点歪楼了，嘿嘿。</p><p>另外就是，未来一段时间走上社会的大部分都是独生子女，家庭结构实在太单薄了，如果他们一人倒下了，背后跟着受罪的是两家年老的父母以及一个新生的家庭，这也是996ICU最恐怖的后果。</p><h4 id="政治课本背后的话"><a href="#政治课本背后的话" class="headerlink" title="政治课本背后的话"></a>政治课本背后的话</h4><p>作为资本家，他只是人格化的资本。他的灵魂就是资本的灵魂。而资本只有一种生活本能，这就是增值自身，获取剩余价值，用自己的不变部分即生产资料尽可能多的吮吸剩余劳动。资本是死劳动，它像吸血鬼一样，只有吮吸活劳动才有生命。</p><p>马克思的剥削理论指出，资本主义剥削是一种典型的市场剥削，这种剥削的存在依赖一定意义上自由、自愿的而非强迫的交换，“自由”的概念包括两种含义：一种是“积极的自由”即实在自由，另一种是“消极的自由”即形式自由。</p><p>实在自由是劳动者的自我实现，是作为自主权的自由，它意味着目标的积极能力；而形式自由则是一种意识形态幻觉，它包括作为消费者的自由、作为生产者的自由以及劳动者在劳动市场中的自由，这种形式是表面现象，而且是骗人是表面现象，罗马的奴隶是由锁链，雇佣工人则由看不见的线系在自己的所有者手里。</p><p>工人在自愿、平等交换的面纱下被迫地、不平等地出卖劳动力。</p><p>高中、大学的政治课堂上还是教了一些有用的东西的吧，书本上那些工人和资本家斗争的历史文字是生动的，直到今天依然没有过时，人类社会有时候还挺可笑的。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote><p><a href="https://996.icu/#/zh_CN" target="_blank" rel="noopener">996.ICU</a><br><a href="https://github.com/996icu/996.ICU" target="_blank" rel="noopener">996ICU的Github仓库</a><br><a href="http://www.cctb.net/llyj/llgc/foreignmarx/201402/t20140224_301628.htm" target="_blank" rel="noopener">剥削是合乎正义的吗</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;996ICU&quot;&gt;&lt;a href=&quot;#996ICU&quot; class=&quot;headerlink&quot; title=&quot;996ICU&quot;&gt;&lt;/a&gt;996ICU&lt;/h4&gt;&lt;p&gt;之前关于996ICU的讨论已经非常引人注目，996ICU的Github仓
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
-    
-      <category term="时事" scheme="https://wqdchn.github.io/tags/%E6%97%B6%E4%BA%8B/"/>
     
   </entry>
   
