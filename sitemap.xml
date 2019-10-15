@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/about/index.html</loc>
+    
+    <lastmod>2019-10-15T11:48:49.606Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-maximum-depth-of-binary-tree.html</loc>
     
     <lastmod>2019-10-11T07:18:49.934Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>https://wqdchn.github.io/cn-dota-best-dota.html</loc>
     
     <lastmod>2019-09-24T03:42:24.586Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wqdchn.github.io/about/index.html</loc>
-    
-    <lastmod>2019-09-21T04:50:17.598Z</lastmod>
     
   </url>
   
