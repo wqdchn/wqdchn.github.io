@@ -45,7 +45,7 @@
     
     <title>
         
-            LeetCode第1题Two Sum | 
+            R语言ggplot2绘图转PDF中文乱码问题 | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content=",LeetCode,编程,哈希表">
+    <meta name="keywords" content=",R语言,ggplot2">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/leetcode-two-sum.html">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/leetcode-two-sum.html">
+    <meta property="og:url" content="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LeetCode第1题Two Sum | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="R语言ggplot2绘图转PDF中文乱码问题 | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta property="og:article:tag" content="LeetCode"> <meta property="og:article:tag" content="编程"> <meta property="og:article:tag" content="哈希表"> 
+    <meta property="og:article:tag" content="R语言"> <meta property="og:article:tag" content="ggplot2"> 
 
     
-        <meta property="article:published_time" content="Thu Sep 12 2019 09:54:13 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 28 2019 11:12:21 GMT+0800">
+        <meta property="article:published_time" content="Sun Oct 20 2019 20:53:49 GMT+0800">
+        <meta property="article:modified_time" content="Sun Oct 20 2019 21:31:02 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/leetcode-two-sum.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://wqdchn.github.io/leetcode-two-sum.html",
-    "headline": "LeetCode第1题Two Sum",
-    "datePublished": "Thu Sep 12 2019 09:54:13 GMT+0800",
-    "dateModified": "Sat Sep 28 2019 11:12:21 GMT+0800",
+    "mainEntityOfPage": "https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html",
+    "headline": "R语言ggplot2绘图转PDF中文乱码问题",
+    "datePublished": "Sun Oct 20 2019 20:53:49 GMT+0800",
+    "dateModified": "Sun Oct 20 2019 21:31:02 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -291,7 +291,7 @@
             "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
         }
     },
-    "keywords": ",LeetCode,编程,哈希表",
+    "keywords": ",R语言,ggplot2",
     "description": "技术,杂谈,三国厨,历史向,Google粉",
 }
 </script>
@@ -365,7 +365,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Two-Sum"><span class="post-toc-number">1.</span> <span class="post-toc-text">Two Sum</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ggplot2与中文乱码的Solution"><span class="post-toc-number">1.</span> <span class="post-toc-text">ggplot2与中文乱码的Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#字体文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">字体文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#showtext包"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">showtext包</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ggplot2绘图带中文"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">ggplot2绘图带中文</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#转换为PDF"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">转换为PDF</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#提醒"><span class="post-toc-number">2.</span> <span class="post-toc-text">提醒</span></a></li></ol>
     </ul>
     
 
@@ -397,7 +397,7 @@
         
     
             <p class="article-headline-p">
-                LeetCode第1题Two Sum
+                R语言ggplot2绘图转PDF中文乱码问题
             </p>
         </div>
 
@@ -416,7 +416,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WenQian Dong</strong>
-        <span>9月 12, 2019</span>
+        <span>10月 20, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -438,7 +438,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACbUlEQVR42u3a3U7DMAwG0L7/S8MtEiz77Py0TKdXiKVdT5BiY/v6+ujrwsPDw8PDw8PDexjviq/fd/3x6Bcrx0+r3vvm3fDw8PCO8N4ctcM1Pz999cVj0quVvXfDw8PDO8lLXm68Zrwyv2tm4/Dw8PCezMth8+EEDw8P77/zqoWJMTV5Mh4eHt4zedVyQy8JTu66rdaCh4eHF/PyJtP5n4/29/Dw8PACXnmkqVXSrabjy4au8PDw8Dbwqi2rpPGfP6G6fVFRAw8PD+84L3+JVY2ucdjISyF4eHh4Z3hJEyt5aB428vGC3p8BDw8P7y7e+PjOh1Dn0/FyKMLDw8PbzIuS1PiLq0XbJBHP3xMPDw/vJG+eWj3E8+HU8ho8PDy8g7zkn/9qeMjT9LzUW06p8fDw8JbyeqnzqrZW/mlzdAAPDw9vGy9pVlXvqibuy7YPDw8PbzNv7SBU/mkvsW7OlOHh4eFt4M38ptowmwkbSeEDDw8P7ySvV5ZdhcyDRKEYgYeHh7eBN9+gyksVvRGu8Uo8PDy887y8dNsrKFQ3Li98lIsReHh4eNt4vaO5GjzmN6IZGPDw8PCW8srjTcUjOxnzmk+s8fDw8E7yeod+r8SQJOu9Z+Lh4eHt5lWv+SZZdcyrXDTBw8PD28yrHsfjL06S9V5SPlWMwMPDw9vAmxmB6g1aVbcyX4+Hh4d3ktdrdOWblYeKjbUWPDw8vJt4MwMHM0WKjUNXeHh4eJt5eZm1F1pyzLKZMjw8PLwWr5oKN4eiimGgPAqGh4eHd4RXLQH0XjdvdFVDER4eHt5J3uddeHh4eHh4eHh4D7i+Aa6kSLSmac+ZAAAAAElFTkSuQmCC">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaklEQVR42u3awW7CMBAEUP7/p9trL9CZdWwCejkhkaR+qZQ1s/v4+erjgYeHh4eHh4eHdzPeIz6Sq/5+++xzcubS2vDw8PCO8P551b78w+3i8vsM14aHh4d3kJe/6J8tNH/dt98ma8PDw8O7P+8ZdcbIz8HDw8P7RF6CmQUceHh4eJ/FS37wJ4FCHmfkj+xQ1oKHh4cX8/KX+PnPR/t7eHh4eAGvHmkKtsJtLNsWg2LoCg8PD28DL38RJy3/lUUn94y273h4eHhHeHkc8PrMWRSbxxxLvxjw8PDwLuXVTaaLBgvyDXQ+xoqHh4d3htcOm+4oJPnjwMPDw7sPr93+Jte2ZaCNP/Dw8PDO89bbTisDrOtFJRodwMPDw7uUl2yp24h2ttw2qqjrHh4eHt6lvNk2ehYu5IOweUSCh4eH9y5eHjSsN8xaWFFU8PDw8Dbz2kAhfxCvz5mNZ9VDV3h4eHibee3t1pv9s+bZP/fEw8PD28xrt8Irja6VuLYoMHh4eHibebNbtMMEbWOs3V7j4eHhneTNxq1msex62YgeDR4eHt6beHkDLC8z66UiCjjw8PDwDvLyJv1scCqJcZPodilrwcPDw9vAa6OKdrnteEFeYPDw8PDO8GYxRF5CVkavkn8DHh4e3nne7HXcBrtJZJwHH3UYgYeHh7eBt3vpbWNsVpDw8PDwzvPacDZZbl4SZqMGw5QaDw8P7028vG2Wl5ZZ1IuHh4f3Wbw2Slgfrjq0pcbDw8O7KIxIXuVFcJAPBJzJWvDw8PBiXhsBtNcmm/K60bWjv4eHh4cX8L7vwMPDw8PDw8PDu8HxC0XDhpJfU5J/AAAAAElFTkSuQmCC">
     
 </ul>
 
@@ -452,7 +452,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/LeetCode/">LeetCode</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/哈希表/">哈希表</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/编程/">编程</a>
+        <a class="post_tag-link" href="/tags/R语言/">R语言</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/ggplot2/">ggplot2</a>
     </ul>
     
 
@@ -471,7 +471,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第1题Two Sum&url=https://wqdchn.github.io/leetcode-two-sum.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=R语言ggplot2绘图转PDF中文乱码问题&url=https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -480,7 +480,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第1题Two Sum&url=https://wqdchn.github.io/leetcode-two-sum.html&via=WenQian Dong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=R语言ggplot2绘图转PDF中文乱码问题&url=https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html&via=WenQian Dong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -512,51 +512,45 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <a id="more"></a>
-<h4 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h4><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a>的题目要求是，给定一个数组和一个目标值，求得数组中两数num1和num2相加等于目标值target的两个数的下标。解法有两种，一是暴力法，一个个比较过来；二是哈希，把数组存在map里，存放的过程中只要发现map里面存有num1对应的目标解num2=target-num1，则返回下标即可。</p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
-<pre><code class="Java">class Solution {
-    public int[] twoSum(int[] nums,int target){
-        int[] result = new int[2];
-        for (int i = 0; i &lt; nums.length; i++){
-            for (int j = i + 1;j &lt; nums.length; j++){
-                if(nums[i] + nums[j] == target){
-                    result[0] = i;
-                    result[1] = j;
-                }
-            }
-        }
-        return result;
-    }
-}
+<h4 id="ggplot2与中文乱码的Solution"><a href="#ggplot2与中文乱码的Solution" class="headerlink" title="ggplot2与中文乱码的Solution"></a>ggplot2与中文乱码的Solution</h4><h5 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h5><p>首先假设你有一个Windows系统，其次进行R语言编程所使用的IDE是RStudio<del>非常好用的开发环境</del>。</p>
+<p>然后在Windows系统中找到中文字体，比如宋体或黑体，再找到一个英文字体，比如Times New Roman。它们大概在C盘的Windows/Fonts路径下。</p>
+<p>找出所需的字体文件，比如宋体的字体文件是simsun.ttc，黑体的字体文件是simhei.ttf，Times New Roman的字体文件是times.ttf。</p>
+<p>找到字体文件就是成功的一半了，然后我把它们随便放到一个地方准备加载。</p>
+<h5 id="showtext包"><a href="#showtext包" class="headerlink" title="showtext包"></a>showtext包</h5><p>然后需要在R中调用showtext包，如果没有这个包，请安装它。</p>
+<pre><code class="R"># 调用showtext包
+library(showtext)
+showtext_auto(enable = TRUE)
+
+# 载入黑体
+font_add(&quot;heiti&quot;, regular = &quot;F:\\font\\simhei.ttf&quot;)
+
+# 载入宋体
+font_add(&quot;songti&quot;, regular = &quot;F:\\font\\simsun.ttc&quot;)
+
+# 载入Times New Roman字体
+font_add(&quot;newrom&quot;, regular = &quot;F:\\font\\times.ttf&quot;)
 </code></pre>
-<pre><code class="Java">class Solution {
-    public int[] twoSum(int[] nums,int target){
-        int[] result = new int[2];
-        Map&lt;Integer,Integer&gt; mp = new HashMap&lt;Integer, Integer&gt;();
-        for (int i  = 0; i &lt; nums.length; i++){
-            if(mp.containsKey(target - nums[i])){
-                result[0] = mp.get(target - nums[i]);
-                result[1] = i;
-                return  result;
-            }
-            mp.put(nums[i],i);
-        }
-        return result;
-    }
-}
+<p>在上面，我们载入了三种字体，并重命名<del>请随意命名</del>后供ggplot2调用。</p>
+<p>注意载入的路径，在Windows下好像要使用反斜杠。</p>
+<p>注意，使用字体的过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p>
+<h5 id="ggplot2绘图带中文"><a href="#ggplot2绘图带中文" class="headerlink" title="ggplot2绘图带中文"></a>ggplot2绘图带中文</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +
+        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +
+        xlab(&quot;Hello World&quot;) + 
+        ylab(&quot;你好世界&quot;)
 </code></pre>
-<p>下面是Python的代码：</p>
-<pre><code class="Python">class Solution:
-    def twoSum(self, nums, target: int):
-        mp = {}
-        for i, x in enumerate(nums):
-            if x in mp:
-                return mp[x], i
-            else:
-                mp[target - x] = i
-        return -1
+<p>在上面的命令中，我们把X轴的字体指定为Times New Roman，Y轴的字体指定为宋体。</p>
+<h5 id="转换为PDF"><a href="#转换为PDF" class="headerlink" title="转换为PDF"></a>转换为PDF</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +
+        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +
+        xlab(&quot;Hello World&quot;) + 
+        ylab(&quot;你好世界&quot;)
+
+ggsave(&quot;Fig_p.pdf&quot;, plot = p)
 </code></pre>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第1题是简单题，迈出了第一步，以后也不要停下噢！</p>
+<p>在上面的命令中，我们把p转换为了PDF。再次提醒，这个过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p>
+<p>然后我们查看一下生成的PDF，应该会得到一个X轴字体是Times New Roman的英文Hello World，Y轴字体是宋体的中文你好世界。</p>
+<p>如果你使用RStudio的图片预览功能，并且尝试Save as PDF，那么可能依然会出现中文乱码问题。</p>
+<p>去试试看吧！</p>
+<h4 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h4><p>上面的内容只能解决文字中不包含中英文混合的情况。如果需要中英文混合，那么可能需要把某两种中英文字体文件合并生成新的字体文件，然后加载进来才行。</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -565,7 +559,7 @@
                             本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/leetcode-two-sum.html">https://wqdchn.github.io/leetcode-two-sum.html</a>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html">https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html</a>
                     </p>
                 </blockquote>
         
@@ -621,8 +615,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://wqdchn.github.io/leetcode-two-sum.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://wqdchn.github.io/leetcode-two-sum.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -671,21 +665,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/leetcode-reverse-integer.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/cn-dota-worst-dota.html" id="post_nav-older" class="next-content">
+        <a href="/leetcode-maximum-depth-of-binary-tree.html" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

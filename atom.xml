@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-10-11T07:18:49.934Z</updated>
+  <updated>2019-10-20T13:31:02.837Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R语言ggplot2绘图转PDF中文乱码问题</title>
+    <link href="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html"/>
+    <id>https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html</id>
+    <published>2019-10-20T12:53:49.000Z</published>
+    <updated>2019-10-20T13:31:02.837Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="ggplot2与中文乱码的Solution"><a href="#ggplot2与中文乱码的Solution" class="headerlink" title="ggplot2与中文乱码的Solution"></a>ggplot2与中文乱码的Solution</h4><h5 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h5><p>首先假设你有一个Windows系统，其次进行R语言编程所使用的IDE是RStudio<del>非常好用的开发环境</del>。</p><p>然后在Windows系统中找到中文字体，比如宋体或黑体，再找到一个英文字体，比如Times New Roman。它们大概在C盘的Windows/Fonts路径下。</p><p>找出所需的字体文件，比如宋体的字体文件是simsun.ttc，黑体的字体文件是simhei.ttf，Times New Roman的字体文件是times.ttf。</p><p>找到字体文件就是成功的一半了，然后我把它们随便放到一个地方准备加载。</p><h5 id="showtext包"><a href="#showtext包" class="headerlink" title="showtext包"></a>showtext包</h5><p>然后需要在R中调用showtext包，如果没有这个包，请安装它。</p><pre><code class="R"># 调用showtext包library(showtext)showtext_auto(enable = TRUE)# 载入黑体font_add(&quot;heiti&quot;, regular = &quot;F:\\font\\simhei.ttf&quot;)# 载入宋体font_add(&quot;songti&quot;, regular = &quot;F:\\font\\simsun.ttc&quot;)# 载入Times New Roman字体font_add(&quot;newrom&quot;, regular = &quot;F:\\font\\times.ttf&quot;)</code></pre><p>在上面，我们载入了三种字体，并重命名<del>请随意命名</del>后供ggplot2调用。</p><p>注意载入的路径，在Windows下好像要使用反斜杠。</p><p>注意，使用字体的过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p><h5 id="ggplot2绘图带中文"><a href="#ggplot2绘图带中文" class="headerlink" title="ggplot2绘图带中文"></a>ggplot2绘图带中文</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +        xlab(&quot;Hello World&quot;) +         ylab(&quot;你好世界&quot;)</code></pre><p>在上面的命令中，我们把X轴的字体指定为Times New Roman，Y轴的字体指定为宋体。</p><h5 id="转换为PDF"><a href="#转换为PDF" class="headerlink" title="转换为PDF"></a>转换为PDF</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +        xlab(&quot;Hello World&quot;) +         ylab(&quot;你好世界&quot;)ggsave(&quot;Fig_p.pdf&quot;, plot = p)</code></pre><p>在上面的命令中，我们把p转换为了PDF。再次提醒，这个过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p><p>然后我们查看一下生成的PDF，应该会得到一个X轴字体是Times New Roman的英文Hello World，Y轴字体是宋体的中文你好世界。</p><p>如果你使用RStudio的图片预览功能，并且尝试Save as PDF，那么可能依然会出现中文乱码问题。</p><p>去试试看吧！</p><h4 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h4><p>上面的内容只能解决文字中不包含中英文混合的情况。如果需要中英文混合，那么可能需要把某两种中英文字体文件合并生成新的字体文件，然后加载进来才行。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;ggplot2与中文乱码的Solution&quot;&gt;&lt;a href=&quot;#ggplot2与中文乱码的Solution&quot; class=&quot;headerlink&quot; title=&quot;ggplot2与中文乱码的Solution&quot;&gt;&lt;/a&gt;ggplo
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="R语言" scheme="https://wqdchn.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="ggplot2" scheme="https://wqdchn.github.io/tags/ggplot2/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第104题Maximum Depth of Binary Tree</title>
@@ -606,32 +634,6 @@
       <category term="老物" scheme="https://wqdchn.github.io/tags/%E8%80%81%E7%89%A9/"/>
     
       <category term="游戏" scheme="https://wqdchn.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>夏日</title>
-    <link href="https://wqdchn.github.io/summer-day.html"/>
-    <id>https://wqdchn.github.io/summer-day.html</id>
-    <published>2019-08-06T11:12:14.000Z</published>
-    <updated>2019-08-06T12:03:28.191Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="夏天的风物"><a href="#夏天的风物" class="headerlink" title="夏天的风物"></a>夏天的风物</h4><p>喜欢夏天，热烈的风，热烈的阳光，那天看到夕阳的余晖，想着这大概是我学生生涯最后一个夏天了吧，一时竟有些伤感。四月份的时候非常期待夏天的杨梅，但是这个夏天的杨梅没有给我特别的欢喜，端午节回家吃的猛了，以至于一晚上红着眼睛没有睡好。真像个什么都没吃过的小孩，喜欢的时候一定要吃干抹净。</p><p>夏天还有什么呢，我好像没有那么喜欢西瓜，大概是因为外公种过西瓜，小时候只记得吃，长大了却容易想起外公，又害怕掉眼泪，就不怎么吃西瓜了。</p><p>夏天最有意思的还是小伙伴，无论是抓鱼、打牌、捉迷藏，还是玩什么，一群人玩的满头大汗，欢喜的异常，这段时光无忧无虑，没有烦恼，除了偶尔埋怨一下太阳太毒，好像没有别的不满意的地方。</p><p>现在好像没有简单的快乐了，每一天和以前一样平淡，但是快乐却没有以前那样容易了。我又在说什么奇怪的话。</p><p>这个夏天，希望会有好运，是一个快乐的夏天。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;夏天的风物&quot;&gt;&lt;a href=&quot;#夏天的风物&quot; class=&quot;headerlink&quot; title=&quot;夏天的风物&quot;&gt;&lt;/a&gt;夏天的风物&lt;/h4&gt;&lt;p&gt;喜欢夏天，热烈的风，热烈的阳光，那天看到夕阳的余晖，想着这大概是我学生生涯最后一
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
     
   </entry>
   
