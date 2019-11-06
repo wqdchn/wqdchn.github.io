@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Oct 09 2019 10:23:53 GMT+0800">
-        <meta property="article:modified_time" content="Wed Oct 09 2019 11:17:41 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:11:20 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html",
     "headline": "LeetCode第235题Lowest Common Ancestor of a Binary Search Tree",
     "datePublished": "Wed Oct 09 2019 10:23:53 GMT+0800",
-    "dateModified": "Wed Oct 09 2019 11:17:41 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:11:20 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -519,10 +519,10 @@
 </blockquote>
 <p>这一题和236题<a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" rel="noopener">Lowest Common Ancestor of a Binary Tree</a>有些相似，二叉搜索树是二叉树的一种，所以236题的解法也适用于这题。特别的是，二叉搜索树中根节点的值大于左子树的节点值，小于右子树的节点值，这是可以利用的一个性质：</p>
 <ul>
-<li>我们记LCA(2,8) = 6，此时节点p和q是2和8，我们将节点值与根节点值6进行比较，发现p和q分别位于根节点左右两侧，此时根节点6是最近祖先。</li>
-<li>我们记LCA(7,9) = 8，此时节点p和q是7和9，我们将节点值与根节点值6进行比较，发现p和q都大于根节点，都位于右子树，于是，我们进入右子树进行遍历，此时原来右子树的根节点8成为新的根节点，继续遍历比较。</li>
+<li>我们记<code>LCA(2,8) = 6</code>，此时节点<code>p</code>和<code>q</code>是2和8，我们将节点值与根节点值6进行比较，发现<code>p</code>和<code>q</code>分别位于根节点左右两侧，此时根节点6是最近祖先。</li>
+<li>我们记<code>LCA(7,9) = 8</code>，此时节点<code>p</code>和<code>q</code>是7和9，我们将节点值与根节点值6进行比较，发现<code>p</code>和<code>q</code>都大于根节点，都位于右子树，于是，我们进入右子树进行遍历，此时原来右子树的根节点8成为新的根节点，继续遍历比较。</li>
 </ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
 <pre><code class="Java">/**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -548,7 +548,7 @@ class Solution {
     }
 }
 </code></pre>
-<p>下面是Python的代码：</p>
+<p>下面是<code>Python</code>的代码：</p>
 <pre><code class="Python"># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

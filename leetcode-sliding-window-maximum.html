@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat Sep 28 2019 08:02:09 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 28 2019 11:12:04 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:13:19 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-sliding-window-maximum.html",
     "headline": "LeetCode第239题Sliding Window Maximum",
     "datePublished": "Sat Sep 28 2019 08:02:09 GMT+0800",
-    "dateModified": "Sat Sep 28 2019 11:12:04 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:13:19 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -512,7 +512,7 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <a id="more"></a>
-<h4 id="Sliding-Window-Maximum"><a href="#Sliding-Window-Maximum" class="headerlink" title="Sliding Window Maximum"></a>Sliding Window Maximum</h4><p><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">Sliding Window Maximum</a>，给定一个数组num，一个大小为k的滑动窗口，该窗口从数组的最左边移到最右边，得出窗口内的最大值。</p>
+<h4 id="Sliding-Window-Maximum"><a href="#Sliding-Window-Maximum" class="headerlink" title="Sliding Window Maximum"></a>Sliding Window Maximum</h4><p><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">Sliding Window Maximum</a>，给定一个数组<code>num</code>，一个大小为<code>k</code>的滑动窗口，该窗口从数组的最左边移到最右边，得出窗口内的最大值。</p>
 <h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote>
 <p>Input: nums = [1,3,-1,-3,5,3,6,7], and k = 3<br>Output: [3,3,5,5,6,7]<br>Explanation: </p>
 </blockquote>
@@ -599,8 +599,8 @@
 </tr>
 </tbody>
 </table>
-<p>这一题和<a href="https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html">Kth Largest Element in a Stream</a>寻找一个整数流中第K大的元素非常相似，也可以使用队列来完成。这里使用一个双端队列，队列中存放当前窗口最大值的数组下标，每当滑动窗口的时候，就记录一次结果。</p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
+<p>这一题和<a href="https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html">Kth Largest Element in a Stream</a>寻找一个整数流中第<code>K</code>大的元素非常相似，也可以使用队列来完成。这里使用一个双端队列<code>Deque</code>，队列中存放当前窗口最大值的数组下标，每当滑动窗口的时候，就记录一次结果。</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
 <pre><code class="Java">class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || k &lt;= 0) return new int[0];
@@ -627,7 +627,7 @@
     }
 }
 </code></pre>
-<p>下面是Python的代码：</p>
+<p>下面是<code>Python</code>的代码：</p>
 <pre><code class="Python">class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -&gt; List[int]:    
         if not nums: return []

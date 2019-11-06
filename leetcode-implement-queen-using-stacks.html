@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Sep 25 2019 18:41:12 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 28 2019 11:11:35 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:10:37 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-implement-queen-using-stacks.html",
     "headline": "LeetCode第232题Implement Queen using Stacks",
     "datePublished": "Wed Sep 25 2019 18:41:12 GMT+0800",
-    "dateModified": "Sat Sep 28 2019 11:11:35 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:10:37 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -516,13 +516,13 @@
 <h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote>
 <p>MyQueue queue = new MyQueue();<br>queue.push(1);<br>queue.push(2);<br>queue.peek();  // returns 1<br>queue.pop();   // returns 1<br>queue.empty(); // returns false</p>
 </blockquote>
-<p>队列的特性是先进先出，栈的特性是先进后出，我们要实现队列的三个操作，分别是push、pop、peek，还有一个队列状态检查empty。可以使用两个栈来实现，分别是input、output，两者的分工非常清楚：</p>
+<p>队列的特性是先进先出，栈的特性是先进后出，我们要实现队列的三个操作，分别是<code>push</code>、<code>pop</code>、<code>peek</code>，还有一个队列状态检查<code>empty</code>。可以使用两个栈来实现，分别是<code>input</code>、<code>output</code>，两者的分工非常清楚：</p>
 <ul>
-<li>所有的push操作，进队列的元素通通丢到input栈中。</li>
-<li>所有的pop、peek操作，出队列的元素通通在output栈中输出。</li>
+<li>所有的<code>push</code>操作，进队列的元素通通丢到<code>input</code>栈中。</li>
+<li>所有的<code>pop</code>、<code>peek</code>操作，出队列的元素通通在<code>output</code>栈中输出。</li>
 <li>状态检查时，只需要检查两个栈是否都为空，如果是，则队列为空。</li>
 </ul>
-<p>需要注意的地方是，两个栈之间如何互相“倒腾”元素。例如我们push了4次得到一个队列[1，2，3，4]，然后pop一次弹出元素[1]，队列中剩下[2，3，4]，我们再往里push元素[5]，得到队列[2，3，4，5]。那么这个过程中，input栈与output栈之间需要“倒腾”一下，4次push很简单，元素通通压入了input栈，此时output栈为空。</p>
+<p>需要注意的地方是，两个栈之间如何互相“倒腾”元素。例如我们<code>push</code>了4次得到一个队列<code>[1，2，3，4]</code>，然后<code>pop</code>一次弹出元素<code>[1]</code>，队列中剩下<code>[2，3，4]</code>，我们再往里<code>push</code>元素<code>[5]</code>，得到队列<code>[2，3，4，5]</code>。那么这个过程中，<code>input</code>栈与<code>output</code>栈之间需要“倒腾”一下，4次<code>push</code>很简单，元素通通压入了<code>input</code>栈，此时<code>output</code>栈为空。</p>
 <table>
 <thead>
 <tr>
@@ -554,7 +554,7 @@
 </tr>
 </tbody>
 </table>
-<p>当我们执行pop时，需要把input栈中的元素“倒腾”到output栈中，再从output栈中pop出栈顶元素，此时input栈为空。</p>
+<p>当我们执行<code>pop</code>时，需要把<code>input</code>栈中的元素“倒腾”到<code>output</code>栈中，再从<code>output</code>栈中pop出栈顶元素，此时<code>input</code>栈为空。</p>
 <table>
 <thead>
 <tr>
@@ -586,7 +586,7 @@
 </tr>
 </tbody>
 </table>
-<p>再往队列中push元素[5]时，需要把output栈中的元素“倒腾”到input栈中，再将新元素[5]push到栈顶，此时output栈为空。</p>
+<p>再往队列中<code>push</code>元素<code>[5]</code>时，需要把<code>output</code>栈中的元素“倒腾”到<code>input</code>栈中，再将新元素<code>[5]</code>给<code>push</code>到栈顶，此时<code>output</code>栈为空。</p>
 <table>
 <thead>
 <tr>
@@ -618,7 +618,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
 <pre><code class="Java">class MyQueue {
     Stack&lt;Integer&gt; input ;
     Stack&lt;Integer&gt; output ;
@@ -664,7 +664,7 @@
     }
 }
 </code></pre>
-<p>下面是Python的代码：</p>
+<p>下面是<code>Python</code>的代码：</p>
 <pre><code class="Python">class MyQueue:
 
     def __init__(self):

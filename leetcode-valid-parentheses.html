@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 19 2019 22:02:38 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 28 2019 11:12:37 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:19:47 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-valid-parentheses.html",
     "headline": "LeetCode第20题Valid Parentheses",
     "datePublished": "Thu Sep 19 2019 22:02:38 GMT+0800",
-    "dateModified": "Sat Sep 28 2019 11:12:37 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:19:47 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -523,9 +523,9 @@
 <p>Input: “(]”<br>Output: false</p>
 </blockquote>
 <p><del>解法明天再写，回去洗洗睡先。</del></p>
-<p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是“(”那么就往栈里push进一个它的“解”也就是“)”，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里push进一个“解”—右括号。</p>
-<p>假设当前的括号序列是“()[]{}”，当匹配到第一个元素“(”的时候，栈里面就push进一个“)”，当匹配走到第二个元素“)”的时候，由于它不是待匹配的左括号，而是“解”，所以我们pop栈中的内容，刚好发现栈里面有一个“)”,于是将它pop出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—右括号，则说明已经无解了。</p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
+<p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是<code>“(”</code>那么就往栈里<code>push</code>进一个它的“解”也就是<code>“)”</code>，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里<code>push</code>进一个“解”—右括号。</p>
+<p>假设当前的括号序列是<code>“()[]{}”</code>，当匹配到第一个元素<code>“(”</code>的时候，栈里面就<code>push</code>进一个<code>“)”</code>，当匹配走到第二个元素<code>“)”</code>的时候，由于它不是待匹配的左括号，而是“解”，所以我们<code>pop</code>栈中的内容，刚好发现栈里面有一个<code>“)”</code>,于是将它<code>pop</code>出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—右括号，则说明已经无解了。</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
 <pre><code class="Java">class Solution {
     public boolean isValid(String s) {
         if (s == null || s.length() == 0) return true;
@@ -547,7 +547,7 @@
     }
 }
 </code></pre>
-<p>下面是Python的代码：</p>
+<p>下面是<code>Python</code>的代码：</p>
 <pre><code class="Python">class Solution:
     def isValid(self, s: str) -&gt; bool:
         stack = []

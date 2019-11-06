@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sun Oct 20 2019 20:53:49 GMT+0800">
-        <meta property="article:modified_time" content="Sun Oct 20 2019 21:31:02 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:22:02 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html",
     "headline": "R语言ggplot2绘图转PDF中文乱码问题",
     "datePublished": "Sun Oct 20 2019 20:53:49 GMT+0800",
-    "dateModified": "Sun Oct 20 2019 21:31:02 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:22:02 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -512,11 +512,11 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <a id="more"></a>
-<h4 id="ggplot2与中文乱码的Solution"><a href="#ggplot2与中文乱码的Solution" class="headerlink" title="ggplot2与中文乱码的Solution"></a>ggplot2与中文乱码的Solution</h4><h5 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h5><p>首先假设你有一个Windows系统，其次进行R语言编程所使用的IDE是RStudio<del>非常好用的开发环境</del>。</p>
-<p>然后在Windows系统中找到中文字体，比如宋体或黑体，再找到一个英文字体，比如Times New Roman。它们大概在C盘的Windows/Fonts路径下。</p>
-<p>找出所需的字体文件，比如宋体的字体文件是simsun.ttc，黑体的字体文件是simhei.ttf，Times New Roman的字体文件是times.ttf。</p>
+<h4 id="ggplot2与中文乱码的Solution"><a href="#ggplot2与中文乱码的Solution" class="headerlink" title="ggplot2与中文乱码的Solution"></a>ggplot2与中文乱码的Solution</h4><h5 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h5><p>首先假设你有一个<code>Windows</code>系统，其次进行R语言编程所使用的<code>IDE</code>是<code>RStudio</code><del>非常好用的集成开发环境</del>。</p>
+<p>然后在<code>Windows</code>系统中找到中文字体，比如宋体或黑体，再找到一个英文字体，比如<code>Times New Roman</code>。它们大概在<code>C盘</code>的<code>Windows/Fonts</code>路径下。</p>
+<p>找出所需的字体文件，比如宋体的字体文件是<code>simsun.ttc</code>，黑体的字体文件是<code>simhei.ttf</code>，<code>Times New Roman</code>的字体文件是<code>times.ttf</code>。</p>
 <p>找到字体文件就是成功的一半了，然后我把它们随便放到一个地方准备加载。</p>
-<h5 id="showtext包"><a href="#showtext包" class="headerlink" title="showtext包"></a>showtext包</h5><p>然后需要在R中调用showtext包，如果没有这个包，请安装它。</p>
+<h5 id="showtext包"><a href="#showtext包" class="headerlink" title="showtext包"></a>showtext包</h5><p>然后需要在<code>R</code>中调用<code>showtext</code>包，如果没有这个包，请安装它。</p>
 <pre><code class="R"># 调用showtext包
 library(showtext)
 showtext_auto(enable = TRUE)
@@ -530,15 +530,15 @@ font_add(&quot;songti&quot;, regular = &quot;F:\\font\\simsun.ttc&quot;)
 # 载入Times New Roman字体
 font_add(&quot;newrom&quot;, regular = &quot;F:\\font\\times.ttf&quot;)
 </code></pre>
-<p>在上面，我们载入了三种字体，并重命名<del>请随意命名</del>后供ggplot2调用。</p>
-<p>注意载入的路径，在Windows下好像要使用反斜杠。</p>
+<p>在上面，我们载入了三种字体，并重命名<del>请随意命名</del>后供<code>ggplot2</code>调用。</p>
+<p>注意载入的路径，在<code>Windows</code>下好像要使用反斜杠。</p>
 <p>注意，使用字体的过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p>
 <h5 id="ggplot2绘图带中文"><a href="#ggplot2绘图带中文" class="headerlink" title="ggplot2绘图带中文"></a>ggplot2绘图带中文</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +
         theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +
         xlab(&quot;Hello World&quot;) + 
         ylab(&quot;你好世界&quot;)
 </code></pre>
-<p>在上面的命令中，我们把X轴的字体指定为Times New Roman，Y轴的字体指定为宋体。</p>
+<p>在上面的命令中，我们把<code>X</code>轴的字体指定为<code>Times New Roman</code>，<code>Y</code>轴的字体指定为宋体。</p>
 <h5 id="转换为PDF"><a href="#转换为PDF" class="headerlink" title="转换为PDF"></a>转换为PDF</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +
         theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +
         xlab(&quot;Hello World&quot;) + 
@@ -546,9 +546,9 @@ font_add(&quot;newrom&quot;, regular = &quot;F:\\font\\times.ttf&quot;)
 
 ggsave(&quot;Fig_p.pdf&quot;, plot = p)
 </code></pre>
-<p>在上面的命令中，我们把p转换为了PDF。再次提醒，这个过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p>
-<p>然后我们查看一下生成的PDF，应该会得到一个X轴字体是Times New Roman的英文Hello World，Y轴字体是宋体的中文你好世界。</p>
-<p>如果你使用RStudio的图片预览功能，并且尝试Save as PDF，那么可能依然会出现中文乱码问题。</p>
+<p>在上面的命令中，我们把<code>p</code>转换为了<code>PDF</code>。再次提醒，这个过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的字体加载命令即可解决。</p>
+<p>然后我们查看一下生成的<code>PDF</code>，应该会得到一个<code>X</code>轴字体是<code>Times New Roman</code>的英文<code>Hello World</code>，<code>Y</code>轴字体是宋体的中文你好世界。</p>
+<p>如果你使用<code>RStudio</code>的图片预览功能，并且尝试<code>Save as PDF</code>，那么可能依然会出现中文乱码问题。</p>
 <p>去试试看吧！</p>
 <h4 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h4><p>上面的内容只能解决文字中不包含中英文混合的情况。如果需要中英文混合，那么可能需要把某两种中英文字体文件合并生成新的字体文件，然后加载进来才行。</p>
 

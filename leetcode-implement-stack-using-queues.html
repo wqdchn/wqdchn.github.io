@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 26 2019 09:44:11 GMT+0800">
-        <meta property="article:modified_time" content="Sat Sep 28 2019 11:11:43 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 06 2019 14:42:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/leetcode-implement-stack-using-queues.html",
     "headline": "LeetCode第225题Implement Stack using Queues",
     "datePublished": "Thu Sep 26 2019 09:44:11 GMT+0800",
-    "dateModified": "Sat Sep 28 2019 11:11:43 GMT+0800",
+    "dateModified": "Wed Nov 06 2019 14:42:48 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -516,8 +516,8 @@
 <h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote>
 <p>MyStack stack = new MyStack();<br>stack.push(1);<br>stack.push(2);<br>stack.top();   // returns 2<br>stack.pop();   // returns 2<br>stack.empty(); // returns false</p>
 </blockquote>
-<p>栈的特性是先进后出，队列的特性是先进先出，我们要实现栈的三个操作，分别是push、pop、top，还有一个栈状态检查empty。类似用栈实现队列时，使用两个栈互相倒腾，这里用队列实现栈也可以使用两个队列来实现栈，燃鹅本文选择使用一个队列来实现栈，非炫技也，实有趣耳。</p>
-<p>使用一个队列时，push操作很平常，就把元素压入队列中即可，即压入栈中。</p>
+<p>栈的特性是先进后出，队列的特性是先进先出，我们要实现栈的三个操作，分别是<code>push</code>、<code>pop</code>、<code>top</code>，还有一个栈状态检查<code>empty</code>。类似用栈实现队列时，使用两个栈互相倒腾，这里用队列实现栈也可以使用两个队列来实现栈，燃鹅本文选择使用一个队列来实现栈，非炫技也，实有趣耳。</p>
+<p>使用一个队列时，<code>push</code>操作很平常，就把元素压入队列中即可，即压入栈中。</p>
 <table>
 <thead>
 <tr>
@@ -536,7 +536,8 @@
 </tr>
 </tbody>
 </table>
-<p>执行pop操作时，由于栈是先进后出的，先前push入队的队列头部元素应该在栈底，而队列尾部元素是栈顶，也就是说，我们要pop的是队列尾部元素，那么怎么将尾部元素pop出去呢，很简单，我们让除了队列末尾元素之外的其他队列元素出队，那原来的队尾元素不就变成新的队首元素了吗，让这个新的队首元素出队就是栈的pop操作，而出队的其他元素则再依次入队，保证栈pop之后其他元素没有丢失。</p>
+<p>执行<code>pop</code>操作时，由于栈是先进后出的，先前<code>push</code>入队的队列头部元素应该在栈底，而队列尾部元素是栈顶。也就是说，我们要<code>pop</code>的是队列尾部元素，那么怎么将尾部元素<code>pop</code>出去呢？</p>
+<p>很简单，我们让除了队列末尾元素之外的其他队列元素出队，那原来的队尾元素不就变成新的队首元素了吗，让这个新的队首元素出队就是栈的<code>pop</code>操作，而出队的其他元素则再依次入队，保证栈<code>pop</code>之后其他元素没有丢失。</p>
 <table>
 <thead>
 <tr>
@@ -555,9 +556,9 @@
 </tr>
 </tbody>
 </table>
-<p>执行top操作时和pop类似，只不过我们返回队首元素即可，注意，由于这个队首元素是原来的队尾元素，所以我们在使用过它之后，要让它出队再入队，保证它依然处于队尾，也就是栈顶。</p>
+<p>执行<code>top</code>操作时和<code>pop</code>类似，只不过我们返回队首元素即可，注意，由于这个队首元素是原来的队尾元素，所以我们在使用过它之后，要让它出队再入队，保证它依然处于队尾，也就是栈顶。</p>
 <p>状态检查只需查看队列是否为空即可。</p>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是Java的代码：</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
 <pre><code class="Java">class MyStack {
     Queue&lt;Integer&gt; q;
 
@@ -595,7 +596,7 @@
     }
 }
 </code></pre>
-<p>下面是相似的Java代码，请关注两者的区别：</p>
+<p>下面是相似的<code>Java</code>代码，请关注两者的区别：</p>
 <pre><code class="Java">class MyStack {
 
     Queue&lt;Integer&gt; q;
@@ -629,7 +630,7 @@
 }
 
 </code></pre>
-<p>下面是Python的代码：</p>
+<p>下面是<code>Python</code>的代码：</p>
 <pre><code class="Python">class MyStack:
 
     def __init__(self):
@@ -662,7 +663,7 @@
         &quot;&quot;&quot;
         return self.queue == []
 </code></pre>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第225题是简单题，用一个队列实现栈其实也不难，关键依然是理解先进先出和先进后出之间的关联。这里Python的逻辑和分析中有所区别，主要是Python的内置函数太强大了，完全不需要多余的操作。。。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第225题是简单题，用一个队列实现栈其实也不难，关键依然是理解先进先出和先进后出之间的关联。这里<code>Python</code>的逻辑和分析中有所区别，主要是<code>Python</code>的内置函数太强大了，完全不需要多余的操作。。。</p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
