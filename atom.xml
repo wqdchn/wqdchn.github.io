@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-11-08T12:03:02.171Z</updated>
+  <updated>2019-11-29T10:16:14.895Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第322题Coin Change</title>
+    <link href="https://wqdchn.github.io/leetcode-coin-change.html"/>
+    <id>https://wqdchn.github.io/leetcode-coin-change.html</id>
+    <published>2019-11-29T09:36:35.000Z</published>
+    <updated>2019-11-29T10:16:14.895Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Coin-Change"><a href="#Coin-Change" class="headerlink" title="Coin Change"></a>Coin Change</h4><p><a href="https://leetcode.com/problems/coin-change/" target="_blank" rel="noopener">Coin Change</a>给出不同币值的硬币和一个目标金额，求组成目标金额所需最少的硬币数量，注意，这里可供取用的硬币数据量是不限制的，如果没有可用的硬币，则返回-1即可。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: coins = [1, 2, 5], amount = 11<br>Output: 3<br>Explanation: 11 = 5 + 5 + 1</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: coins = [2], amount = 3<br>Output: -1</p></blockquote><p>这一题使用暴力法会超时，因此需要改换策略，实际上就是要求使用动态规划来完成。动态规划最头痛的就是递推方程，要了解每一次方程的状态是如何转移的，简直让我选择放弃，好在这一题是找零钱，仿佛小学生奥数似的，稍有些趣味性，不妨挑战一下。</p><p>以示例一为例，我们现在有1，2，5三种币值的硬币，且任意取用。当我们需要11块钱的时候，我们可以选择摸11个一块钱，也可以选择摸5个两块钱和1个一块钱，当然，最少的是摸2个五块钱和1个一块钱。那么这里就存在一种规律了，比如说我们恰好摸了2个五块钱和1个一块钱，完成了任务，可是这个过程中，我们是摸了2个五块钱和1个一块钱的<del>这不是废话嘛！！！</del>注意了，这个2个五块钱和1个一块钱可不简单，它们分别是十块钱和一块钱<del>这又是什么废话啊！！！</del><br>嗯，到这里暗示已经结束，该明示了。就是说，组合11块钱的任务是由组合10块钱和组合1块钱来完成的，而两个组合也恰好是最少的，不仅是组合成11块钱是最少的，他们本身组合成10块钱和组合成1块钱也是最少的。因此，我们的动态规划递推方程中，当前的组合金额<code>(11)</code>还有币值<code>(1,2,5)</code>与之前的组合金额<code>(10,1)</code>是有关联的，我们最终会推到<code>0</code>，也就是什么都不做。</p><p>简单的数学公式是这样的：<br><code>F(11) = min(F(11-1),F(11-2),F(11-5)) + 1</code><br><code>F(11) = min(F(10),F(9),F(6)) + 1</code><br>然后呢我们分别再求<code>F(10)</code>、<code>F(9)</code>、<code>F(6)</code>….</p><p>这个<code>F</code>函数就是我们要实现的摸硬币操作。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><p>注意：外层循环表示可用的硬币组合，内层循环则表示在当前可用的硬币组合下，完成目标金额数所需要的硬币数量。</p><pre><code class="Java">class Solution {  public static int coinChange(int[] coins, int amount) {    if (amount == 0) {      return 0;    }    int[] dp = new int[amount + 1];    Arrays.fill(dp, amount + 1);    dp[0] = 0;    for (int coin : coins) {      for (int i = coin; i &lt; amount + 1; i++) {        dp[i] = Math.min(dp[i], dp[i - coin] + 1);      }    }    return dp[amount] != amount + 1 ? dp[amount] : -1;  }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def coinChange(self, coins, amount):        dp = [0] + [float(&#39;inf&#39;)] * amount        for coin in coins:            for i in range(coin, amount + 1):                dp[i] = min(dp[i], dp[i - coin] + 1)        return dp[-1] if dp[-1] != float(&#39;inf&#39;) else -1 </code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第322题是中等题，除了找零钱有些趣味，动态规划实在打扰了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Coin-Change&quot;&gt;&lt;a href=&quot;#Coin-Change&quot; class=&quot;headerlink&quot; title=&quot;Coin Change&quot;&gt;&lt;/a&gt;Coin Change&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https:/
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="动态规划" scheme="https://wqdchn.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>空间数据分析（一）空间数据分析与空间数据类型</title>
@@ -55,7 +85,7 @@
     <link href="https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html"/>
     <id>https://wqdchn.github.io/r-ggplot2-to-pdf-with-chinese.html</id>
     <published>2019-10-20T12:53:49.000Z</published>
-    <updated>2019-11-08T11:57:30.734Z</updated>
+    <updated>2019-11-06T06:22:02.000Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a><h4 id="ggplot2与中文乱码的Solution"><a href="#ggplot2与中文乱码的Solution" class="headerlink" title="ggplot2与中文乱码的Solution"></a>ggplot2与中文乱码的Solution</h4><h5 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h5><p>首先假设你有一个<code>Windows</code>系统，其次进行R语言编程所使用的<code>IDE</code>是<code>RStudio</code><del>非常好用的集成开发环境</del>。</p><p>然后在<code>Windows</code>系统中找到中文字体，比如宋体或黑体，再找到一个英文字体，比如<code>Times New Roman</code>。它们大概在<code>C盘</code>的<code>Windows/Fonts</code>路径下。</p><p>找出所需的字体文件，比如宋体的字体文件是<code>simsun.ttc</code>，黑体的字体文件是<code>simhei.ttf</code>，<code>Times New Roman</code>的字体文件是<code>times.ttf</code>。</p><p>找到字体文件就是成功的一半了，然后我把它们随便放到一个地方准备加载。</p><h5 id="showtext包"><a href="#showtext包" class="headerlink" title="showtext包"></a>showtext包</h5><p>然后需要在<code>R</code>中调用<code>showtext</code>包，如果没有这个包，请安装它。</p><pre><code class="R"># 调用showtext包library(showtext)showtext_auto(enable = TRUE)# 载入黑体font_add(&quot;heiti&quot;, regular = &quot;F:\\font\\simhei.ttf&quot;)# 载入宋体font_add(&quot;songti&quot;, regular = &quot;F:\\font\\simsun.ttc&quot;)# 载入Times New Roman字体font_add(&quot;newrom&quot;, regular = &quot;F:\\font\\times.ttf&quot;)</code></pre><p>在上面，我们载入了三种字体，并重命名<del>请随意命名</del>后供<code>ggplot2</code>调用。</p><p>注意载入的路径，在<code>Windows</code>下好像要使用反斜杠。</p><p>注意，使用字体的过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的命令可以解决。</p><h5 id="ggplot2绘图带中文"><a href="#ggplot2绘图带中文" class="headerlink" title="ggplot2绘图带中文"></a>ggplot2绘图带中文</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +        xlab(&quot;Hello World&quot;) +         ylab(&quot;你好世界&quot;)</code></pre><p>在上面的命令中，我们把<code>X</code>轴的字体指定为<code>Times New Roman</code>，<code>Y</code>轴的字体指定为宋体。</p><h5 id="转换为PDF"><a href="#转换为PDF" class="headerlink" title="转换为PDF"></a>转换为PDF</h5><pre><code class="R">p &lt;- ggplot() + geom_point() + ... +        theme(axis.title.x = element_text(family=&quot;newrom&quot;), axis.title.y = element_text(family = &quot;songti&quot;)) +        xlab(&quot;Hello World&quot;) +         ylab(&quot;你好世界&quot;)ggsave(&quot;Fig_p.pdf&quot;, plot = p)</code></pre><p>在上面的命令中，我们把<code>p</code>转换为了<code>PDF</code>。再次提醒，这个过程中，可能会出现提示没有这种字体！！！！！！无妨，重新执行一下上面的字体加载命令即可解决。</p><p>然后我们查看一下生成的<code>PDF</code>，应该会得到一个<code>X</code>轴字体是<code>Times New Roman</code>的英文<code>Hello World</code>，<code>Y</code>轴字体是宋体的中文你好世界。</p><p>如果你使用<code>RStudio</code>的图片预览功能，并且尝试<code>Save as PDF</code>，那么可能依然会出现中文乱码问题。</p><p>去试试看吧！</p><h4 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h4><p>上面的内容只能解决文字中不包含中英文混合的情况。如果需要中英文混合，那么可能需要把某两种中英文字体文件合并生成新的字体文件，然后加载进来才行。</p>]]></content>
     
@@ -605,36 +635,6 @@
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第1题Two Sum</title>
-    <link href="https://wqdchn.github.io/leetcode-two-sum.html"/>
-    <id>https://wqdchn.github.io/leetcode-two-sum.html</id>
-    <published>2019-09-12T01:54:13.000Z</published>
-    <updated>2019-11-08T11:56:38.067Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h4><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a>的题目要求是，给定一个数组和一个目标值，求得数组中两数<code>num1</code>和<code>num2</code>相加等于目标值<code>target</code>的两个数的下标。解法有两种，一是暴力法，一个个比较过来；二是哈希，把数组存在<code>map</code>里，存放的过程中只要发现<code>map</code>里面存有<code>num1</code>对应的目标解<code>num2</code>=<code>target</code>-<code>num1</code>，则返回下标即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        for (int i = 0; i &lt; nums.length; i++){            for (int j = i + 1;j &lt; nums.length; j++){                if(nums[i] + nums[j] == target){                    result[0] = i;                    result[1] = j;                }            }        }        return result;    }}</code></pre><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        Map&lt;Integer,Integer&gt; mp = new HashMap&lt;Integer, Integer&gt;();        for (int i  = 0; i &lt; nums.length; i++){            if(mp.containsKey(target - nums[i])){                result[0] = mp.get(target - nums[i]);                result[1] = i;                return  result;            }            mp.put(nums[i],i);        }        return result;    }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def twoSum(self, nums, target: int):        mp = {}        for i, x in enumerate(nums):            if x in mp:                return mp[x], i            else:                mp[target - x] = i        return -1</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第1题是简单题，迈出了第一步，以后也不要停下噢！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Two-Sum&quot;&gt;&lt;a href=&quot;#Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;Two Sum&quot;&gt;&lt;/a&gt;Two Sum&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/pr
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
   </entry>
   

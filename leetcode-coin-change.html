@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: 优先队列 | 
+            LeetCode第322题Coin Change | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",LeetCode,编程,动态规划">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night-eighties.min.css?2LJQzURO+Kr8r/fl/T8oMA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -219,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/tags/优先队列/">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/leetcode-coin-change.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/tags/优先队列/">
+    <meta property="og:url" content="https://wqdchn.github.io/leetcode-coin-change.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 优先队列 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="LeetCode第322题Coin Change | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    
+    <meta property="og:article:tag" content="LeetCode"> <meta property="og:article:tag" content="编程"> <meta property="og:article:tag" content="动态规划"> 
 
+    
+        <meta property="article:published_time" content="Fri Nov 29 2019 17:36:35 GMT+0800">
+        <meta property="article:modified_time" content="Fri Nov 29 2019 18:16:14 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/tags/优先队列/index.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/leetcode-coin-change.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://wqdchn.github.io/leetcode-coin-change.html",
+    "headline": "LeetCode第322题Coin Change",
+    "datePublished": "Fri Nov 29 2019 17:36:35 GMT+0800",
+    "dateModified": "Fri Nov 29 2019 18:16:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "WenQian Dong",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"
+        },
+        "description": "喜欢就坚持下去吧"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "WenQian Dong&#39;s Web",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
+        }
+    },
+    "keywords": ",LeetCode,编程,动态规划",
+    "description": "技术,杂谈,三国厨,历史向,Google粉",
+}
+</script>
 
 
     
@@ -300,222 +336,357 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
-            
-                
-                    <!-- Paradox Thumbnail -->
-                    <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/hello-world/hello-world.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/hello-world.html"><span>[置顶]</span>你好啊世界</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这是哪里？欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/hello-world.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 01, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/杂谈/">杂谈</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
-                
-                
-            
-        
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Coin-Change"><span class="post-toc-number">1.</span> <span class="post-toc-text">Coin Change</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Example-1"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Example 1:</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Example-2"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Example 2:</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/leetcode-sliding-window-maximum.html">LeetCode第239题Sliding Window Maximum</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/leetcode-sliding-window-maximum.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>9月 28, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/数据结构与算法/">数据结构与算法</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/leetcode-kth-largest-element-in-a-stream.html">LeetCode第703题Kth Largest Element in a Stream</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/leetcode-kth-largest-element-in-a-stream.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>9月 27, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/数据结构与算法/">数据结构与算法</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 31 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                LeetCode第322题Coin Change
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>WenQian Dong</strong>
+        <span>11月 29, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACWklEQVR42u3aQXLCMAwFUO5/6fYAbZIvy1GAeVkxDBg/Lywh6fXz1c8LDw8PDw8PDw/vzXiv+Pn7rX+WPvjk0WpHr1t7w8PDwxvhXVy1DUyyQg6O9oCHh4c3yOtc38lqRysnv5UfHB4eHt578s6v7POUNwkqeHh4eN/KS5DVQ+nsDQ8PD2+e19noebqcJ+L9QgkeHh7eDC9vMs2/Hu3v4eHh4QW88khTcVvVpHnz0BUeHh7eDbxqy6o6OpCUIXbtBw8PD+8pXl50qBYUqiOw1VEDPDw8vKd4+TtJ2KgWIKrfXYx7eHh4eA3e+aJ5O6o6XrDWMItWxsPDwxvh5WlrtTCRHFA1FF2shoeHhzfI6wSGauG1U4y4KJfg4eHhjfB2NZ9y/NrvbvjHgIeHh7eJl1zK+dVcHS/oJNZ4eHh4T/E6QaKaQFebauXBLzw8PLwRXl5oWAsknSNoDV3h4eHh3cCrpsV5sXWtNFxd/yKlxsPDw7uBl1/f1XfW2mBr6+Dh4eFN8hJMvonku/1SxcXR4OHh4Y3zkgR6rbmVfz4JG+ViBB4eHt5W3q5Bq8UkeBMMDw8Pb563VmDNW1Nr6Xg5dOHh4eE9yusXc6up84bghIeHh3czr/p0Rg36LbFyMQIPDw/vBl41hT2n5iXgahF5w0wZHh4e3lZeEgyqKe/a0ayNYeHh4eE9xcsv6F2Nrs76eHh4eJ/Fu2VbxTCDh4eH91m8/hBVjszHEfDw8PDmedXtVo8mDwP50ePh4eE9xZtJiKtHk5cw8PDw8CZ53/fg4eHh4eHh4eG9wfML0bP3E30Ef3kAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/LeetCode/">LeetCode</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/动态规划/">动态规划</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/编程/">编程</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LeetCode第322题Coin Change&url=https://wqdchn.github.io/leetcode-coin-change.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LeetCode第322题Coin Change&url=https://wqdchn.github.io/leetcode-coin-change.html&via=WenQian Dong" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <a id="more"></a>
+<h4 id="Coin-Change"><a href="#Coin-Change" class="headerlink" title="Coin Change"></a>Coin Change</h4><p><a href="https://leetcode.com/problems/coin-change/" target="_blank" rel="noopener">Coin Change</a>给出不同币值的硬币和一个目标金额，求组成目标金额所需最少的硬币数量，注意，这里可供取用的硬币数据量是不限制的，如果没有可用的硬币，则返回-1即可。</p>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote>
+<p>Input: coins = [1, 2, 5], amount = 11<br>Output: 3<br>Explanation: 11 = 5 + 5 + 1</p>
+</blockquote>
+<h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote>
+<p>Input: coins = [2], amount = 3<br>Output: -1</p>
+</blockquote>
+<p>这一题使用暴力法会超时，因此需要改换策略，实际上就是要求使用动态规划来完成。动态规划最头痛的就是递推方程，要了解每一次方程的状态是如何转移的，简直让我选择放弃，好在这一题是找零钱，仿佛小学生奥数似的，稍有些趣味性，不妨挑战一下。</p>
+<p>以示例一为例，我们现在有1，2，5三种币值的硬币，且任意取用。当我们需要11块钱的时候，我们可以选择摸11个一块钱，也可以选择摸5个两块钱和1个一块钱，当然，最少的是摸2个五块钱和1个一块钱。那么这里就存在一种规律了，比如说我们恰好摸了2个五块钱和1个一块钱，完成了任务，可是这个过程中，我们是摸了2个五块钱和1个一块钱的<del>这不是废话嘛！！！</del>注意了，这个2个五块钱和1个一块钱可不简单，它们分别是十块钱和一块钱<del>这又是什么废话啊！！！</del><br>嗯，到这里暗示已经结束，该明示了。就是说，组合11块钱的任务是由组合10块钱和组合1块钱来完成的，而两个组合也恰好是最少的，不仅是组合成11块钱是最少的，他们本身组合成10块钱和组合成1块钱也是最少的。因此，我们的动态规划递推方程中，当前的组合金额<code>(11)</code>还有币值<code>(1,2,5)</code>与之前的组合金额<code>(10,1)</code>是有关联的，我们最终会推到<code>0</code>，也就是什么都不做。</p>
+<p>简单的数学公式是这样的：<br><code>F(11) = min(F(11-1),F(11-2),F(11-5)) + 1</code><br><code>F(11) = min(F(10),F(9),F(6)) + 1</code><br>然后呢我们分别再求<code>F(10)</code>、<code>F(9)</code>、<code>F(6)</code>….</p>
+<p>这个<code>F</code>函数就是我们要实现的摸硬币操作。</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p>
+<p>注意：外层循环表示可用的硬币组合，内层循环则表示在当前可用的硬币组合下，完成目标金额数所需要的硬币数量。</p>
+<pre><code class="Java">class Solution {
+  public static int coinChange(int[] coins, int amount) {
+    if (amount == 0) {
+      return 0;
+    }
+    int[] dp = new int[amount + 1];
+    Arrays.fill(dp, amount + 1);
+    dp[0] = 0;
+    for (int coin : coins) {
+      for (int i = coin; i &lt; amount + 1; i++) {
+        dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+      }
+    }
+    return dp[amount] != amount + 1 ? dp[amount] : -1;
+  }
+}
+</code></pre>
+<p>下面是<code>Python</code>的代码：</p>
+<pre><code class="Python">class Solution:
+    def coinChange(self, coins, amount):
+        dp = [0] + [float(&#39;inf&#39;)] * amount
+
+        for coin in coins:
+            for i in range(coin, amount + 1):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+        return dp[-1] if dp[-1] != float(&#39;inf&#39;) else -1 
+</code></pre>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第322题是中等题，除了找零钱有些趣味，动态规划实在打扰了。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/leetcode-coin-change.html">https://wqdchn.github.io/leetcode-coin-change.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://wqdchn.github.io/leetcode-coin-change.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/leetcode-coin-change.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/r-spatial-demo1.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -728,6 +899,14 @@ It will not impact the appearance and can give developers a lot of support :)
                     
 
                     
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
 
                     <!--Footer-->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -893,6 +1072,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -905,6 +1088,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
