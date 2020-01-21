@@ -28,35 +28,6 @@
     </entry>
     
     <entry>
-      <title>空间数据分析（一）空间数据分析与空间数据类型</title>
-      <link href="/r-spatial-demo1.html"/>
-      <url>/r-spatial-demo1.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="什么是空间数据分析？"><a href="#什么是空间数据分析？" class="headerlink" title="什么是空间数据分析？"></a>什么是空间数据分析？</h4><p>空间数据是对现实世界中带有空间属性的事物和现象的时空特征及过程的抽象表达和定量描述。而空间数据分析就是寻找空间数据中隐含的信息的一系列方法。简单来说就是我们希望从空间数据中挖掘出空间隐含的价值。</p><h4 id="空间数据的类型"><a href="#空间数据的类型" class="headerlink" title="空间数据的类型"></a>空间数据的类型</h4><p>空间数据的类型可以大致分为三种：</p><ul><li>lattice data/栅格数据，例如某个省的手足口病发病率数据，某个省的GDP数据。</li><li>geostatistical data/地统计数据，例如某个省水文站的降雨数据，某个省环境监测站的空气质量数据。</li><li>point pattern data/点模式数据，例如某个森林内某种树木的位置数据，某个区域内共享单车的位置数据。</li></ul><p>这三种空间数据类型不是绝对的，它们可以根据需要互相转换。例如某个区域内共享单车的位置数据属于点模式数据，但是经过汇总统计，可以将其转换为栅格数据。</p><h4 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h4><p>下面给出一些空间数据的例子，以帮助理解。</p><h5 id="栅格数据"><a href="#栅格数据" class="headerlink" title="栅格数据"></a>栅格数据</h5><p>首先加载一个R包，里面带了一份可以作为示例的栅格数据：</p><pre><code class="r">library(DClusterm)data(NY8)</code></pre><p>然后我们查看这个数据的摘要信息，此处省略了输出内容中的无关字段：</p><pre><code class="r">summary(NY8)</code></pre><pre><code>## Object of class SpatialPolygonsDataFrame## Coordinates:##          min       max## r1  358241.9  480393.1## r2 4649755.4 4808545.2## Is projected: TRUE ## proj4string :## [+proj=utm +zone=18 +ellps=WGS84 +units=m +no_defs]## Data attributes:##                   AREANAME          AREAKEY          X          ##  NA                   : 83   36007000100:  1   Min.   :-55.482  ##  Syracuse city        : 63   36007000200:  1   1st Qu.:-19.460  ##  Binghamton city      : 18   36007000300:  1   Median :-12.469  ##  Remainder of Clay tow:  6   36007000400:  1   Mean   :-11.309  ##  Johnson City village :  5   36007000500:  1   3rd Qu.: -1.213  ##  Onondaga town        :  5   36007000600:  1   Max.   : 53.509  ##  (Other)              :101   (Other)    :275                    ##        Y               POP8            Cases    ##  Min.   :-75.29   Min.   :    9   Min.   :0.00014 ##  1st Qu.:-30.60   1st Qu.: 2510   1st Qu.:0.30928 ##  Median : 31.97   Median : 3433   Median :1.88876##  Mean   :  4.98   Mean   : 3764   Mean   :2.10676##  3rd Qu.: 39.12   3rd Qu.: 4889   3rd Qu.:3.08284##  Max.   : 56.41   Max.   :13015   Max.   :9.28601               </code></pre><p>我们用病例数除以总人口数得到发病率，再用发病率乘以人口数得到预期值，最后用病例数除以预期值得到标准发病率，进行疾病制图：</p><pre><code class="r">rate &lt;- sum(NY8$Cases) / sum(NY8$POP8)NY8$Expected &lt;- NY8$POP8 * rateNY8$SMR &lt;- NY8$Cases / NY8$Expectedsyracuse &lt;- which(NY8$AREANAME == &quot;Syracuse city&quot;)</code></pre><p>为简便起见，我们使用<code>spplot</code>函数进行疾病制图的绘制：</p><pre><code class="r">library(viridis)spplot(NY8[syracuse, ], &quot;SMR&quot;, #at = c(0.6, 0.9801, 1.055, 1.087, 1.125, 13),   col.regions = rev(magma(16))) #gray.colors(16, 0.9, 0.4))</code></pre><p><img src="img/r-spatial-demo1_files/figure-gfm/NY8-SMRplot-1.png" alt=""><!-- --></p><h5 id="地统计数据"><a href="#地统计数据" class="headerlink" title="地统计数据"></a>地统计数据</h5><p>地统计数据是指定点监测或提取的数据，例如降雨数据，我们不可能把地球上每一寸地方的降雨量都测算出来，所以通常是设定一个监测站收集降雨数据，然后利用空间插值等方法得到某个区域的降雨情况。</p><p>同样的，我们加载一个包含示例数据的R包，获取示例数据。</p><pre><code class="r">library(INLA)data(PRprec)dim(PRprec)</code></pre><pre><code>## [1] 616 368</code></pre><p>示例数据是巴西某个州的降雨数据，来自616个监测站点，一共365天的降雨量数据，前三列分别是经纬度和海拔，之后是天数的标记，每一列代表每一天。</p><pre><code class="r">PRprec$precMean &lt;- rowMeans(PRprec[, 3 + 1:31], na.rm = TRUE)plot(PRborder, type = &quot;l&quot;, asp = 1, axes = FALSE, main = paste(&quot;Mean of daily accumulated precipitation (mm)&quot;))points(PRprec[1:2], cex = 0.3 + PRprec$precMean / 20)legend(&quot;topright&quot;, format(seq(1, 21, 5)), bty = &quot;n&quot;, pch = 1, pt.cex = 0.3 + seq(1, 21, 5) / 20)lines(PRborder[1034:1078, ], col = &quot;cyan&quot;)</code></pre><p><img src="img/r-spatial-demo1_files/figure-gfm/PRprec-plot-1.png" alt=""><!-- --></p><p>蓝色线段表示海岸线，从图中可见，离海岸近的地方降雨更加充沛一些。</p><h5 id="点模式数据"><a href="#点模式数据" class="headerlink" title="点模式数据"></a>点模式数据</h5><p>和定点监测的地统计数据不同，点模式数据是指空间位置随机的事物或现象,它们呈现出的模式主要有三种：</p><ul><li>随机模式，没有规律可循</li><li>聚集模式，局部的密度远高于总体水平</li><li>规则模式，错落有致，规则分布</li></ul><p>具有代表性的示例数据如下：</p><pre><code class="r">library(spatstat.data)plot(japanesepines)</code></pre><p><img src="img/r-spatial-demo1_files/figure-gfm/point-pattern-1.png" alt=""><!-- --></p><pre><code class="r">plot(redwood)</code></pre><p><img src="img/r-spatial-demo1_files/figure-gfm/point-pattern-2.png" alt=""><!-- --></p><pre><code class="r">plot(cells)</code></pre><p><img src="img/r-spatial-demo1_files/figure-gfm/point-pattern-3.png" alt=""><!-- --></p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>空间数据分析的起点就是了解空间数据，包括它的类型，它的属性等等。为了后续的建模分析，起始阶段简单的探索性分析也是必不可少的，而空间数据的特性对可视化有更加强烈的要求，不进行可视化几乎很难捕捉到空间数据的微妙之处。</p>]]></content>
-      
-      <categories>
-          
-          <category> 数据分析 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> R语言 </tag>
-            
-            <tag> 空间数据分析 </tag>
-            
-            <tag> 栅格数据 </tag>
-            
-            <tag> 地统计数据 </tag>
-            
-            <tag> 点模式数据 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>R语言ggplot2绘图转PDF中文乱码问题</title>
       <link href="/r-ggplot2-to-pdf-with-chinese.html"/>
       <url>/r-ggplot2-to-pdf-with-chinese.html</url>
@@ -810,9 +781,23 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
+    </entry>
+    
+    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -824,23 +809,9 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
-    </entry>
-    
-    <entry>
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
