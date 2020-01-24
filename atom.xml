@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2019-11-29T10:16:14.895Z</updated>
+  <updated>2020-01-24T11:22:21.048Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>再见二零一九</title>
+    <link href="https://wqdchn.github.io/goodbye-2019.html"/>
+    <id>https://wqdchn.github.io/goodbye-2019.html</id>
+    <published>2020-01-24T11:10:09.000Z</published>
+    <updated>2020-01-24T11:22:21.048Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="久违的更新"><a href="#久违的更新" class="headerlink" title="久违的更新"></a>久违的更新</h4><p>好久不见，有好多话想说，但是还是决定留在心里，且做后来故事。</p><p>今天是除夕，祝愿大家春节愉快，平安健康。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;久违的更新&quot;&gt;&lt;a href=&quot;#久违的更新&quot; class=&quot;headerlink&quot; title=&quot;久违的更新&quot;&gt;&lt;/a&gt;久违的更新&lt;/h4&gt;&lt;p&gt;好久不见，有好多话想说，但是还是决定留在心里，且做后来故事。&lt;/p&gt;
+&lt;p&gt;今天
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+    
+      <category term="成长" scheme="https://wqdchn.github.io/tags/%E6%88%90%E9%95%BF/"/>
+    
+      <category term="新年" scheme="https://wqdchn.github.io/tags/%E6%96%B0%E5%B9%B4/"/>
+    
+      <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="春节" scheme="https://wqdchn.github.io/tags/%E6%98%A5%E8%8A%82/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode第322题Coin Change</title>
@@ -601,36 +636,6 @@
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第1题Two Sum</title>
-    <link href="https://wqdchn.github.io/leetcode-two-sum.html"/>
-    <id>https://wqdchn.github.io/leetcode-two-sum.html</id>
-    <published>2019-09-12T01:54:13.000Z</published>
-    <updated>2019-11-08T11:56:38.067Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h4><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum</a>的题目要求是，给定一个数组和一个目标值，求得数组中两数<code>num1</code>和<code>num2</code>相加等于目标值<code>target</code>的两个数的下标。解法有两种，一是暴力法，一个个比较过来；二是哈希，把数组存在<code>map</code>里，存放的过程中只要发现<code>map</code>里面存有<code>num1</code>对应的目标解<code>num2</code>=<code>target</code>-<code>num1</code>，则返回下标即可。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        for (int i = 0; i &lt; nums.length; i++){            for (int j = i + 1;j &lt; nums.length; j++){                if(nums[i] + nums[j] == target){                    result[0] = i;                    result[1] = j;                }            }        }        return result;    }}</code></pre><pre><code class="Java">class Solution {    public int[] twoSum(int[] nums,int target){        int[] result = new int[2];        Map&lt;Integer,Integer&gt; mp = new HashMap&lt;Integer, Integer&gt;();        for (int i  = 0; i &lt; nums.length; i++){            if(mp.containsKey(target - nums[i])){                result[0] = mp.get(target - nums[i]);                result[1] = i;                return  result;            }            mp.put(nums[i],i);        }        return result;    }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def twoSum(self, nums, target: int):        mp = {}        for i, x in enumerate(nums):            if x in mp:                return mp[x], i            else:                mp[target - x] = i        return -1</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第1题是简单题，迈出了第一步，以后也不要停下噢！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Two-Sum&quot;&gt;&lt;a href=&quot;#Two-Sum&quot; class=&quot;headerlink&quot; title=&quot;Two Sum&quot;&gt;&lt;/a&gt;Two Sum&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode.com/pr
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
   </entry>
   
