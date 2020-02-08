@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2020-01-24T11:22:21.048Z</updated>
+  <updated>2020-02-08T02:10:32.767Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode第204题Count Primes</title>
+    <link href="https://wqdchn.github.io/leetcode-count-primes.html"/>
+    <id>https://wqdchn.github.io/leetcode-count-primes.html</id>
+    <published>2020-02-08T01:33:25.000Z</published>
+    <updated>2020-02-08T02:10:32.767Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Count-Primes"><a href="#Count-Primes" class="headerlink" title="Count Primes"></a>Count Primes</h4><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="noopener">Count Primes</a>给出一个数，计算小于这个数的所有的素数个数。例如，输入<code>10</code>，则<code>10</code>以内的素数有四个，分别为<code>2</code>，<code>3</code>，<code>5</code>，<code>7</code>，故返回<code>4</code>。</p><p>求素数的问题相信很多计算机专业的同学在大一刚接触编程的时候一定会碰上，求素数也不难。但是在这里是求素数的个数，一个很简单的思路是调用素数判断的函数，如果是素数则计数加一，最后返回结果。</p><pre><code class="Java"> //Runtime: 548 ms, faster than 13.15% of Java online submissions for Count Primes. public static int countPrimes(int n) {    int count = 0;    for (int i = 1; i &lt; n; i++) {      if (isPrime(i)) {        count++;      }    }    return count;  }  public static boolean isPrime(int n) {    if (n &lt;= 1) {      return false;    }    for (int i = 2; i * i &lt;= n; i++) {      if (n % i == 0) {        return false;      }    }    return true;  }</code></pre><p>但是你也看到了，这样的效率并不高，有没有办法让它更高更快更强呢，答案是有的。</p><p>首先我们知道，所有的偶数都不是素数，也就是说，我们的<code>n</code>中有一半都不是素数，即我们的<code>count</code>最多也就是<code>n/2</code>。</p><p>其次，我们只需要在剩下的一半中寻找素数，或者反向操作寻找不是素数的，然后令<code>count</code>不断地减减。</p><pre><code class="Java">  // Runtime: 6 ms, faster than 99.32% of Java online submissions for Count Primes.  public static int countPrimes2(int n) {    if (n &lt; 3) {      return 0;    }    int count = n / 2;    boolean s[] = new boolean[n];    // i从奇数开始，从奇数中取    // i会取3，5，7，9...    for (int i = 3; i * i &lt; n; i += 2) {      if (s[i]) {        continue;      }      // j从奇数开始，从奇数中取，我们要剔除的是i的奇数倍      // j会取 3*3， 3*(3+2)，3*(3+4)，3*(3+6)...      for (int j = i * i; j &lt; n; j += i * 2) {        // 找到count个奇数中的合数，count--，并标记为非素数        if (!s[j]) {          s[j] = true;          count--;        }      }    }    return count;  }</code></pre><p>是不是更高更快更强了呢。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>素数真好玩。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;Count-Primes&quot;&gt;&lt;a href=&quot;#Count-Primes&quot; class=&quot;headerlink&quot; title=&quot;Count Primes&quot;&gt;&lt;/a&gt;Count Primes&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;htt
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="素数" scheme="https://wqdchn.github.io/tags/%E7%B4%A0%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>再见二零一九</title>
@@ -43,11 +73,11 @@
     
       <category term="成长" scheme="https://wqdchn.github.io/tags/%E6%88%90%E9%95%BF/"/>
     
+      <category term="春节" scheme="https://wqdchn.github.io/tags/%E6%98%A5%E8%8A%82/"/>
+    
       <category term="新年" scheme="https://wqdchn.github.io/tags/%E6%96%B0%E5%B9%B4/"/>
     
       <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
-    
-      <category term="春节" scheme="https://wqdchn.github.io/tags/%E6%98%A5%E8%8A%82/"/>
     
   </entry>
   
@@ -606,36 +636,6 @@
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第7题Reverse Integer</title>
-    <link href="https://wqdchn.github.io/leetcode-reverse-integer.html"/>
-    <id>https://wqdchn.github.io/leetcode-reverse-integer.html</id>
-    <published>2019-09-15T04:09:44.000Z</published>
-    <updated>2019-11-08T11:56:18.930Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Reverse-Integer"><a href="#Reverse-Integer" class="headerlink" title="Reverse Integer"></a>Reverse Integer</h4><p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">Reverse Integer</a>的题目要求很简单，给定32位有符号整数，返回该整数翻转后的结果，结果中零在第一位的省略零。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: 123<br>Output: 321</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: -123<br>Output: -321</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: 120<br>Output: 21</p></blockquote><p>同样，考虑一个简单粗暴的方法，将整数转换成字符串，将字符串转换成数组，对数组做逆序操作。当然要先判断这个整数的正负，然后考虑翻转后有没有零。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">Class Solution{    public static int reverse(int n) {        if (n &gt; Integer.MAX_VALUE || n &lt; Integer.MIN_VALUE) {            return 0;        }        String s = String.valueOf(n);        if (n &lt; 0) {            s = s.substring(1, s.length());            char[] array = s.toCharArray();            String reverse = &quot;-&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            s = reverse;        } else {            char[] array = s.toCharArray();            String reverse = &quot;&quot;;            for (int i = array.length - 1; i &gt;= 0; i--) {                reverse += array[i];            }            while (reverse.length() &gt; 1 &amp;&amp; reverse.charAt(0) == &#39;0&#39;) {                reverse = reverse.substring(1, reverse.length());            }            s = reverse;        }        int i = 0;        try {            i = Integer.parseInt(s.toString().trim());        } catch (Exception e) {            return 0;        }        return i;    }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def reverse(self, x: int) -&gt; int:        if x &gt;= 0:            res = int(str(x)[::-1])        else:            res = int(&#39;-&#39; + str(x)[:0:-1])        return res if -2147483648 &lt;= res &lt;= 2147483647 else 0</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第7题是简单题，<code>LeetCode</code>给出的标准解法有点挠头，先不管了<del>我好菜啊</del>。另外不得不说<code>Python</code>的内置函数真的太强大了T_T。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Reverse-Integer&quot;&gt;&lt;a href=&quot;#Reverse-Integer&quot; class=&quot;headerlink&quot; title=&quot;Reverse Integer&quot;&gt;&lt;/a&gt;Reverse Integer&lt;/h4&gt;&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
