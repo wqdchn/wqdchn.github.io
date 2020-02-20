@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/bin-search.html</loc>
+    
+    <lastmod>2020-02-20T13:23:04.610Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/leetcode-count-primes.html</loc>
     
     <lastmod>2020-02-08T02:10:32.767Z</lastmod>
