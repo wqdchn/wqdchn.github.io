@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>R语言获取标准中国地图</title>
+      <link href="/get-china-map-with-R.html"/>
+      <url>/get-china-map-with-R.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站允许共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是大部分时候只能转向万能的某宝。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> R语言 </tag>
+            
+            <tag> tmap </tag>
+            
+            <tag> sf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>说一说二分查找</title>
       <link href="/bin-search.html"/>
       <url>/bin-search.html</url>
@@ -29,7 +54,7 @@
       <title>LeetCode第204题Count Primes</title>
       <link href="/leetcode-count-primes.html"/>
       <url>/leetcode-count-primes.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="Count-Primes"><a href="#Count-Primes" class="headerlink" title="Count Primes"></a>Count Primes</h4><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="noopener">Count Primes</a>给出一个数，计算小于这个数的所有的素数个数。例如，输入<code>10</code>，则<code>10</code>以内的素数有四个，分别为<code>2</code>，<code>3</code>，<code>5</code>，<code>7</code>，故返回<code>4</code>。</p><p>求素数的问题相信很多计算机专业的同学在大一刚接触编程的时候一定会碰上，求素数也不难。但是在这里是求素数的个数，一个很简单的思路是调用素数判断的函数，如果是素数则计数加一，最后返回结果。</p><pre><code class="Java"> //Runtime: 548 ms, faster than 13.15% of Java online submissions for Count Primes. public static int countPrimes(int n) {    int count = 0;    for (int i = 1; i &lt; n; i++) {      if (isPrime(i)) {        count++;      }    }    return count;  }  public static boolean isPrime(int n) {    if (n &lt;= 1) {      return false;    }    for (int i = 2; i * i &lt;= n; i++) {      if (n % i == 0) {        return false;      }    }    return true;  }</code></pre><p>但是你也看到了，这样的效率并不高，有没有办法让它更高更快更强呢，答案是有的。</p><p>首先我们知道，所有的偶数都不是素数，也就是说，我们的<code>n</code>中有一半都不是素数，即我们的<code>count</code>最多也就是<code>n/2</code>。</p><p>其次，我们只需要在剩下的一半中寻找素数，或者反向操作寻找不是素数的，然后令<code>count</code>不断地减减。</p><pre><code class="Java">  // Runtime: 6 ms, faster than 99.32% of Java online submissions for Count Primes.  public static int countPrimes2(int n) {    if (n &lt; 3) {      return 0;    }    int count = n / 2;    boolean s[] = new boolean[n];    // i从奇数开始，从奇数中取    // i会取3，5，7，9...    for (int i = 3; i * i &lt; n; i += 2) {      if (s[i]) {        continue;      }      // j从奇数开始，从奇数中取，我们要剔除的是i的奇数倍      // j会取 3*3， 3*(3+2)，3*(3+4)，3*(3+6)...      for (int j = i * i; j &lt; n; j += i * 2) {        // 找到count个奇数中的合数，count--，并标记为非素数        if (!s[j]) {          s[j] = true;          count--;        }      }    }    return count;  }</code></pre><p>是不是更高更快更强了呢。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>素数真好玩。</p>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="Count-Primes"><a href="#Count-Primes" class="headerlink" title="Count Primes"></a>Count Primes</h4><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="noopener">Count Primes</a>给出一个数，计算小于这个数的所有的素数个数。例如，输入<code>10</code>，则<code>10</code>以内的素数有四个，分别为<code>2</code>，<code>3</code>，<code>5</code>，<code>7</code>，故返回<code>4</code>。</p><p>求素数的问题相信很多计算机专业的同学在大一刚接触编程的时候一定会碰上，求素数也不难。但是在这里是求素数的个数，一个很简单的思路是调用素数判断的函数，如果是素数则计数加一，最后返回结果。</p><pre><code class="Java"> //Runtime: 548 ms, faster than 13.15% of Java online submissions for Count Primes. public static int countPrimes(int n) {    int count = 0;    for (int i = 1; i &lt; n; i++) {      if (isPrime(i)) {        count++;      }    }    return count;  }  public static boolean isPrime(int n) {    if (n &lt;= 1) {      return false;    }    for (int i = 2; i * i &lt;= n; i++) {      if (n % i == 0) {        return false;      }    }    return true;  }</code></pre><p>但是你也看到了，这样的效率并不高，有没有办法让它更高更快更强呢，答案是有的。</p><p>首先我们知道，所有的偶数都不是素数，也就是说，我们的<code>n</code>中有一半都不是素数，即我们的<code>count</code>最多也就是<code>n/2</code>。</p><p>其次，我们只需要在剩下的一半中寻找素数，或者反向操作寻找不是素数的，然后令<code>count</code>不断地减减。</p><pre><code class="Java">  // Runtime: 6 ms, faster than 99.32% of Java online submissions for Count Primes.  public static int countPrimes2(int n) {    if (n &lt; 3) {      return 0;    }    int count = n / 2;    boolean not_prime[] = new boolean[n];    // i从奇数开始，从奇数中取    // i会取3，5，7，9...    for (int i = 3; i * i &lt; n; i += 2) {      if (not_prime[i] == true) {        continue;      }      // j从奇数开始，从奇数中取，我们要剔除的是i的奇数倍      // j会取 3*3， 3*(3+2)，3*(3+4)，3*(3+6)...      for (int j = i * i; j &lt; n; j += i * 2) {        // 找到count个奇数中的合数，count--，并标记为非素数        if (not_prime[j] == false) {          not_prime[j] = true;          count--;        }      }    }    return count;  }</code></pre><p>是不是更高更快更强了呢。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>素数真好玩。</p>]]></content>
       
       <categories>
           
@@ -865,13 +890,6 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
-    </entry>
-    
-    <entry>
       <title>友链</title>
       <link href="/links/index.html"/>
       <url>/links/index.html</url>
@@ -879,16 +897,23 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      <content type="html"><![CDATA[]]></content>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
     </entry>
     
     <entry>
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     

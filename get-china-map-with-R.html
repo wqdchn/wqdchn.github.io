@@ -45,7 +45,7 @@
     
     <title>
         
-            2019年国庆节 | 
+            R语言获取标准中国地图 | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content=",闲聊,时事,国庆">
+    <meta name="keywords" content=",R语言,tmap,sf">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/get-china-map-with-R.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html">
+    <meta property="og:url" content="https://wqdchn.github.io/get-china-map-with-R.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2019年国庆节 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="R语言获取标准中国地图 | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta property="og:article:tag" content="闲聊"> <meta property="og:article:tag" content="时事"> <meta property="og:article:tag" content="国庆"> 
+    <meta property="og:article:tag" content="R语言"> <meta property="og:article:tag" content="tmap"> <meta property="og:article:tag" content="sf"> 
 
     
-        <meta property="article:published_time" content="Fri Oct 04 2019 20:24:51 GMT+0800">
-        <meta property="article:modified_time" content="Sat Oct 05 2019 10:33:47 GMT+0800">
+        <meta property="article:published_time" content="Wed Mar 04 2020 10:49:48 GMT+0800">
+        <meta property="article:modified_time" content="Wed Mar 04 2020 12:13:44 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/get-china-map-with-R.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html",
-    "headline": "2019年国庆节",
-    "datePublished": "Fri Oct 04 2019 20:24:51 GMT+0800",
-    "dateModified": "Sat Oct 05 2019 10:33:47 GMT+0800",
+    "mainEntityOfPage": "https://wqdchn.github.io/get-china-map-with-R.html",
+    "headline": "R语言获取标准中国地图",
+    "datePublished": "Wed Mar 04 2020 10:49:48 GMT+0800",
+    "dateModified": "Wed Mar 04 2020 12:13:44 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -291,7 +291,7 @@
             "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
         }
     },
-    "keywords": ",闲聊,时事,国庆",
+    "keywords": ",R语言,tmap,sf",
     "description": "技术,杂谈,三国厨,历史向,Google粉",
 }
 </script>
@@ -365,7 +365,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#国庆·1949-2019"><span class="post-toc-number">1.</span> <span class="post-toc-text">国庆·1949-2019</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#阅兵·游行·联欢"><span class="post-toc-number">2.</span> <span class="post-toc-text">阅兵·游行·联欢</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#地图在哪里"><span class="post-toc-number">1.</span> <span class="post-toc-text">地图在哪里</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取全国县级地图"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取全国县级地图</span></a></li></ol>
     </ul>
     
 
@@ -384,11 +384,20 @@
                 
     <!-- Paradox Post Header -->
     
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/wqdchn/blog-image/master/national-day-of-the-people-s-republic-of-china/zgws.jpg)">
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
     
             <p class="article-headline-p">
-                2019年国庆节
+                R语言获取标准中国地图
             </p>
         </div>
 
@@ -407,7 +416,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WenQian Dong</strong>
-        <span>10月 04, 2019</span>
+        <span>3月 04, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -429,7 +438,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC50lEQVR42u3a0U7rMBAE0P7/T19erwSkM94CqX3yhKAkPo7Esjt+/DvyemBjY2NjY2NjY2Pfkv2Ir+vPf/GY+JP/fz75abtmbGxs7BPYT/70f3rk58e37HrR36wh30RsbGzsE9jXS6wfE1CTlbTFDBsbGxv7+haTpuV6g/IGBhsbGxv7Bbe43JSk1OVjpvY1YGNjY5/MbtuM6ztMmpB8sPVLszRsbGzs27PbBuMOX/9Bvo2NjY19S3Z7tUP/tfv/yJ2xsbGxN2Vfx6vJ6D9pV9ZamqR1yUNibGxs7F3ZeaHKF3f9u2ujpTZ4WKzb2NjY2G/LbktCvqyEunbos21UsLGxsXdl10P2FzUka0dwku3DxsbGPo2dBwBJ2VsrS23MvLg12NjY2Juyk6Unj1xjt+WtxWNjY2OfwJ4f08mbgZ9oRYohFDY2Nvam7PxQYzS4KTeibXvysddi3cbGxsZ+W/bkeM0aZhJCLL4SbGxs7MPYSZOwtrg2MM6fUscD2NjY2Fuw20FPsqyEnXynjYrreAAbGxt7O/a8RWkHQPkmJtQnYylsbGzsA9j5AZp2GJSXorws5VuJjY2NfQJ78i/+/D5ts5E8MSpg2NjY2NuxiwFNuaw2bGjbj+TCxsbG3pu9Fqa+diSUB8l5a4SNjY19AjsZ96wdlJkMquZxAjY2NvY57CQkyJuH+QDoMbiebDc2Njb21ux5MJCPeHJ22wI9eRnY2NjYm7JfEKDGw/28qZhs3LcvEhsbG3tTdlLG8kM27Ta1EW9+lBMbGxv7TPZa8VgrYPPjmHW0jI2Njb0pezJ8Xzte0w6Pct6TooiNjY29NXsy+mmD4bVSl4fKL4gHsLGxsd+WnRSedjsmpLbQYmNjY2O3Y/f2sOZ8CNWuDRsbGxu7bUXaYHhe8JJjl9jY2NjnsPNwN9+C/KfXLUfbkGBjY2Ofxl4LetvCk5SuJEj443wbGxsb+2bscy5sbGxsbGxsbGzs21wfZDSHKYeDwwwAAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZ0lEQVR42u3aQXLDMAgFUN//0u0JonyQUZzM0yrTpLaeFoIBrr+fXhceHh4eHh4eHt7DeFe8Xj5u+cv101593tkbHh4e3hnem6v2xW+u4oqu9SU42RseHh7eSV5+fa8v8QS/Dga9veHh4eE9n7cOGElQyf+Ch4eH9+28POFeh5Nqeo2Hh4f3NF71Nb0keCd4jNda8PDw8GJeXoQ9//lofw8PDw8v4JVHmorbqhYg9hceHh7eNK/askq2m5QM1oMIvf3g4eHhnedNFHOTJyc7SUoheHh4eGd4VWryynwUoApL2ml4eHh4Z3jVTSeXdZKOVxtmzcCAh4eHN8DLk+DCa24azyoHJDw8PLwjvPyfqylvr/TQCxJ4eHh4J3nVkm5eREi+zY8mStbx8PDwhnl5abU3HNA7suqx4uHh4Z3n5aNOydjTftm3mtzj4eHhfZa3U97NU+RqYt0cusLDw8Mb4/Wa+nna3Uu4myVmPDw8vGFeUpjYL+lWywo7aT0eHh7ep3j7hdfqQSRNsuhpeHh4eMO8e9v2O5uuHgQeHh7eE3hJqTQvTOTHUW13jdRa8PDw8Fq8XmBojkYV0/QbGmB4eHh4w7xq8Mi3VR0aKI954eHh4Q3zqmudaiefd1piUaMODw8Pb5i31aSPixG98YLkmKK4h4eHhzfA67Wy8hR5XYy4q4CLh4eHd563f0EnYaB3fCNDV3h4eHjHefuNtF5L7M1z8PDw8B7Ju+H6jpF52o2Hh4d3npcUI3qF2qS4UB0pwMPDw/ssL7/o3zy6mHBX22DRu/Dw8PCGeb+38PDw8PDw8PDwHrD+AeD49xMDZVlrAAAAAElFTkSuQmCC">
     
 </ul>
 
@@ -443,7 +452,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/国庆/">国庆</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/时事/">时事</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/闲聊/">闲聊</a>
+        <a class="post_tag-link" href="/tags/R语言/">R语言</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/sf/">sf</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/tmap/">tmap</a>
     </ul>
     
 
@@ -462,7 +471,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2019年国庆节&url=https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=R语言获取标准中国地图&url=https://wqdchn.github.io/get-china-map-with-R.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -471,7 +480,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2019年国庆节&url=https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html&via=WenQian Dong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=R语言获取标准中国地图&url=https://wqdchn.github.io/get-china-map-with-R.html&via=WenQian Dong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -503,9 +512,33 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <a id="more"></a>
-<h4 id="国庆·1949-2019"><a href="#国庆·1949-2019" class="headerlink" title="国庆·1949-2019"></a>国庆·1949-2019</h4><p>今年的国庆节似乎有些特别，从大面上来说，我感受到非常高涨的热情，无论是朋友圈还是微博，也许是这一年发生太多以往没有发生的事，让普通群众们了解到了周边生活之外的零零碎碎，激发起了内心朴素的那一份感情：希望这个国家好。当然，我也清楚地知道，恨不得这个国家立即从地球上消失的也大有人在，怎么说呢，求同存异吧，我认为对于普通人来说，只要过好手头的日子，做好自己的工作，爱护自己的家人朋友，就是最大的爱国。别的嘛，牢骚太盛防肠断，风物长宜放眼量。我相信未来会越来越好，从深渊回望，莫回头，莫回头。</p>
-<h4 id="阅兵·游行·联欢"><a href="#阅兵·游行·联欢" class="headerlink" title="阅兵·游行·联欢"></a>阅兵·游行·联欢</h4><p>今年的国庆阅兵、群众游行、国庆联欢晚会三部曲都非常出乎我的意料，实在是太惊喜了，组织度这么高，组织能力这么强足以说明我国的体制在集中力量办大事这方面有着无与匹敌的优势，只要方向正确，中国人民总是能干出惊天动地的事业，这一点，从我中国人民解放军军史上就有许多明证。例如阅兵中给我印象最深刻的就是战旗方队，一百面英雄的旗帜，无数英勇的先烈们。其中有些部队本身可能出身于解放战争后期国民党方面的队伍，战斗力差，战斗意志弱，而起义、投诚、收编到了解放军中之后，仿佛脱胎换骨一般，这里面岂无值得深思的地方？</p>
-<p>祝愿伟大祖国繁荣昌盛，期待建国一百周年，那时候的世界，又会是怎样一番天地呢。</p>
+<h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站允许共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是大部分时候只能转向万能的某宝。</p>
+<p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p>
+<h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p>
+<pre><code class="R">library(sf)
+library(tmap)
+
+# 民政部官网
+url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;
+
+# 获取全国县级地图
+xian_quanguo &lt;- sf::st_read(
+  dsn = paste0(url, &quot;xian_quanguo.json&quot;),
+  stringsAsFactors = FALSE
+)
+
+# 简单检查一下数据
+head(xian_quanguo)
+
+st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)
+
+# tmap绘制地图
+tm_shape(xian_quanguo) + 
+  tm_polygons() + 
+  tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针
+  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺
+
+</code></pre>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -514,7 +547,7 @@
                             本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html">https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html</a>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/get-china-map-with-R.html">https://wqdchn.github.io/get-china-map-with-R.html</a>
                     </p>
                 </blockquote>
         
@@ -570,8 +603,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://wqdchn.github.io/national-day-of-the-people-s-republic-of-china.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://wqdchn.github.io/get-china-map-with-R.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/get-china-map-with-R.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -620,21 +653,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/leetcode-lowest-common-ancestor-of-a-binary-search-tree.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/leetcode-lowest-common-ancestor-of-a-binary-tree.html" id="post_nav-older" class="next-content">
+        <a href="/bin-search.html" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

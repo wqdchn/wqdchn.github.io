@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2020-02-20T13:23:04.610Z</updated>
+  <updated>2020-03-04T04:13:44.978Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R语言获取标准中国地图</title>
+    <link href="https://wqdchn.github.io/get-china-map-with-R.html"/>
+    <id>https://wqdchn.github.io/get-china-map-with-R.html</id>
+    <published>2020-03-04T02:49:48.000Z</published>
+    <updated>2020-03-04T04:13:44.978Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站允许共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是大部分时候只能转向万能的某宝。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;地图在哪里&quot;&gt;&lt;a href=&quot;#地图在哪里&quot; class=&quot;headerlink&quot; title=&quot;地图在哪里&quot;&gt;&lt;/a&gt;地图在哪里&lt;/h4&gt;&lt;p&gt;空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国
+      
+    
+    </summary>
+    
+      <category term="学习一个" scheme="https://wqdchn.github.io/categories/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%AA/"/>
+    
+    
+      <category term="R语言" scheme="https://wqdchn.github.io/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="tmap" scheme="https://wqdchn.github.io/tags/tmap/"/>
+    
+      <category term="sf" scheme="https://wqdchn.github.io/tags/sf/"/>
+    
+  </entry>
   
   <entry>
     <title>说一说二分查找</title>
@@ -49,9 +79,9 @@
     <link href="https://wqdchn.github.io/leetcode-count-primes.html"/>
     <id>https://wqdchn.github.io/leetcode-count-primes.html</id>
     <published>2020-02-08T01:33:25.000Z</published>
-    <updated>2020-02-08T02:10:32.767Z</updated>
+    <updated>2020-03-04T04:08:49.355Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Count-Primes"><a href="#Count-Primes" class="headerlink" title="Count Primes"></a>Count Primes</h4><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="noopener">Count Primes</a>给出一个数，计算小于这个数的所有的素数个数。例如，输入<code>10</code>，则<code>10</code>以内的素数有四个，分别为<code>2</code>，<code>3</code>，<code>5</code>，<code>7</code>，故返回<code>4</code>。</p><p>求素数的问题相信很多计算机专业的同学在大一刚接触编程的时候一定会碰上，求素数也不难。但是在这里是求素数的个数，一个很简单的思路是调用素数判断的函数，如果是素数则计数加一，最后返回结果。</p><pre><code class="Java"> //Runtime: 548 ms, faster than 13.15% of Java online submissions for Count Primes. public static int countPrimes(int n) {    int count = 0;    for (int i = 1; i &lt; n; i++) {      if (isPrime(i)) {        count++;      }    }    return count;  }  public static boolean isPrime(int n) {    if (n &lt;= 1) {      return false;    }    for (int i = 2; i * i &lt;= n; i++) {      if (n % i == 0) {        return false;      }    }    return true;  }</code></pre><p>但是你也看到了，这样的效率并不高，有没有办法让它更高更快更强呢，答案是有的。</p><p>首先我们知道，所有的偶数都不是素数，也就是说，我们的<code>n</code>中有一半都不是素数，即我们的<code>count</code>最多也就是<code>n/2</code>。</p><p>其次，我们只需要在剩下的一半中寻找素数，或者反向操作寻找不是素数的，然后令<code>count</code>不断地减减。</p><pre><code class="Java">  // Runtime: 6 ms, faster than 99.32% of Java online submissions for Count Primes.  public static int countPrimes2(int n) {    if (n &lt; 3) {      return 0;    }    int count = n / 2;    boolean s[] = new boolean[n];    // i从奇数开始，从奇数中取    // i会取3，5，7，9...    for (int i = 3; i * i &lt; n; i += 2) {      if (s[i]) {        continue;      }      // j从奇数开始，从奇数中取，我们要剔除的是i的奇数倍      // j会取 3*3， 3*(3+2)，3*(3+4)，3*(3+6)...      for (int j = i * i; j &lt; n; j += i * 2) {        // 找到count个奇数中的合数，count--，并标记为非素数        if (!s[j]) {          s[j] = true;          count--;        }      }    }    return count;  }</code></pre><p>是不是更高更快更强了呢。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>素数真好玩。</p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="Count-Primes"><a href="#Count-Primes" class="headerlink" title="Count Primes"></a>Count Primes</h4><p><a href="https://leetcode.com/problems/count-primes/" target="_blank" rel="noopener">Count Primes</a>给出一个数，计算小于这个数的所有的素数个数。例如，输入<code>10</code>，则<code>10</code>以内的素数有四个，分别为<code>2</code>，<code>3</code>，<code>5</code>，<code>7</code>，故返回<code>4</code>。</p><p>求素数的问题相信很多计算机专业的同学在大一刚接触编程的时候一定会碰上，求素数也不难。但是在这里是求素数的个数，一个很简单的思路是调用素数判断的函数，如果是素数则计数加一，最后返回结果。</p><pre><code class="Java"> //Runtime: 548 ms, faster than 13.15% of Java online submissions for Count Primes. public static int countPrimes(int n) {    int count = 0;    for (int i = 1; i &lt; n; i++) {      if (isPrime(i)) {        count++;      }    }    return count;  }  public static boolean isPrime(int n) {    if (n &lt;= 1) {      return false;    }    for (int i = 2; i * i &lt;= n; i++) {      if (n % i == 0) {        return false;      }    }    return true;  }</code></pre><p>但是你也看到了，这样的效率并不高，有没有办法让它更高更快更强呢，答案是有的。</p><p>首先我们知道，所有的偶数都不是素数，也就是说，我们的<code>n</code>中有一半都不是素数，即我们的<code>count</code>最多也就是<code>n/2</code>。</p><p>其次，我们只需要在剩下的一半中寻找素数，或者反向操作寻找不是素数的，然后令<code>count</code>不断地减减。</p><pre><code class="Java">  // Runtime: 6 ms, faster than 99.32% of Java online submissions for Count Primes.  public static int countPrimes2(int n) {    if (n &lt; 3) {      return 0;    }    int count = n / 2;    boolean not_prime[] = new boolean[n];    // i从奇数开始，从奇数中取    // i会取3，5，7，9...    for (int i = 3; i * i &lt; n; i += 2) {      if (not_prime[i] == true) {        continue;      }      // j从奇数开始，从奇数中取，我们要剔除的是i的奇数倍      // j会取 3*3， 3*(3+2)，3*(3+4)，3*(3+6)...      for (int j = i * i; j &lt; n; j += i * 2) {        // 找到count个奇数中的合数，count--，并标记为非素数        if (not_prime[j] == false) {          not_prime[j] = true;          count--;        }      }    }    return count;  }</code></pre><p>是不是更高更快更强了呢。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>素数真好玩。</p>]]></content>
     
     <summary type="html">
     
@@ -604,36 +634,6 @@
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第20题Valid Parentheses</title>
-    <link href="https://wqdchn.github.io/leetcode-valid-parentheses.html"/>
-    <id>https://wqdchn.github.io/leetcode-valid-parentheses.html</id>
-    <published>2019-09-19T14:02:38.000Z</published>
-    <updated>2019-11-08T11:56:45.059Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Valid-Parentheses"><a href="#Valid-Parentheses" class="headerlink" title="Valid Parentheses"></a>Valid Parentheses</h4><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">Valid Parentheses</a>的要求是匹配括号的合法性。</p><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h5><blockquote><p>Input: “()”<br>Output: true</p></blockquote><h5 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h5><blockquote><p>Input: “()[]{}”<br>Output: true</p></blockquote><h5 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h5><blockquote><p>Input: “(]”<br>Output: false</p></blockquote><p><del>解法明天再写，回去洗洗睡先。</del></p><p>方法是使用一个栈的数据结构来匹配括号，我们将每一个元素和三种括号分别进行匹配，如果是<code>“(”</code>那么就往栈里<code>push</code>进一个它的“解”也就是<code>“)”</code>，中括号和大括号也类似，也就是说我们匹配到一个左括号就往栈里<code>push</code>进一个“解”—右括号。</p><p>假设当前的括号序列是<code>“()[]{}”</code>，当匹配到第一个元素<code>“(”</code>的时候，栈里面就<code>push</code>进一个<code>“)”</code>，当匹配走到第二个元素<code>“)”</code>的时候，由于它不是待匹配的左括号，而是“解”，所以我们<code>pop</code>栈中的内容，刚好发现栈里面有一个<code>“)”</code>,于是将它<code>pop</code>出去，同理解决余下的元素，最后发现，栈是空的，且所有元素都匹配完了，说明没有非法的括号。如果中途栈就空了，而当前待匹配的不是左括号而是“解”—右括号，则说明已经无解了。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">class Solution {    public boolean isValid(String s) {        if (s == null || s.length() == 0) return true;        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();        for (Character ch : s.toCharArray()) {            if (ch == &#39;(&#39;){                stack.push(&#39;)&#39;);            } else if (ch == &#39;[&#39;){                stack.push(&#39;]&#39;);            } else if (ch == &#39;{&#39;){                stack.push(&#39;}&#39;);            } else {                if (stack.isEmpty() || stack.pop() != ch){                    return false;                }            }        }        return stack.isEmpty();    }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def isValid(self, s: str) -&gt; bool:        stack = []        paren_map = {&#39;)&#39;:&#39;(&#39;, &#39;]&#39;:&#39;[&#39;, &#39;}&#39;:&#39;{&#39;}        for c in s:            if c not in paren_map:                stack.append(c)            elif not stack or paren_map[c] != stack.pop():                return False        return not stack</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第20题是简单题，只要对栈这种数据结构稍微熟悉就能知道该怎么办，数据结构与算法的课程讲到栈这一节的时候也提到过括号匹配的问题<del>我猜大部分同学用的是严蔚民老师的那本经典教材</del>。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Valid-Parentheses&quot;&gt;&lt;a href=&quot;#Valid-Parentheses&quot; class=&quot;headerlink&quot; title=&quot;Valid Parentheses&quot;&gt;&lt;/a&gt;Valid Parentheses
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
     
   </entry>
   

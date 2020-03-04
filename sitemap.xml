@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wqdchn.github.io/bin-search.html</loc>
+    <loc>https://wqdchn.github.io/get-china-map-with-R.html</loc>
     
-    <lastmod>2020-02-20T13:23:04.610Z</lastmod>
+    <lastmod>2020-03-04T04:13:44.978Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://wqdchn.github.io/leetcode-count-primes.html</loc>
     
-    <lastmod>2020-02-08T02:10:32.767Z</lastmod>
+    <lastmod>2020-03-04T04:08:49.355Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wqdchn.github.io/bin-search.html</loc>
+    
+    <lastmod>2020-02-20T13:23:04.610Z</lastmod>
     
   </url>
   
