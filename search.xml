@@ -119,11 +119,11 @@
             
             <tag> 成长 </tag>
             
-            <tag> 春节 </tag>
-            
             <tag> 新年 </tag>
             
             <tag> 久违的更新 </tag>
+            
+            <tag> 春节 </tag>
             
         </tags>
       
@@ -908,23 +908,16 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
+    </entry>
+    
+    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -936,10 +929,17 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
   
