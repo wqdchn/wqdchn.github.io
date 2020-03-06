@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2020-03-04T04:13:44.978Z</updated>
+  <updated>2020-03-06T01:48:23.169Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -17,13 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>R语言获取标准中国地图</title>
-    <link href="https://wqdchn.github.io/get-china-map-with-R.html"/>
-    <id>https://wqdchn.github.io/get-china-map-with-R.html</id>
-    <published>2020-03-04T02:49:48.000Z</published>
-    <updated>2020-03-04T04:13:44.978Z</updated>
+    <title>LeetCode股票买卖系列</title>
+    <link href="https://wqdchn.github.io/leetcode-best-time-to-by-and-sell-stock.html"/>
+    <id>https://wqdchn.github.io/leetcode-best-time-to-by-and-sell-stock.html</id>
+    <published>2020-03-06T01:01:48.000Z</published>
+    <updated>2020-03-06T01:48:23.169Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站允许共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是大部分时候只能转向万能的某宝。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
+    <content type="html"><![CDATA[<h4 id="Best-Time-to-Buy-and-Sell-Stock"><a href="#Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="Best Time to Buy and Sell Stock"></a>Best Time to Buy and Sell Stock</h4><p>来看<code>LeetCode</code>的股票买卖系列问题的第一题<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">Best Time to Buy and Sell Stock</a>。这一题要求在一系列股票价格中，通过一次买卖交易获得最大的收益。假设有这么一组股票价格<code>[7,1,5,3,6,4]</code>，我们只能在买进之后再卖出来赚取收益。很显然，我们需要在第二天的时候以<code>1</code>元的价格买进，然后在第五天的时候以<code>6</code>元的价格卖出，这样得到最大的收益<code>5</code>元。这可以用暴力法通过两层<code>for</code>循环遍历实现，但是还有一个比较好的办法，更加贴近人的思维。</p><p>首先，我们知道，买进时的股价是代价，卖出时的股价和代价之间的差价是收益。我们的目的是希望代价最低，收益最高。以上面的股价序列为例，如果我们在第一天以<code>7</code>元的价格买入股票，这时代价是<code>7</code>，收益是<code>0</code>。到了第二天，现在的股价是<code>1</code>，意味着此时代价可以是<code>1</code>，而收益是<code>1-7</code>等于<code>-6</code>。所以我们更新一下代价，但是不更新收益，此时代价是<code>1</code>，收益是<code>0</code>。从人类的思维来说，这是选择在第二天买进，然后等等看。到了第三天，现在的股价是<code>5</code>，此时的代价可以是<code>5</code>，而收益是此时的股价减去之前的代价<code>5-1</code>等于<code>4</code>。所以我们选择更新收益，但是不更新代价，此时代价是<code>1</code>，收益是<code>4</code>。以此类推，有更小的代价就更新代价，有更高的收益就更新收益。</p><pre><code class="Java">class Solution {  public int maxProfit(int[] prices) {    if (prices.length &lt; 2) {      return 0;    }    int cost = Integer.MAX_VALUE;    int profit = 0;    for (int price : prices) {      cost = Math.min(cost, price);      profit = Math.max(profit, price - cost);    }    return profit;  }}</code></pre><h4 id="Best-Time-to-Buy-and-Sell-Stock-III"><a href="#Best-Time-to-Buy-and-Sell-Stock-III" class="headerlink" title="Best Time to Buy and Sell Stock III"></a>Best Time to Buy and Sell Stock III</h4><p>来看<code>LeetCode</code>的股票买卖系列问题的第三题<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">Best Time to Buy and Sell Stock III</a>。这一题要求在一系列股票价格中获得最大的收益，最多可以通过两次买卖交易，但是需要第一次买卖交易完成之后才能进行第二次买卖交易。</p><p>与第一题类似，只是可以多一次交易。进行第二次交易时，我们可以把第一次交易的收益当做代价。</p><pre><code class="Java">class Solution {  public int maxProfit(int[] prices) {    if (prices.length &lt; 2) {      return 0;    }    int cost1 = Integer.MAX_VALUE;    int profit1 = 0;    int cost2 = Integer.MAX_VALUE;    int profit2 = 0;    for (int price : prices) {      cost1 = Math.min(cost1, price);      profit1 = Math.max(profit1, price - cost1);      cost2 = Math.min(cost2, price - profit1);      profit2 = Math.max(profit2, price - cost2);    }    return profit2;  }}</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>股市有风险，入行需谨慎。股民如何在最好的时机买进股票，并在最好的时机卖出股票，这是一个玄学问题。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Best-Time-to-Buy-and-Sell-Stock&quot;&gt;&lt;a href=&quot;#Best-Time-to-Buy-and-Sell-Stock&quot; class=&quot;headerlink&quot; title=&quot;Best Time to Buy and Sell Stoc
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
+    
+      <category term="动态规划" scheme="https://wqdchn.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R语言获取标准中国地图</title>
+    <link href="https://wqdchn.github.io/get-china-map-with-r.html"/>
+    <id>https://wqdchn.github.io/get-china-map-with-r.html</id>
+    <published>2020-03-04T02:49:48.000Z</published>
+    <updated>2020-03-06T01:04:25.581Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站会共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是在大部分情况下只能转向万能的某宝，说多了都是泪。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
     
     <summary type="html">
     
@@ -96,9 +125,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="素数" scheme="https://wqdchn.github.io/tags/%E7%B4%A0%E6%95%B0/"/>
     
@@ -161,9 +190,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="动态规划" scheme="https://wqdchn.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
@@ -219,9 +248,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
     
@@ -255,9 +284,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
     
@@ -291,9 +320,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="树" scheme="https://wqdchn.github.io/tags/%E6%A0%91/"/>
     
@@ -353,9 +382,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="树" scheme="https://wqdchn.github.io/tags/%E6%A0%91/"/>
     
@@ -385,9 +414,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="哈希表" scheme="https://wqdchn.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
@@ -415,9 +444,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
     
@@ -447,9 +476,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
     
@@ -479,9 +508,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
     
@@ -509,9 +538,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="堆栈与队列" scheme="https://wqdchn.github.io/tags/%E5%A0%86%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/"/>
     
@@ -539,9 +568,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
     
@@ -569,9 +598,9 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
     
@@ -599,41 +628,11 @@
       <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
       <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
     
       <category term="数组与链表" scheme="https://wqdchn.github.io/tags/%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第22题Generate Parentheses</title>
-    <link href="https://wqdchn.github.io/leetcode-generate-parentheses.html"/>
-    <id>https://wqdchn.github.io/leetcode-generate-parentheses.html</id>
-    <published>2019-09-21T04:15:25.000Z</published>
-    <updated>2019-11-08T11:55:40.041Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Generate-Parentheses"><a href="#Generate-Parentheses" class="headerlink" title="Generate Parentheses"></a>Generate Parentheses</h4><p><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="noopener">Generate Parentheses</a>给定一个正整数，生成有效括号的所有组合，这里只需要生成小括号即可。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><blockquote><p>Input: n = 3<br>Output: [<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]</p></blockquote><p>可见，当<code>n</code>确定时，生成的解的长度是固定的<code>2n</code>，并且解的开头一定是左括号，如果是右括号则是无效的解，左括号与右括号的数量必定是一样的，都是<code>n</code>个，这些是分析题目要求得到的“先验知识”了，接下来开始<code>Code</code><del>贝叶斯推断bushi</del>。</p><p>怎么办呢，可以用递归或者说深度优先搜索的方法来遍历，每一个解看成一个长度<code>2n</code>的一维数组，我们往里面填充左括号和右括号，起始值都是<code>n</code>个，用掉一个就减去一个。如果当前还有左括号，就使用一个左括号，同时，如果右括号的数量比左括号多，则为左括号匹配一个右括号，直到两者都用完为止。</p><h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h5><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">class Solution {  public List&lt;String&gt; generateParenthesis(int n) {    List&lt;String&gt; res = new ArrayList&lt;&gt;();    generate(&quot;&quot;, res, n, n);    return res;  }  public void generate(String sublist, List&lt;String&gt; res, int left, int right) {    if (left == 0 &amp;&amp; right == 0) {      res.add(sublist);      return;    }    if (left &gt; 0) {      generate(sublist + &quot;(&quot;, res, left - 1, right);    }    if (right &gt; left) {      generate(sublist + &quot;)&quot;, res, left, right - 1);    }  }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class Solution:    def generateParenthesis(self, n: int) -&gt; List[str]:        def generate(p, left, right, parens=[]):            if left:                generate(p + &#39;(&#39;, left - 1, right)            if right &gt; left:                generate(p + &#39;)&#39;, left, right - 1)            if not right:                parens += p,            return parens        return generate(&#39;&#39;, n, n)</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第22题是一个中等题，难度还不算非常大，递归的方法也非常简洁易懂，加油↖(^ω^)↗</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Generate-Parentheses&quot;&gt;&lt;a href=&quot;#Generate-Parentheses&quot; class=&quot;headerlink&quot; title=&quot;Generate Parentheses&quot;&gt;&lt;/a&gt;Generate
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="编程" scheme="https://wqdchn.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="深度优先搜索" scheme="https://wqdchn.github.io/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   

@@ -3,10 +3,35 @@
   
     
     <entry>
+      <title>LeetCode股票买卖系列</title>
+      <link href="/leetcode-best-time-to-by-and-sell-stock.html"/>
+      <url>/leetcode-best-time-to-by-and-sell-stock.html</url>
+      <content type="html"><![CDATA[<h4 id="Best-Time-to-Buy-and-Sell-Stock"><a href="#Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="Best Time to Buy and Sell Stock"></a>Best Time to Buy and Sell Stock</h4><p>来看<code>LeetCode</code>的股票买卖系列问题的第一题<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">Best Time to Buy and Sell Stock</a>。这一题要求在一系列股票价格中，通过一次买卖交易获得最大的收益。假设有这么一组股票价格<code>[7,1,5,3,6,4]</code>，我们只能在买进之后再卖出来赚取收益。很显然，我们需要在第二天的时候以<code>1</code>元的价格买进，然后在第五天的时候以<code>6</code>元的价格卖出，这样得到最大的收益<code>5</code>元。这可以用暴力法通过两层<code>for</code>循环遍历实现，但是还有一个比较好的办法，更加贴近人的思维。</p><p>首先，我们知道，买进时的股价是代价，卖出时的股价和代价之间的差价是收益。我们的目的是希望代价最低，收益最高。以上面的股价序列为例，如果我们在第一天以<code>7</code>元的价格买入股票，这时代价是<code>7</code>，收益是<code>0</code>。到了第二天，现在的股价是<code>1</code>，意味着此时代价可以是<code>1</code>，而收益是<code>1-7</code>等于<code>-6</code>。所以我们更新一下代价，但是不更新收益，此时代价是<code>1</code>，收益是<code>0</code>。从人类的思维来说，这是选择在第二天买进，然后等等看。到了第三天，现在的股价是<code>5</code>，此时的代价可以是<code>5</code>，而收益是此时的股价减去之前的代价<code>5-1</code>等于<code>4</code>。所以我们选择更新收益，但是不更新代价，此时代价是<code>1</code>，收益是<code>4</code>。以此类推，有更小的代价就更新代价，有更高的收益就更新收益。</p><pre><code class="Java">class Solution {  public int maxProfit(int[] prices) {    if (prices.length &lt; 2) {      return 0;    }    int cost = Integer.MAX_VALUE;    int profit = 0;    for (int price : prices) {      cost = Math.min(cost, price);      profit = Math.max(profit, price - cost);    }    return profit;  }}</code></pre><h4 id="Best-Time-to-Buy-and-Sell-Stock-III"><a href="#Best-Time-to-Buy-and-Sell-Stock-III" class="headerlink" title="Best Time to Buy and Sell Stock III"></a>Best Time to Buy and Sell Stock III</h4><p>来看<code>LeetCode</code>的股票买卖系列问题的第三题<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener">Best Time to Buy and Sell Stock III</a>。这一题要求在一系列股票价格中获得最大的收益，最多可以通过两次买卖交易，但是需要第一次买卖交易完成之后才能进行第二次买卖交易。</p><p>与第一题类似，只是可以多一次交易。进行第二次交易时，我们可以把第一次交易的收益当做代价。</p><pre><code class="Java">class Solution {  public int maxProfit(int[] prices) {    if (prices.length &lt; 2) {      return 0;    }    int cost1 = Integer.MAX_VALUE;    int profit1 = 0;    int cost2 = Integer.MAX_VALUE;    int profit2 = 0;    for (int price : prices) {      cost1 = Math.min(cost1, price);      profit1 = Math.max(profit1, price - cost1);      cost2 = Math.min(cost2, price - profit1);      profit2 = Math.max(profit2, price - cost2);    }    return profit2;  }}</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>股市有风险，入行需谨慎。股民如何在最好的时机买进股票，并在最好的时机卖出股票，这是一个玄学问题。</p>]]></content>
+      
+      <categories>
+          
+          <category> 数据结构与算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>R语言获取标准中国地图</title>
-      <link href="/get-china-map-with-R.html"/>
-      <url>/get-china-map-with-R.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站允许共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是大部分时候只能转向万能的某宝。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
+      <link href="/get-china-map-with-r.html"/>
+      <url>/get-china-map-with-r.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h4><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站会共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是在大部分情况下只能转向万能的某宝，说多了都是泪。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h4 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h4><p>民政部提供了省级与县级的<code>json</code>格式地图数据，我们可以使用<code>R</code>语言的<code>sf</code>包读取需要的数据，然后使用<code>tmap</code>包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre>]]></content>
       
       <categories>
           
@@ -65,9 +90,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 素数 </tag>
             
@@ -119,9 +144,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 动态规划 </tag>
             
@@ -167,9 +192,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 深度优先搜索 </tag>
             
@@ -198,9 +223,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 深度优先搜索 </tag>
             
@@ -229,9 +254,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 树 </tag>
             
@@ -281,9 +306,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 树 </tag>
             
@@ -308,9 +333,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 哈希表 </tag>
             
@@ -333,9 +358,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 堆栈与队列 </tag>
             
@@ -360,9 +385,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 堆栈与队列 </tag>
             
@@ -387,9 +412,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 堆栈与队列 </tag>
             
@@ -412,9 +437,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 堆栈与队列 </tag>
             
@@ -437,9 +462,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 数组与链表 </tag>
             
@@ -462,9 +487,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 数组与链表 </tag>
             
@@ -487,9 +512,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 数组与链表 </tag>
             
@@ -512,9 +537,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 深度优先搜索 </tag>
             
@@ -537,9 +562,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 堆栈与队列 </tag>
             
@@ -562,9 +587,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 哈希表 </tag>
             
@@ -587,9 +612,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 数组与链表 </tag>
             
@@ -612,9 +637,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 编程 </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> 哈希表 </tag>
             
@@ -897,13 +922,6 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
-    </entry>
-    
-    <entry>
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
@@ -915,6 +933,13 @@
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
     </entry>
     
   
