@@ -3,10 +3,10 @@
   
     
     <entry>
-      <title>RStudio新手教程：我在哪，我的数据在哪</title>
-      <link href="/beginner-guide-to-rstudio-demo1.html"/>
-      <url>/beginner-guide-to-rstudio-demo1.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="R语言与RStudio"><a href="#R语言与RStudio" class="headerlink" title="R语言与RStudio"></a>R语言与RStudio</h4><p>我知道新手那种对未知的知识，陌生的工具的恐惧和焦虑，一些对于老手来说就是几条命令行，几条代码的事，对于新手来说可能要摸索好几天才能找到头绪。虽说都有这么一个过程，但是能够尽快走过这个阶段总是好的。</p><p>今天我在一个<code>R</code>语言的群里看到一个新手同学为一个很简单的问题而困恼，不禁想起了我刚接触<code>R</code>语言的时候。不过我本身是计算机专业的学生，可能比较容易学习新的工具。但是对很多非计算机专业的学生来说，学习<code>R</code>语言可能是一件那么容易的事。</p><p><code>R</code>语言自带了一个<code>GUI</code>，也就是编程时的用户界面了，不过它的风格非常朴素，功能也很朴素，不太适合作为新手上手的工具。因此，我强烈建议使用<code>RStudio</code>，这里并不介绍<code>RStudio</code>的安装、启动，以及<code>RStudio</code>面板上各个窗口表示的内容。相信知乎、简书等网站上有很多详细的中文教程。</p><p>那么这篇文章要介绍什么东西呢？很简单，就是命令<code>R</code>语言，命令它告诉我，我在哪。</p><h4 id="我在哪，我的数据在哪"><a href="#我在哪，我的数据在哪" class="headerlink" title="我在哪，我的数据在哪"></a>我在哪，我的数据在哪</h4><p>我执行了读取文件的命令，但是却显示错误，请问是怎么回事啊？？？这是我在群里最容易看到的一个问题。一看命令可能类似这样</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Error: &#39;data.csv&#39; does not exist in current working directory (&#39;F:/Documents&#39;).</code></pre><p>报错信息提示我们，文件<code>data.csv</code>不在工作路径<code>F:/Documents</code>下。也就是说，我现在在的这个地方没有这个东西。那么，首先要知道的就是，我现在在哪里。在<code>R</code>中，可以通过<code>getwd()</code>命令来获取当前所在的工作路径。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;</code></pre><p>输出的信息提示我们，我现在处于文件夹<code>F:/Documents</code>目录下。然后我又发现，我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的。那么我该怎么让<code>R</code>读取到它呢？一种方法是改变工作路径，我的数据在哪里，我就要把哪里里当做工作路径。这可以通过<code>setwd()</code>命令来实现。注意，我们需要为该命令指定相应的路径参数，否则该命令将报错，因为你没有告诉<code>R</code>到底去哪里。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;&gt; setwd(&quot;F:/Documents/test&quot;)&gt; getwd()[1] &quot;F:/Documents/test&quot;</code></pre><p>现在我们来到了文件夹<code>F:/Documents/test</code>目录下，这时，最初那条执行错误的命令可以顺利执行了。</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.# A tibble: 569 x 32</code></pre><p>你看，我们读取到了一个数据框，数据成功地进入了<code>R</code>环境中。这是为什么呢？首先通过如下命令来查看<code>read_csv()</code>的参数。</p><pre><code class="R">&gt; args(read.csv)function (file, header = TRUE, sep = &quot;,&quot;, quote = &quot;\&quot;&quot;, dec = &quot;.&quot;,     fill = TRUE, comment.char = &quot;&quot;, ...) NULL</code></pre><p>可以看到，<code>read_csv()</code>命令中第一个参数是文件。最初的时候，我们位于<code>F:/Documents</code>工作路径，我们指定的<code>data.csv</code>只告诉了文件名，那么<code>read_csv()</code>就会到<strong>相对路径</strong>中寻找。因为<code>read_csv()</code>并不清楚这个东西到底在哪里，那没办法了，就在工作路径里找找看，有就有，没有拉倒吧，别的地方我是不会去找的。此时，这个相对路径就是工作路径。而我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的，那结果当然是找不到了。</p><p>这时候我们灵机一动，如果我在<code>read_csv()</code>命令中第一个参数中指定<code>data.csv</code>的真实位置和文件名呢？我们依然回到最初的地点，将<code>F:/Documents</code>设置为工作路径，再告诉<code>read_csv()</code>命令<code>data.csv</code>的真实位置和文件名。</p><pre><code class="R">&gt; setwd(&quot;F:/Documents&quot;)&gt; getwd()[1] &quot;F:/Documents&quot;&gt; read_csv(&quot;F:/Documents/test/data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.</code></pre><p>结果顺利地读取到了这个文件。这又是为什么呢？？？这是因为，我们这次告诉<code>read_csv()</code>命令的是<strong>绝对路径</strong>：你必须到这个地方找到这个东西，于是<code>read_csv()</code>就乖乖去找了。</p><p>对于老手来说，可能会觉得这种问题很可笑。但是偏偏就是这些不起眼的问题，常常给新手同学造成很大的烦恼。</p><p>我在哪，我的数据在哪，一切的一切都从这里出发，绽放出耀眼的光彩。</p>]]></content>
+      <title>R语言新手教程：我在哪，我的数据在哪</title>
+      <link href="/beginner-guide-to-r-demo1.html"/>
+      <url>/beginner-guide-to-r-demo1.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="R语言与RStudio"><a href="#R语言与RStudio" class="headerlink" title="R语言与RStudio"></a>R语言与RStudio</h4><p>我知道新手那种对未知的知识，陌生的工具的恐惧和焦虑，一些对于老手来说就是几条命令行，几条代码的事，对于新手来说可能要摸索好几天才能找到头绪。虽说都有这么一个过程，但是能够尽快走过这个阶段总是好的。</p><p>今天我在一个<code>R</code>语言的群里看到一个新手同学为一个很简单的问题而困恼，不禁想起了我刚接触<code>R</code>语言的时候。不过我本身是计算机专业的学生，可能比较容易学习新的工具。但是对很多非计算机专业的学生来说，学习<code>R</code>语言可能是一件那么容易的事。</p><p><code>R</code>语言自带了一个<code>GUI</code>，也就是编程时的用户界面了，不过它的风格非常朴素，功能也很朴素，不太适合作为新手上手的工具。因此，我强烈建议使用<code>RStudio</code>，这里并不介绍<code>RStudio</code>的安装、启动，以及<code>RStudio</code>面板上各个窗口表示的内容。相信知乎、简书等网站上有很多详细的中文教程。</p><p>那么这篇文章要介绍什么东西呢？</p><p>很简单，就是如何在<code>RStudio</code>命令窗口中使用<code>R</code>语言，命令它告诉我，我在哪。</p><h4 id="我在哪，我的数据在哪"><a href="#我在哪，我的数据在哪" class="headerlink" title="我在哪，我的数据在哪"></a>我在哪，我的数据在哪</h4><p>我执行了读取文件的命令，但是却显示错误，请问是怎么回事啊？？？</p><p>这是我在群里最容易看到的一个问题。一看新手同学贴出来的<code>R</code>代码可能类似这样：</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Error: &#39;data.csv&#39; does not exist in current working directory (&#39;F:/Documents&#39;).</code></pre><p>报错信息提示我们，文件<code>data.csv</code>不在工作路径<code>F:/Documents</code>下。也就是说，我现在在的这个地方没有这个东西。那么，首先要知道的就是，我现在在哪里。在<code>R</code>中，可以通过<code>getwd()</code>命令来获取当前所在的工作路径。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;</code></pre><p>输出的信息提示我们，我现在处于文件夹<code>F:/Documents</code>目录下。然后我又发现，我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的。那么我该怎么让<code>R</code>读取到它呢？一种方法是改变工作路径，我的数据在哪里，我就要把哪里里当做工作路径。这可以通过<code>setwd()</code>命令来实现。注意，我们需要为该命令指定相应的路径参数，否则该命令将报错，因为你没有告诉<code>R</code>到底去哪里。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;&gt; setwd(&quot;F:/Documents/test&quot;)&gt; getwd()[1] &quot;F:/Documents/test&quot;</code></pre><p>现在我们来到了文件夹<code>F:/Documents/test</code>目录下，这时，最初那条执行错误的命令可以顺利执行了。</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.# A tibble: 569 x 32</code></pre><p>你看，我们读取到了一个数据框，数据成功地进入了<code>R</code>环境中。这是为什么呢？首先通过如下命令来查看<code>read_csv()</code>的参数。</p><pre><code class="R">&gt; args(read.csv)function (file, header = TRUE, sep = &quot;,&quot;, quote = &quot;\&quot;&quot;, dec = &quot;.&quot;,     fill = TRUE, comment.char = &quot;&quot;, ...) NULL</code></pre><p>可以看到，<code>read_csv()</code>命令中第一个参数是文件。最初的时候，我们位于<code>F:/Documents</code>工作路径，我们指定的<code>data.csv</code>只告诉了文件名，那么<code>read_csv()</code>就会到<strong>相对路径</strong>中寻找。因为<code>read_csv()</code>并不清楚这个东西到底在哪里，那没办法了，就在工作路径里找找看，有就有，没有拉倒吧，别的地方我是不会去找的。此时，这个相对路径就是工作路径。而我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的，那结果当然是找不到了。</p><p>这时候我们灵机一动，如果我在<code>read_csv()</code>命令中第一个参数中指定<code>data.csv</code>的真实位置和文件名呢？我们依然回到最初的地点，将<code>F:/Documents</code>设置为工作路径，再告诉<code>read_csv()</code>命令<code>data.csv</code>的真实位置和文件名。</p><pre><code class="R">&gt; setwd(&quot;F:/Documents&quot;)&gt; getwd()[1] &quot;F:/Documents&quot;&gt; read_csv(&quot;F:/Documents/test/data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.</code></pre><p>结果顺利地读取到了这个文件。这又是为什么呢？？？这是因为，我们这次告诉<code>read_csv()</code>命令的是<strong>绝对路径</strong>：你必须到这个地方找到这个东西，于是<code>read_csv()</code>就乖乖去找了。</p><p>对于老手来说，可能会觉得这种问题很可笑。但是偏偏就是这些不起眼的问题，常常给新手同学造成很大的烦恼。</p><p>我在哪，我的数据在哪，一切的一切都从这里出发，绽放出耀眼的光彩。</p>]]></content>
       
       <categories>
           
@@ -69,11 +69,11 @@
             
             <tag> R语言 </tag>
             
+            <tag> 教程 </tag>
+            
             <tag> tmap </tag>
             
             <tag> sf </tag>
-            
-            <tag> 教程 </tag>
             
         </tags>
       
@@ -146,11 +146,11 @@
             
             <tag> 成长 </tag>
             
-            <tag> 春节 </tag>
-            
             <tag> 新年 </tag>
             
             <tag> 久违的更新 </tag>
+            
+            <tag> 春节 </tag>
             
         </tags>
       
@@ -198,11 +198,11 @@
             
             <tag> R语言 </tag>
             
-            <tag> ggplot2 </tag>
-            
             <tag> 教程 </tag>
             
             <tag> RStudio </tag>
+            
+            <tag> ggplot2 </tag>
             
         </tags>
       
@@ -946,6 +946,20 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>友链</title>
       <link href="/links/index.html"/>
       <url>/links/index.html</url>
@@ -957,20 +971,6 @@
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
     </entry>
     
   
