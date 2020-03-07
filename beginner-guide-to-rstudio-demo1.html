@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: 划水 | 
+            RStudio新手教程：我在哪，我的数据在哪 | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",R语言,教程,RStudio">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -219,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/tags/划水/">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/tags/划水/">
+    <meta property="og:url" content="https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 划水 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="RStudio新手教程：我在哪，我的数据在哪 | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    
+    <meta property="og:article:tag" content="R语言"> <meta property="og:article:tag" content="教程"> <meta property="og:article:tag" content="RStudio"> 
 
+    
+        <meta property="article:published_time" content="Sat Mar 07 2020 18:17:55 GMT+0800">
+        <meta property="article:modified_time" content="Sat Mar 07 2020 19:13:27 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/tags/划水/index.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html",
+    "headline": "RStudio新手教程：我在哪，我的数据在哪",
+    "datePublished": "Sat Mar 07 2020 18:17:55 GMT+0800",
+    "dateModified": "Sat Mar 07 2020 19:13:27 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "WenQian Dong",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"
+        },
+        "description": "喜欢就坚持下去吧"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "WenQian Dong&#39;s Web",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
+        }
+    },
+    "keywords": ",R语言,教程,RStudio",
+    "description": "技术,杂谈,三国厨,历史向,Google粉",
+}
+</script>
 
 
     
@@ -300,157 +336,367 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
-            
-                
-                    <!-- Paradox Thumbnail -->
-                    <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/hello-world/hello-world.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/hello-world.html"><span>[置顶]</span>你好啊世界</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这是哪里？欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/hello-world.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 01, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/杂谈/">杂谈</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#R语言与RStudio"><span class="post-toc-number">1.</span> <span class="post-toc-text">R语言与RStudio</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我在哪，我的数据在哪"><span class="post-toc-number">2.</span> <span class="post-toc-text">我在哪，我的数据在哪</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
                 
-                
-            
-        
-    
-
-    <!-- Normal Post -->
+    <!-- Paradox Post Header -->
     
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/review-of-gmcm2015-problem-D/math_banner.jpg">
-    
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/review-of-gmcm2015-problem-D.html">2015年数模研赛D题研读</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/review-of-gmcm2015-problem-D.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/学习一个/">学习一个</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 31 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                RStudio新手教程：我在哪，我的数据在哪
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>WenQian Dong</strong>
+        <span>3月 07, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACcUlEQVR42u3aW3KDMBAEQN//0skBXOAZLciPar5SCcZqPqTN7D7+fvp64OHh4eHh4eHhfRjvEV/5p57vfP7U0V8vWBseHh7eFt6LrfbgnhxfbOun4GRteHh4eDt5R8tKtu/2pbRHRbI2PDw8vE/mtZv++Z1tOY6Hh4f3jbxJeX30fDw8PLxv5K0FBOeLSI6Q9lXemLXg4eHhxby8ybT/5639PTw8PLyAV4805aVtHGqcF9b1CvHw8PBu5q0VxGtDWmujA3WBjoeHh7eR9+Kf/LIgbl9EfrRcEOPi4eHhDXgJKWlctZt4e5Dk8S4eHh7eTt7keMh/k2z6yYuuDwY8PDy8jbx8KCovfPOoIo8h8PDw8PbwkghgrcWVR7GTwrrOWvDw8PC28NoR1UkQnDzzRcyBh4eHt5GXl8JtpJs8IT+cLpiMwMPDwxvw2jb/WsCaD6rmBffi6AAeHh7emDfZmvOhqHboqh1WwMPDw9vPWyuO10KK+bfXYQQeHh7epbx23Cpv5E/uGcUceHh4eDfz5gtti+92ICBvsOHh4eG9l9cuYm0QoQ4akgEFPDw8vC28pBm2NiDVDmAlq6oPBjw8PLybeXl53Tb114LaC8IIPDw8vNt47SjAWmDRxhZtGwwPDw/vbl575XHqJG7Ii2k8PDy8/by14jUvgifjCEngWzTA8PDw8C7lJYfBfHPPX9AoVsbDw8PbyMs36DbGXbvzxqwFDw8PbzsvOULydtc86sXDw8P7Fl4bVSQNs7XDAA8PD+9dvHy7b4cP8kgiP2Dw8PDw3su7IAIYv4LJMAEeHh7eTt7vXXh4eHh4eHh4eB9w/QMTWK9bSNmGbgAAAABJRU5ErkJggg==">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/RStudio/">RStudio</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/R语言/">R语言</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/教程/">教程</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=RStudio新手教程：我在哪，我的数据在哪&url=https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=RStudio新手教程：我在哪，我的数据在哪&url=https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html&via=WenQian Dong" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <a id="more"></a>
+<h4 id="R语言与RStudio"><a href="#R语言与RStudio" class="headerlink" title="R语言与RStudio"></a>R语言与RStudio</h4><p>我知道新手那种对未知的知识，陌生的工具的恐惧和焦虑，一些对于老手来说就是几条命令行，几条代码的事，对于新手来说可能要摸索好几天才能找到头绪。虽说都有这么一个过程，但是能够尽快走过这个阶段总是好的。</p>
+<p>今天我在一个<code>R</code>语言的群里看到一个新手同学为一个很简单的问题而困恼，不禁想起了我刚接触<code>R</code>语言的时候。不过我本身是计算机专业的学生，可能比较容易学习新的工具。但是对很多非计算机专业的学生来说，学习<code>R</code>语言可能是一件那么容易的事。</p>
+<p><code>R</code>语言自带了一个<code>GUI</code>，也就是编程时的用户界面了，不过它的风格非常朴素，功能也很朴素，不太适合作为新手上手的工具。因此，我强烈建议使用<code>RStudio</code>，这里并不介绍<code>RStudio</code>的安装、启动，以及<code>RStudio</code>面板上各个窗口表示的内容。相信知乎、简书等网站上有很多详细的中文教程。</p>
+<p>那么这篇文章要介绍什么东西呢？很简单，就是命令<code>R</code>语言，命令它告诉我，我在哪。</p>
+<h4 id="我在哪，我的数据在哪"><a href="#我在哪，我的数据在哪" class="headerlink" title="我在哪，我的数据在哪"></a>我在哪，我的数据在哪</h4><p>我执行了读取文件的命令，但是却显示错误，请问是怎么回事啊？？？这是我在群里最容易看到的一个问题。一看命令可能类似这样</p>
+<pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)
+Error: &#39;data.csv&#39; does not exist in current working directory (&#39;F:/Documents&#39;).
+
+</code></pre>
+<p>报错信息提示我们，文件<code>data.csv</code>不在工作路径<code>F:/Documents</code>下。也就是说，我现在在的这个地方没有这个东西。那么，首先要知道的就是，我现在在哪里。在<code>R</code>中，可以通过<code>getwd()</code>命令来获取当前所在的工作路径。</p>
+<pre><code class="R">&gt; getwd()
+[1] &quot;F:/Documents&quot;
+</code></pre>
+<p>输出的信息提示我们，我现在处于文件夹<code>F:/Documents</code>目录下。然后我又发现，我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的。那么我该怎么让<code>R</code>读取到它呢？一种方法是改变工作路径，我的数据在哪里，我就要把哪里里当做工作路径。这可以通过<code>setwd()</code>命令来实现。注意，我们需要为该命令指定相应的路径参数，否则该命令将报错，因为你没有告诉<code>R</code>到底去哪里。</p>
+<pre><code class="R">&gt; getwd()
+[1] &quot;F:/Documents&quot;
+&gt; setwd(&quot;F:/Documents/test&quot;)
+&gt; getwd()
+[1] &quot;F:/Documents/test&quot;
+</code></pre>
+<p>现在我们来到了文件夹<code>F:/Documents/test</code>目录下，这时，最初那条执行错误的命令可以顺利执行了。</p>
+<pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  diagnosis = col_character()
+)
+See spec(...) for full column specifications.
+# A tibble: 569 x 32
+</code></pre>
+<p>你看，我们读取到了一个数据框，数据成功地进入了<code>R</code>环境中。这是为什么呢？首先通过如下命令来查看<code>read_csv()</code>的参数。</p>
+<pre><code class="R">&gt; args(read.csv)
+function (file, header = TRUE, sep = &quot;,&quot;, quote = &quot;\&quot;&quot;, dec = &quot;.&quot;, 
+    fill = TRUE, comment.char = &quot;&quot;, ...) 
+NULL
+</code></pre>
+<p>可以看到，<code>read_csv()</code>命令中第一个参数是文件。最初的时候，我们位于<code>F:/Documents</code>工作路径，我们指定的<code>data.csv</code>只告诉了文件名，那么<code>read_csv()</code>就会到<strong>相对路径</strong>中寻找。因为<code>read_csv()</code>并不清楚这个东西到底在哪里，那没办法了，就在工作路径里找找看，有就有，没有拉倒吧，别的地方我是不会去找的。此时，这个相对路径就是工作路径。而我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的，那结果当然是找不到了。</p>
+<p>这时候我们灵机一动，如果我在<code>read_csv()</code>命令中第一个参数中指定<code>data.csv</code>的真实位置和文件名呢？我们依然回到最初的地点，将<code>F:/Documents</code>设置为工作路径，再告诉<code>read_csv()</code>命令<code>data.csv</code>的真实位置和文件名。</p>
+<pre><code class="R">&gt; setwd(&quot;F:/Documents&quot;)
+&gt; getwd()
+[1] &quot;F:/Documents&quot;
+&gt; read_csv(&quot;F:/Documents/test/data.csv&quot;)
+Parsed with column specification:
+cols(
+  .default = col_double(),
+  diagnosis = col_character()
+)
+See spec(...) for full column specifications.
+</code></pre>
+<p>结果顺利地读取到了这个文件。这又是为什么呢？？？这是因为，我们这次告诉<code>read_csv()</code>命令的是<strong>绝对路径</strong>：你必须到这个地方找到这个东西，于是<code>read_csv()</code>就乖乖去找了。</p>
+<p>对于老手来说，可能会觉得这种问题很可笑。但是偏偏就是这些不起眼的问题，常常给新手同学造成很大的烦恼。</p>
+<p>我在哪，我的数据在哪，一切的一切都从这里出发，绽放出耀眼的光彩。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html">https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/beginner-guide-to-rstudio-demo1.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/leetcode-best-time-to-by-and-sell-stock.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -663,6 +909,14 @@ It will not impact the appearance and can give developers a lot of support :)
                     
 
                     
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
 
                     <!--Footer-->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -828,6 +1082,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -840,6 +1098,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     

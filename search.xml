@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>RStudio新手教程：我在哪，我的数据在哪</title>
+      <link href="/beginner-guide-to-rstudio-demo1.html"/>
+      <url>/beginner-guide-to-rstudio-demo1.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="R语言与RStudio"><a href="#R语言与RStudio" class="headerlink" title="R语言与RStudio"></a>R语言与RStudio</h4><p>我知道新手那种对未知的知识，陌生的工具的恐惧和焦虑，一些对于老手来说就是几条命令行，几条代码的事，对于新手来说可能要摸索好几天才能找到头绪。虽说都有这么一个过程，但是能够尽快走过这个阶段总是好的。</p><p>今天我在一个<code>R</code>语言的群里看到一个新手同学为一个很简单的问题而困恼，不禁想起了我刚接触<code>R</code>语言的时候。不过我本身是计算机专业的学生，可能比较容易学习新的工具。但是对很多非计算机专业的学生来说，学习<code>R</code>语言可能是一件那么容易的事。</p><p><code>R</code>语言自带了一个<code>GUI</code>，也就是编程时的用户界面了，不过它的风格非常朴素，功能也很朴素，不太适合作为新手上手的工具。因此，我强烈建议使用<code>RStudio</code>，这里并不介绍<code>RStudio</code>的安装、启动，以及<code>RStudio</code>面板上各个窗口表示的内容。相信知乎、简书等网站上有很多详细的中文教程。</p><p>那么这篇文章要介绍什么东西呢？很简单，就是命令<code>R</code>语言，命令它告诉我，我在哪。</p><h4 id="我在哪，我的数据在哪"><a href="#我在哪，我的数据在哪" class="headerlink" title="我在哪，我的数据在哪"></a>我在哪，我的数据在哪</h4><p>我执行了读取文件的命令，但是却显示错误，请问是怎么回事啊？？？这是我在群里最容易看到的一个问题。一看命令可能类似这样</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Error: &#39;data.csv&#39; does not exist in current working directory (&#39;F:/Documents&#39;).</code></pre><p>报错信息提示我们，文件<code>data.csv</code>不在工作路径<code>F:/Documents</code>下。也就是说，我现在在的这个地方没有这个东西。那么，首先要知道的就是，我现在在哪里。在<code>R</code>中，可以通过<code>getwd()</code>命令来获取当前所在的工作路径。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;</code></pre><p>输出的信息提示我们，我现在处于文件夹<code>F:/Documents</code>目录下。然后我又发现，我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的。那么我该怎么让<code>R</code>读取到它呢？一种方法是改变工作路径，我的数据在哪里，我就要把哪里里当做工作路径。这可以通过<code>setwd()</code>命令来实现。注意，我们需要为该命令指定相应的路径参数，否则该命令将报错，因为你没有告诉<code>R</code>到底去哪里。</p><pre><code class="R">&gt; getwd()[1] &quot;F:/Documents&quot;&gt; setwd(&quot;F:/Documents/test&quot;)&gt; getwd()[1] &quot;F:/Documents/test&quot;</code></pre><p>现在我们来到了文件夹<code>F:/Documents/test</code>目录下，这时，最初那条执行错误的命令可以顺利执行了。</p><pre><code class="R">&gt; read_csv(&quot;data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.# A tibble: 569 x 32</code></pre><p>你看，我们读取到了一个数据框，数据成功地进入了<code>R</code>环境中。这是为什么呢？首先通过如下命令来查看<code>read_csv()</code>的参数。</p><pre><code class="R">&gt; args(read.csv)function (file, header = TRUE, sep = &quot;,&quot;, quote = &quot;\&quot;&quot;, dec = &quot;.&quot;,     fill = TRUE, comment.char = &quot;&quot;, ...) NULL</code></pre><p>可以看到，<code>read_csv()</code>命令中第一个参数是文件。最初的时候，我们位于<code>F:/Documents</code>工作路径，我们指定的<code>data.csv</code>只告诉了文件名，那么<code>read_csv()</code>就会到<strong>相对路径</strong>中寻找。因为<code>read_csv()</code>并不清楚这个东西到底在哪里，那没办法了，就在工作路径里找找看，有就有，没有拉倒吧，别的地方我是不会去找的。此时，这个相对路径就是工作路径。而我的<code>data.csv</code>文件其实是在文件夹<code>F:/Documents/test</code>目录下的，那结果当然是找不到了。</p><p>这时候我们灵机一动，如果我在<code>read_csv()</code>命令中第一个参数中指定<code>data.csv</code>的真实位置和文件名呢？我们依然回到最初的地点，将<code>F:/Documents</code>设置为工作路径，再告诉<code>read_csv()</code>命令<code>data.csv</code>的真实位置和文件名。</p><pre><code class="R">&gt; setwd(&quot;F:/Documents&quot;)&gt; getwd()[1] &quot;F:/Documents&quot;&gt; read_csv(&quot;F:/Documents/test/data.csv&quot;)Parsed with column specification:cols(  .default = col_double(),  diagnosis = col_character())See spec(...) for full column specifications.</code></pre><p>结果顺利地读取到了这个文件。这又是为什么呢？？？这是因为，我们这次告诉<code>read_csv()</code>命令的是<strong>绝对路径</strong>：你必须到这个地方找到这个东西，于是<code>read_csv()</code>就乖乖去找了。</p><p>对于老手来说，可能会觉得这种问题很可笑。但是偏偏就是这些不起眼的问题，常常给新手同学造成很大的烦恼。</p><p>我在哪，我的数据在哪，一切的一切都从这里出发，绽放出耀眼的光彩。</p>]]></content>
+      
+      <categories>
+          
+          <category> 学习一个 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> R语言 </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> RStudio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LeetCode股票买卖系列</title>
       <link href="/leetcode-best-time-to-by-and-sell-stock.html"/>
       <url>/leetcode-best-time-to-by-and-sell-stock.html</url>
@@ -47,6 +72,8 @@
             <tag> tmap </tag>
             
             <tag> sf </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
@@ -119,11 +146,11 @@
             
             <tag> 成长 </tag>
             
+            <tag> 春节 </tag>
+            
             <tag> 新年 </tag>
             
             <tag> 久违的更新 </tag>
-            
-            <tag> 春节 </tag>
             
         </tags>
       
@@ -172,6 +199,10 @@
             <tag> R语言 </tag>
             
             <tag> ggplot2 </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> RStudio </tag>
             
         </tags>
       
@@ -699,7 +730,7 @@
       <title>工作996生病ICU</title>
       <link href="/996-icu.html"/>
       <url>/996-icu.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h4 id="996ICU"><a href="#996ICU" class="headerlink" title="996ICU"></a>996ICU</h4><p>之前关于<code>996ICU</code>的讨论已经非常引人注目，<code>996ICU</code>的<code>Github</code>仓库已经有了21万的Star，这两天马云和刘强东又有相关的表态，更是引起新的议论。所谓的「996」就是每天早上9点到岗，工作到晚上9点，每周工作6天的一种工作制，显然，这是违反《劳动法》的，但是由于特殊的国情，这种违法现象非常的普遍。</p><p><code>996ICU</code>的背后确实很复杂，企业和社会之间的博弈，老板和员工之间的博弈，员工之间的博弈，员工自身精神与肉体之间的博弈，但是归结到底还是「钱」的问题。</p><p>我想如果能给到相应的薪酬水平，大部分人是愿意接受996的，因为大部分人都是普通人，是被生活中的柴米油盐围绕着、被房车压迫着的普通人，大家都太需要钱了，尽管我还是认为996是一种不健康的行业生态。从这种层面上来说，工作只是「谋生」的手段，什么改变世界，创造未来对于大部分人都太遥远而缥缈了。</p><p>而当资本家们拿出这套「996才是拼搏」的说辞的时候，似乎有很多人愿意捧着，我不觉得这部分人他们是不明白背后的故事，只是现实不得不低头罢了吧。以我浅薄的看法，我觉得这也不要紧，为了家庭嘛，但是如果因此长起志气为资本家冲锋陷阵去和同僚们斗起法来博一个幸进，恐怕是有点扭曲了。</p><p>同样的，我看到一些让我唏嘘的言论，比如某些科研工作者，居然说「996居然能引起热议，我们科研民工都是XXX的」之类的话，如果是单纯的调侃，我觉得也已经到了边界，同样是被剥削，为什么要因为剥削的程度不同分起等级来仿佛要论个高下呢？书都读到狗肚子里了吗？</p><p>我相信老板们也有很多苦衷，员工们也有很多苦衷，那么和解的方式应该是法律，这是人类社会有关契约最大的公约数吧，所有人都要遵守法律，这样想好像又太幼稚了，如果《劳动法》真的在所有时候管用，也不会出现<code>996ICU</code>这个词了，法律只能保护大多数人，不能保护所有人，同样的只能在大多数时候保护大多数人，不能在所有时候保护所有人，这个思想好像有点危险，还有点歪楼了，嘿嘿。</p><p>另外就是，未来一段时间走上社会的大部分都是独生子女，家庭结构实在太单薄了，如果他们一人倒下了，背后跟着受罪的是两家年老的父母以及一个新生的家庭，这也是<code>996ICU</code>最恐怖的后果。</p><h4 id="政治课本背后的话"><a href="#政治课本背后的话" class="headerlink" title="政治课本背后的话"></a>政治课本背后的话</h4><p>作为资本家，他只是人格化的资本。他的灵魂就是资本的灵魂。而资本只有一种生活本能，这就是增值自身，获取剩余价值，用自己的不变部分即生产资料尽可能多的吮吸剩余劳动。资本是死劳动，它像吸血鬼一样，只有吮吸活劳动才有生命。</p><p>马克思的剥削理论指出，资本主义剥削是一种典型的市场剥削，这种剥削的存在依赖一定意义上自由、自愿的而非强迫的交换，“自由”的概念包括两种含义：一种是“积极的自由”即实在自由，另一种是“消极的自由”即形式自由。</p><p>实在自由是劳动者的自我实现，是作为自主权的自由，它意味着目标的积极能力；而形式自由则是一种意识形态幻觉，它包括作为消费者的自由、作为生产者的自由以及劳动者在劳动市场中的自由，这种形式是表面现象，而且是骗人是表面现象，罗马的奴隶是由锁链，雇佣工人则由看不见的线系在自己的所有者手里。</p><p>工人在自愿、平等交换的面纱下被迫地、不平等地出卖劳动力。</p><p>高中、大学的政治课堂上还是教了一些有用的东西的吧，书本上那些工人和资本家斗争的历史文字是生动的，直到今天依然没有过时，人类社会有时候还挺可笑的。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote><p><a href="https://996.icu/#/zh_CN" target="_blank" rel="noopener">996.ICU</a><br><a href="https://github.com/996icu/996.ICU" target="_blank" rel="noopener">996ICU的Github仓库</a><br><a href="http://www.cctb.net/llyj/llgc/foreignmarx/201402/t20140224_301628.htm" target="_blank" rel="noopener">剥削是合乎正义的吗</a></p></blockquote>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="996ICU"><a href="#996ICU" class="headerlink" title="996ICU"></a>996ICU</h4><p>之前关于<code>996ICU</code>的讨论已经非常引人注目，<code>996ICU</code>的<code>Github</code>仓库已经有了21万的Star，这两天马云和刘强东又有相关的表态，更是引起新的议论。所谓的「996」就是每天早上9点到岗，工作到晚上9点，每周工作6天的一种工作制，显然，这是违反《劳动法》的。但是由于特殊的国情，这种违法现象非常的普遍。</p><p><code>996ICU</code>的背后确实很复杂，企业和社会之间的博弈，老板和员工之间的博弈，员工之间的博弈，员工自身精神与肉体之间的博弈，但是归结到底还是「钱」的问题。</p><p>我想如果能给到相应的薪酬水平，大部分人是愿意接受996的。因为大部分人都是普通人，是被生活中的柴米油盐围绕着、被房车压迫着的普通人，大家都太需要钱了，尽管我还是认为996是一种不健康的行业生态。从这种层面上来说，工作只是「谋生」的手段，什么改变世界，创造未来对于大部分人都太遥远而缥缈了。</p><p>而当资本家们拿出这套「996才是拼搏」的说辞的时候，似乎有很多人愿意捧着。我不觉得这部分人他们是不明白背后的故事，只是现实如此不得不低头罢了吧。以我浅薄的看法，我觉得这也不要紧，都是为了家人能有更好的生活。但是如果因此长起志气为资本家冲锋陷阵去和同僚们斗起法来博一个幸进，恐怕是有点扭曲了。</p><p>同样的，我看到一些让我唏嘘的言论。比如某些科研工作者，居然说「996居然能引起热议，我们科研民工都是XXX的」之类的话，如果是单纯的调侃，我觉得也已经到了边界。同样是被剥削，为什么要因为剥削的程度不同而分起等级来仿佛要论个高下呢？书都读到狗肚子里了吗？</p><p>我相信老板们也有很多苦衷，员工们也有很多苦衷，那么和解的方式应该是法律。这是人类社会有关契约最大的公约数吧，所有人都要遵守法律。这样想好像又太幼稚了，如果《劳动法》真的在所有时候管用，也不会出现<code>996ICU</code>这个词了。法律只能保护大多数人，不能保护所有人，同样的只能在大多数时候保护大多数人，不能在所有时候保护所有人。这个思想好像有点危险，还有点歪楼了，嘿嘿。</p><p>另外就是，未来一段时间走上社会的大部分都是独生子女，家庭结构实在太单薄了。如果他们一人倒下了，背后跟着受罪的是两家年老的父母以及一个新生的家庭，这也是<code>996ICU</code>最恐怖的后果。</p><h4 id="政治课本背后的话"><a href="#政治课本背后的话" class="headerlink" title="政治课本背后的话"></a>政治课本背后的话</h4><p>作为资本家，他只是人格化的资本。他的灵魂就是资本的灵魂。而资本只有一种生活本能，这就是增值自身，获取剩余价值，用自己的不变部分即生产资料尽可能多的吮吸剩余劳动。资本是死劳动，它像吸血鬼一样，只有吮吸活劳动才有生命。</p><p>马克思的剥削理论指出，资本主义剥削是一种典型的市场剥削，这种剥削的存在依赖一定意义上自由、自愿的而非强迫的交换，“自由”的概念包括两种含义：一种是“积极的自由”即实在自由，另一种是“消极的自由”即形式自由。</p><p>实在自由是劳动者的自我实现，是作为自主权的自由，它意味着目标的积极能力；而形式自由则是一种意识形态幻觉，它包括作为消费者的自由、作为生产者的自由以及劳动者在劳动市场中的自由，这种形式是表面现象，而且是骗人是表面现象，罗马的奴隶是由锁链，雇佣工人则由看不见的线系在自己的所有者手里。</p><p>工人在自愿、平等交换的面纱下被迫地、不平等地出卖劳动力。</p><p>高中、大学的政治课堂上还是教了一些有用的东西的吧，书本上那些工人和资本家斗争的历史文字是生动的，直到今天依然没有过时，人类社会有时候还挺可笑的。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><blockquote><p><a href="https://996.icu/#/zh_CN" target="_blank" rel="noopener">996.ICU</a><br><a href="https://github.com/996icu/996.ICU" target="_blank" rel="noopener">996ICU的Github仓库</a><br><a href="http://www.cctb.net/llyj/llgc/foreignmarx/201402/t20140224_301628.htm" target="_blank" rel="noopener">剥削是合乎正义的吗</a></p></blockquote>]]></content>
       
       <categories>
           
@@ -908,13 +939,6 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
-    </entry>
-    
-    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -922,9 +946,9 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -936,10 +960,17 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
     </entry>
     
   
