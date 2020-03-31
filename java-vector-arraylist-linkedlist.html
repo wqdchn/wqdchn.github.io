@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Mar 31 2020 08:24:58 GMT+0800">
-        <meta property="article:modified_time" content="Tue Mar 31 2020 09:52:30 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 31 2020 10:13:52 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/java-vector-arraylist-linkedlist.html",
     "headline": "对比Vector、ArrayList、LinkedList有何区别？",
     "datePublished": "Tue Mar 31 2020 08:24:58 GMT+0800",
-    "dateModified": "Tue Mar 31 2020 09:52:30 GMT+0800",
+    "dateModified": "Tue Mar 31 2020 10:13:52 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -558,7 +558,7 @@ public synchronized E remove(int index) {
     return oldValue;
 }
 </code></pre>
-<p><code>Vector</code>能够根据需要自动扩容，当数组已满时，会创建新的数据，并拷贝原有数据。在初始化时若指定了容量的动态扩展大小<code>capacityIncrement</code>则依据指定的大小进行扩容，否则默认扩展一倍的容量。</p>
+<p><code>Vector</code>默认创建一个大小为<code>10</code>的<code>Object</code>数组，并将动态扩展大小<code>capacityIncrement</code>设置为<code>0</code>。<code>Vector</code>能够根据需要进行自动扩容，当数组已满时，会创建新的数组，并拷贝原有数据。在初始化时若指定了容量的动态扩展大小<code>capacityIncrement &gt; 0</code>则依据指定的大小进行扩容，否则默认扩展一倍的容量。</p>
 <pre><code class="Java">private void grow(int minCapacity) {
     // overflow-conscious code
     int oldCapacity = elementData.length;
@@ -571,6 +571,10 @@ public synchronized E remove(int index) {
     elementData = Arrays.copyOf(elementData, newCapacity);
 }
 
+public Vector() {
+        this(10);
+    }
+
 public Vector(int initialCapacity, int capacityIncrement) {
     super();
     if (initialCapacity &lt; 0)
@@ -580,8 +584,11 @@ public Vector(int initialCapacity, int capacityIncrement) {
     this.capacityIncrement = capacityIncrement;
 }
 </code></pre>
-<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p><code>ArrayList</code>是应用最多的动态数组，由于它没有了同步开销，因此性能更加良好。相应的，它不是线程安全的。<code>ArrayList</code>也支持动态扩容，但是与<code>Vector</code>默认扩容一倍不同，<code>ArrayList</code>扩容时是增加当前容量的<code>50%</code>。</p>
-<pre><code class="Java">private void grow(int minCapacity) {
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p><code>ArrayList</code>是应用最多的动态数组，由于它没有了同步开销，因此性能更加良好。相应的，它不是线程安全的。<code>ArrayList</code>也支持动态扩容，但是与<code>Vector</code>默认扩容一倍不同，<code>ArrayList</code>扩容时是增加当前容量的<code>50%</code>，其默认容量是<code>10</code>。</p>
+<pre><code class="Java">
+private static final int DEFAULT_CAPACITY = 10;
+
+private void grow(int minCapacity) {
     // overflow-conscious code
     int oldCapacity = elementData.length;
     int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
@@ -593,7 +600,8 @@ public Vector(int initialCapacity, int capacityIncrement) {
     elementData = Arrays.copyOf(elementData, newCapacity);
 }
 </code></pre>
-<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p><code>LinkedList</code>是双向链表，它不需要进行调整容量，它也不是线程安全的。</p>
+<p><code>ArrayList</code>在执行插入操作时，若元素个数超过当前数组预定义容量的最大值，数组需要扩容，扩容过程需要调用底层<code>System.arraycopy()</code>方法进行大量的数组复制操作。它在删除元素时并不会减少数组的容量，但是如果需要缩小数组容量，可以调用<code>trimToSize()</code>方法。在查找元素时要遍历数组，对于非<code>null</code>的元素采取<code>equals</code>的方式寻找。</p>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p><code>LinkedList</code>是双向链表，它不需要进行调整容量，它也不是线程安全的。<code>LinkedList</code>在插入元素时，须创建一个新的<code>Entry</code>对象，并更新相应元素的前后元素的引用；在查找元素时，需遍历链表；在删除元素时，要遍历链表，找到要删除的元素，然后从链表上将此元素删除即可。</p>
 <h3 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h3><p><code>Vector</code>、<code>ArrayList</code>、<code>LinkedList</code>内部都实现了排序操作，允许进行自定义排序。</p>
 <pre><code class="Java">public class Test {
 
@@ -621,6 +629,7 @@ public Vector(int initialCapacity, int capacityIncrement) {
 输出 a b c 
 </code></pre>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Vector</code>、<code>ArrayList</code>、<code>LinkedList</code>是<code>List</code>的实现，都是有序集合。<code>Vector</code>、<code>ArrayList</code>使用数组实现，有需要时可以进行动态扩容，<code>LinkedList</code>使用双向链表实现，不需要动态扩容。<code>Vector</code>是线程安全的，而<code>ArrayList</code>、<code>LinkedList</code>是线程不安全的。</p>
+<p>以上内容都基于<code>jdk1.8.0_161</code>。</p>
 <p><del>JDK源码是四个空格缩进，而我用的是Goole Style两个空格缩进，有点不协调orz。</del></p>
 
         
