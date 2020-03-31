@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: 教程 | 
+            对比Vector、ArrayList、LinkedList有何区别？ | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Java,集合,Vector,ArryaList,LinkedList">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -219,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/tags/教程/">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/java-vector-arraylist-linkedlist.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/tags/教程/">
+    <meta property="og:url" content="https://wqdchn.github.io/java-vector-arraylist-linkedlist.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 教程 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="对比Vector、ArrayList、LinkedList有何区别？ | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    
+    <meta property="og:article:tag" content="Java"> <meta property="og:article:tag" content="集合"> <meta property="og:article:tag" content="Vector"> <meta property="og:article:tag" content="ArryaList"> <meta property="og:article:tag" content="LinkedList"> 
 
+    
+        <meta property="article:published_time" content="Tue Mar 31 2020 08:24:58 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 31 2020 09:52:30 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/tags/教程/index.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/java-vector-arraylist-linkedlist.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://wqdchn.github.io/java-vector-arraylist-linkedlist.html",
+    "headline": "对比Vector、ArrayList、LinkedList有何区别？",
+    "datePublished": "Tue Mar 31 2020 08:24:58 GMT+0800",
+    "dateModified": "Tue Mar 31 2020 09:52:30 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "WenQian Dong",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"
+        },
+        "description": "喜欢就坚持下去吧"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "WenQian Dong&#39;s Web",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
+        }
+    },
+    "keywords": ",Java,集合,Vector,ArryaList,LinkedList",
+    "description": "技术,杂谈,三国厨,历史向,Google粉",
+}
+</script>
 
 
     
@@ -300,284 +336,425 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
-            
-                
-                    <!-- Paradox Thumbnail -->
-                    <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/hello-world/hello-world.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/hello-world.html"><span>[置顶]</span>你好啊世界</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这是哪里？欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/hello-world.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 01, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/杂谈/">杂谈</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
-                
-                
-            
-        
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Java的集合框架"><span class="post-toc-number">1.</span> <span class="post-toc-text">Java的集合框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#List集合"><span class="post-toc-number">2.</span> <span class="post-toc-text">List集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vector"><span class="post-toc-number">3.</span> <span class="post-toc-text">Vector</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ArrayList"><span class="post-toc-number">4.</span> <span class="post-toc-text">ArrayList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LinkedList"><span class="post-toc-number">5.</span> <span class="post-toc-text">LinkedList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#排序操作"><span class="post-toc-number">6.</span> <span class="post-toc-text">排序操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">7.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/beginner-guide-to-r-demo1.html">R语言新手教程：我在哪，我的数据在哪</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/beginner-guide-to-r-demo1.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>3月 07, 2020</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/学习一个/">学习一个</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/get-china-map-with-r.html">R语言获取标准中国地图</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/get-china-map-with-r.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>3月 04, 2020</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/学习一个/">学习一个</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/r-ggplot2-to-pdf-with-chinese.html">R语言ggplot2绘图转PDF中文乱码问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/r-ggplot2-to-pdf-with-chinese.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>10月 20, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/学习一个/">学习一个</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 31 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                对比Vector、ArrayList、LinkedList有何区别？
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>WenQian Dong</strong>
+        <span>3月 31, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACbElEQVR42u3aUVLEIBAE0L3/pfUAmrV7IFTcenxZGgkvHzDVzOvro8cLDw8PDw8PDw/vYbxXPH6Z6Mdfr55Mnv/5v7O14eHh4Z3h/bHVBot+v6xiW48/1uXb8fDw8A7yrpaVvPJqnuRgSN6VrA0PDw/vybz3C10vtfHw8PA+j5eQkkABDw8P77/z9gYESUSbl+mHshY8PDy8mJdfMp3/+ej9Hh4eHl7Aq1uaRmV0G/UurRAPDw/vZl6+Ee86TtpCPG8Cw8PDwzvDWz8YZhdjeWBRB8d4eHh4x3nJopP4NW8XmEXJl2/Hw8PDO8JLrqDyF8xmaJu9ioMBDw8Pbysvb4dKSt6VrT+Jd6MPioeHh3czL9nQdy03L9Db+BgPDw/vJG92nZ8HDXl5nX/EIozAw8PDu4GXM/ILqlnA0V6z1SU1Hh4e3lbeLGxtf5/PWVx3tSk1Hh4e3jJv1hzQHhUrYUR+SYaHh4d3hpdHrsnUecG9/swwjMDDw8PbypsFqfnWXweyo/nx8PDwzvBmB8Cs8G2bBupV4eHh4d3MWy+a9wbBbctCnbXg4eHhbeLlheysZWoWBw/bDvDw8PAO8tYPhjaW3dWagIeHh/c0Xns8tNHwqxzvI2A8PDy8u3ntmF1xtVdrs+ADDw8P7wxvpQmgPTZm5XU+Gx4eHt5JXru57zowikWvhxF4eHh4N/DWN+i2UE7WsKHpCg8PD+9hvFmUkJTXs1ADDw8P75m8pCDOGwjyeCIKmvHw8PAO8pKSN78YSxbXPhkV6Hh4eHhHeLMIIG8C2NXaFZXveHh4eDfzPm/g4eHh4eHh4eE9YHwDzvsWEfZTACAAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ArryaList/">ArryaList</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Java/">Java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/LinkedList/">LinkedList</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Vector/">Vector</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/集合/">集合</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=对比Vector、ArrayList、LinkedList有何区别？&url=https://wqdchn.github.io/java-vector-arraylist-linkedlist.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=对比Vector、ArrayList、LinkedList有何区别？&url=https://wqdchn.github.io/java-vector-arraylist-linkedlist.html&via=WenQian Dong" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <a id="more"></a>
+<h3 id="Java的集合框架"><a href="#Java的集合框架" class="headerlink" title="Java的集合框架"></a>Java的集合框架</h3><p><code>Java</code>提供的主要容器类型分别是集合框架与<code>Map</code>，集合通常是指<code>Collection</code>接口下的<code>List</code>、<code>Set</code>、<code>Queue</code>三类集合。一般认为<code>Collection</code>接口是<code>Java</code>集合框架的根，其子集构成了集合框架。<code>Map</code>并不属于<code>Collection</code>接口的子集，但是在概念是也当做集合来使用，但是它本身并不是真正的集合。注意，所有集合中都不能存放基础数据类型，只能存放对象的引用。</p>
+<p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-vect-arraylist-linkedlist/Java Collection.png" alt="Java Collection"></p>
+<h3 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h3><p><code>Vector</code>、<code>ArrayList</code>、<code>LinkedList</code>是<code>List</code>的实现，都是有序集合。它们都提供了诸如随机访问、添加、删除等常用操作，以及迭代器遍历、排序等方法，在功能上较为相近。但是其具体的设计存在一定区别，因此在性能、线程安全等方面有所不同。</p>
+<p>常用方法：</p>
+<ul>
+<li>size() 集合元素个数</li>
+<li>add()/addAll() 添加元素</li>
+<li>remove()/removeAll() 删除元素</li>
+<li>get() 获取元素</li>
+<li>set() 修改元素</li>
+<li>sort() 集合元素排序</li>
+<li>toArray() 转换</li>
+<li>clear() 清空集合</li>
+</ul>
+<h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p><code>Vector</code>是<code>Java</code>早期提供的线程安全的动态数组，内部使用对象数组类保存数据，其线程安全通过<code>synchronized</code>实现。</p>
+<pre><code class="Java">public synchronized boolean add(E e) {
+    modCount++;
+    ensureCapacityHelper(elementCount + 1);
+    elementData[elementCount++] = e;
+    return true;
+}
+
+public synchronized E remove(int index) {
+    modCount++;
+    if (index &gt;= elementCount)
+        throw new ArrayIndexOutOfBoundsException(index);
+    E oldValue = elementData(index);
+
+    int numMoved = elementCount - index - 1;
+    if (numMoved &gt; 0)
+        System.arraycopy(elementData, index+1, elementData, index,
+                            numMoved);
+    elementData[--elementCount] = null; // Let gc do its work
+
+    return oldValue;
+}
+</code></pre>
+<p><code>Vector</code>能够根据需要自动扩容，当数组已满时，会创建新的数据，并拷贝原有数据。在初始化时若指定了容量的动态扩展大小<code>capacityIncrement</code>则依据指定的大小进行扩容，否则默认扩展一倍的容量。</p>
+<pre><code class="Java">private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?
+                                        capacityIncrement : oldCapacity);
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+
+public Vector(int initialCapacity, int capacityIncrement) {
+    super();
+    if (initialCapacity &lt; 0)
+        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+
+                                            initialCapacity);
+    this.elementData = new Object[initialCapacity];
+    this.capacityIncrement = capacityIncrement;
+}
+</code></pre>
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p><code>ArrayList</code>是应用最多的动态数组，由于它没有了同步开销，因此性能更加良好。相应的，它不是线程安全的。<code>ArrayList</code>也支持动态扩容，但是与<code>Vector</code>默认扩容一倍不同，<code>ArrayList</code>扩容时是增加当前容量的<code>50%</code>。</p>
+<pre><code class="Java">private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+</code></pre>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p><code>LinkedList</code>是双向链表，它不需要进行调整容量，它也不是线程安全的。</p>
+<h3 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h3><p><code>Vector</code>、<code>ArrayList</code>、<code>LinkedList</code>内部都实现了排序操作，允许进行自定义排序。</p>
+<pre><code class="Java">public class Test {
+
+  public static void main(String[] args) {
+    LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+
+    linkedList.add(&quot;c&quot;);
+    linkedList.add(&quot;b&quot;);
+    linkedList.add(&quot;a&quot;);
+
+    linkedList.sort(new Comparator&lt;String&gt;() {
+      @Override
+      public int compare(String o1, String o2) {
+        return o1.compareTo(o2);
+      }
+    });
+
+    linkedList.forEach((s) -&gt; {
+      System.out.print(s + &quot; &quot;);
+    });
+
+  }
+}
+
+输出 a b c 
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Vector</code>、<code>ArrayList</code>、<code>LinkedList</code>是<code>List</code>的实现，都是有序集合。<code>Vector</code>、<code>ArrayList</code>使用数组实现，有需要时可以进行动态扩容，<code>LinkedList</code>使用双向链表实现，不需要动态扩容。<code>Vector</code>是线程安全的，而<code>ArrayList</code>、<code>LinkedList</code>是线程不安全的。</p>
+<p><del>JDK源码是四个空格缩进，而我用的是Goole Style两个空格缩进，有点不协调orz。</del></p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/java-vector-arraylist-linkedlist.html">https://wqdchn.github.io/java-vector-arraylist-linkedlist.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://wqdchn.github.io/java-vector-arraylist-linkedlist.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/java-vector-arraylist-linkedlist.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/beginner-guide-to-r-demo1.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -657,7 +834,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">3</span></a>
+                <a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
@@ -675,7 +852,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/学习一个/">学习一个<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">11</span></a>
+                <a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/R语言/">R语言<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数学建模/">数学建模<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">11</span></a>
             </ul>
         </li>
         
@@ -788,6 +965,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
@@ -957,6 +1142,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -969,6 +1158,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
