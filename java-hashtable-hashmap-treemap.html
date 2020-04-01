@@ -45,7 +45,7 @@
     
     <title>
         
-            成长学 | 
+            对比Hashtable、HashMap、TreeMap有什么不同？ | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content=",闲聊,成长,网易云音乐">
+    <meta name="keywords" content=",Java,容器,集合,哈希表">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -222,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/song-of-grow-up.html">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/song-of-grow-up.html">
+    <meta property="og:url" content="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="成长学 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="对比Hashtable、HashMap、TreeMap有什么不同？ | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta property="og:article:tag" content="闲聊"> <meta property="og:article:tag" content="成长"> <meta property="og:article:tag" content="网易云音乐"> 
+    <meta property="og:article:tag" content="Java"> <meta property="og:article:tag" content="容器"> <meta property="og:article:tag" content="集合"> <meta property="og:article:tag" content="哈希表"> 
 
     
-        <meta property="article:published_time" content="Fri Aug 17 2018 19:29:37 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jun 22 2019 14:26:38 GMT+0800">
+        <meta property="article:published_time" content="Wed Apr 01 2020 08:14:00 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 01 2020 10:48:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/song-of-grow-up.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://wqdchn.github.io/song-of-grow-up.html",
-    "headline": "成长学",
-    "datePublished": "Fri Aug 17 2018 19:29:37 GMT+0800",
-    "dateModified": "Sat Jun 22 2019 14:26:38 GMT+0800",
+    "mainEntityOfPage": "https://wqdchn.github.io/java-hashtable-hashmap-treemap.html",
+    "headline": "对比Hashtable、HashMap、TreeMap有什么不同？",
+    "datePublished": "Wed Apr 01 2020 08:14:00 GMT+0800",
+    "dateModified": "Wed Apr 01 2020 10:48:48 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -291,7 +291,7 @@
             "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
         }
     },
-    "keywords": ",闲聊,成长,网易云音乐",
+    "keywords": ",Java,容器,集合,哈希表",
     "description": "技术,杂谈,三国厨,历史向,Google粉",
 }
 </script>
@@ -365,7 +365,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#长大以后"><span class="post-toc-number">1.</span> <span class="post-toc-text">长大以后</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#八月廿日"><span class="post-toc-number">2.</span> <span class="post-toc-text">八月廿日</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#九月十三日"><span class="post-toc-number">3.</span> <span class="post-toc-text">九月十三日</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#关于这首歌"><span class="post-toc-number">4.</span> <span class="post-toc-text">关于这首歌</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#我们快乐吗"><span class="post-toc-number">5.</span> <span class="post-toc-text">我们快乐吗</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map容器"><span class="post-toc-number">1.</span> <span class="post-toc-text">Map容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HashMap的实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">HashMap的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HashMap的工作流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">HashMap的工作流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存储对象"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">存储对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取对象"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">获取对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扩容"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">扩容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树化改造"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">树化改造</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hashCode"><span class="post-toc-number">4.</span> <span class="post-toc-text">hashCode</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#equals-的特性。"><span class="post-toc-number">5.</span> <span class="post-toc-text">equals 的特性。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
     </ul>
     
 
@@ -384,11 +384,20 @@
                 
     <!-- Paradox Post Header -->
     
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://raw.githubusercontent.com/wqdchn/blog-image/master/song-of-grow-up/time-to-grow-up.png)">
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
     
             <p class="article-headline-p">
-                成长学
+                对比Hashtable、HashMap、TreeMap有什么不同？
             </p>
         </div>
 
@@ -407,7 +416,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WenQian Dong</strong>
-        <span>8月 17, 2018</span>
+        <span>4月 01, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -429,7 +438,7 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACY0lEQVR42u3aQY7jMAwEwPz/07vXBYJ1mqTFMTLlU4DRxCodJKXJ15+vfl54eHh4eHh4eHgP473i59/x75//923vf30fmX/b9dzw8PDwNnkfttpgTDLp6pL15oaHh4e3yUtef42pHhi9g+TDcYKHh4f3MN41Nb9eXy8QHh4e3u/k5Zfs6wXCw8PDezIv+cHfC3knx8Zq1oKHh4cX8+YFsHOfH1Hfw8PDw5u0NBWXoDfp25qu8PDw8A7w5hFq/g1JSFE+Bnq/GPDw8PCO8apTzA+PanhRiDDw8PDwFnm9YGIeZPSCXTw8PLyf5eUb93VYkEcJeXhRfRceHh7eaV4vgEiu3YX4oFgAa6bUeHh4eAd41QJYvmX3ymbNwwkPDw/vMC/fuOftAtXjoXrk4OHh4e3wJhFqMj4JO+5twMLDw8M7zcuLW9X/qsYNk5F4eHh4m7xeKasXvM6LZ+WmKzw8PLzDvOohsdR+Gi8QHh4e3g6vV8qqTnTS1FWeIR4eHt4Kb9Lc35toMulmCxceHh7eCi8/Eu5tAqhGtDd0RuDh4eGNefmm3JtcoVnqrvACDw8Pb52XbPG9yCAvj1UjYzw8PLxNXrWpdNJekDQZzFtX8fDw8E7zqk/v4tsLMqqlMjw8PLwdXq8A1nt93pDau2Tj4eHhbfLyV94byPbGf1hEPDw8vEXepKEqvyLnrQa9SAIPDw/vabzrrTkJgpNG2CRiLl+p8fDw8B7Am7QX5NTyfPDw8PAWeXkY0aNOwIUSHR4eHt4Kr1cAm1yUq00GhWgDDw8P7zDv+x48PDw8PDw8PLwHPH8BAIhPAgthff8AAAAASUVORK5CYII=">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACdElEQVR42u3aQW7DMAwEwPz/0+21QOF0l7IENxidgia1NT5YxJKvr49eLzw8PDw8PDw8vIfxXvG6vNyPb69+mVzt999ne8PDw8M7w/vjVXtx46vP7aN5f7V6b3h4eHgHeVfbym+fHxItL9kbHh4e3n/hvS+Fk1d8fl88PDy8T+K1m3t/qODh4eH9F956UJsfDLOSfXvWgoeHhxfz8ibT+c9H+3t4eHh4Aa8eaYqHAPIiuz2oiqErPDw8vA28/EXc4meF+/p+8PDw8HbzZm2t/Jaz2DcBR2EEHh4e3gberMmUlNd5QysKZ/P/xcPDwzvIa1tcbXNr5ZhZSqnx8PDwbuXlxW4bNORDAHlhHYUaeHh4eJt5CSkJavPyt71XHRnj4eHhbea1AetsQGpWlM8eMR4eHt5uXhIW5G3+vAjOBwXawhoPDw/vJK8de5o1+/MDZthmw8PDw9vMy4cGildzWXa3Qww3NMDw8PDwFniv0ZoNY+WDWXl5XTfA8PDw8Lbx2vb/++NhfcArORLw8PDwTvKS9nxbUs/K8ZVSHg8PD+8krw0CZuVvW6DnMTEeHh7eed4sGpiFuW3xfUMYgYeHh3eE98clbmr2ty2u6LHi4eHhPYA3C1XXH1Zy/WFJjYeHh7fAa1cbK9Ttq/gRRGEEHh4e3gZeO2iVHBt5GDEbXNgyU4aHh4d301TSrDjeMkqVx8d4eHh4B3ntC3qlWTUrwaPxAjw8PLxH8mYtq/Y37T7x8PDwnsxbiRKScauNowN4eHh4t/KSMGLWEpuFC/lhgIeHh3eel0cAsxh3qURuhwzw8PDwNvM+b+Hh4eHh4eHh4T1gfQM7rXF9mu2TbAAAAABJRU5ErkJggg==">
     
 </ul>
 
@@ -443,7 +452,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/成长/">成长</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/网易云音乐/">网易云音乐</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/闲聊/">闲聊</a>
+        <a class="post_tag-link" href="/tags/Java/">Java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/哈希表/">哈希表</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/容器/">容器</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/集合/">集合</a>
     </ul>
     
 
@@ -471,7 +480,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=成长学&url=https://wqdchn.github.io/song-of-grow-up.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=对比Hashtable、HashMap、TreeMap有什么不同？&url=https://wqdchn.github.io/java-hashtable-hashmap-treemap.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -480,7 +489,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=成长学&url=https://wqdchn.github.io/song-of-grow-up.html&via=WenQian Dong" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=对比Hashtable、HashMap、TreeMap有什么不同？&url=https://wqdchn.github.io/java-hashtable-hashmap-treemap.html&via=WenQian Dong" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -511,19 +520,177 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=483380284&auto=0&height=66"></iframe>
+        <a id="more"></a>
+<h3 id="Map容器"><a href="#Map容器" class="headerlink" title="Map容器"></a>Map容器</h3><p>Map 通常被包括在 Java 集合框架中，但是其本身并不是真正的 Collection 集合类型。 Hashtable 、 HashMap 、 TreeMap 都是 Map 的实现，是以键值对的形式存储和操作数据的容器类型。</p>
+<p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-hashtable-hashmap-treemap/Java Map.png" alt="Java Map"></p>
+<p> Hashtable 继承自  Dictionary 类，而 HashMap 与 TreeMap 继承 AbstractMap 类，它们的类结构上是不同的，不同的实现表明了它们不同的设计目的。</p>
+<p> Hashtable 是 Java 类库关于哈希表的一个早期实现，它的方法都使用 synchronized 进行同步，是线程安全的。 Hashtable 不允许 key 为 null ，不允许 value 为 null 。   </p>
+<p> HashMap 是使用最广的一种哈希表实现，大部分方法与 Hashtable 是相似的，但是减少了同步开销，因此是线程不安全的。 HashMap 允许 key 为 null ，允许 value 为 null 。</p>
+<p> TreeMap 是基于红黑树的一种提供顺序访问的 Map ，与前两者不同，它的 put() 、 get() 等操作的时间复杂度都是 O(log(n)) 。其顺序可以通过 Comparator 来决定，或者根据键值的自然顺序 Comparable 来决定。它也是线程不安全的。 TreeMap 不允许 key 为 null ，允许 value 为 null 。</p>
+<p>对于 TreeMap ，当实现 Comparator 接口时，若未对 null 情况进行判断，则可能抛 NullPointerException 异常。如果针对 null 情况实现了特别处理，则可以 put() 存入，但是却不能正常使用 get() 访问，只能通过遍历去访问。</p>
+<p>因此，建议遵循设计的规范，不要做这种使用错误。例如 HashMap 明确声明是线程不安全的，如果不加考虑，直接简单地应用在多线程场景中，总是要出问题的。</p>
+<h3 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h3><p> HashMap 的底层是数组和链表组成的复合结构，数组被分成桶 bucket ，里面存放哈希值，通过哈希值来确定数组寻址时的数组下标。哈希值相同的键值对则以链表的形式存储，如果链表的长度超过阈值 TREEIFY_THRESHOLD = 8 ，则对链表进行改造，转化为红黑树。当红黑树的节点小于阈值 UNTREEIFY_THRESHOLD = 6 时，则对红黑树进行改造，转化为链表。我想这是为了避免链表在阈值附近频繁地转换造成过大的开销而设置的两个临界点。</p>
+<h3 id="HashMap的工作流程"><a href="#HashMap的工作流程" class="headerlink" title="HashMap的工作流程"></a>HashMap的工作流程</h3><h4 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h4><p>存储对象时，将键值 K/V 对传给 put() 方法：</p>
+<pre><code class="Java">public V put(K key, V value) {
+    return putVal(hash(key), key, value, false, true);
+}
+</code></pre>
+<p>然后调用 hash() 方法计算 K 的哈希值：</p>
+<pre><code class="Java">static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+</code></pre>
+<p>这里进行了一个 hashCode() 高位数据移位到低位 h &gt;&gt;&gt; 16 并进行异或运算 ^ 的操作。将高位和低位进行异或运算，只要有高位或低位中有一位的变化，整个 hash() 返回的哈希值就会发生变化，尽可能地减少哈希碰撞。</p>
+<p>在计算得到数值下标之后，通过 putVal() 方法进行存储， putVal() 方法本身的逻辑非常密集，从初始化、扩容、树化都与它有关：</p>
+<pre><code class="Java">final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                boolean evict) {
+    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
+    if ((tab = table) == null || (n = tab.length) == 0)
+        n = (tab = resize()).length;
+    if ((p = tab[i = (n - 1) &amp; hash]) == null)
+        tab[i] = newNode(hash, key, value, null);
+    else {
+        Node&lt;K,V&gt; e; K k;
+        if (p.hash == hash &amp;&amp;
+            ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+            e = p;
+        else if (p instanceof TreeNode)
+            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
+        else {
+            for (int binCount = 0; ; ++binCount) {
+                if ((e = p.next) == null) {
+                    p.next = newNode(hash, key, value, null);
+                    if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                        treeifyBin(tab, hash);
+                    break;
+                }
+                if (e.hash == hash &amp;&amp;
+                    ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                    break;
+                p = e;
+            }
+        }
+        if (e != null) { // existing mapping for key
+            V oldValue = e.value;
+            if (!onlyIfAbsent || oldValue == null)
+                e.value = value;
+            afterNodeAccess(e);
+            return oldValue;
+        }
+    }
+    ++modCount;
+    if (++size &gt; threshold)
+        resize();
+    afterNodeInsertion(evict);
+    return null;
+}
+</code></pre>
+<p>如果哈希表为 null ， resize() 方法会负责初始化 tab = resize() 。当哈希表容量不足时，出现 ++size &gt; threshold ， resize() 方法还会进行扩容。默认的初始化容量参数和最大容量参数如下。</p>
+<pre><code class="Java">/**
+    * The default initial capacity - MUST be a power of two.
+    */
+static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16， 2的4次方
+static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30; // 2的30次方
+</code></pre>
+<p>如果 K 的 hash 值在 HashMap 中不存在，则执行插入，若存在，则发生碰撞。</p>
+<p>如果 K 的 hash 值在 HashMap 中存在，且它们两者 equals 返回 true ，则更新键值对。</p>
+<p>如果 K 的 hash 值在 HashMap 中存在，且它们两者 equals 返回 false，则插入链表的尾部（尾插法）或者红黑树中（树的添加方式）。</p>
+<h4 id="获取对象"><a href="#获取对象" class="headerlink" title="获取对象"></a>获取对象</h4><p>获取对象时，将 K 传给 get() 方法：</p>
+<p>调用 hash(K) 方法，计算 K 的 hash 值，从而获取该键值所在链表的数组下标。</p>
+<pre><code class="Java">public V get(Object key) {
+    Node&lt;K,V&gt; e;
+    return (e = getNode(hash(key), key)) == null ? null : e.value;
+}
+</code></pre>
+<p>然后顺序遍历链表，根据equals()方法查找相同 Node 链表中 K 值对应的 V 值。</p>
+<pre><code class="Java">final Node&lt;K,V&gt; getNode(int hash, Object key) {
+    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; first, e; int n; K k;
+    if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0 &amp;&amp;
+        (first = tab[(n - 1) &amp; hash]) != null) {
+        if (first.hash == hash &amp;&amp; // always check first node
+            ((k = first.key) == key || (key != null &amp;&amp; key.equals(k))))
+            return first;
+        if ((e = first.next) != null) {
+            if (first instanceof TreeNode)
+                return ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);
+            do {
+                if (e.hash == hash &amp;&amp;
+                    ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                    return e;
+            } while ((e = e.next) != null);
+        }
+    }
+    return null;
+}
+</code></pre>
+<h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>扩容的方法比较复杂</p>
+<pre><code class="Java">
+static final float DEFAULT_LOAD_FACTOR = 0.75f; // 负载因子
 
-<h4 id="长大以后"><a href="#长大以后" class="headerlink" title="长大以后"></a>长大以后</h4><p><strong> 这个世界，好像既不温柔也不正确呢，</strong>如果你不够强大的话。在某部日漫里看见过类似的台词，现在想来有点感受了，生活果然对我动手了啊。最近家里的事不是太顺，而我又帮不上什么忙，看着父母温暖的脸庞上岁月的痕迹已经掩盖不住，我心里就忍不住流泪，这些话也不会对别人说，只能在这个地方悄悄地叹一口气，时间过得好快，而我要做到的，还有太多，太多，加油，加油。</p>
-<h4 id="八月廿日"><a href="#八月廿日" class="headerlink" title="八月廿日"></a>八月廿日</h4><p>今天吃饭的时候父亲又提起了考公务员的事，我只说能考，父亲有点失望，只说我已经长大，事情自己多考虑，他也已经不懂了，然后便不再多说。其实这是最让我难受的地方，心里模模糊糊的有一种崩坏的感觉，这种感觉，就像身处线式战术时代的战场，一阵排枪过后，等到眼前硝烟散尽，赫然发现身前再也没有遮挡，自己已然位于战阵的第一排。我还不适应这种角色的转换吧，说句没头脑的话，我好害怕我做下错误的决定，伤害到父母伤害到自己。</p>
-<p>我是一个不称职的儿子，我不了解我父亲，平时我们话也不多，现在的我更不知道该如何是好，印象中，父亲流露出这种失望和伤感的情绪还是在大三的暑假，也可能不是，我在家收拾书房的东西，发现柜子里的一台录音机，就把它拿出来檫了一下，很普通的一个手提式录音机，父亲正好看见，走过来爱惜地摸了摸，说了一句我至今难忘的话：这台录音机是你上初中的时候买的，给你读英语，没读咯。可能是那时起，我下定决心要做些什么，不过现在来看，我做的并不算好，至少我心里清楚，我远没有父亲期望的那样强大，我好不争气啊。</p>
-<h4 id="九月十三日"><a href="#九月十三日" class="headerlink" title="九月十三日"></a>九月十三日</h4><p>迟迟没有更新，主要是太懒了，第二点就是仍旧不能很好的处理自己的时间，接下来几天有一个高强度的任务，希望能够做的好一点，时间真的是过得非常的快呢，认识了两位新朋友<del>姑且这么说吧</del>，最近又开始重新看柯南。今天看到第38集，这集真的触动到我了，女主本来有一个美满的未来，但是在和男朋友开车出去游玩的时候由于一对杀马特情侣故意别车而发生意外翻车，男朋友不幸地葬身于火海，女主假借爱慕的名义拜托毛利小五郎寻找男朋友，其实是试图寻找杀马特情侣两人复仇，不明内情的毛利找到了杀马特情侣的地址，女主开车去复仇的路上回忆起和男友从初识、一起工作、互相帮助、加班、合作谈判，二人情愫暗生，告白，可是一切却毁在了那场意外，命运真是无常啊，间奏的插曲非常动人，将这种心酸无处可诉的悲伤感觉诠释地恰到好处，明明只是一集动画片，而我看完之后却久久不能释怀。</p>
-<h4 id="关于这首歌"><a href="#关于这首歌" class="headerlink" title="关于这首歌"></a>关于这首歌</h4><p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/song-of-grow-up/song-of-grow-up.png" alt="成长学"></p>
-<h4 id="我们快乐吗"><a href="#我们快乐吗" class="headerlink" title="我们快乐吗"></a>我们快乐吗</h4><blockquote>
-<p>街上车来车往却落寞<br>空气也变得有些脆弱<br>它是否无处寄托着 也想诉说着什么<br>看来我 还是没能抚平内心的皱折<br>什么时候才能找回 曾经的我<br>我曾失落 书店角落 深夜某个时候<br>眼底竟是他们的不倦笑容<br>我曾迷惑 独自揣度 无非自己浅薄<br>而现在是否能读懂几分成熟<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候</p>
-</blockquote>
-<blockquote>
-<p>我曾失落 书店角落 深夜某个时候<br>眼底竟是他们的不倦笑容<br>我曾迷惑 独自揣度 无非自己浅薄<br>而现在是否能读懂几分成熟<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候<br>记忆之中 喜泪交错<br>多少事何止恍然如梦概括<br>又有多少人看似洒脱却不快乐<br>许多年以后 多少人为生活迁就<br>只为心中那不变的守候</p>
-</blockquote>
+final Node&lt;K,V&gt;[] resize() {
+    // ...
+    else if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACIY &amp;&amp;
+                oldCap &gt;= DEFAULT_INITIAL_CAPAITY)
+        newThr = oldThr &lt;&lt; 1; // double there
+       // ... 
+    else if (oldThr &gt; 0) // initial capacity was placed in threshold
+        newCap = oldThr;
+    else {  
+        // zero initial threshold signifies using defaultsfults
+        newCap = DEFAULT_INITIAL_CAPAITY;
+        newThr = (int)(DEFAULT_LOAD_ATOR* DEFAULT_INITIAL_CAPACITY；
+    }
+    if (newThr ==0) {
+        float ft = (float)newCap * loadFator;
+        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float)MAXIMUM_CAPACITY ?(int)ft : Integer.MAX_VALUE);
+    }
+    threshold = neThr;
+    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newap];
+    table = n；
+    // 移动到新的数组结构e数组结构 
+}
+
+</code></pre>
+<p>如果负载因子 * 容量 &gt; 元素数量，则会进行扩容。扩容时创建一个新的数组，其容量为旧数组的两倍，并重新计算旧数组中结点的存储位置。结点在新数组中的位置只有两种，原下标位置或原下标+旧数组的大小。</p>
+<h4 id="树化改造"><a href="#树化改造" class="headerlink" title="树化改造"></a>树化改造</h4><p>在使用 put() 方法进行存储对象时，除了会遇到扩容方法，还有可能遇到树化改造：</p>
+<pre><code class="Java">
+static final int MIN_TREEIFY_CAPACITY = 64;
+
+final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
+    int n, index; Node&lt;K,V&gt; e;
+    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)
+        resize();
+    else if ((e = tab[index = (n - 1) &amp; hash]) != null) {
+        TreeNode&lt;K,V&gt; hd = null, tl = null;
+        do {
+            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);
+            if (tl == null)
+                hd = p;
+            else {
+                p.prev = tl;
+                tl.next = p;
+            }
+            tl = p;
+        } while ((e = e.next) != null);
+        if ((tab[index] = hd) != null)
+            hd.treeify(tab);
+    }
+}
+</code></pre>
+<p>如果容量小于 MIN_TREEIFY_CAPACITY，只会进行简单的扩容。</p>
+<p>如果容量大于 MIN_TREEIFY_CAPACITY ，则会进行树化改造。</p>
+<p>HashMap 之所以要进行树化改造，是因为底层结构中链表的遍历时间复杂度是 O(N) 的，在哈希碰撞较为严重的时候，链表较长，其存取性能较低，还可能有额外的安全隐患。</p>
+<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h3><p>hashCode 是所有 Java 对象的固有方法，如果不重载的话，返回的实际上是该对象在 JVM 的堆上内存地址，而不同对象的内存地址肯定不同，所以这个 hashCode 也就肯定不同了。如果重载了的话，由于采用的算法的问题，有可能导致两个不同对象的hashCode相同。</p>
+<h3 id="equals-的特性。"><a href="#equals-的特性。" class="headerlink" title="equals 的特性。"></a>equals 的特性。</h3><p>自反性：对于任何非空引用值 x，x.equals(x) 都应返回 true。<br>对称性：对于任何非空引用值 x 和 y，当且仅当 y.equals(x) 返回 true 时，x.equals(y) 才应返回 true。<br>传递性：对于任何非空引用值 x、y 和 z，如果 x.equals(y) 返回 true，并且 y.equals(z) 返回 true，那么 x.equals(z) 应返回 true。<br>一致性：对于任何非空引用值 x 和 y，多次调用 x.equals(y) 始终返回 true 或始终返回 false，前提是对象上 equals 比较中所用的信息没有被修改。<br>非空性：对于任何非空引用值 x，x.equals(null) 都应返回 false。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>大部分使用 Map 的场景，通常就是放入、访问或者删除，而对顺序没有特别要求，HashMap 在这种情况下基本是最好的选择。HashMap 的性能表现非常依赖于哈希码的有效性，请务必遵守 hashCode 和 equals 的一些基本约定：</p>
+<ul>
+<li>equals 相等，hashCode 一定要相等。</li>
+<li>重写了 hashCode 也要重写 equals。</li>
+<li>hashCode 需要保持一致性，状态改变返回的哈希值仍然要一致。</li>
+</ul>
+<p>以上内容都基于 jdk1.8.0_161 。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&amp;mid=2650125459&amp;idx=1&amp;sn=56a14e497b5644eba72f034ac791a4d9&amp;chksm=f36ba9b2c41c20a43611ef0d54747abdaf12f1f867ab23f2f0fc8eac87c657353c734f926cbb&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">为啥 HashMap 的默认容量是16？</a><br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651486554&amp;idx=1&amp;sn=23a0786a8c401c799042ac7a9aa0e811&amp;chksm=bd2515258a529c3312285c2536a92a7eb56805ded2eb726b72ab06beabe8e167d00d20789333&amp;scene=126&amp;sessionid=1585703424&amp;key=e7b22394d9386bca990226e723bf6055c836e7d8b7dabe02034009cb225b77c844a21b5027ec82bfa738aa258fea0d41ca89603c0b8e93de1540103a2ec25a970c5c796cb2d499aaa6fce20c5e2772c3&amp;ascene=1&amp;uin=MTIzMjgzNDMyNw%3D%3D&amp;devicetype=Windows+10&amp;version=62080079&amp;lang=zh_CN&amp;exportkey=AxuN6zS95LSdyZL9KQG5Oj0%3D&amp;pass_ticket=LGstMxzdbnh6CyV6rurD3W6ylR1d9GRkDMmoMP80xAWiS91bl%2B2xlMkQ2wePQ23q" target="_blank" rel="noopener">我说我了解集合类，面试官竟然问我为啥 HashMap 的负载因子不设置成1！？</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -532,7 +699,7 @@
                             本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
                         </strong>
                         <br>
-                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/song-of-grow-up.html">https://wqdchn.github.io/song-of-grow-up.html</a>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">https://wqdchn.github.io/java-hashtable-hashmap-treemap.html</a>
                     </p>
                 </blockquote>
         
@@ -588,8 +755,8 @@
 
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://wqdchn.github.io/song-of-grow-up.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://wqdchn.github.io/song-of-grow-up.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://wqdchn.github.io/java-hashtable-hashmap-treemap.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/java-hashtable-hashmap-treemap.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
@@ -638,21 +805,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/cn-dota-best-dota.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/review-of-gmcm2015-problem-D.html" id="post_nav-older" class="next-content">
+        <a href="/java-vector-arraylist-linkedlist.html" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
