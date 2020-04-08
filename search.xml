@@ -106,8 +106,8 @@
     
     <entry>
       <title>R语言获取标准中国地图</title>
-      <link href="/get-china-map-with-r.html"/>
-      <url>/get-china-map-with-r.html</url>
+      <link href="/get-china-map-with-R.html"/>
+      <url>/get-china-map-with-R.html</url>
       <content type="html"><![CDATA[<a id="more"></a><h3 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h3><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站会共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是在大部分情况下只能转向万能的某宝，说多了都是泪。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h3 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h3><p>民政部提供了省级与县级的 json 格式地图数据，我们可以使用 R 语言的 sf 包读取需要的数据，然后使用 tmap 包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>sf 包的计算效率非常高，是当前 R 语言空间数据分析过程中不可缺少的重要工具，强烈 push。 tmap 包是我接触的比较友好的一种地图可视化包，使用也很简洁，是 R 语言空间数据可视化输出的重要工具。</p>]]></content>
       
       <categories>
