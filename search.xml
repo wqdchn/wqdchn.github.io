@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Java基础：多态</title>
+      <link href="/java-basic-polymorphism.html"/>
+      <url>/java-basic-polymorphism.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>我们知道，面向对象的基本要素是封装、继承、多态。其中多态也叫动态绑定，是指程序在执行期间，判断所引用的对象的实际类型，根据实际类型来调用其相应的方法。以下面的代码为例，</p><pre><code class="Java">public class PolymorphTest {  public static void main(String[] args) {    Animal animal = new Dog(&quot;小白&quot;, &quot;白色&quot;);    Animal animal2 = new Cat(&quot;小橘&quot;, &quot;黑色&quot;);    animal.eat();    animal2.eat();  }}class Animal {  private String name;  Animal(String name) {    this.name = name;  }  public void eat() {    System.out.println(&quot;动物在吃东西&quot;);  }}class Dog extends Animal {  private String Color; // 肤色  Dog(String name, String Color) {    super(name);    this.Color = Color;  }  public void eat() {    System.out.println(&quot;小狗在吃骨头&quot;);  }}class Cat extends Animal {  private String eyeColor; // 眼睛色  Cat(String name, String eyeColor) {    super(name);    this.eyeColor = eyeColor;  }  public void eat() {    System.out.println(&quot;小猫在吃小鱼干&quot;);  }}输出：小狗在吃骨头小猫在吃小鱼干</code></pre><p>程序在执行 Animal animal = new Dog(“小白”, “白色”) 时，栈空间内会有一个变量 animal ，animal 指向堆空间中 new 出来的 Dog 对象。在 new 这个 Dog 对象的时候，首先会调用父类 Animal 的构造方法，把名字小白传递给构造方法 Animal(String name) ，然后再初始化自己的私有成员变量 Color。这样，当 Dog 对象的构造方法 Dog(String name, String Color) 执行完毕之后，内存空间中就出现了一个 Dog 对象和一个 Dog 对象的引用 animal 变量，这个 Dog 对象有自己的私有成员变量 Color，同时，Dog 对象中还包含了一个父类的 Animal 对象，这个 Animal 对象中包含了 Dog 对象的名字。</p><p>在方法区中，则存在两个 eat() 方法，分别是父类 Animal 对象的 eat() 方法和子类 Dog 对象的 eat() 方法，当我们执行 animal 的 eat 方法调用时，多态就发挥作用了，它会根据实际 new 出来的对象去取得对应的方法，并执行，所以我们看见了 小狗在吃骨头 而不是 动物在吃东西。</p><p>这里，我们小结一下，多态是指程序在执行期间，判断所引用的对象的实际类型，根据实际类型来调用其相应的方法，实现多态需要三个条件，分别是要有继承，子类要重写 Override 父类的方法，父类引用指向子类对象。</p><h3 id="多态的实现"><a href="#多态的实现" class="headerlink" title="多态的实现"></a>多态的实现</h3><p>那么多态是怎么实现的呢？回想一下类的加载机制，在类加载的准备阶段，Java 虚拟机会为类的静态字段分配内存，同时构造与该类相关联方法表，这个方法表就是实现动态绑定也就是多态的关键所在。</p><p>方法表本质是一个数组，它存储了当前类及其父类中非私有的实例方法。在动态绑定过程中，程序会访问栈空间上的调用者，根据其指向的对象取得调用者的实际类型，然后读取该类型的方法表，进而读取方法表中某个索引下对应的目标方法。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>关于多态更加细致的实现暂时先不讨论了，先了解到这里把。</p>]]></content>
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 多态 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>对比Hashtable、HashMap、TreeMap有什么不同？</title>
       <link href="/java-hashtable-hashmap-treemap.html"/>
       <url>/java-hashtable-hashmap-treemap.html</url>
@@ -33,7 +56,7 @@
       <title>对比Vector、ArrayList、LinkedList有何区别？</title>
       <link href="/java-vector-arraylist-linkedlist.html"/>
       <url>/java-vector-arraylist-linkedlist.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h3 id="Java的集合框架"><a href="#Java的集合框架" class="headerlink" title="Java的集合框架"></a>Java的集合框架</h3><p> Java 提供的主要容器类型分别是集合框架与 Map ，集合通常是指 Collection 接口下的 List 、 Set 、 Queue 三类集合。一般认为 Collection 接口是 Java 集合框架的根，其子集构成了集合框架。 Map 并不属于 Collection 接口的子集，但是在概念是也当做集合来使用，但是它本身并不是真正的集合。注意，所有集合中都不能存放基础数据类型，只能存放对象的引用。</p><p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-vector-arraylist-linkedlist/Java Collection.png" alt="Java Collection"></p><h3 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h3><p> Vector 、 ArrayList 、 LinkedList 是 List 的实现，都是有序集合。它们都提供了诸如随机访问、添加、删除等常用操作，以及迭代器遍历、排序等方法，在功能上较为相近。但是其具体的设计存在一定区别，因此在性能、线程安全等方面有所不同。</p><p>常用方法：</p><ul><li>size() 集合元素个数</li><li>add()/addAll() 添加元素</li><li>remove()/removeAll() 删除元素</li><li>get() 获取元素</li><li>set() 修改元素</li><li>sort() 集合元素排序</li><li>toArray() 转换</li><li>clear() 清空集合</li></ul><h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p> Vector 是 Java 早期提供的线程安全的动态数组，内部使用对象数组类保存数据，其线程安全通过 synchronized 实现。</p><pre><code class="Java">public synchronized boolean add(E e) {    modCount++;    ensureCapacityHelper(elementCount + 1);    elementData[elementCount++] = e;    return true;}public synchronized E remove(int index) {    modCount++;    if (index &gt;= elementCount)        throw new ArrayIndexOutOfBoundsException(index);    E oldValue = elementData(index);    int numMoved = elementCount - index - 1;    if (numMoved &gt; 0)        System.arraycopy(elementData, index+1, elementData, index,                            numMoved);    elementData[--elementCount] = null; // Let gc do its work    return oldValue;}</code></pre><p> Vector 默认创建一个大小为 10 的 Object 数组，并将动态扩展大小 capacityIncrement 设置为 0 。 Vector 能够根据需要进行自动扩容，当数组已满时，会创建新的数组，并拷贝原有数据。在初始化时若指定了容量的动态扩展大小 capacityIncrement &gt; 0 则依据指定的大小进行扩容，否则默认扩展一倍的容量。</p><pre><code class="Java">private void grow(int minCapacity) {    // overflow-conscious code    int oldCapacity = elementData.length;    int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?                                        capacityIncrement : oldCapacity);    if (newCapacity - minCapacity &lt; 0)        newCapacity = minCapacity;    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)        newCapacity = hugeCapacity(minCapacity);    elementData = Arrays.copyOf(elementData, newCapacity);}public Vector() {    this(10);}public Vector(int initialCapacity, int capacityIncrement) {    super();    if (initialCapacity &lt; 0)        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+                                            initialCapacity);    this.elementData = new Object[initialCapacity];    this.capacityIncrement = capacityIncrement;}</code></pre><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p> ArrayList 是应用最多的动态数组，由于它没有了同步开销，因此性能更加良好。相应的，它不是线程安全的。 ArrayList 也支持动态扩容，但是与 Vector 默认扩容一倍不同， ArrayList 扩容时是增加当前容量的 50% ，其默认容量是 10 。</p><pre><code class="Java">private static final int DEFAULT_CAPACITY = 10;private void grow(int minCapacity) {    // overflow-conscious code    int oldCapacity = elementData.length;    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);    if (newCapacity - minCapacity &lt; 0)        newCapacity = minCapacity;    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)        newCapacity = hugeCapacity(minCapacity);    // minCapacity is usually close to size, so this is a win:    elementData = Arrays.copyOf(elementData, newCapacity);}</code></pre><p> ArrayList 在执行插入操作时，若元素个数超过当前数组预定义容量的最大值，数组需要扩容，扩容过程需要调用底层 System.arraycopy() 方法进行大量的数组复制操作。它在删除元素时并不会减少数组的容量，但是如果需要缩小数组容量，可以调用 trimToSize() 方法。在查找元素时要遍历数组，对于非 null 的元素采取 equals 的方式寻找。</p><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p> LinkedList 是双向链表，它不需要进行调整容量，它也不是线程安全的。 LinkedList 在插入元素时，须创建一个新的 Entry 对象，并更新相应元素的前后元素的引用；在查找元素时，需遍历链表；在删除元素时，要遍历链表，找到要删除的元素，然后从链表上将此元素删除即可。</p><h3 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h3><p> Vector 、 ArrayList 、 LinkedList 内部都实现了排序操作，允许进行自定义排序。</p><pre><code class="Java">public class Test {  public static void main(String[] args) {    LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();    linkedList.add(&quot;c&quot;);    linkedList.add(&quot;b&quot;);    linkedList.add(&quot;a&quot;);    linkedList.sort(new Comparator&lt;String&gt;() {      @Override      public int compare(String o1, String o2) {        return o1.compareTo(o2);      }    });    linkedList.forEach((s) -&gt; {      System.out.print(s + &quot; &quot;);    });  }}输出 a b c </code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p> Vector 、 ArrayList 、 LinkedList 是 List 的实现，都是有序集合。 Vector 、 ArrayList 使用数组实现，有需要时可以进行动态扩容， LinkedList 使用双向链表实现，不需要动态扩容。 Vector 是线程安全的，而 ArrayList 、 LinkedList 是线程不安全的。在分析以上三类集合的读写效率时，还应注意的一点是是否需要考尾部的情况。</p><p>以上内容都基于 jdk1.8.0_161 。</p><p><del>JDK源码是四个空格缩进，而我用的是Goole Style两个空格缩进，有点不协调orz。</del></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651485602&amp;idx=2&amp;sn=569035c3b6bd1a1028df03517418e84a&amp;chksm=bd2519dd8a5290cb32f88a88fc8f57799b5d25e79452bc66749f83c40f593509931506603623&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1575123269344&amp;sharer_shareid=3c5653a301d37ee49e0cb689e723404f#rd" target="_blank" rel="noopener">Java问答：用ArrayList还是LinkedList</a></p>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h3 id="Java的集合框架"><a href="#Java的集合框架" class="headerlink" title="Java的集合框架"></a>Java的集合框架</h3><p> Java 提供的主要容器类型分别是集合框架与 Map ，集合通常是指 Collection 接口下的 List 、 Set 、 Queue 三类集合。一般认为 Collection 接口是 Java 集合框架的根，其子集构成了集合框架。 Map 并不属于 Collection 接口的子集，但是在概念是也当做集合来使用，但是它本身并不是真正的集合。注意，所有集合中都不能存放基础数据类型，只能存放对象的引用。</p><p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-vector-arraylist-linkedlist/Java Collection.png" alt="Java Collection"></p><h3 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h3><p> Vector 、 ArrayList 、 LinkedList 是 List 的实现，都是有序集合。它们都提供了诸如随机访问、添加、删除等常用操作，以及迭代器遍历、排序等方法，在功能上较为相近。但是其具体的设计存在一定区别，因此在性能、线程安全等方面有所不同。</p><p>常用方法：</p><ul><li>size() 集合元素个数</li><li>add()/addAll() 添加元素</li><li>remove()/removeAll() 删除元素</li><li>get() 获取元素</li><li>set() 修改元素</li><li>sort() 集合元素排序</li><li>toArray() 转换</li><li>clear() 清空集合</li></ul><h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p> Vector 是 Java 早期提供的线程安全的动态数组，内部使用对象数组类保存数据，其线程安全通过 synchronized 实现。</p><pre><code class="Java">public synchronized boolean add(E e) {    modCount++;    ensureCapacityHelper(elementCount + 1);    elementData[elementCount++] = e;    return true;}public synchronized E remove(int index) {    modCount++;    if (index &gt;= elementCount)        throw new ArrayIndexOutOfBoundsException(index);    E oldValue = elementData(index);    int numMoved = elementCount - index - 1;    if (numMoved &gt; 0)        System.arraycopy(elementData, index+1, elementData, index,                            numMoved);    elementData[--elementCount] = null; // Let gc do its work    return oldValue;}</code></pre><p> Vector 默认创建一个大小为 10 的 Object 数组，并将动态扩展大小 capacityIncrement 设置为 0 。 Vector 能够根据需要进行自动扩容，当数组已满时，会创建新的数组，并拷贝原有数据。在初始化时若指定了容量的动态扩展大小 capacityIncrement &gt; 0 则依据指定的大小进行扩容，否则默认扩展一倍的容量。</p><pre><code class="Java">private void grow(int minCapacity) {    // overflow-conscious code    int oldCapacity = elementData.length;    int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?                                        capacityIncrement : oldCapacity);    if (newCapacity - minCapacity &lt; 0)        newCapacity = minCapacity;    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)        newCapacity = hugeCapacity(minCapacity);    elementData = Arrays.copyOf(elementData, newCapacity);}public Vector() {    this(10);}public Vector(int initialCapacity, int capacityIncrement) {    super();    if (initialCapacity &lt; 0)        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+                                            initialCapacity);    this.elementData = new Object[initialCapacity];    this.capacityIncrement = capacityIncrement;}</code></pre><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p> ArrayList 是应用最多的动态数组，由于它没有了同步开销，因此性能更加良好。相应的，它不是线程安全的。 ArrayList 也支持动态扩容，但是与 Vector 默认扩容一倍不同， ArrayList 扩容时是增加当前容量的 50% ，其默认容量是 10 。</p><pre><code class="Java">private static final int DEFAULT_CAPACITY = 10;private void grow(int minCapacity) {    // overflow-conscious code    int oldCapacity = elementData.length;    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);    if (newCapacity - minCapacity &lt; 0)        newCapacity = minCapacity;    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)        newCapacity = hugeCapacity(minCapacity);    // minCapacity is usually close to size, so this is a win:    elementData = Arrays.copyOf(elementData, newCapacity);}</code></pre><p> ArrayList 在执行插入操作时，若元素个数超过当前数组预定义容量的最大值，数组需要扩容，扩容过程需要调用底层 System.arraycopy() 方法进行大量的数组复制操作。它在删除元素时并不会减少数组的容量，但是如果需要缩小数组容量，可以调用 trimToSize() 方法。在查找元素时要遍历数组，对于非 null 的元素采取 equals 的方式寻找。</p><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p> LinkedList 是双向链表，它不需要进行调整容量，它也不是线程安全的。 LinkedList 在插入元素时，须创建一个新的 Entry 对象，并更新相应元素的前后元素的引用；在查找元素时，需遍历链表；在删除元素时，要遍历链表，找到要删除的元素，然后从链表上将此元素删除即可。</p><h3 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h3><p> Vector 、 ArrayList 、 LinkedList 内部都实现了排序操作，允许进行自定义排序。</p><pre><code class="Java">public class Test {  public static void main(String[] args) {    LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();    linkedList.add(&quot;c&quot;);    linkedList.add(&quot;b&quot;);    linkedList.add(&quot;a&quot;);    linkedList.sort(new Comparator&lt;String&gt;() {      @Override      public int compare(String o1, String o2) {        return o1.compareTo(o2);      }    });    linkedList.forEach((s) -&gt; {      System.out.print(s + &quot; &quot;);    });  }}输出 a b c </code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p> Vector 、 ArrayList 、 LinkedList 是 List 的实现，都是有序集合。 Vector 、 ArrayList 使用数组实现，有需要时可以进行动态扩容， LinkedList 使用双向链表实现，不需要动态扩容。 Vector 是线程安全的，而 ArrayList 、 LinkedList 是线程不安全的。在分析以上三类集合的读写效率时，还应注意的一点是是否需要考尾部的情况。</p><p>以上内容都基于 jdk1.8.0_161 。</p><p><del>JDK源码是四个空格缩进，而我用的是Google Style两个空格缩进，有点不协调orz。</del></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651485602&amp;idx=2&amp;sn=569035c3b6bd1a1028df03517418e84a&amp;chksm=bd2519dd8a5290cb32f88a88fc8f57799b5d25e79452bc66749f83c40f593509931506603623&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1575123269344&amp;sharer_shareid=3c5653a301d37ee49e0cb689e723404f#rd" target="_blank" rel="noopener">Java问答：用ArrayList还是LinkedList</a></p>]]></content>
       
       <categories>
           
@@ -108,7 +131,7 @@
       <title>R语言获取标准中国地图</title>
       <link href="/get-china-map-with-R.html"/>
       <url>/get-china-map-with-R.html</url>
-      <content type="html"><![CDATA[<a id="more"></a><h3 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h3><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站会共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是在大部分情况下只能转向万能的某宝，说多了都是泪。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h3 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h3><p>民政部提供了省级与县级的 json 格式地图数据，我们可以使用 R 语言的 sf 包读取需要的数据，然后使用 tmap 包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>sf 包的计算效率非常高，是当前 R 语言空间数据分析过程中不可缺少的重要工具，强烈 push。 tmap 包是我接触的比较友好的一种地图可视化包，使用也很简洁，是 R 语言空间数据可视化输出的重要工具。</p>]]></content>
+      <content type="html"><![CDATA[<a id="more"></a><h3 id="地图在哪里"><a href="#地图在哪里" class="headerlink" title="地图在哪里"></a>地图在哪里</h3><p>空间数据分析离不开基础地理数据的支持，比如省市县乡等各级行政区划的数据。然而我国的基础地理数据处于一种薛定谔的状态，往往找不到一个能给出基础地理数据的政府部门的官网。有些网站会共享一部分基础地理数据，但是申请数据的手续有时非常复杂， 即要注册提交个人信息，又要手持身份证拍照，还要写下申请书。于是在大部分情况下只能转向万能的某宝，说多了都是泪。</p><p>最近突然发现，民政部的官网悄咪咪的提供了一个接口可以获取到一些基础地理数据。既然是民政部门提供的数据，那当然是最权威的，再也不用担心有些数据中存在的南海九段线缺失，台湾岛没有等问题啦。</p><h3 id="获取全国县级地图"><a href="#获取全国县级地图" class="headerlink" title="获取全国县级地图"></a>获取全国县级地图</h3><p>民政部提供了省级与县级的 json 格式地图数据，我们可以使用 R 语言的 sf 包读取需要的数据，然后使用 tmap 包来绘制地图。</p><pre><code class="R">library(sf)library(tmap)# 民政部官网url &lt;- &quot;http://xzqh.mca.gov.cn/data/&quot;# 获取全国县级地图xian_quanguo &lt;- sf::st_read(  dsn = paste0(url, &quot;xian_quanguo.json&quot;),  stringsAsFactors = FALSE)# 简单检查一下数据head(xian_quanguo)st_crs(xian_quanguo) &lt;- st_crs(&quot;+proj=longlat +datum=WGS84&quot;)# tmap绘制地图tm_shape(xian_quanguo) +   tm_polygons() +   tm_compass(position = c(&quot;left&quot;, &quot;bottom&quot;)) + # 指北针  tm_scale_bar(position = c(&quot;left&quot;, &quot;bottom&quot;)) # 比例尺</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>sf 包的计算效率非常高，是当前 R 语言空间数据分析过程中不可缺少的重要工具，强烈 push。 tmap 包是我接触的比较友好的一种地图可视化包，使用也很简洁，更新也比较及时。</p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://github.com/r-spatial/sf" target="_blank" rel="noopener">sf: A package that provides simple features access for R</a></p><p><a href="https://github.com/mtennekes/tmap" target="_blank" rel="noopener">tmap: R package for thematic maps</a></p>]]></content>
       
       <categories>
           
@@ -196,11 +219,11 @@
             
             <tag> 成长 </tag>
             
+            <tag> 春节 </tag>
+            
             <tag> 新年 </tag>
             
             <tag> 久违的更新 </tag>
-            
-            <tag> 春节 </tag>
             
         </tags>
       
@@ -955,13 +978,6 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
-    </entry>
-    
-    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -969,16 +985,23 @@
     </entry>
     
     <entry>
-      <title>友链</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
-      <content type="html"><![CDATA[]]></content>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h4 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h4><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h4 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h4><p>目前是在读研究生，预计<code>2020</code>年<code>6</code>月毕业，研究的方向是时空数据挖掘，主要针对城市地理的内容进行空间分析与时空分析。有两篇地理学方面的中文核心文章在等待录用，速度不算很快，但也是对自己研究生生涯的一个总结吧。</p><p>我相信，城市让生活更美好，代码让城市更美好。</p><p>我永远喜欢数据清洗、转换、整理，我永远喜欢数据分析、建模、可视化，我永远喜欢<code>R</code>、<code>Java</code>、<code>Python</code>。</p><h4 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h4><p>不如就用邮件吧，请戳左上角。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>感谢阅读完这段内容，谢谢，祝您生活愉快，<code>have a nice day ~</code></p>]]></content>
     </entry>
     
     <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>友链</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
