@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Apr 01 2020 08:14:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Apr 01 2020 10:48:48 GMT+0800">
+        <meta property="article:modified_time" content="Mon Apr 13 2020 11:01:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "https://wqdchn.github.io/java-hashtable-hashmap-treemap.html",
     "headline": "对比Hashtable、HashMap、TreeMap有什么不同？",
     "datePublished": "Wed Apr 01 2020 08:14:00 GMT+0800",
-    "dateModified": "Wed Apr 01 2020 10:48:48 GMT+0800",
+    "dateModified": "Mon Apr 13 2020 11:01:55 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "WenQian Dong",
@@ -530,7 +530,7 @@
 <p>对于 TreeMap ，当实现 Comparator 接口时，若未对 null 情况进行判断，则可能抛 NullPointerException 异常。如果针对 null 情况实现了特别处理，则可以 put() 存入，但是却不能正常使用 get() 访问，只能通过遍历去访问。</p>
 <p>因此，建议遵循设计的规范，不要做这种使用错误。例如 HashMap 明确声明是线程不安全的，如果不加考虑，直接简单地应用在多线程场景中，总是要出问题的。</p>
 <h3 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h3><p> HashMap 的底层是数组和链表组成的复合结构，数组被分成桶 bucket ，里面存放哈希值，通过哈希值来确定数组寻址时的数组下标。哈希值相同的键值对则以链表的形式存储，如果链表的长度超过阈值 TREEIFY_THRESHOLD = 8 ，则对链表进行改造，转化为红黑树。当红黑树的节点小于阈值 UNTREEIFY_THRESHOLD = 6 时，则对红黑树进行改造，转化为链表。我想这是为了避免链表在阈值附近频繁地转换造成过大的开销而设置的两个临界点。</p>
-<h3 id="HashMap的工作流程"><a href="#HashMap的工作流程" class="headerlink" title="HashMap的工作流程"></a>HashMap的工作流程</h3><h4 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h4><p>存储对象时，将键值 K/V 对传给 put() 方法：</p>
+<h3 id="HashMap的工作流程"><a href="#HashMap的工作流程" class="headerlink" title="HashMap的工作流程"></a>HashMap的工作流程</h3><h4 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h4><p>存储对象时，将键值对 K/V 传给 put() 方法：</p>
 <pre><code class="Java">public V put(K key, V value) {
     return putVal(hash(key), key, value, false, true);
 }
@@ -542,7 +542,7 @@
 }
 </code></pre>
 <p>这里进行了一个 hashCode() 高位数据移位到低位 h &gt;&gt;&gt; 16 并进行异或运算 ^ 的操作。将高位和低位进行异或运算，只要有高位或低位中有一位的变化，整个 hash() 返回的哈希值就会发生变化，尽可能地减少哈希碰撞。</p>
-<p>在计算得到数值下标之后，通过 putVal() 方法进行存储， putVal() 方法本身的逻辑非常密集，从初始化、扩容、树化都与它有关：</p>
+<p>在计算得到数组下标之后，通过 putVal() 方法进行存储， putVal() 方法本身的逻辑非常密集，从初始化、扩容、树化都与它有关：</p>
 <pre><code class="Java">final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
                 boolean evict) {
     Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
@@ -586,7 +586,8 @@
     return null;
 }
 </code></pre>
-<p>如果哈希表为 null ， resize() 方法会负责初始化 tab = resize() 。当哈希表容量不足时，出现 ++size &gt; threshold ， resize() 方法还会进行扩容。默认的初始化容量参数和最大容量参数如下。</p>
+<p>如果哈希表为 null ， resize() 方法会负责初始化 tab = resize() 。</p>
+<p>当哈希表容量不足时，出现 ++size &gt; threshold ， resize() 方法还会进行扩容。默认的初始化容量参数和最大容量参数如下。</p>
 <pre><code class="Java">/**
     * The default initial capacity - MUST be a power of two.
     */
@@ -911,7 +912,7 @@ final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
+                <a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
             </ul>
         </li>
         
@@ -929,7 +930,7 @@ final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/R语言/">R语言<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数学建模/">数学建模<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">11</span></a>
+                <a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/R语言/">R语言<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/数学建模/">数学建模<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂谈/">杂谈<span class="sidebar_archives-count">11</span></a>
             </ul>
         </li>
         

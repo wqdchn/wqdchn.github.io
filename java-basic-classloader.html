@@ -45,7 +45,7 @@
     
     <title>
         
-            标签: 网易云音乐 | 
+            Java基础：类加载过程 | 
         
         WenQian Dong&#39;s Web
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Java,JVM,类加载">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -219,7 +222,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/tags/网易云音乐/">
+    <meta name="msapplication-starturl" content="https://wqdchn.github.io/java-basic-classloader.html">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/tags/网易云音乐/">
+    <meta property="og:url" content="https://wqdchn.github.io/java-basic-classloader.html">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 网易云音乐 | WenQian Dong&#39;s Web">
+    <meta property="og:title" content="Java基础：类加载过程 | WenQian Dong&#39;s Web">
     <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
     <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    
+    <meta property="og:article:tag" content="Java"> <meta property="og:article:tag" content="JVM"> <meta property="og:article:tag" content="类加载"> 
 
+    
+        <meta property="article:published_time" content="Tue Apr 14 2020 08:15:47 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 14 2020 09:48:14 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://wqdchn.github.io/tags/网易云音乐/index.html" />
+        <link rel="canonical" href="https://wqdchn.github.io/java-basic-classloader.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://wqdchn.github.io/java-basic-classloader.html",
+    "headline": "Java基础：类加载过程",
+    "datePublished": "Tue Apr 14 2020 08:15:47 GMT+0800",
+    "dateModified": "Tue Apr 14 2020 09:48:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "WenQian Dong",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"
+        },
+        "description": "喜欢就坚持下去吧"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "WenQian Dong&#39;s Web",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
+        }
+    },
+    "keywords": ",Java,JVM,类加载",
+    "description": "技术,杂谈,三国厨,历史向,Google粉",
+}
+</script>
 
 
     
@@ -300,157 +336,361 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
-    
-        
-            
-                
-                    <!-- Paradox Thumbnail -->
-                    <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/hello-world/hello-world.png">
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/hello-world.html"><span>[置顶]</span>你好啊世界</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            这是哪里？欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/hello-world.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 01, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/杂谈/">杂谈</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
             </span>
-        </div>
+        </a>
     </div>
-</div>
+    -->
 
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类加载过程"><span class="post-toc-number">1.</span> <span class="post-toc-text">类加载过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加载"><span class="post-toc-number">2.</span> <span class="post-toc-text">加载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链接"><span class="post-toc-number">3.</span> <span class="post-toc-text">链接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化"><span class="post-toc-number">4.</span> <span class="post-toc-text">初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双亲委派"><span class="post-toc-number">5.</span> <span class="post-toc-text">双亲委派</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NoClassDefFoundError-和-ClassNotFoundException"><span class="post-toc-number">6.</span> <span class="post-toc-text">NoClassDefFoundError 和 ClassNotFoundException</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
                 
-                
-            
-        
-    
-
-    <!-- Normal Post -->
+    <!-- Paradox Post Header -->
     
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://raw.githubusercontent.com/wqdchn/blog-image/master/song-of-grow-up/time-to-grow-up.png">
-    
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 31 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/song-of-grow-up.html">成长学</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/song-of-grow-up.html" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="WenQian Dong's avatar">
-            </div>
-            <div>
-                <strong>WenQian Dong</strong>
-                <span>8月 17, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/杂谈/">杂谈</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 31 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Java基础：类加载过程
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>WenQian Dong</strong>
+        <span>4月 14, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaUlEQVR42u3aQY7jMAwEwPz/0zMPWEBukpLiHZRPQZDYKh8kosnPz5++Pnh4eHh4eHh4eC/jfeLr33+tP6+fkvy3uTY8PDy8K7yHrXb54Hwpa3b+sh7WhoeHh3eRV92+qwfG+s7b7oCHh4f3el5SCiebe/JcPDw8vL/By4vjNTU5JPDw8PDexkseXI0YerCvZS14eHh4MS8PYe9/vtrfw8PDwwt45ZGmVlurGmRsG7rCw8PDO8DLN+Jdbaq8vK4OIuDh4eHd4fVaVr1AIS/W19FwIcbFw8PDO8zrNa6S9lUvDq6W43h4eHh3eHmxW30pyYFRLeKbKTUeHh7eVl51486D194v12V0dITg4eHhXeTNF5GHDtVvCm02PDw8vMO86vDTfOwgKbuTVzMKI/Dw8PAGvHzDrS46DyP2FtZ4eHh4p3n54OmJhfZK8IfIAw8PD+8KL9nKJxFt0r7KQ+Rmfw8PDw9vE6/aDMtji94IbG9oFQ8PD+8+b1fAmr+g+XGCh4eH9y1eXuDuWkR1IGA0dIWHh4d3mNdrg01ChN6wwsOBhIeHh3eFl2zTeShQDSOq93w4rvDw8PAu8pI/74puk7K7WZTj4eHhfYmXh62TGPdEqIGHh4d3mle9qm2taiBbfZXNoSs8PDy8AW/Xptz7pteEG40O4OHh4W3izVtcvXtOyu4NDTA8PDy8Ma+3QffY+X02DF3h4eHhvZJ3YuCgd5Dg4eHh/b+8ajg7eTV4eHh43+IlYcR6m64GE4VCOR/nwsPDw7vCyyOA6vBo0r7qBRBH+nt4eHh4B+Y533/h4eHh4eHh4eG94PoFSEy6lubV2HkAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/JVM/">JVM</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Java/">Java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/类加载/">类加载</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java基础：类加载过程&url=https://wqdchn.github.io/java-basic-classloader.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java基础：类加载过程&url=https://wqdchn.github.io/java-basic-classloader.html&via=WenQian Dong" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <a id="more"></a>
+<h3 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h3><p>一般来说，Java 的类加载过程分为三个主要步骤：加载、链接、初始化，细节部分在<a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html" target="_blank" rel="noopener">Java 虚拟机规范</a>中有详细介绍。</p>
+<p>Java 的语言类型可以分为基本类型和引用类型。基本类型是 Java 虚拟机预先定义好的。引用类型中，Java将其细分为：类、接口、数组类和泛型参数，泛型参数在编译过程中会被擦除（没看懂啥意思？？），数组类是 JVM 直接生成的，另外两种则有对应的字节流。</p>
+<p>最常见的字节流就是 Java 编译生成的 class 文件，Java 将来自不同数据源的字节流读取到 JVM 中生成类或接口就是类加载过程，这里的数据源可能是 jar 包、class文件等等。</p>
+<h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>加载，是指查找字节流，并根据字节流创建类的过程。JVM 中有三种类加载器：启动类加载器、扩展类加载器、应用类加载器，每种类加载器加载一部分类。加载阶段，类的唯一性通过类加载器名称和类全面来共同确定，因此不同类加载器加载同一串字节流也会生成两个不同的类。</p>
+<p>启动类加载器（Bootstrap Class Loader）加载最基础、最重要的类，比如 lib/ 目录下 jar 包中的类。</p>
+<p>扩展类加载器（Extension Class Loader）的父-类加载器是启动类加载器，它负责加载 lib/ext/ 目录下的 jar 包，即所谓的 extension 机制。</p>
+<p>应用类加载器（Application Class Loader）的父-类加载器是扩展类加载器，它负责加载应用程序路径下的类，这个应用程序路径一般是环境变量 classpath 指定的路径。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>链接是指将创建成的类合并到 JVM 中，使之能够被执行的过程，这是类加载的核心步骤。链接阶段又可分为验证、准备、解析三个子阶段。</p>
+<p>验证阶段要核验字节信息是否符合JVM 规范，保证加载类能够满足JVM 的约束条件。</p>
+<p>准备阶段，创建并为被加载的类的静态字段分配内存，注意，这里并不会做一般意义上的显式初始化，而只是创建变量并为变量开辟内存空间，做默认的初始化。例如我们 int a = 1，那么在链接的准备阶段，这个 a 的值是 0，并不会赋值为 1。</p>
+<p>在准备阶段，还有一个重要的工作，就是为类构造相关的数据结构，例如实现动态绑定的方法表。在 class 文件被加载至 JVM 之前，一个类无法知道自己和其他类的其方法、字段所对应的具体地址。Java编译时会生成一个符号引用，通过符号引用来无歧义得定位到具体目标上。</p>
+<p>举例来说，对于一个方法调用，编译器会生成一个包含目标方法所在类的名字、目标方法的名字、接收参数类型以及返回值类型的符号引用，来指代所要调用的方法。</p>
+<p>解析阶段就是要将符号引用解析为直接引用或实际引用。但是解析阶段的发生是不确定的，它可能在初始化步骤之前，也可能在初始化步骤之后。同时，在类加载的过程中，所有步骤、阶段是按顺序开始，但并不是一定按顺序进行或完成的。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>类加载的最后一步是初始化，这一步真正去执行类初始化的代码逻辑，包括静态字段赋值的动作，以及执行类定义中的静态初始化块内的逻辑，编译器在编译阶段就会把这部分逻辑整理好，父类型的初始化逻辑优先于当前类型的逻辑。</p>
+<p>JVM 规范枚举了下述多种触发情况：</p>
+<ol>
+<li>当虚拟机启动时，初始化用户指定的主类；</li>
+<li>当遇到用以新建目标类实例的 new 指令时，初始化 new 指令的目标类；</li>
+<li>当遇到调用静态方法的指令时，初始化该静态方法所在的类；</li>
+<li>当遇到访问静态字段的指令时，初始化该静态字段所在的类；</li>
+<li>子类的初始化会触发父类的初始化；</li>
+<li>如果一个接口定义了 default 方法，那么直接实现或者间接实现该接口的类的初始化，会触发该接口的初始化；</li>
+<li>使用反射 API 对某个类进行反射调用时，初始化这个类；</li>
+<li>当初次调用 MethodHandle 实例时，初始化该 MethodHandle 指向的方法所在的类。</li>
+</ol>
+<p>只有初始化完成之后，一个类才能真正成为可执行的状态。</p>
+<h3 id="双亲委派"><a href="#双亲委派" class="headerlink" title="双亲委派"></a>双亲委派</h3><p>双亲委派模型，简单说就是当类加载器（Class Loader）试图加载某个类型的时候，除非父加载器找不到相应类型，否则尽量将这个任务代理给当前加载器的父加载器去做。使用委派模型的目的是避免重复加载 Java 类型。</p>
+<h3 id="NoClassDefFoundError-和-ClassNotFoundException"><a href="#NoClassDefFoundError-和-ClassNotFoundException" class="headerlink" title="NoClassDefFoundError 和 ClassNotFoundException"></a>NoClassDefFoundError 和 ClassNotFoundException</h3><p>NoClassDefFoundError 在官方文档中解释是要使用的类的编译时还找得到，但是到了运行的时候找不到了，那么此时就会抛出这个异常。例如，我编译了一个类 B，在类 A 中调用类 B 的方法，但是编译之后我删除了类 B 的 class 文件，此时运行类 A 就会报错 NoClassDefFoundError。</p>
+<p>ClassNotFoundException 情况就比较多了，当通过以下方法来加载类的时候，</p>
+<ol>
+<li>类 Class 中的 forName() 方法</li>
+<li>类 ClassLoader 中的 findSystemClass() 方法</li>
+<li>类 ClassLoader 中的 loadClass() 方法</li>
+</ol>
+<p>但是没有找到具体指定的名称的类的定义，就会报错 ClassNotFoundException。</p>
+<p>从类加载过程来看 NoClassDefFoundError 和 ClassNotFoundException。在加载阶段，如果从 classpath 等路径中找不到所需的类，那么就会报错 ClassNotFoundException，除了上面的三种原因之外，还有可能是因为类被不同类加载器重复加载了导致的。而 NoClassDefFoundError 是在链接步骤中，从内存找不到所需的类，那么就会报错 NoClassDefFoundError。</p>
+<p>总结就是，加载时从外存储器找不到需要的 class 就出现 ClassNotFoundException ，链接时从内存找不到需要的 class 就出现 NoClassDefFoundError 。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/java-basic-classloader.html">https://wqdchn.github.io/java-basic-classloader.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #757575;
+            text-shadow: 0;
+            display: none
+        }
+</style>
+	
+<div class="btn_click_load"> 
+    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
+</div>
+
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://wqdchn.github.io/java-basic-classloader.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://wqdchn.github.io/java-basic-classloader.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/ls-javascript" id="disqus-lazy-load-script">
+    $.ajax({
+        url: 'https://disqus.com/next/config.json',
+        timeout: 4000,
+        type: 'GET',
+        success: (function() {
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+            $('.disqus_click_btn').css('display','none');
+        })(),
+        error: function() {
+          $('.disqus_click_btn').css('display','block');
+        }
+    });
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//wqdong.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.disqus_click_btn').css('display','none');
+    });
+</script>
+  	
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/java-basic-polymorphism.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -663,6 +903,14 @@ It will not impact the appearance and can give developers a lot of support :)
                     
 
                     
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
 
                     <!--Footer-->
 
@@ -830,6 +1078,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -842,6 +1094,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
