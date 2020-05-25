@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wqdchn.github.io/about/index.html</loc>
+    
+    <lastmod>2020-05-25T12:30:58.857Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wqdchn.github.io/hello-world.html</loc>
     
-    <lastmod>2020-04-22T06:11:54.904Z</lastmod>
+    <lastmod>2020-05-25T12:29:20.865Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>https://wqdchn.github.io/java-basic-classloader.html</loc>
     
     <lastmod>2020-04-14T01:48:14.985Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wqdchn.github.io/about/index.html</loc>
-    
-    <lastmod>2020-04-13T04:54:30.078Z</lastmod>
     
   </url>
   
