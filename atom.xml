@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wqdchn.github.io/"/>
-  <updated>2020-04-14T01:48:14.985Z</updated>
+  <updated>2020-05-31T02:17:26.336Z</updated>
   <id>https://wqdchn.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>再见五月·人与物与事</title>
+    <link href="https://wqdchn.github.io/how-is-going-2020-05-31.html"/>
+    <id>https://wqdchn.github.io/how-is-going-2020-05-31.html</id>
+    <published>2020-05-31T01:45:44.000Z</published>
+    <updated>2020-05-31T02:17:26.336Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="最近的人"><a href="#最近的人" class="headerlink" title="最近的人"></a>最近的人</h3><p>认识了一些有趣的网友，隔着网线隔着屏幕也能感受到对方所说的种种有趣的事，真是神奇。这是网上冲浪最大的乐趣了吧，不再关心那些国家大事，世界风云。就看看沙雕网友们又在讨论什么好吃的，好玩的，哈哈哈哈哈就挺好的。不过在资本掌控舆论的时代，这些没有流量的小事很难被人发现吧，真正寻找到这样的网友，看到他们在自己的一亩三分地上说说闹闹，也不太容易。</p><h3 id="最近的物"><a href="#最近的物" class="headerlink" title="最近的物"></a>最近的物</h3><p>五月中下旬的时候，杨梅已经上市了，昨天在水果店买了一盒杨梅，真的难吃，感觉是放了好久没卖出的、不新鲜的杨梅。等六月的时候，我一定要补回来，不能错过杨梅这样的好东西！</p><h3 id="最近的事"><a href="#最近的事" class="headerlink" title="最近的事"></a>最近的事</h3><p>2020 年也快过去小一半了，恍惚间有些不太真实，我真的有认真度过每一天吗。如果有的话，我怎么看不太明白身边发生的事呢。一场疫情，从全世界都盯着中国，发展到现在各个国家都自顾不暇。太平洋对岸最近还发生了暴乱，他们倒是很利索地就出动了武装力量平乱，完全没有当初香港暴乱时劝告中国政府时的那种异常理智与冷静了，思之令人发笑。</p><p>但是重点并不在比较当初他们是怎么做的和现在他们是怎么做的，我相信有比我更加聪明的人会研究这些事情。我所关心的是，作为一个普通人，该如何在扰乱的信息流中获取自己的喘息之机。每天都有那么多新闻，国内的国外的，有些肮臜事令人愤怒而气血上涌，有些破烂事前后反复反转令人迷茫而不知所措。一个普通人，看到这些事情的时候，总觉得自己能做些什么，但是其实好像什么也做不了。而当自己觉得做不了什么的时候，又会觉得这样好像就让什么人得逞了一样。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;最近的人&quot;&gt;&lt;a href=&quot;#最近的人&quot; class=&quot;headerlink&quot; title=&quot;最近的人&quot;&gt;&lt;/a&gt;最近的人&lt;/h3&gt;&lt;p&gt;认识了一些有趣的网友，隔着网线隔着屏幕也能感受到对方所说的种种有趣的事，真是神奇。这是网上冲浪最大的乐趣了吧，不再关心那些国
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://wqdchn.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="闲聊" scheme="https://wqdchn.github.io/tags/%E9%97%B2%E8%81%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础：类加载过程</title>
@@ -310,11 +335,11 @@
     
       <category term="成长" scheme="https://wqdchn.github.io/tags/%E6%88%90%E9%95%BF/"/>
     
+      <category term="春节" scheme="https://wqdchn.github.io/tags/%E6%98%A5%E8%8A%82/"/>
+    
       <category term="新年" scheme="https://wqdchn.github.io/tags/%E6%96%B0%E5%B9%B4/"/>
     
       <category term="久违的更新" scheme="https://wqdchn.github.io/tags/%E4%B9%85%E8%BF%9D%E7%9A%84%E6%9B%B4%E6%96%B0/"/>
-    
-      <category term="春节" scheme="https://wqdchn.github.io/tags/%E6%98%A5%E8%8A%82/"/>
     
   </entry>
   
@@ -577,36 +602,6 @@
       
         &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h4 id=&quot;Sliding-Window-Maximum&quot;&gt;&lt;a href=&quot;#Sliding-Window-Maximum&quot; class=&quot;headerlink&quot; title=&quot;Sliding Window Maximum&quot;&gt;&lt;/a&gt;Sl
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://wqdchn.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://wqdchn.github.io/tags/LeetCode/"/>
-    
-      <category term="队列" scheme="https://wqdchn.github.io/tags/%E9%98%9F%E5%88%97/"/>
-    
-      <category term="优先队列" scheme="https://wqdchn.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode第703题Kth Largest Element in a Stream</title>
-    <link href="https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html"/>
-    <id>https://wqdchn.github.io/leetcode-kth-largest-element-in-a-stream.html</id>
-    <published>2019-09-27T10:26:48.000Z</published>
-    <updated>2020-03-31T23:53:44.127Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><h4 id="Kth-Largest-Element-in-a-Stream"><a href="#Kth-Largest-Element-in-a-Stream" class="headerlink" title="Kth Largest Element in a Stream"></a>Kth Largest Element in a Stream</h4><p><a href="https://leetcode.com/problems/kth-largest-element-in-a-stream/" target="_blank" rel="noopener">Kth Largest Element in a Stream</a>寻找一个整数流中第<code>K</code>大的元素，<code>K</code>是固定的，整数流包含一个构造函数<code>add</code>，每次往流中添加新元素时，就返回新的第<code>K</code>大的元素。</p><h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><blockquote><p>int k = 3;<br>int[] arr = [4,5,8,2];<br>KthLargest kthLargest = new KthLargest(3, arr);<br>kthLargest.add(3);   // returns 4<br>kthLargest.add(5);   // returns 5<br>kthLargest.add(10);  // returns 5<br>kthLargest.add(9);   // returns 8<br>kthLargest.add(4);   // returns 8</p></blockquote><p>这道题可以使用优先队列<code>PriorityQueue</code>来做，在<code>Java</code>中优先队列默认通过二叉小顶堆实现。我们可以令这个优先队列的长度为<code>K</code>，这个队列的头部就是整数流中第<code>K</code>大的元素，每当新的元素进来时，我们就把新的元素和队列头部元素（也就是堆顶）进行比较，如果新的元素比较大，则纳入新的元素。优先队列会自动维护小顶堆的性质，保证队列头部元素始终是我们需要的第<code>K</code>大的元素。</p><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>下面是<code>Java</code>的代码：</p><pre><code class="Java">class KthLargest {       PriorityQueue&lt;Integer&gt; q;    int k;    public KthLargest(int k, int[] nums) {        this.k = k;        q = new PriorityQueue&lt;&gt;(k);        for (int n : nums){            add(n);        }           }    public int add(int val) {        if (q.size() &lt; k){            q.offer(val);        }else if (q.peek() &lt; val){            q.poll();            q.offer(val);        }        return q.peek();    }}</code></pre><p>下面是<code>Python</code>的代码：</p><pre><code class="Python">class KthLargest:    def __init__(self, k, nums):        self.pool = nums        self.k = k        heapq.heapify(self.pool)        while len(self.pool) &gt; k:            heapq.heappop(self.pool)    def add(self, val):        if len(self.pool) &lt; self.k:            heapq.heappush(self.pool, val)        elif val &gt; self.pool[0]:            heapq.heapreplace(self.pool, val)        return self.pool[0]</code></pre><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>第703题是简单题，学会利用已有的数据结构，加一点简单的逻辑，能做很多神奇的事，再也不要暴力循环了鸭。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;Kth-Largest-Element-in-a-Stream&quot;&gt;&lt;a href=&quot;#Kth-Largest-Element-in-a-Stream&quot; class=&quot;headerlink&quot; title=&quot;Kth Largest 
       
     
     </summary>
