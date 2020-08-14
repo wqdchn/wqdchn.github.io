@@ -10,7 +10,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
@@ -31,7 +31,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
@@ -52,7 +52,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
@@ -73,7 +73,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
@@ -198,14 +198,14 @@
       
       <categories>
           
-          <category> R语言 </category>
+          <category> R </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> R语言 </tag>
+            <tag> R </tag>
             
             <tag> RStudio </tag>
             
@@ -244,20 +244,20 @@
       
       <categories>
           
-          <category> R语言 </category>
+          <category> R </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> R语言 </tag>
-            
-            <tag> 地图 </tag>
+            <tag> R </tag>
             
             <tag> tmap </tag>
             
             <tag> sf </tag>
+            
+            <tag> 地理数据 </tag>
             
         </tags>
       
@@ -317,22 +317,16 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
-            
-            <tag> 成长 </tag>
-            
-            <tag> 春节 </tag>
-            
             <tag> 新年 </tag>
             
-            <tag> 久违的更新 </tag>
+            <tag> 春节 </tag>
             
         </tags>
       
@@ -369,14 +363,14 @@
       
       <categories>
           
-          <category> R语言 </category>
+          <category> R </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> R语言 </tag>
+            <tag> R </tag>
             
             <tag> RStudio </tag>
             
@@ -403,11 +397,11 @@
             
             <tag> LeetCode </tag>
             
+            <tag> 深度优先搜索 </tag>
+            
             <tag> 树 </tag>
             
             <tag> 二叉树 </tag>
-            
-            <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
@@ -432,11 +426,11 @@
             
             <tag> LeetCode </tag>
             
+            <tag> 深度优先搜索 </tag>
+            
             <tag> 树 </tag>
             
             <tag> 二叉树 </tag>
-            
-            <tag> 深度优先搜索 </tag>
             
             <tag> 广度优先搜索 </tag>
             
@@ -477,14 +471,12 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> 闲聊 </tag>
             
             <tag> 时事 </tag>
             
@@ -609,9 +601,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> 栈 </tag>
-            
             <tag> 队列 </tag>
+            
+            <tag> 栈 </tag>
             
         </tags>
       
@@ -634,9 +626,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> 栈 </tag>
-            
             <tag> 队列 </tag>
+            
+            <tag> 栈 </tag>
             
         </tags>
       
@@ -834,20 +826,18 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
-            
-            <tag> 成长 </tag>
-            
             <tag> 老物 </tag>
             
             <tag> 游戏 </tag>
+            
+            <tag> DOTA </tag>
             
         </tags>
       
@@ -861,14 +851,14 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
+            <tag> 记事 </tag>
             
         </tags>
       
@@ -882,14 +872,12 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> 闲聊 </tag>
             
             <tag> 时事 </tag>
             
@@ -905,16 +893,12 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> 闲聊 </tag>
-            
-            <tag> 久违的更新 </tag>
             
             <tag> 电影 </tag>
             
@@ -930,16 +914,12 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> 闲聊 </tag>
-            
-            <tag> 久违的更新 </tag>
             
             <tag> 女权 </tag>
             
@@ -955,20 +935,14 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
-            
-            <tag> 成长 </tag>
-            
             <tag> 新年 </tag>
-            
-            <tag> 久违的更新 </tag>
             
         </tags>
       
@@ -982,20 +956,18 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
-            
-            <tag> 成长 </tag>
-            
             <tag> 老物 </tag>
             
             <tag> 游戏 </tag>
+            
+            <tag> DOTA </tag>
             
         </tags>
       
@@ -1009,7 +981,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
@@ -1030,7 +1002,7 @@
       
       <categories>
           
-          <category> 数学建模 </category>
+          <category> R </category>
           
       </categories>
       
@@ -1055,14 +1027,14 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 杂的文 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲聊 </tag>
+            <tag> Hexo </tag>
             
             <tag> Github </tag>
             
@@ -1097,16 +1069,16 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
