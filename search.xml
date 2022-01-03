@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>请回答 2021</title>
+      <link href="/reply-2021.html"/>
+      <url>/reply-2021.html</url>
+      <content type="html"><![CDATA[<a id="more"></a><h4 id="0X0001"><a href="#0X0001" class="headerlink" title="0X0001"></a>0X0001</h4><p>今年参加了一场朋友的婚礼，又是为爱情落泪的一次。也见到许久不见的朋友，心里有股火热。我们都在路上向远方走去，又过了一年，我有时会回想过去的那些年，那时的烦恼多么天真，哈哈。回家的时候，没有去那些老地方看看，有些遗憾，还是太懒散了。</p><h4 id="0X0002"><a href="#0X0002" class="headerlink" title="0X0002"></a>0X0002</h4><p>这一年经历了许多，依然有好多东西没有学会，有认识到最重要的是控制自己的情绪和欲望，却做不到做不好，怎么办呢。路漫漫其修远兮，吾将上下而求索，一个人在路上也挺孤独，还好我习惯了。</p><p>2021年过去了，我永远想念这一年遇见的人与事。</p>]]></content>
+      
+      <categories>
+          
+          <category> 杂的文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 新年 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Aloha Heja He</title>
       <link href="/aloha-heja-he.html"/>
       <url>/aloha-heja-he.html</url>
@@ -526,9 +547,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -601,9 +622,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> 队列 </tag>
-            
             <tag> 栈 </tag>
+            
+            <tag> 队列 </tag>
             
         </tags>
       
@@ -626,9 +647,9 @@
             
             <tag> LeetCode </tag>
             
-            <tag> 队列 </tag>
-            
             <tag> 栈 </tag>
+            
+            <tag> 队列 </tag>
             
         </tags>
       
@@ -764,9 +785,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -810,9 +831,9 @@
       
         <tags>
             
-            <tag> LeetCode </tag>
-            
             <tag> 哈希表 </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -1055,6 +1076,13 @@
     </entry>
     
     <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h3 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h3><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。</p><p>应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h3 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h3><p>平时闲下来的时候喜欢读一些历史向的书，尤其比较喜欢三国、辽宋夏这两段历史。</p><p>会玩一些策略类游戏，最爱的是暗荣的三国志11，还有无双割草系列。</p><p>可能还会出门逛一逛，看一看热闹的大街。</p><p>还有睡觉。</p><h3 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h3><p>不如就用邮件吧，请戳左上角。</p><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+    </entry>
+    
+    <entry>
       <title>图库</title>
       <link href="/gallery/index.html"/>
       <url>/gallery/index.html</url>
@@ -1069,13 +1097,6 @@
     </entry>
     
     <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -1083,10 +1104,10 @@
     </entry>
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      <content type="html"><![CDATA[<h3 id="这是哪里？"><a href="#这是哪里？" class="headerlink" title="这是哪里？"></a>这是哪里？</h3><p>欢迎来到我的小站，这里会记录一些东西，可能会很有趣，也可能有些无聊。</p><p>应该会有关一些技术、乱七八糟的杂书、上古奇闻、突发脑洞或者别的什么，自留地了一刚<del>更新频率随缘了</del>。</p><h3 id="不更新网站的时候我都在做什么？"><a href="#不更新网站的时候我都在做什么？" class="headerlink" title="不更新网站的时候我都在做什么？"></a>不更新网站的时候我都在做什么？</h3><p>平时闲下来的时候喜欢读一些历史向的书，尤其比较喜欢三国、辽宋夏这两段历史。</p><p>会玩一些策略类游戏，最爱的是暗荣的三国志11，还有无双割草系列。</p><p>可能还会出门逛一逛，看一看热闹的大街。</p><p>还有睡觉。</p><h3 id="如何联系我？"><a href="#如何联系我？" class="headerlink" title="如何联系我？"></a>如何联系我？</h3><p>不如就用邮件吧，请戳左上角。</p><h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>感谢阅读完这段内容，谢谢，祝您生活愉快，have a nice day ~</p>]]></content>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
   
