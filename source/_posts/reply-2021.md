@@ -2,7 +2,7 @@
 title: 请回答 2021
 date: 2022-01-03 12:46:59
 updated: 
-thumbnail: https://raw.githubusercontent.com/wqdchn/blog-image/master/goodbye-2018/goodbye-2018.jpeg
+# thumbnail: https://raw.githubusercontent.com/wqdchn/blog-image/master/goodbye-2018/goodbye-2018.jpeg
 categories: 
 - 杂的文
 tags:
@@ -10,12 +10,11 @@ tags:
 ---
 
 <!-- more -->
-#### 好久不见
-
-2021年过去了，网站的更新随缘了太久，趁着元旦的假日，把这一年的所思所想记录一部分吧
-
+#### 0X0001
+今年参加了一场朋友的婚礼，又是为爱情落泪的一次。也见到许久不见的朋友，心里有股火热。我们都在路上向远方走去，又过了一年，我有时会回想过去的那些年，那时的烦恼多么天真，哈哈。回家的时候，没有去那些老地方看看，有些遗憾，还是太懒散了。
 
 
+#### 0X0002
+这一年经历了许多，依然有好多东西没有学会，有认识到最重要的是控制自己的情绪和欲望，却做不到做不好，怎么办呢。路漫漫其修远兮，吾将上下而求索，一个人在路上也挺孤独，还好我习惯了。
 
-
-
+2021年过去了，我永远想念这一年遇见的人与事。
