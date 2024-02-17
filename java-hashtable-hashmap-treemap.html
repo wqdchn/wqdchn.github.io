@@ -1,684 +1,200 @@
-<!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
-    <script>
-        window.materialVersion = "1.5.2"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-
-
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-            对比Hashtable、HashMap、TreeMap有什么不同？ | 
-        
-        WenQian Dong&#39;s Web
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
-    <link rel="icon" href="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
-
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="description" itemprop="description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta name="keywords" content=",Java,容器,集合,哈希表">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-            
-                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-            
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
-  
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #00838F;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body {
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
-        background-color: #fff;
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 600ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.proxy.ustclug.org/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-
-
-
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
-    
-
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="WenQian Dong&#39;s Web">
-    <meta name="msapplication-starturl" content="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="WenQian Dong&#39;s Web">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-        
-            <link rel=alternate type="application/atom+xml" href="/atom.xml">
-        
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="对比Hashtable、HashMap、TreeMap有什么不同？ | WenQian Dong&#39;s Web">
-    <meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png">
-    <meta property="og:description" content="技术,杂谈,三国厨,历史向,Google粉">
-    <meta property="og:article:tag" content="Java"> <meta property="og:article:tag" content="容器"> <meta property="og:article:tag" content="集合"> <meta property="og:article:tag" content="哈希表"> 
-
-    
-        <meta property="article:published_time" content="Wed Apr 01 2020 08:14:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jan 03 2022 14:53:23 GMT+0800">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "https://wqdchn.github.io/java-hashtable-hashmap-treemap.html",
-    "headline": "对比Hashtable、HashMap、TreeMap有什么不同？",
-    "datePublished": "Wed Apr 01 2020 08:14:00 GMT+0800",
-    "dateModified": "Mon Jan 03 2022 14:53:23 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "WenQian Dong",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://avatars1.githubusercontent.com/u/39990960?s=460&amp;u=5715d993548ea1a8c1aff5edd4363070bf643531&amp;v=4"
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>对比Hashtable、HashMap、TreeMap有什么不同？ | WenQian Dong's Web</title><meta name="author" content="WenQian Dong"><meta name="copyright" content="WenQian Dong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Map容器Map 通常被包括在 Java 集合框架中，但是其本身并不是真正的 Collection 集合类型。 Hashtable 、 HashMap 、 TreeMap 都是 Map 的实现，是以键值对的形式存储和操作数据的容器类型。 ![Java Map](https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wqdchn&#x2F;blog-image&#x2F;master&#x2F;java-has">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对比Hashtable、HashMap、TreeMap有什么不同？">
+<meta property="og:url" content="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">
+<meta property="og:site_name" content="WenQian Dong&#39;s Web">
+<meta property="og:description" content="Map容器Map 通常被包括在 Java 集合框架中，但是其本身并不是真正的 Collection 集合类型。 Hashtable 、 HashMap 、 TreeMap 都是 Map 的实现，是以键值对的形式存储和操作数据的容器类型。 ![Java Map](https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;wqdchn&#x2F;blog-image&#x2F;master&#x2F;java-has">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg">
+<meta property="article:published_time" content="2020-04-01T00:14:00.000Z">
+<meta property="article:modified_time" content="2024-02-17T01:39:55.036Z">
+<meta property="article:author" content="WenQian Dong">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="容器">
+<meta property="article:tag" content="集合">
+<meta property="article:tag" content="哈希表">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '对比Hashtable、HashMap、TreeMap有什么不同？',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-17 09:39:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
         },
-        "description": "喜欢就坚持下去吧"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "WenQian Dong&#39;s Web",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "https://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png"
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-    },
-    "keywords": ",Java,容器,集合,哈希表",
-    "description": "技术,杂谈,三国厨,历史向,Google粉",
-}
-</script>
-
-
+      }
     
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-    <!-- Analytics -->
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-        <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-123326197-1', 'auto');ga('send', 'pageview');
-</script>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="WenQian Dong's Web" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/wqdchn/blog-image/master/daily_pic2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="WenQian Dong's Web"><img class="site-icon" src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg"/><span class="site-name">WenQian Dong's Web</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">对比Hashtable、HashMap、TreeMap有什么不同？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-01T00:14:00.000Z" title="发表于 2020-04-01 08:14:00">2020-04-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-17T01:39:55.036Z" title="更新于 2024-02-17 09:39:55">2024-02-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="对比Hashtable、HashMap、TreeMap有什么不同？"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><span id="more"></span>
 
-    <!-- Custom Head -->
-    
-
-</head>
-
-
-    
-        <body id="scheme-Paradox" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Post TOC -->
-
-    
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
-
-
-    <!-- Left aligned menu below button -->
-    
-    
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map容器"><span class="post-toc-number">1.</span> <span class="post-toc-text">Map容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HashMap的实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">HashMap的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HashMap的工作流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">HashMap的工作流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#存储对象"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">存储对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取对象"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">获取对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扩容"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">扩容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#树化改造"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">树化改造</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hashCode"><span class="post-toc-number">4.</span> <span class="post-toc-text">hashCode</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#equals-的特性。"><span class="post-toc-number">5.</span> <span class="post-toc-text">equals 的特性。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
-    </ul>
-    
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 31 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        
-    
-            <p class="article-headline-p">
-                对比Hashtable、HashMap、TreeMap有什么不同？
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="https://avatars1.githubusercontent.com/u/39990960?s=460&u=5715d993548ea1a8c1aff5edd4363070bf643531&v=4" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>WenQian Dong</strong>
-        <span>4月 01, 2020</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">devices other</i>
-    <span class="visuallyhidden">devices other</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
-    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-    
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACdElEQVR42u3aQW7DMAwEwPz/0+21QOF0l7IENxidgia1NT5YxJKvr49eLzw8PDw8PDw8vIfxXvG6vNyPb69+mVzt999ne8PDw8M7w/vjVXtx46vP7aN5f7V6b3h4eHgHeVfbym+fHxItL9kbHh4e3n/hvS+Fk1d8fl88PDy8T+K1m3t/qODh4eH9F956UJsfDLOSfXvWgoeHhxfz8ibT+c9H+3t4eHh4Aa8eaYqHAPIiuz2oiqErPDw8vA28/EXc4meF+/p+8PDw8HbzZm2t/Jaz2DcBR2EEHh4e3gberMmUlNd5QysKZ/P/xcPDwzvIa1tcbXNr5ZhZSqnx8PDwbuXlxW4bNORDAHlhHYUaeHh4eJt5CSkJavPyt71XHRnj4eHhbea1AetsQGpWlM8eMR4eHt5uXhIW5G3+vAjOBwXawhoPDw/vJK8de5o1+/MDZthmw8PDw9vMy4cGildzWXa3Qww3NMDw8PDwFniv0ZoNY+WDWXl5XTfA8PDw8Lbx2vb/++NhfcArORLw8PDwTvKS9nxbUs/K8ZVSHg8PD+8krw0CZuVvW6DnMTEeHh7eed4sGpiFuW3xfUMYgYeHh3eE98clbmr2ty2u6LHi4eHhPYA3C1XXH1Zy/WFJjYeHh7fAa1cbK9Ttq/gRRGEEHh4e3gZeO2iVHBt5GDEbXNgyU4aHh4d301TSrDjeMkqVx8d4eHh4B3ntC3qlWTUrwaPxAjw8PLxH8mYtq/Y37T7x8PDwnsxbiRKScauNowN4eHh4t/KSMGLWEpuFC/lhgIeHh3eel0cAsxh3qURuhwzw8PDwNvM+b+Hh4eHh4eHh4T1gfQM7rXF9mu2TbAAAAABJRU5ErkJggg==">
-    
-</ul>
-
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/哈希表/">哈希表</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/容器/">容器</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/集合/">集合</a>
-    </ul>
-    
-
-    <!-- Share -->
-    
-        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-        
-            <!-- Busuanzi Views -->
-            <a class="post_share-link" href="#">
-                <li class="mdl-menu__item">
-                    <span id="busuanzi_container_page_pv">
-                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
-                    </span>
-                </li>
-            </a>
-        
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=对比Hashtable、HashMap、TreeMap有什么不同？&url=https://wqdchn.github.io/java-hashtable-hashmap-treemap.html&pic=https://wqdchn.github.iohttps://raw.githubusercontent.com/wqdchn/blog-image/master/favicon.png&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=对比Hashtable、HashMap、TreeMap有什么不同？&url=https://wqdchn.github.io/java-hashtable-hashmap-treemap.html&via=WenQian Dong" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-
-    <!-- Share Google+ -->
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
-    
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <a id="more"></a>
 <h3 id="Map容器"><a href="#Map容器" class="headerlink" title="Map容器"></a>Map容器</h3><p>Map 通常被包括在 Java 集合框架中，但是其本身并不是真正的 Collection 集合类型。 Hashtable 、 HashMap 、 TreeMap 都是 Map 的实现，是以键值对的形式存储和操作数据的容器类型。</p>
-<p><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-hashtable-hashmap-treemap/Java Map.png" alt="Java Map"></p>
+<p>![Java Map](<a href="https://raw.githubusercontent.com/wqdchn/blog-image/master/java-hashtable-hashmap-treemap/Java">https://raw.githubusercontent.com/wqdchn/blog-image/master/java-hashtable-hashmap-treemap/Java</a> Map.png)</p>
 <p> Hashtable 继承自  Dictionary 类，而 HashMap 与 TreeMap 继承 AbstractMap 类，它们的类结构上是不同的，不同的实现表明了它们不同的设计目的。</p>
 <p> Hashtable 是 Java 类库关于哈希表的一个早期实现，它的方法都使用 synchronized 进行同步，是线程安全的。 Hashtable 不允许 key 为 null ，不允许 value 为 null 。   </p>
 <p> HashMap 是使用最广的一种哈希表实现，大部分方法与 Hashtable 是相似的，但是减少了同步开销，因此是线程不安全的。 HashMap 允许 key 为 null ，允许 value 为 null 。</p>
 <p> TreeMap 是基于红黑树的一种提供顺序访问的 Map ，与前两者不同，它的 put() 、 get() 等操作的时间复杂度都是 O(log(n)) 。其顺序可以通过 Comparator 来决定，或者根据键值的自然顺序 Comparable 来决定。它也是线程不安全的。 TreeMap 不允许 key 为 null ，允许 value 为 null 。</p>
 <p>对于 TreeMap ，当实现 Comparator 接口时，若未对 null 情况进行判断，则可能抛 NullPointerException 异常。如果针对 null 情况实现了特别处理，则可以 put() 存入，但是却不能正常使用 get() 访问，只能通过遍历去访问。</p>
 <p>因此，建议遵循设计的规范，不要做这种使用错误。例如 HashMap 明确声明是线程不安全的，如果不加考虑，直接简单地应用在多线程场景中，总是要出问题的。</p>
-<h3 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h3><p> HashMap 的底层是数组和链表组成的复合结构，数组被分成桶 bucket ，里面存放哈希值，通过哈希值来确定数组寻址时的数组下标。哈希值相同的键值对则以链表的形式存储，如果链表的长度超过阈值 TREEIFY_THRESHOLD = 8 ，则对链表进行改造，转化为红黑树。当红黑树的节点小于阈值 UNTREEIFY_THRESHOLD = 6 时，则对红黑树进行改造，转化为链表。我想这是为了避免链表在阈值附近频繁地转换造成过大的开销而设置的两个临界点。</p>
-<h3 id="HashMap的工作流程"><a href="#HashMap的工作流程" class="headerlink" title="HashMap的工作流程"></a>HashMap的工作流程</h3><h4 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h4><p>存储对象时，将键值对 K/V 传给 put() 方法：</p>
-<pre><code class="Java">public V put(K key, V value) {
-    return putVal(hash(key), key, value, false, true);
-}
-</code></pre>
+<h3 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h3><p> HashMap 的底层是数组和链表组成的复合结构，数组被分成桶 bucket ，里面存放哈希值，通过哈希值来确定数组寻址时的数组下标。哈希值相同的键值对则以链表的形式存储，如果链表的长度超过阈值 TREEIFY_THRESHOLD &#x3D; 8 ，则对链表进行改造，转化为红黑树。当红黑树的节点小于阈值 UNTREEIFY_THRESHOLD &#x3D; 6 时，则对红黑树进行改造，转化为链表。我想这是为了避免链表在阈值附近频繁地转换造成过大的开销而设置的两个临界点。</p>
+<h3 id="HashMap的工作流程"><a href="#HashMap的工作流程" class="headerlink" title="HashMap的工作流程"></a>HashMap的工作流程</h3><h4 id="存储对象"><a href="#存储对象" class="headerlink" title="存储对象"></a>存储对象</h4><p>存储对象时，将键值对 K&#x2F;V 传给 put() 方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> putVal(hash(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然后调用 hash() 方法计算 K 的哈希值：</p>
-<pre><code class="Java">static final int hash(Object key) {
-    int h;
-    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
-}
-</code></pre>
-<p>这里进行了一个 hashCode() 高位数据移位到低位 h &gt;&gt;&gt; 16 并进行异或运算 ^ 的操作。将高位和低位进行异或运算，只要有高位或低位中有一位的变化，整个 hash() 返回的哈希值就会发生变化，尽可能地减少哈希碰撞。</p>
-<p>在计算得到数组下标之后，通过 putVal() 方法进行存储， putVal() 方法本身的逻辑非常密集，从初始化、扩容、树化都与它有关：</p>
-<pre><code class="Java">final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-                boolean evict) {
-    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
-    if ((tab = table) == null || (n = tab.length) == 0)
-        n = (tab = resize()).length;
-    if ((p = tab[i = (n - 1) &amp; hash]) == null)
-        tab[i] = newNode(hash, key, value, null);
-    else {
-        Node&lt;K,V&gt; e; K k;
-        if (p.hash == hash &amp;&amp;
-            ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
-            e = p;
-        else if (p instanceof TreeNode)
-            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
-        else {
-            for (int binCount = 0; ; ++binCount) {
-                if ((e = p.next) == null) {
-                    p.next = newNode(hash, key, value, null);
-                    if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
-                        treeifyBin(tab, hash);
-                    break;
-                }
-                if (e.hash == hash &amp;&amp;
-                    ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
-                    break;
-                p = e;
-            }
-        }
-        if (e != null) { // existing mapping for key
-            V oldValue = e.value;
-            if (!onlyIfAbsent || oldValue == null)
-                e.value = value;
-            afterNodeAccess(e);
-            return oldValue;
-        }
-    }
-    ++modCount;
-    if (++size &gt; threshold)
-        resize();
-    afterNodeInsertion(evict);
-    return null;
-}
-</code></pre>
-<p>如果哈希表为 null ， resize() 方法会负责初始化 tab = resize() 。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    <span class="type">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">这里进行了一个 hashCode() 高位数据移位到低位 h &gt;&gt;&gt; <span class="number">16</span> 并进行异或运算 ^ 的操作。将高位和低位进行异或运算，只要有高位或低位中有一位的变化，整个 hash() 返回的哈希值就会发生变化，尽可能地减少哈希碰撞。</span><br><span class="line"></span><br><span class="line">在计算得到数组下标之后，通过 putVal() 方法进行存储， putVal() 方法本身的逻辑非常密集，从初始化、扩容、树化都与它有关：</span><br><span class="line"></span><br><span class="line">```Java</span><br><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="type">int</span> n, i;</span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">        n = (tab = resize()).length;</span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)</span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;K,V&gt; e; K k;</span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">            <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)</span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;</span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果哈希表为 null ， resize() 方法会负责初始化 tab &#x3D; resize() 。</p>
 <p>当哈希表容量不足时，出现 ++size &gt; threshold ， resize() 方法还会进行扩容。默认的初始化容量参数和最大容量参数如下。</p>
-<pre><code class="Java">/**
-    * The default initial capacity - MUST be a power of two.
-    */
-static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16， 2的4次方
-static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30; // 2的30次方
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The default initial capacity - MUST be a power of two.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// aka 16， 2的4次方</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAXIMUM_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">30</span>; <span class="comment">// 2的30次方</span></span><br></pre></td></tr></table></figure>
+
 <p>如果 K 的 hash 值在 HashMap 中不存在，则执行插入，若存在，则发生碰撞。</p>
 <p>如果 K 的 hash 值在 HashMap 中存在，且它们两者 equals 返回 true ，则更新键值对。</p>
 <p>如果 K 的 hash 值在 HashMap 中存在，且它们两者 equals 返回 false，则插入链表的尾部（尾插法）或者红黑树中（树的添加方式）。</p>
 <h4 id="获取对象"><a href="#获取对象" class="headerlink" title="获取对象"></a>获取对象</h4><p>获取对象时，将 K 传给 get() 方法：</p>
 <p>调用 hash(K) 方法，计算 K 的 hash 值，从而获取该键值所在链表的数组下标。</p>
-<pre><code class="Java">public V get(Object key) {
-    Node&lt;K,V&gt; e;
-    return (e = getNode(hash(key), key)) == null ? null : e.value;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">get</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    Node&lt;K,V&gt; e;</span><br><span class="line">    <span class="keyword">return</span> (e = getNode(hash(key), key)) == <span class="literal">null</span> ? <span class="literal">null</span> : e.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然后顺序遍历链表，根据equals()方法查找相同 Node 链表中 K 值对应的 V 值。</p>
-<pre><code class="Java">final Node&lt;K,V&gt; getNode(int hash, Object key) {
-    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; first, e; int n; K k;
-    if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0 &amp;&amp;
-        (first = tab[(n - 1) &amp; hash]) != null) {
-        if (first.hash == hash &amp;&amp; // always check first node
-            ((k = first.key) == key || (key != null &amp;&amp; key.equals(k))))
-            return first;
-        if ((e = first.next) != null) {
-            if (first instanceof TreeNode)
-                return ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);
-            do {
-                if (e.hash == hash &amp;&amp;
-                    ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
-                    return e;
-            } while ((e = e.next) != null);
-        }
-    }
-    return null;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt; <span class="title function_">getNode</span><span class="params">(<span class="type">int</span> hash, Object key)</span> &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; first, e; <span class="type">int</span> n; K k;</span><br><span class="line">    <span class="keyword">if</span> ((tab = table) != <span class="literal">null</span> &amp;&amp; (n = tab.length) &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">        (first = tab[(n - <span class="number">1</span>) &amp; hash]) != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (first.hash == hash &amp;&amp; <span class="comment">// always check first node</span></span><br><span class="line">            ((k = first.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            <span class="keyword">return</span> first;</span><br><span class="line">        <span class="keyword">if</span> ((e = first.next) != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (first <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                <span class="keyword">return</span> ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">return</span> e;</span><br><span class="line">            &#125; <span class="keyword">while</span> ((e = e.next) != <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>扩容的方法比较复杂</p>
-<pre><code class="Java">
-static final float DEFAULT_LOAD_FACTOR = 0.75f; // 负载因子
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>; <span class="comment">// 负载因子</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACIY &amp;&amp;</span><br><span class="line">                oldCap &gt;= DEFAULT_INITIAL_CAPAITY)</span><br><span class="line">        newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double there</span></span><br><span class="line">       <span class="comment">// ... </span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// initial capacity was placed in threshold</span></span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="comment">// zero initial threshold signifies using defaultsfults</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPAITY;</span><br><span class="line">        newThr = (<span class="type">int</span>)(DEFAULT_LOAD_ATOR* DEFAULT_INITIAL_CAPACITY；</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr ==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> (<span class="type">float</span>)newCap * loadFator;</span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY ?(<span class="type">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = neThr;</span><br><span class="line">    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[newap];</span><br><span class="line">    table = n；</span><br><span class="line">    <span class="comment">// 移动到新的数组结构e数组结构 </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-final Node&lt;K,V&gt;[] resize() {
-    // ...
-    else if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACIY &amp;&amp;
-                oldCap &gt;= DEFAULT_INITIAL_CAPAITY)
-        newThr = oldThr &lt;&lt; 1; // double there
-       // ... 
-    else if (oldThr &gt; 0) // initial capacity was placed in threshold
-        newCap = oldThr;
-    else {  
-        // zero initial threshold signifies using defaultsfults
-        newCap = DEFAULT_INITIAL_CAPAITY;
-        newThr = (int)(DEFAULT_LOAD_ATOR* DEFAULT_INITIAL_CAPACITY；
-    }
-    if (newThr ==0) {
-        float ft = (float)newCap * loadFator;
-        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float)MAXIMUM_CAPACITY ?(int)ft : Integer.MAX_VALUE);
-    }
-    threshold = neThr;
-    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newap];
-    table = n；
-    // 移动到新的数组结构e数组结构 
-}
-
-</code></pre>
 <p>如果负载因子 * 容量 &gt; 元素数量，则会进行扩容。扩容时创建一个新的数组，其容量为旧数组的两倍，并重新计算旧数组中结点的存储位置。结点在新数组中的位置只有两种，原下标位置或原下标+旧数组的大小。</p>
 <h4 id="树化改造"><a href="#树化改造" class="headerlink" title="树化改造"></a>树化改造</h4><p>在使用 put() 方法进行存储对象时，除了会遇到扩容方法，还有可能遇到树化改造：</p>
-<pre><code class="Java">
-static final int MIN_TREEIFY_CAPACITY = 64;
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_TREEIFY_CAPACITY</span> <span class="operator">=</span> <span class="number">64</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">treeifyBin</span><span class="params">(Node&lt;K,V&gt;[] tab, <span class="type">int</span> hash)</span> &#123;</span><br><span class="line">    <span class="type">int</span> n, index; Node&lt;K,V&gt; e;</span><br><span class="line">    <span class="keyword">if</span> (tab == <span class="literal">null</span> || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)</span><br><span class="line">        resize();</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((e = tab[index = (n - <span class="number">1</span>) &amp; hash]) != <span class="literal">null</span>) &#123;</span><br><span class="line">        TreeNode&lt;K,V&gt; hd = <span class="literal">null</span>, tl = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, <span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">if</span> (tl == <span class="literal">null</span>)</span><br><span class="line">                hd = p;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p.prev = tl;</span><br><span class="line">                tl.next = p;</span><br><span class="line">            &#125;</span><br><span class="line">            tl = p;</span><br><span class="line">        &#125; <span class="keyword">while</span> ((e = e.next) != <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">if</span> ((tab[index] = hd) != <span class="literal">null</span>)</span><br><span class="line">            hd.treeify(tab);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
-    int n, index; Node&lt;K,V&gt; e;
-    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)
-        resize();
-    else if ((e = tab[index = (n - 1) &amp; hash]) != null) {
-        TreeNode&lt;K,V&gt; hd = null, tl = null;
-        do {
-            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);
-            if (tl == null)
-                hd = p;
-            else {
-                p.prev = tl;
-                tl.next = p;
-            }
-            tl = p;
-        } while ((e = e.next) != null);
-        if ((tab[index] = hd) != null)
-            hd.treeify(tab);
-    }
-}
-</code></pre>
 <p>如果容量小于 MIN_TREEIFY_CAPACITY，只会进行简单的扩容。</p>
 <p>如果容量大于 MIN_TREEIFY_CAPACITY ，则会进行树化改造。</p>
 <p>HashMap 之所以要进行树化改造，是因为底层结构中链表的遍历时间复杂度是 O(N) 的，在哈希碰撞较为严重的时候，链表较长，其存取性能较低，还可能有额外的安全隐患。</p>
@@ -691,607 +207,5 @@ final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
 <li>hashCode 需要保持一致性，状态改变返回的哈希值仍然要一致。</li>
 </ul>
 <p>以上内容都基于 jdk1.8.0_161 。</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&amp;mid=2650125459&amp;idx=1&amp;sn=56a14e497b5644eba72f034ac791a4d9&amp;chksm=f36ba9b2c41c20a43611ef0d54747abdaf12f1f867ab23f2f0fc8eac87c657353c734f926cbb&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">为啥 HashMap 的默认容量是16？</a><br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&amp;mid=2651486554&amp;idx=1&amp;sn=23a0786a8c401c799042ac7a9aa0e811&amp;chksm=bd2515258a529c3312285c2536a92a7eb56805ded2eb726b72ab06beabe8e167d00d20789333&amp;scene=126&amp;sessionid=1585703424&amp;key=e7b22394d9386bca990226e723bf6055c836e7d8b7dabe02034009cb225b77c844a21b5027ec82bfa738aa258fea0d41ca89603c0b8e93de1540103a2ec25a970c5c796cb2d499aaa6fce20c5e2772c3&amp;ascene=1&amp;uin=MTIzMjgzNDMyNw%3D%3D&amp;devicetype=Windows+10&amp;version=62080079&amp;lang=zh_CN&amp;exportkey=AxuN6zS95LSdyZL9KQG5Oj0%3D&amp;pass_ticket=LGstMxzdbnh6CyV6rurD3W6ylR1d9GRkDMmoMP80xAWiS91bl%2B2xlMkQ2wePQ23q" target="_blank" rel="noopener">我说我了解集合类，面试官竟然问我为啥 HashMap 的负载因子不设置成1！？</a></p>
-
-        
-                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
-                    <p><strong>
-                         
-                            本文作者：WenQian Dong <br> 版权声明：本博客所有文章除特别声明外，均采用 <a href="/creativecommons.html" target="_blank">CC BY-NC-SA 3.0 </a> 许可协议。转载请注明出处！
-                        </strong>
-                        <br>
-                        <strong>本文链接：</strong><a href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">https://wqdchn.github.io/java-hashtable-hashmap-treemap.html</a>
-                    </p>
-                </blockquote>
-        
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用 DISQUS_CLICK -->
-<div id="disqus-comment">
-    <div id="disqus_thread"></div>
-
-<!-- add animation -->
-<style>
-	.disqus_click_btn {
-            line-height: 30px;
-            margin: 0;
-            min-width: 50px;
-            padding: 0 14px;
-            display: inline-block;
-            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0;
-            overflow: hidden;
-            will-change: box-shadow;
-            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
-            outline: 0;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            vertical-align: middle;
-            border: 0;
-            background: rgba(158, 158, 158, .2);
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            color: #fff;
-            background-color: #757575;
-            text-shadow: 0;
-            display: none
-        }
-</style>
-	
-<div class="btn_click_load"> 
-    <button class="disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button>
-</div>
-
-<script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'https://wqdchn.github.io/java-hashtable-hashmap-treemap.html';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://wqdchn.github.io/java-hashtable-hashmap-treemap.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-</script>
-
-<script type="text/ls-javascript" id="disqus-lazy-load-script">
-    $.ajax({
-        url: 'https://disqus.com/next/config.json',
-        timeout: 4000,
-        type: 'GET',
-        success: (function() {
-            var d = document;
-            var s = d.createElement('script');
-            s.src = '//wqdong.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', + new Date());
-            (d.head || d.body).appendChild(s);
-            $('.disqus_click_btn').css('display','none');
-        })(),
-        error: function() {
-          $('.disqus_click_btn').css('display','block');
-        }
-    });
-    $('.btn_click_load').click(function() {  //click to load comments
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document;
-            var s = d.createElement('script');
-            s.src = '//wqdong.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', + new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-        $('.disqus_click_btn').css('display','none');
-    });
-</script>
-  	
-
-</div>
-<style>
-    #disqus-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/java-basic-polymorphism.html" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/java-vector-arraylist-linkedlist.html" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
-        </div>
-    </div>
-
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(https://raw.githubusercontent.com/wqdchn/blog-image/master/sidebar_header.jpg);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
-    </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="https://avatars1.githubusercontent.com/u/39990960?s=460&amp;u=5715d993548ea1a8c1aff5edd4363070bf643531&amp;v=4" alt="WenQian Dong's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        wqdong.chn@gmail.com
-        <b class="caret"></b>
-    </a>
-</div>
-
-
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
-            
-                <li>
-                    <a href="mailto: wqdong.chn@gmail.com" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
-            
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                主页
-            </a>
-        </li>
-        
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">move_to_inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/05/">五月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/Java/">Java<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/R/">R<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/数据结构与算法/">数据结构与算法<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/categories/杂的文/">杂的文<span class="sidebar_archives-count">16</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Pages  -->
-    
-        <li>
-            <a href="/gallery" title="图库">
-                
-                    <i class="material-icons sidebar-material-icons">image</i>
-                
-                图库
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/tags" title="标签">
-                
-                    <i class="material-icons sidebar-material-icons">local_offer</i>
-                
-                标签
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/links" title="友链">
-                
-                    <i class="material-icons sidebar-material-icons">link</i>
-                
-                友链
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/timeline" title="时间轴">
-                
-                    <i class="material-icons sidebar-material-icons">timeline</i>
-                
-                时间轴
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/about" title="关于我">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                关于我
-            </a>
-        </li>
-        
-    
-
-    <!-- Article Number  -->
-    
-</ul>
-
-
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-    <div class="sidebar-divider"></div>
-
-
-<!-- Theme Material -->
-
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
-
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
-    </div>
-
-    <!-- Sidebar Image -->
-    
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-        <a href="https://twitter.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-        <a href="https://weibo.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
-                <span class="visuallyhidden">Weibo</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/wqdchn" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-
-    <!-- Bilibili -->
-    
-
-    <!-- Telegram -->
-    
-    
-    <!-- V2EX -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
-            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span><br> 
-
-            Copyright&nbsp;©&nbsp;2017&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>WenQian Dong's Web
-            
-                <br>
-                
-                    喜欢就坚持下去吧<br>                  
-                
-            
-            
-        </div>
-        
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
-</footer>
-
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
-
-
-
-    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
-
-
-
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 600);
-</script>
-
-
-
-    
-        <script>lsloader.load("sm_js","/js/smoothscroll.js?tNQK2Tw2SUL8a1Scn/Mgew==", true)</script>
-    
-
-
-
-
-
-    <!-- Busuanzi -->
-    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-   <!-- 使用 DISQUS js 代码 -->
-
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
-    
-        
-            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
-        
-    
-
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-        
-            $(function() {
-                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
-                prettyPrint();
-                })
-        
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-<script type="text/ls-javascript" id="Bing-Background-script">
-    queue.offer(function(){
-        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
-    });
-</script>
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
-</script>
-
-                </main>
-            </div>
-        </body>
-    
-</html>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650125459&idx=1&sn=56a14e497b5644eba72f034ac791a4d9&chksm=f36ba9b2c41c20a43611ef0d54747abdaf12f1f867ab23f2f0fc8eac87c657353c734f926cbb&scene=21#wechat_redirect">为啥 HashMap 的默认容量是16？</a><br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&mid=2651486554&idx=1&sn=23a0786a8c401c799042ac7a9aa0e811&chksm=bd2515258a529c3312285c2536a92a7eb56805ded2eb726b72ab06beabe8e167d00d20789333&scene=126&sessionid=1585703424&key=e7b22394d9386bca990226e723bf6055c836e7d8b7dabe02034009cb225b77c844a21b5027ec82bfa738aa258fea0d41ca89603c0b8e93de1540103a2ec25a970c5c796cb2d499aaa6fce20c5e2772c3&ascene=1&uin=MTIzMjgzNDMyNw==&devicetype=Windows+10&version=62080079&lang=zh_CN&exportkey=AxuN6zS95LSdyZL9KQG5Oj0=&pass_ticket=LGstMxzdbnh6CyV6rurD3W6ylR1d9GRkDMmoMP80xAWiS91bl+2xlMkQ2wePQ23q">我说我了解集合类，面试官竟然问我为啥 HashMap 的负载因子不设置成1！？</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wqdchn.github.io">WenQian Dong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wqdchn.github.io/java-hashtable-hashmap-treemap.html">https://wqdchn.github.io/java-hashtable-hashmap-treemap.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://wqdchn.github.io" target="_blank">WenQian Dong's Web</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E5%AE%B9%E5%99%A8/">容器</a><a class="post-meta__tags" href="/tags/%E9%9B%86%E5%90%88/">集合</a><a class="post-meta__tags" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/java-basic-polymorphism.html" title="Java基础：多态"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java基础：多态</div></div></a></div><div class="next-post pull-right"><a href="/java-vector-arraylist-linkedlist.html" title="对比Vector、ArrayList、LinkedList有何区别？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">对比Vector、ArrayList、LinkedList有何区别？</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/java-vector-arraylist-linkedlist.html" title="对比Vector、ArrayList、LinkedList有何区别？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-31</div><div class="title">对比Vector、ArrayList、LinkedList有何区别？</div></div></a></div><div><a href="/java-basic-polymorphism.html" title="Java基础：多态"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-10</div><div class="title">Java基础：多态</div></div></a></div><div><a href="/java-basic-classloader.html" title="Java基础：类加载过程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-14</div><div class="title">Java基础：类加载过程</div></div></a></div><div><a href="/leetcode-three-sum.html" title="LeetCode第15题Three Sum"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-18</div><div class="title">LeetCode第15题Three Sum</div></div></a></div><div><a href="/leetcode-two-sum.html" title="LeetCode第1题Two Sum"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-12</div><div class="title">LeetCode第1题Two Sum</div></div></a></div><div><a href="/leetcode-valid-anagram.html" title="LeetCode第242题Valid Anagram"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-29</div><div class="title">LeetCode第242题Valid Anagram</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/wqdchn/blog-image/master/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">WenQian Dong</div><div class="author-info__description">技术,杂谈,三国厨,历史向,Google粉</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" href="https://github.com/wqdchn"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wqdchn" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map%E5%AE%B9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">Map容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">HashMap的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">HashMap的工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">存储对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">获取对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%AE%B9"><span class="toc-number">3.3.</span> <span class="toc-text">扩容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E5%8C%96%E6%94%B9%E9%80%A0"><span class="toc-number">3.4.</span> <span class="toc-text">树化改造</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hashCode"><span class="toc-number">4.</span> <span class="toc-text">hashCode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equals-%E7%9A%84%E7%89%B9%E6%80%A7%E3%80%82"><span class="toc-number">5.</span> <span class="toc-text">equals 的特性。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/reply-2021.html" title="请回答 2021">请回答 2021</a><time datetime="2022-01-03T04:46:59.000Z" title="发表于 2022-01-03 12:46:59">2022-01-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/aloha-heja-he.html" title="Aloha Heja He">Aloha Heja He</a><time datetime="2020-08-09T13:18:30.000Z" title="发表于 2020-08-09 21:18:30">2020-08-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/how-is-going-2020-08-01.html" title="庚子年·仲夏记事">庚子年·仲夏记事</a><time datetime="2020-08-01T15:01:57.000Z" title="发表于 2020-08-01 23:01:57">2020-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/how-is-going-2020-06-30.html" title="庚子年·夏至记事">庚子年·夏至记事</a><time datetime="2020-06-30T11:26:57.000Z" title="发表于 2020-06-30 19:26:57">2020-06-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/how-is-going-2020-05-31.html" title="庚子年·初夏记事">庚子年·初夏记事</a><time datetime="2020-05-31T01:45:44.000Z" title="发表于 2020-05-31 09:45:44">2020-05-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2024 By WenQian Dong</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
